@@ -1,0 +1,1583 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/88/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/prismjs/components/prism-scala.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-scala.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.708Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.scala=Prism.languages.extend("java",{"triple-quoted-string":{pattern:/"""[\s\S]*?"""/,greedy:!0,alias:"string"},string:{pattern:/("|')(?:\\.|(?!\1)[^\\\r\n])*\1/,greedy:!0},keyword:/<-|=>|\b(?:abstract|case|catch|class|def|derives|do|else|enum|extends|extension|final|finally|for|forSome|given|if|implicit|import|infix|inline|lazy|match|new|null|object|opaque|open|override|package|private|protected|return|sealed|self|super|this|throw|trait|transparent|try|type|using|val|var|while|with|yield)\b/,number:/\b0x(?:[\da-f]*\.)?[\da-f]+|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e\d+)?[dfl]?/i,builtin:/\b(?:Any|AnyRef|AnyVal|Boolean|Byte|Char|Double|Float|Int|Long|Nothing|Short|String|Unit)\b/,symbol:/'[^\d\s\\]\w*/}),Prism.languages.insertBefore("scala","triple-quoted-string",{"string-interpolation":{pattern:/\b[a-z]\w*(?:"""(?:[^$]|\$(?:[^{]|\{(?:[^{}]|\{[^{}]*\})*\}))*?"""|"(?:[^$"\r\n]|\$(?:[^{]|\{(?:[^{}]|\{[^{}]*\})*\}))*")/i,greedy:!0,inside:{id:{pattern:/^\w+/,greedy:!0,alias:"function"},escape:{pattern:/\\\$"|\$[$"]/,greedy:!0,alias:"symbol"},interpolation:{pattern:/\$(?:\w+|\{(?:[^{}]|\{[^{}]*\})*\})/,greedy:!0,inside:{punctuation:/^\$\{?|\}$/,expression:{pattern:/[\s\S]+/,inside:Prism.languages.scala}}},string:/[\s\S]+/}}}),delete Prism.languages.scala["class-name"],delete Prism.languages.scala.function,delete Prism.languages.scala.constant;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-scala.min/" data-id="clt8trr2000pq58s438aocwpw" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/aspectj" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/aspectj/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.708Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: AspectJ
+Author: Hakan Ozler <ozler.hakan@gmail.com>
+Website: https://www.eclipse.org/aspectj/
+Description: Syntax Highlighting for the AspectJ Language which is a general-purpose aspect-oriented extension to the Java programming language.
+Audit: 2020
+*/
+
+/** @type LanguageFn */
+function aspectj(hljs) {
+  const regex = hljs.regex;
+  const KEYWORDS = [
+    "false",
+    "synchronized",
+    "int",
+    "abstract",
+    "float",
+    "private",
+    "char",
+    "boolean",
+    "static",
+    "null",
+    "if",
+    "const",
+    "for",
+    "true",
+    "while",
+    "long",
+    "throw",
+    "strictfp",
+    "finally",
+    "protected",
+    "import",
+    "native",
+    "final",
+    "return",
+    "void",
+    "enum",
+    "else",
+    "extends",
+    "implements",
+    "break",
+    "transient",
+    "new",
+    "catch",
+    "instanceof",
+    "byte",
+    "super",
+    "volatile",
+    "case",
+    "assert",
+    "short",
+    "package",
+    "default",
+    "double",
+    "public",
+    "try",
+    "this",
+    "switch",
+    "continue",
+    "throws",
+    "privileged",
+    "aspectOf",
+    "adviceexecution",
+    "proceed",
+    "cflowbelow",
+    "cflow",
+    "initialization",
+    "preinitialization",
+    "staticinitialization",
+    "withincode",
+    "target",
+    "within",
+    "execution",
+    "getWithinTypeName",
+    "handler",
+    "thisJoinPoint",
+    "thisJoinPointStaticPart",
+    "thisEnclosingJoinPointStaticPart",
+    "declare",
+    "parents",
+    "warning",
+    "error",
+    "soft",
+    "precedence",
+    "thisAspectInstance"
+  ];
+  const SHORTKEYS = [
+    "get",
+    "set",
+    "args",
+    "call"
+  ];
+
+  return {
+    name: 'AspectJ',
+    keywords: KEYWORDS,
+    illegal: /<\/|#/,
+    contains: [
+      hljs.COMMENT(
+        /\/\*\*/,
+        /\*\//,
+        {
+          relevance: 0,
+          contains: [
+            {
+              // eat up @'s in emails to prevent them to be recognized as doctags
+              begin: /\w+@/,
+              relevance: 0
+            },
+            {
+              className: 'doctag',
+              begin: /@[A-Za-z]+/
+            }
+          ]
+        }
+      ),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'class',
+        beginKeywords: 'aspect',
+        end: /[{;=]/,
+        excludeEnd: true,
+        illegal: /[:;"\[\]]/,
+        contains: [
+          { beginKeywords: 'extends implements pertypewithin perthis pertarget percflowbelow percflow issingleton' },
+          hljs.UNDERSCORE_TITLE_MODE,
+          {
+            begin: /\([^\)]*/,
+            end: /[)]+/,
+            keywords: KEYWORDS.concat(SHORTKEYS),
+            excludeEnd: false
+          }
+        ]
+      },
+      {
+        className: 'class',
+        beginKeywords: 'class interface',
+        end: /[{;=]/,
+        excludeEnd: true,
+        relevance: 0,
+        keywords: 'class interface',
+        illegal: /[:"\[\]]/,
+        contains: [
+          { beginKeywords: 'extends implements' },
+          hljs.UNDERSCORE_TITLE_MODE
+        ]
+      },
+      {
+        // AspectJ Constructs
+        beginKeywords: 'pointcut after before around throwing returning',
+        end: /[)]/,
+        excludeEnd: false,
+        illegal: /["\[\]]/,
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            returnBegin: true,
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+          }
+        ]
+      },
+      {
+        begin: /[:]/,
+        returnBegin: true,
+        end: /[{;]/,
+        relevance: 0,
+        excludeEnd: false,
+        keywords: KEYWORDS,
+        illegal: /["\[\]]/,
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            keywords: KEYWORDS.concat(SHORTKEYS),
+            relevance: 0
+          },
+          hljs.QUOTE_STRING_MODE
+        ]
+      },
+      {
+        // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
+        beginKeywords: 'new throw',
+        relevance: 0
+      },
+      {
+        // the function class is a bit different for AspectJ compared to the Java language
+        className: 'function',
+        begin: /\w+ +\w+(\.\w+)?\s*\([^\)]*\)\s*((throws)[\w\s,]+)?[\{;]/,
+        returnBegin: true,
+        end: /[{;=]/,
+        keywords: KEYWORDS,
+        excludeEnd: true,
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            returnBegin: true,
+            relevance: 0,
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+          },
+          {
+            className: 'params',
+            begin: /\(/,
+            end: /\)/,
+            relevance: 0,
+            keywords: KEYWORDS,
+            contains: [
+              hljs.APOS_STRING_MODE,
+              hljs.QUOTE_STRING_MODE,
+              hljs.C_NUMBER_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
+            ]
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      hljs.C_NUMBER_MODE,
+      {
+        // annotation is also used in this language
+        className: 'meta',
+        begin: /@[A-Za-z]+/
+      }
+    ]
+  };
+}
+
+module.exports = aspectj;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/aspectj/" data-id="clt8trr7p016158s47kmd69r3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/aspectj" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/aspectj/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.707Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: AspectJ
+Author: Hakan Ozler <ozler.hakan@gmail.com>
+Website: https://www.eclipse.org/aspectj/
+Description: Syntax Highlighting for the AspectJ Language which is a general-purpose aspect-oriented extension to the Java programming language.
+Audit: 2020
+*/
+
+/** @type LanguageFn */
+function aspectj(hljs) {
+  const regex = hljs.regex;
+  const KEYWORDS = [
+    "false",
+    "synchronized",
+    "int",
+    "abstract",
+    "float",
+    "private",
+    "char",
+    "boolean",
+    "static",
+    "null",
+    "if",
+    "const",
+    "for",
+    "true",
+    "while",
+    "long",
+    "throw",
+    "strictfp",
+    "finally",
+    "protected",
+    "import",
+    "native",
+    "final",
+    "return",
+    "void",
+    "enum",
+    "else",
+    "extends",
+    "implements",
+    "break",
+    "transient",
+    "new",
+    "catch",
+    "instanceof",
+    "byte",
+    "super",
+    "volatile",
+    "case",
+    "assert",
+    "short",
+    "package",
+    "default",
+    "double",
+    "public",
+    "try",
+    "this",
+    "switch",
+    "continue",
+    "throws",
+    "privileged",
+    "aspectOf",
+    "adviceexecution",
+    "proceed",
+    "cflowbelow",
+    "cflow",
+    "initialization",
+    "preinitialization",
+    "staticinitialization",
+    "withincode",
+    "target",
+    "within",
+    "execution",
+    "getWithinTypeName",
+    "handler",
+    "thisJoinPoint",
+    "thisJoinPointStaticPart",
+    "thisEnclosingJoinPointStaticPart",
+    "declare",
+    "parents",
+    "warning",
+    "error",
+    "soft",
+    "precedence",
+    "thisAspectInstance"
+  ];
+  const SHORTKEYS = [
+    "get",
+    "set",
+    "args",
+    "call"
+  ];
+
+  return {
+    name: 'AspectJ',
+    keywords: KEYWORDS,
+    illegal: /<\/|#/,
+    contains: [
+      hljs.COMMENT(
+        /\/\*\*/,
+        /\*\//,
+        {
+          relevance: 0,
+          contains: [
+            {
+              // eat up @'s in emails to prevent them to be recognized as doctags
+              begin: /\w+@/,
+              relevance: 0
+            },
+            {
+              className: 'doctag',
+              begin: /@[A-Za-z]+/
+            }
+          ]
+        }
+      ),
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.APOS_STRING_MODE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'class',
+        beginKeywords: 'aspect',
+        end: /[{;=]/,
+        excludeEnd: true,
+        illegal: /[:;"\[\]]/,
+        contains: [
+          { beginKeywords: 'extends implements pertypewithin perthis pertarget percflowbelow percflow issingleton' },
+          hljs.UNDERSCORE_TITLE_MODE,
+          {
+            begin: /\([^\)]*/,
+            end: /[)]+/,
+            keywords: KEYWORDS.concat(SHORTKEYS),
+            excludeEnd: false
+          }
+        ]
+      },
+      {
+        className: 'class',
+        beginKeywords: 'class interface',
+        end: /[{;=]/,
+        excludeEnd: true,
+        relevance: 0,
+        keywords: 'class interface',
+        illegal: /[:"\[\]]/,
+        contains: [
+          { beginKeywords: 'extends implements' },
+          hljs.UNDERSCORE_TITLE_MODE
+        ]
+      },
+      {
+        // AspectJ Constructs
+        beginKeywords: 'pointcut after before around throwing returning',
+        end: /[)]/,
+        excludeEnd: false,
+        illegal: /["\[\]]/,
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            returnBegin: true,
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+          }
+        ]
+      },
+      {
+        begin: /[:]/,
+        returnBegin: true,
+        end: /[{;]/,
+        relevance: 0,
+        excludeEnd: false,
+        keywords: KEYWORDS,
+        illegal: /["\[\]]/,
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            keywords: KEYWORDS.concat(SHORTKEYS),
+            relevance: 0
+          },
+          hljs.QUOTE_STRING_MODE
+        ]
+      },
+      {
+        // this prevents 'new Name(...), or throw ...' from being recognized as a function definition
+        beginKeywords: 'new throw',
+        relevance: 0
+      },
+      {
+        // the function class is a bit different for AspectJ compared to the Java language
+        className: 'function',
+        begin: /\w+ +\w+(\.\w+)?\s*\([^\)]*\)\s*((throws)[\w\s,]+)?[\{;]/,
+        returnBegin: true,
+        end: /[{;=]/,
+        keywords: KEYWORDS,
+        excludeEnd: true,
+        contains: [
+          {
+            begin: regex.concat(hljs.UNDERSCORE_IDENT_RE, /\s*\(/),
+            returnBegin: true,
+            relevance: 0,
+            contains: [ hljs.UNDERSCORE_TITLE_MODE ]
+          },
+          {
+            className: 'params',
+            begin: /\(/,
+            end: /\)/,
+            relevance: 0,
+            keywords: KEYWORDS,
+            contains: [
+              hljs.APOS_STRING_MODE,
+              hljs.QUOTE_STRING_MODE,
+              hljs.C_NUMBER_MODE,
+              hljs.C_BLOCK_COMMENT_MODE
+            ]
+          },
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE
+        ]
+      },
+      hljs.C_NUMBER_MODE,
+      {
+        // annotation is also used in this language
+        className: 'meta',
+        begin: /@[A-Za-z]+/
+      }
+    ]
+  };
+}
+
+export { aspectj as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/aspectj/" data-id="clt8trr3z00vb58s402u9h71b" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-scala" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-scala/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.706Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.scala = Prism.languages.extend('java', {
+	'triple-quoted-string': {
+		pattern: /"""[\s\S]*?"""/,
+		greedy: true,
+		alias: 'string'
+	},
+	'string': {
+		pattern: /("|')(?:\\.|(?!\1)[^\\\r\n])*\1/,
+		greedy: true
+	},
+	'keyword': /<-|=>|\b(?:abstract|case|catch|class|def|derives|do|else|enum|extends|extension|final|finally|for|forSome|given|if|implicit|import|infix|inline|lazy|match|new|null|object|opaque|open|override|package|private|protected|return|sealed|self|super|this|throw|trait|transparent|try|type|using|val|var|while|with|yield)\b/,
+	'number': /\b0x(?:[\da-f]*\.)?[\da-f]+|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e\d+)?[dfl]?/i,
+	'builtin': /\b(?:Any|AnyRef|AnyVal|Boolean|Byte|Char|Double|Float|Int|Long|Nothing|Short|String|Unit)\b/,
+	'symbol': /'[^\d\s\\]\w*/
+});
+
+Prism.languages.insertBefore('scala', 'triple-quoted-string', {
+	'string-interpolation': {
+		pattern: /\b[a-z]\w*(?:"""(?:[^$]|\$(?:[^{]|\{(?:[^{}]|\{[^{}]*\})*\}))*?"""|"(?:[^$"\r\n]|\$(?:[^{]|\{(?:[^{}]|\{[^{}]*\})*\}))*")/i,
+		greedy: true,
+		inside: {
+			'id': {
+				pattern: /^\w+/,
+				greedy: true,
+				alias: 'function'
+			},
+			'escape': {
+				pattern: /\\\$"|\$[$"]/,
+				greedy: true,
+				alias: 'symbol'
+			},
+			'interpolation': {
+				pattern: /\$(?:\w+|\{(?:[^{}]|\{[^{}]*\})*\})/,
+				greedy: true,
+				inside: {
+					'punctuation': /^\$\{?|\}$/,
+					'expression': {
+						pattern: /[\s\S]+/,
+						inside: Prism.languages.scala
+					}
+				}
+			},
+			'string': /[\s\S]+/
+		}
+	}
+});
+
+delete Prism.languages.scala['class-name'];
+delete Prism.languages.scala['function'];
+delete Prism.languages.scala['constant'];
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-scala/" data-id="clt8trr2000pp58s4aiy7fjr1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/asciidoc.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/asciidoc.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.706Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/asciidoc" instead of "highlight.js/lib/languages/asciidoc.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./asciidoc.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/asciidoc.js/" data-id="clt8trr7p016058s4atppbcjo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/asciidoc.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/asciidoc.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.704Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/asciidoc" instead of "highlight.js/lib/languages/asciidoc.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './asciidoc.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/asciidoc.js/" data-id="clt8trr3y00v958s45anph9c9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-sass.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-sass.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.702Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(e){e.languages.sass=e.languages.extend("css",{comment:{pattern:/^([ \t]*)\/[\/*].*(?:(?:\r?\n|\r)\1[ \t].+)*/m,lookbehind:!0,greedy:!0}}),e.languages.insertBefore("sass","atrule",{"atrule-line":{pattern:/^(?:[ \t]*)[@+=].+/m,greedy:!0,inside:{atrule:/(?:@[\w-]+|[+=])/}}}),delete e.languages.sass.atrule;var r=/\$[-\w]+|#\{\$[-\w]+\}/,t=[/[+*\/%]|[=!]=|<=?|>=?|\b(?:and|not|or)\b/,{pattern:/(\s)-(?=\s)/,lookbehind:!0}];e.languages.insertBefore("sass","property",{"variable-line":{pattern:/^[ \t]*\$.+/m,greedy:!0,inside:{punctuation:/:/,variable:r,operator:t}},"property-line":{pattern:/^[ \t]*(?:[^:\s]+ *:.*|:[^:\s].*)/m,greedy:!0,inside:{property:[/[^:\s]+(?=\s*:)/,{pattern:/(:)[^:\s]+/,lookbehind:!0}],punctuation:/:/,variable:r,operator:t,important:e.languages.sass.important}}}),delete e.languages.sass.property,delete e.languages.sass.important,e.languages.insertBefore("sass","punctuation",{selector:{pattern:/^([ \t]*)\S(?:,[^,\r\n]+|[^,\r\n]*)(?:,[^,\r\n]+)*(?:,(?:\r?\n|\r)\1[ \t]+\S(?:,[^,\r\n]+|[^,\r\n]*)(?:,[^,\r\n]+)*)*/m,lookbehind:!0,greedy:!0}})}(Prism);
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-sass.min/" data-id="clt8trr1z00po58s4fgap1xia" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/asciidoc" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/asciidoc/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.702Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: AsciiDoc
+Requires: xml.js
+Author: Dan Allen <dan.j.allen@gmail.com>
+Website: http://asciidoc.org
+Description: A semantic, text-based document format that can be exported to HTML, DocBook and other backends.
+Category: markup
+*/
+
+/** @type LanguageFn */
+function asciidoc(hljs) {
+  const regex = hljs.regex;
+  const HORIZONTAL_RULE = {
+    begin: '^\'{3,}[ \\t]*$',
+    relevance: 10
+  };
+  const ESCAPED_FORMATTING = [
+    // escaped constrained formatting marks (i.e., \* \_ or \`)
+    { begin: /\\[*_`]/ },
+    // escaped unconstrained formatting marks (i.e., \\** \\__ or \\``)
+    // must ignore until the next formatting marks
+    // this rule might not be 100% compliant with Asciidoctor 2.0 but we are entering undefined behavior territory...
+    { begin: /\\\\\*{2}[^\n]*?\*{2}/ },
+    { begin: /\\\\_{2}[^\n]*_{2}/ },
+    { begin: /\\\\`{2}[^\n]*`{2}/ },
+    // guard: constrained formatting mark may not be preceded by ":", ";" or
+    // "}". match these so the constrained rule doesn't see them
+    { begin: /[:;}][*_`](?![*_`])/ }
+  ];
+  const STRONG = [
+    // inline unconstrained strong (single line)
+    {
+      className: 'strong',
+      begin: /\*{2}([^\n]+?)\*{2}/
+    },
+    // inline unconstrained strong (multi-line)
+    {
+      className: 'strong',
+      begin: regex.concat(
+        /\*\*/,
+        /((\*(?!\*)|\\[^\n]|[^*\n\\])+\n)+/,
+        /(\*(?!\*)|\\[^\n]|[^*\n\\])*/,
+        /\*\*/
+      ),
+      relevance: 0
+    },
+    // inline constrained strong (single line)
+    {
+      className: 'strong',
+      // must not precede or follow a word character
+      begin: /\B\*(\S|\S[^\n]*?\S)\*(?!\w)/
+    },
+    // inline constrained strong (multi-line)
+    {
+      className: 'strong',
+      // must not precede or follow a word character
+      begin: /\*[^\s]([^\n]+\n)+([^\n]+)\*/
+    }
+  ];
+  const EMPHASIS = [
+    // inline unconstrained emphasis (single line)
+    {
+      className: 'emphasis',
+      begin: /_{2}([^\n]+?)_{2}/
+    },
+    // inline unconstrained emphasis (multi-line)
+    {
+      className: 'emphasis',
+      begin: regex.concat(
+        /__/,
+        /((_(?!_)|\\[^\n]|[^_\n\\])+\n)+/,
+        /(_(?!_)|\\[^\n]|[^_\n\\])*/,
+        /__/
+      ),
+      relevance: 0
+    },
+    // inline constrained emphasis (single line)
+    {
+      className: 'emphasis',
+      // must not precede or follow a word character
+      begin: /\b_(\S|\S[^\n]*?\S)_(?!\w)/
+    },
+    // inline constrained emphasis (multi-line)
+    {
+      className: 'emphasis',
+      // must not precede or follow a word character
+      begin: /_[^\s]([^\n]+\n)+([^\n]+)_/
+    },
+    // inline constrained emphasis using single quote (legacy)
+    {
+      className: 'emphasis',
+      // must not follow a word character or be followed by a single quote or space
+      begin: '\\B\'(?![\'\\s])',
+      end: '(\\n{2}|\')',
+      // allow escaped single quote followed by word char
+      contains: [
+        {
+          begin: '\\\\\'\\w',
+          relevance: 0
+        }
+      ],
+      relevance: 0
+    }
+  ];
+  const ADMONITION = {
+    className: 'symbol',
+    begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
+    relevance: 10
+  };
+  const BULLET_LIST = {
+    className: 'bullet',
+    begin: '^(\\*+|-+|\\.+|[^\\n]+?::)\\s+'
+  };
+
+  return {
+    name: 'AsciiDoc',
+    aliases: [ 'adoc' ],
+    contains: [
+      // block comment
+      hljs.COMMENT(
+        '^/{4,}\\n',
+        '\\n/{4,}$',
+        // can also be done as...
+        // '^/{4,}$',
+        // '^/{4,}$',
+        { relevance: 10 }
+      ),
+      // line comment
+      hljs.COMMENT(
+        '^//',
+        '$',
+        { relevance: 0 }
+      ),
+      // title
+      {
+        className: 'title',
+        begin: '^\\.\\w.*$'
+      },
+      // example, admonition & sidebar blocks
+      {
+        begin: '^[=\\*]{4,}\\n',
+        end: '\\n^[=\\*]{4,}$',
+        relevance: 10
+      },
+      // headings
+      {
+        className: 'section',
+        relevance: 10,
+        variants: [
+          { begin: '^(={1,6})[ \t].+?([ \t]\\1)?$' },
+          { begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$' }
+        ]
+      },
+      // document attributes
+      {
+        className: 'meta',
+        begin: '^:.+?:',
+        end: '\\s',
+        excludeEnd: true,
+        relevance: 10
+      },
+      // block attributes
+      {
+        className: 'meta',
+        begin: '^\\[.+?\\]$',
+        relevance: 0
+      },
+      // quoteblocks
+      {
+        className: 'quote',
+        begin: '^_{4,}\\n',
+        end: '\\n_{4,}$',
+        relevance: 10
+      },
+      // listing and literal blocks
+      {
+        className: 'code',
+        begin: '^[\\-\\.]{4,}\\n',
+        end: '\\n[\\-\\.]{4,}$',
+        relevance: 10
+      },
+      // passthrough blocks
+      {
+        begin: '^\\+{4,}\\n',
+        end: '\\n\\+{4,}$',
+        contains: [
+          {
+            begin: '<',
+            end: '>',
+            subLanguage: 'xml',
+            relevance: 0
+          }
+        ],
+        relevance: 10
+      },
+
+      BULLET_LIST,
+      ADMONITION,
+      ...ESCAPED_FORMATTING,
+      ...STRONG,
+      ...EMPHASIS,
+
+      // inline smart quotes
+      {
+        className: 'string',
+        variants: [
+          { begin: "``.+?''" },
+          { begin: "`.+?'" }
+        ]
+      },
+      // inline unconstrained emphasis
+      {
+        className: 'code',
+        begin: /`{2}/,
+        end: /(\n{2}|`{2})/
+      },
+      // inline code snippets (TODO should get same treatment as strong and emphasis)
+      {
+        className: 'code',
+        begin: '(`.+?`|\\+.+?\\+)',
+        relevance: 0
+      },
+      // indented literal block
+      {
+        className: 'code',
+        begin: '^[ \\t]',
+        end: '$',
+        relevance: 0
+      },
+      HORIZONTAL_RULE,
+      // images and links
+      {
+        begin: '(link:)?(http|https|ftp|file|irc|image:?):\\S+?\\[[^[]*?\\]',
+        returnBegin: true,
+        contains: [
+          {
+            begin: '(link|image:?):',
+            relevance: 0
+          },
+          {
+            className: 'link',
+            begin: '\\w',
+            end: '[^\\[]+',
+            relevance: 0
+          },
+          {
+            className: 'string',
+            begin: '\\[',
+            end: '\\]',
+            excludeBegin: true,
+            excludeEnd: true,
+            relevance: 0
+          }
+        ],
+        relevance: 10
+      }
+    ]
+  };
+}
+
+module.exports = asciidoc;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/asciidoc/" data-id="clt8trr7o015y58s42bwx4kws" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-sass" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-sass/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.699Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        (function (Prism) {
+	Prism.languages.sass = Prism.languages.extend('css', {
+		// Sass comments don't need to be closed, only indented
+		'comment': {
+			pattern: /^([ \t]*)\/[\/*].*(?:(?:\r?\n|\r)\1[ \t].+)*/m,
+			lookbehind: true,
+			greedy: true
+		}
+	});
+
+	Prism.languages.insertBefore('sass', 'atrule', {
+		// We want to consume the whole line
+		'atrule-line': {
+			// Includes support for = and + shortcuts
+			pattern: /^(?:[ \t]*)[@+=].+/m,
+			greedy: true,
+			inside: {
+				'atrule': /(?:@[\w-]+|[+=])/
+			}
+		}
+	});
+	delete Prism.languages.sass.atrule;
+
+
+	var variable = /\$[-\w]+|#\{\$[-\w]+\}/;
+	var operator = [
+		/[+*\/%]|[=!]=|<=?|>=?|\b(?:and|not|or)\b/,
+		{
+			pattern: /(\s)-(?=\s)/,
+			lookbehind: true
+		}
+	];
+
+	Prism.languages.insertBefore('sass', 'property', {
+		// We want to consume the whole line
+		'variable-line': {
+			pattern: /^[ \t]*\$.+/m,
+			greedy: true,
+			inside: {
+				'punctuation': /:/,
+				'variable': variable,
+				'operator': operator
+			}
+		},
+		// We want to consume the whole line
+		'property-line': {
+			pattern: /^[ \t]*(?:[^:\s]+ *:.*|:[^:\s].*)/m,
+			greedy: true,
+			inside: {
+				'property': [
+					/[^:\s]+(?=\s*:)/,
+					{
+						pattern: /(:)[^:\s]+/,
+						lookbehind: true
+					}
+				],
+				'punctuation': /:/,
+				'variable': variable,
+				'operator': operator,
+				'important': Prism.languages.sass.important
+			}
+		}
+	});
+	delete Prism.languages.sass.property;
+	delete Prism.languages.sass.important;
+
+	// Now that whole lines for other patterns are consumed,
+	// what's left should be selectors
+	Prism.languages.insertBefore('sass', 'punctuation', {
+		'selector': {
+			pattern: /^([ \t]*)\S(?:,[^,\r\n]+|[^,\r\n]*)(?:,[^,\r\n]+)*(?:,(?:\r?\n|\r)\1[ \t]+\S(?:,[^,\r\n]+|[^,\r\n]*)(?:,[^,\r\n]+)*)*/m,
+			lookbehind: true,
+			greedy: true
+		}
+	});
+
+}(Prism));
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-sass/" data-id="clt8trr1z00pn58s44luu9f29" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/asciidoc" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/asciidoc/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.699Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: AsciiDoc
+Requires: xml.js
+Author: Dan Allen <dan.j.allen@gmail.com>
+Website: http://asciidoc.org
+Description: A semantic, text-based document format that can be exported to HTML, DocBook and other backends.
+Category: markup
+*/
+
+/** @type LanguageFn */
+function asciidoc(hljs) {
+  const regex = hljs.regex;
+  const HORIZONTAL_RULE = {
+    begin: '^\'{3,}[ \\t]*$',
+    relevance: 10
+  };
+  const ESCAPED_FORMATTING = [
+    // escaped constrained formatting marks (i.e., \* \_ or \`)
+    { begin: /\\[*_`]/ },
+    // escaped unconstrained formatting marks (i.e., \\** \\__ or \\``)
+    // must ignore until the next formatting marks
+    // this rule might not be 100% compliant with Asciidoctor 2.0 but we are entering undefined behavior territory...
+    { begin: /\\\\\*{2}[^\n]*?\*{2}/ },
+    { begin: /\\\\_{2}[^\n]*_{2}/ },
+    { begin: /\\\\`{2}[^\n]*`{2}/ },
+    // guard: constrained formatting mark may not be preceded by ":", ";" or
+    // "}". match these so the constrained rule doesn't see them
+    { begin: /[:;}][*_`](?![*_`])/ }
+  ];
+  const STRONG = [
+    // inline unconstrained strong (single line)
+    {
+      className: 'strong',
+      begin: /\*{2}([^\n]+?)\*{2}/
+    },
+    // inline unconstrained strong (multi-line)
+    {
+      className: 'strong',
+      begin: regex.concat(
+        /\*\*/,
+        /((\*(?!\*)|\\[^\n]|[^*\n\\])+\n)+/,
+        /(\*(?!\*)|\\[^\n]|[^*\n\\])*/,
+        /\*\*/
+      ),
+      relevance: 0
+    },
+    // inline constrained strong (single line)
+    {
+      className: 'strong',
+      // must not precede or follow a word character
+      begin: /\B\*(\S|\S[^\n]*?\S)\*(?!\w)/
+    },
+    // inline constrained strong (multi-line)
+    {
+      className: 'strong',
+      // must not precede or follow a word character
+      begin: /\*[^\s]([^\n]+\n)+([^\n]+)\*/
+    }
+  ];
+  const EMPHASIS = [
+    // inline unconstrained emphasis (single line)
+    {
+      className: 'emphasis',
+      begin: /_{2}([^\n]+?)_{2}/
+    },
+    // inline unconstrained emphasis (multi-line)
+    {
+      className: 'emphasis',
+      begin: regex.concat(
+        /__/,
+        /((_(?!_)|\\[^\n]|[^_\n\\])+\n)+/,
+        /(_(?!_)|\\[^\n]|[^_\n\\])*/,
+        /__/
+      ),
+      relevance: 0
+    },
+    // inline constrained emphasis (single line)
+    {
+      className: 'emphasis',
+      // must not precede or follow a word character
+      begin: /\b_(\S|\S[^\n]*?\S)_(?!\w)/
+    },
+    // inline constrained emphasis (multi-line)
+    {
+      className: 'emphasis',
+      // must not precede or follow a word character
+      begin: /_[^\s]([^\n]+\n)+([^\n]+)_/
+    },
+    // inline constrained emphasis using single quote (legacy)
+    {
+      className: 'emphasis',
+      // must not follow a word character or be followed by a single quote or space
+      begin: '\\B\'(?![\'\\s])',
+      end: '(\\n{2}|\')',
+      // allow escaped single quote followed by word char
+      contains: [
+        {
+          begin: '\\\\\'\\w',
+          relevance: 0
+        }
+      ],
+      relevance: 0
+    }
+  ];
+  const ADMONITION = {
+    className: 'symbol',
+    begin: '^(NOTE|TIP|IMPORTANT|WARNING|CAUTION):\\s+',
+    relevance: 10
+  };
+  const BULLET_LIST = {
+    className: 'bullet',
+    begin: '^(\\*+|-+|\\.+|[^\\n]+?::)\\s+'
+  };
+
+  return {
+    name: 'AsciiDoc',
+    aliases: [ 'adoc' ],
+    contains: [
+      // block comment
+      hljs.COMMENT(
+        '^/{4,}\\n',
+        '\\n/{4,}$',
+        // can also be done as...
+        // '^/{4,}$',
+        // '^/{4,}$',
+        { relevance: 10 }
+      ),
+      // line comment
+      hljs.COMMENT(
+        '^//',
+        '$',
+        { relevance: 0 }
+      ),
+      // title
+      {
+        className: 'title',
+        begin: '^\\.\\w.*$'
+      },
+      // example, admonition & sidebar blocks
+      {
+        begin: '^[=\\*]{4,}\\n',
+        end: '\\n^[=\\*]{4,}$',
+        relevance: 10
+      },
+      // headings
+      {
+        className: 'section',
+        relevance: 10,
+        variants: [
+          { begin: '^(={1,6})[ \t].+?([ \t]\\1)?$' },
+          { begin: '^[^\\[\\]\\n]+?\\n[=\\-~\\^\\+]{2,}$' }
+        ]
+      },
+      // document attributes
+      {
+        className: 'meta',
+        begin: '^:.+?:',
+        end: '\\s',
+        excludeEnd: true,
+        relevance: 10
+      },
+      // block attributes
+      {
+        className: 'meta',
+        begin: '^\\[.+?\\]$',
+        relevance: 0
+      },
+      // quoteblocks
+      {
+        className: 'quote',
+        begin: '^_{4,}\\n',
+        end: '\\n_{4,}$',
+        relevance: 10
+      },
+      // listing and literal blocks
+      {
+        className: 'code',
+        begin: '^[\\-\\.]{4,}\\n',
+        end: '\\n[\\-\\.]{4,}$',
+        relevance: 10
+      },
+      // passthrough blocks
+      {
+        begin: '^\\+{4,}\\n',
+        end: '\\n\\+{4,}$',
+        contains: [
+          {
+            begin: '<',
+            end: '>',
+            subLanguage: 'xml',
+            relevance: 0
+          }
+        ],
+        relevance: 10
+      },
+
+      BULLET_LIST,
+      ADMONITION,
+      ...ESCAPED_FORMATTING,
+      ...STRONG,
+      ...EMPHASIS,
+
+      // inline smart quotes
+      {
+        className: 'string',
+        variants: [
+          { begin: "``.+?''" },
+          { begin: "`.+?'" }
+        ]
+      },
+      // inline unconstrained emphasis
+      {
+        className: 'code',
+        begin: /`{2}/,
+        end: /(\n{2}|`{2})/
+      },
+      // inline code snippets (TODO should get same treatment as strong and emphasis)
+      {
+        className: 'code',
+        begin: '(`.+?`|\\+.+?\\+)',
+        relevance: 0
+      },
+      // indented literal block
+      {
+        className: 'code',
+        begin: '^[ \\t]',
+        end: '$',
+        relevance: 0
+      },
+      HORIZONTAL_RULE,
+      // images and links
+      {
+        begin: '(link:)?(http|https|ftp|file|irc|image:?):\\S+?\\[[^[]*?\\]',
+        returnBegin: true,
+        contains: [
+          {
+            begin: '(link|image:?):',
+            relevance: 0
+          },
+          {
+            className: 'link',
+            begin: '\\w',
+            end: '[^\\[]+',
+            relevance: 0
+          },
+          {
+            className: 'string',
+            begin: '\\[',
+            end: '\\]',
+            excludeBegin: true,
+            excludeEnd: true,
+            relevance: 0
+          }
+        ],
+        relevance: 10
+      }
+    ]
+  };
+}
+
+export { asciidoc as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/asciidoc/" data-id="clt8trr3y00va58s42umd4mw6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/87/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/86/">86</a><a class="page-number" href="/page/87/">87</a><span class="page-number current">88</span><a class="page-number" href="/page/89/">89</a><a class="page-number" href="/page/90/">90</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/89/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

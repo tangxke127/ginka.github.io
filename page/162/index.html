@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/162/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/prismjs/components/prism-cypher.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-cypher.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.227Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.cypher={comment:/\/\/.*/,string:{pattern:/"(?:[^"\\\r\n]|\\.)*"|'(?:[^'\\\r\n]|\\.)*'/,greedy:!0},"class-name":{pattern:/(:\s*)(?:\w+|`(?:[^`\\\r\n])*`)(?=\s*[{):])/,lookbehind:!0,greedy:!0},relationship:{pattern:/(-\[\s*(?:\w+\s*|`(?:[^`\\\r\n])*`\s*)?:\s*|\|\s*:\s*)(?:\w+|`(?:[^`\\\r\n])*`)/,lookbehind:!0,greedy:!0,alias:"property"},identifier:{pattern:/`(?:[^`\\\r\n])*`/,greedy:!0},variable:/\$\w+/,keyword:/\b(?:ADD|ALL|AND|AS|ASC|ASCENDING|ASSERT|BY|CALL|CASE|COMMIT|CONSTRAINT|CONTAINS|CREATE|CSV|DELETE|DESC|DESCENDING|DETACH|DISTINCT|DO|DROP|ELSE|END|ENDS|EXISTS|FOR|FOREACH|IN|INDEX|IS|JOIN|KEY|LIMIT|LOAD|MANDATORY|MATCH|MERGE|NODE|NOT|OF|ON|OPTIONAL|OR|ORDER(?=\s+BY)|PERIODIC|REMOVE|REQUIRE|RETURN|SCALAR|SCAN|SET|SKIP|START|STARTS|THEN|UNION|UNIQUE|UNWIND|USING|WHEN|WHERE|WITH|XOR|YIELD)\b/i,function:/\b\w+\b(?=\s*\()/,boolean:/\b(?:false|null|true)\b/i,number:/\b(?:0x[\da-fA-F]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\b/,operator:/:|<--?|--?>?|<>|=~?|[<>]=?|[+*/%^|]|\.\.\.?/,punctuation:/[()[\]{},;.]/};
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-cypher.min/" data-id="clt8trqyb00fz58s45fg22643" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-cypher" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-cypher/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.223Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.cypher = {
+	// https://neo4j.com/docs/cypher-manual/current/syntax/comments/
+	'comment': /\/\/.*/,
+	'string': {
+		pattern: /"(?:[^"\\\r\n]|\\.)*"|'(?:[^'\\\r\n]|\\.)*'/,
+		greedy: true
+	},
+	'class-name': {
+		pattern: /(:\s*)(?:\w+|`(?:[^`\\\r\n])*`)(?=\s*[{):])/,
+		lookbehind: true,
+		greedy: true
+	},
+	'relationship': {
+		pattern: /(-\[\s*(?:\w+\s*|`(?:[^`\\\r\n])*`\s*)?:\s*|\|\s*:\s*)(?:\w+|`(?:[^`\\\r\n])*`)/,
+		lookbehind: true,
+		greedy: true,
+		alias: 'property'
+	},
+	'identifier': {
+		pattern: /`(?:[^`\\\r\n])*`/,
+		greedy: true
+	},
+
+	'variable': /\$\w+/,
+
+	// https://neo4j.com/docs/cypher-manual/current/syntax/reserved/
+	'keyword': /\b(?:ADD|ALL|AND|AS|ASC|ASCENDING|ASSERT|BY|CALL|CASE|COMMIT|CONSTRAINT|CONTAINS|CREATE|CSV|DELETE|DESC|DESCENDING|DETACH|DISTINCT|DO|DROP|ELSE|END|ENDS|EXISTS|FOR|FOREACH|IN|INDEX|IS|JOIN|KEY|LIMIT|LOAD|MANDATORY|MATCH|MERGE|NODE|NOT|OF|ON|OPTIONAL|OR|ORDER(?=\s+BY)|PERIODIC|REMOVE|REQUIRE|RETURN|SCALAR|SCAN|SET|SKIP|START|STARTS|THEN|UNION|UNIQUE|UNWIND|USING|WHEN|WHERE|WITH|XOR|YIELD)\b/i,
+
+	'function': /\b\w+\b(?=\s*\()/,
+
+	'boolean': /\b(?:false|null|true)\b/i,
+	'number': /\b(?:0x[\da-fA-F]+|\d+(?:\.\d+)?(?:[eE][+-]?\d+)?)\b/,
+	// https://neo4j.com/docs/cypher-manual/current/syntax/operators/
+	'operator': /:|<--?|--?>?|<>|=~?|[<>]=?|[+*/%^|]|\.\.\.?/,
+	'punctuation': /[()[\]{},;.]/
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-cypher/" data-id="clt8trqyd00g458s4def1fty1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/flat.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/flat.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.223Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*!
+  Theme: Flat
+  Author: Chris Kempson (http://chriskempson.com)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#e0e0e0;background:#2c3e50}.hljs ::selection,.hljs::selection{background-color:#7f8c8d;color:#e0e0e0}.hljs-comment{color:#95a5a6}.hljs-tag{color:#bdc3c7}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#e0e0e0}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#e74c3c}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#e67e22}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#f1c40f}.hljs-strong{font-weight:700;color:#f1c40f}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#2ecc71}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#1abc9c}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#3498db}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#9b59b6}.hljs-emphasis{color:#9b59b6;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#be643c}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/flat.min/" data-id="clt8trrbz01jz58s4f1wubd2l" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/custom-class/prism-custom-class.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/custom-class/prism-custom-class.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.220Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(){if("undefined"!=typeof Prism){var n,s,a="";Prism.plugins.customClass={add:function(s){n=s},map:function(n){s="function"==typeof n?n:function(s){return n[s]||s}},prefix:function(n){a=n||""},apply:t},Prism.hooks.add("wrap",(function(e){if(n){var u=n({content:e.content,type:e.type,language:e.language});Array.isArray(u)?e.classes.push.apply(e.classes,u):u&&e.classes.push(u)}(s||a)&&(e.classes=e.classes.map((function(n){return t(n,e.language)})))}))}function t(n,t){return a+(s?s(n,t):n)}}();
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/custom-class/prism-custom-class.min/" data-id="clt8trre001qp58s4h3dw5smx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/flat" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/flat/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.218Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: Flat
+  Author: Chris Kempson (http://chriskempson.com)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/*
+  WARNING: DO NOT EDIT THIS FILE DIRECTLY.
+
+  This theme file was auto-generated from the Base16 scheme flat
+  by the Highlight.js Base16 template builder.
+
+  - https://github.com/highlightjs/base16-highlightjs
+*/
+/*
+base00  #2C3E50  Default Background
+base01  #34495E  Lighter Background (Used for status bars, line number and folding marks)
+base02  #7F8C8D  Selection Background
+base03  #95A5A6  Comments, Invisibles, Line Highlighting
+base04  #BDC3C7  Dark Foreground (Used for status bars)
+base05  #e0e0e0  Default Foreground, Caret, Delimiters, Operators
+base06  #f5f5f5  Light Foreground (Not often used)
+base07  #ECF0F1  Light Background (Not often used)
+base08  #E74C3C  Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+base09  #E67E22  Integers, Boolean, Constants, XML Attributes, Markup Link Url
+base0A  #F1C40F  Classes, Markup Bold, Search Text Background
+base0B  #2ECC71  Strings, Inherited Class, Markup Code, Diff Inserted
+base0C  #1ABC9C  Support, Regular Expressions, Escape Characters, Markup Quotes
+base0D  #3498DB  Functions, Methods, Attribute IDs, Headings
+base0E  #9B59B6  Keywords, Storage, Selector, Markup Italic, Diff Changed
+base0F  #be643c  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+.hljs {
+  color: #e0e0e0;
+  background: #2C3E50
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #7F8C8D;
+  color: #e0e0e0
+}
+/* purposely do not highlight these things */
+.hljs-formula,
+.hljs-params,
+.hljs-property {
+  
+}
+/* base03 - #95A5A6 -  Comments, Invisibles, Line Highlighting */
+.hljs-comment {
+  color: #95A5A6
+}
+/* base04 - #BDC3C7 -  Dark Foreground (Used for status bars) */
+.hljs-tag {
+  color: #BDC3C7
+}
+/* base05 - #e0e0e0 -  Default Foreground, Caret, Delimiters, Operators */
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #e0e0e0
+}
+.hljs-operator {
+  opacity: 0.7
+}
+/* base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #E74C3C
+}
+/* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #E67E22
+}
+/* base0A - Classes, Markup Bold, Search Text Background */
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #F1C40F
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #F1C40F
+}
+/* base0B - Strings, Inherited Class, Markup Code, Diff Inserted */
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #2ECC71
+}
+/* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
+/* guessing */
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #1ABC9C
+}
+/* base0D - Functions, Methods, Attribute IDs, Headings */
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #3498DB
+}
+/* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
+/* .hljs-selector-id, */
+/* .hljs-selector-class, */
+/* .hljs-selector-attr, */
+/* .hljs-selector-pseudo, */
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #9B59B6
+}
+.hljs-emphasis {
+  color: #9B59B6;
+  font-style: italic
+}
+/* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
+/*
+  prevent top level .keyword and .string scopes
+  from leaking into meta by accident
+*/
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #be643c
+}
+/* for v10 compatible themes */
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/flat/" data-id="clt8trrbz01jy58s4ctug6gvn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/custom-class/prism-custom-class" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/custom-class/prism-custom-class/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.218Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        (function () {
+
+	if (typeof Prism === 'undefined') {
+		return;
+	}
+
+	/**
+	 * @callback ClassMapper
+	 * @param {string} className
+	 * @param {string} language
+	 * @returns {string}
+	 *
+	 * @callback ClassAdder
+	 * @param {ClassAdderEnvironment} env
+	 * @returns {undefined | string | string[]}
+	 *
+	 * @typedef ClassAdderEnvironment
+	 * @property {string} language
+	 * @property {string} type
+	 * @property {string} content
+	 */
+
+	// options
+
+	/** @type {ClassAdder | undefined} */
+	var adder;
+	/** @type {ClassMapper | undefined} */
+	var mapper;
+	/** @type {string} */
+	var prefixString = '';
+
+
+	/**
+	 * @param {string} className
+	 * @param {string} language
+	 */
+	function apply(className, language) {
+		return prefixString + (mapper ? mapper(className, language) : className);
+	}
+
+
+	Prism.plugins.customClass = {
+		/**
+		 * Sets the function which can be used to add custom aliases to any token.
+		 *
+		 * @param {ClassAdder} classAdder
+		 */
+		add: function (classAdder) {
+			adder = classAdder;
+		},
+		/**
+		 * Maps all class names using the given object or map function.
+		 *
+		 * This does not affect the prefix.
+		 *
+		 * @param {Object<string, string> | ClassMapper} classMapper
+		 */
+		map: function map(classMapper) {
+			if (typeof classMapper === 'function') {
+				mapper = classMapper;
+			} else {
+				mapper = function (className) {
+					return classMapper[className] || className;
+				};
+			}
+		},
+		/**
+		 * Adds the given prefix to all class names.
+		 *
+		 * @param {string} string
+		 */
+		prefix: function prefix(string) {
+			prefixString = string || '';
+		},
+		/**
+		 * Applies the current mapping and prefix to the given class name.
+		 *
+		 * @param {string} className A single class name.
+		 * @param {string} language The language of the code that contains this class name.
+		 *
+		 * If the language is unknown, pass `"none"`.
+		 */
+		apply: apply
+	};
+
+	Prism.hooks.add('wrap', function (env) {
+		if (adder) {
+			var result = adder({
+				content: env.content,
+				type: env.type,
+				language: env.language
+			});
+
+			if (Array.isArray(result)) {
+				env.classes.push.apply(env.classes, result);
+			} else if (result) {
+				env.classes.push(result);
+			}
+		}
+
+		if (!mapper && !prefixString) {
+			return;
+		}
+
+		env.classes = env.classes.map(function (c) {
+			return apply(c, env.language);
+		});
+	});
+
+}());
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/custom-class/prism-custom-class/" data-id="clt8trre101qq58s44ei44bve" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/felipec.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/felipec.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.216Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
+ * Theme: FelipeC
+ * Author: (c) 2021 Felipe Contreras <felipe.contreras@gmail.com>
+ * Website: https://github.com/felipec/vim-felipec
+ *
+ * Autogenerated with vim-felipec's generator.
+*/.hljs{color:#dddde1;background:#1e1e22}.hljs ::selection,.hljs::selection{color:#1e1e22;background:#bf8fef}.hljs-code,.hljs-comment,.hljs-quote{color:#888896}.hljs-deletion,.hljs-literal,.hljs-number{color:#ef8f8f}.hljs-doctag,.hljs-meta,.hljs-operator,.hljs-punctuation,.hljs-selector-attr,.hljs-subst,.hljs-template-variable{color:#efbf8f}.hljs-type{color:#efef8f}.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-title{color:#bfef8f}.hljs-addition,.hljs-regexp,.hljs-string{color:#8fef8f}.hljs-class,.hljs-property{color:#8fefbf}.hljs-name,.hljs-selector-tag{color:#8fefef}.hljs-built_in,.hljs-keyword{color:#8fbfef}.hljs-bullet,.hljs-section{color:#8f8fef}.hljs-selector-pseudo{color:#bf8fef}.hljs-attr,.hljs-attribute,.hljs-params,.hljs-variable{color:#ef8fef}.hljs-link,.hljs-symbol{color:#ef8fbf}.hljs-literal,.hljs-strong,.hljs-title{font-weight:700}.hljs-emphasis{font-style:italic}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/felipec.min/" data-id="clt8trquu007l58s46afa3dfa" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-cue.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-cue.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.215Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(e){var n="(?:"+"\"\"\"(?:[^\\\\\"]|\"(?!\"\"\\2)|<esc>)*\"\"\"|'''(?:[^\\\\']|'(?!''\\2)|<esc>)*'''|\"(?:[^\\\\\r\n\"]|\"(?!\\2)|<esc>)*\"|'(?:[^\\\\\r\n']|'(?!\\2)|<esc>)*'".replace(/<esc>/g,"\\\\(?:(?!\\2)|\\2(?:[^()\r\n]|\\([^()]*\\)))")+")";e.languages.cue={comment:{pattern:/\/\/.*/,greedy:!0},"string-literal":{pattern:RegExp("(^|[^#\"'\\\\])(#*)"+n+"(?![\"'])\\2"),lookbehind:!0,greedy:!0,inside:{escape:{pattern:/(?=[\s\S]*["'](#*)$)\\\1(?:U[a-fA-F0-9]{1,8}|u[a-fA-F0-9]{1,4}|x[a-fA-F0-9]{1,2}|\d{2,3}|[^(])/,greedy:!0,alias:"string"},interpolation:{pattern:/(?=[\s\S]*["'](#*)$)\\\1\([^()]*\)/,greedy:!0,inside:{punctuation:/^\\#*\(|\)$/,expression:{pattern:/[\s\S]+/,inside:null}}},string:/[\s\S]+/}},keyword:{pattern:/(^|[^\w$])(?:for|if|import|in|let|null|package)(?![\w$])/,lookbehind:!0},boolean:{pattern:/(^|[^\w$])(?:false|true)(?![\w$])/,lookbehind:!0},builtin:{pattern:/(^|[^\w$])(?:bool|bytes|float|float(?:32|64)|u?int(?:8|16|32|64|128)?|number|rune|string)(?![\w$])/,lookbehind:!0},attribute:{pattern:/@[\w$]+(?=\s*\()/,alias:"function"},function:{pattern:/(^|[^\w$])[a-z_$][\w$]*(?=\s*\()/i,lookbehind:!0},number:{pattern:/(^|[^\w$.])(?:0b[01]+(?:_[01]+)*|0o[0-7]+(?:_[0-7]+)*|0[xX][0-9A-Fa-f]+(?:_[0-9A-Fa-f]+)*|(?:\d+(?:_\d+)*(?:\.(?:\d+(?:_\d+)*)?)?|\.\d+(?:_\d+)*)(?:[eE][+-]?\d+(?:_\d+)*)?(?:[KMGTP]i?)?)(?![\w$])/,lookbehind:!0},operator:/\.{3}|_\|_|&&?|\|\|?|[=!]~|[<>=!]=?|[+\-*/?]/,punctuation:/[()[\]{},.:]/},e.languages.cue["string-literal"].inside.interpolation.inside.expression.inside=e.languages.cue}(Prism);
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-cue.min/" data-id="clt8trqyb00fy58s4dutrc3qz" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/felipec" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/felipec/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.214Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+ * Theme: FelipeC
+ * Author: (c) 2021 Felipe Contreras <felipe.contreras@gmail.com>
+ * Website: https://github.com/felipec/vim-felipec
+ *
+ * Autogenerated with vim-felipec's generator.
+*/
+.hljs {
+  color: #dddde1;
+  background: #1e1e22
+}
+.hljs::selection,
+.hljs ::selection {
+  color: #1e1e22;
+  background: #bf8fef
+}
+.hljs-comment,
+.hljs-code,
+.hljs-quote {
+  color: #888896
+}
+.hljs-number,
+.hljs-literal,
+.hljs-deletion {
+  color: #ef8f8f
+}
+.hljs-punctuation,
+.hljs-meta,
+.hljs-operator,
+.hljs-subst,
+.hljs-doctag,
+.hljs-template-variable,
+.hljs-selector-attr {
+  color: #efbf8f
+}
+.hljs-type {
+  color: #efef8f
+}
+.hljs-tag,
+.hljs-title,
+.hljs-selector-class,
+.hljs-selector-id {
+  color: #bfef8f
+}
+.hljs-string,
+.hljs-regexp,
+.hljs-addition {
+  color: #8fef8f
+}
+.hljs-class,
+.hljs-property {
+  color: #8fefbf
+}
+.hljs-name,
+.hljs-selector-tag {
+  color: #8fefef
+}
+.hljs-keyword,
+.hljs-built_in {
+  color: #8fbfef
+}
+.hljs-section,
+.hljs-bullet {
+  color: #8f8fef
+}
+.hljs-selector-pseudo {
+  color: #bf8fef
+}
+.hljs-variable,
+.hljs-params,
+.hljs-attr,
+.hljs-attribute {
+  color: #ef8fef
+}
+.hljs-symbol,
+.hljs-link {
+  color: #ef8fbf
+}
+.hljs-strong,
+.hljs-literal,
+.hljs-title {
+  font-weight: bold
+}
+.hljs-emphasis {
+  font-style: italic
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/felipec/" data-id="clt8trquu007k58s439913k6x" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/far.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/far.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.213Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#0ff;background:navy}.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-string,.hljs-symbol,.hljs-template-tag,.hljs-template-variable{color:#ff0}.hljs-keyword,.hljs-name,.hljs-section,.hljs-selector-class,.hljs-selector-id,.hljs-selector-tag,.hljs-type,.hljs-variable{color:#fff}.hljs-comment,.hljs-deletion,.hljs-doctag,.hljs-quote{color:#888}.hljs-link,.hljs-literal,.hljs-number,.hljs-regexp{color:#0f0}.hljs-meta{color:teal}.hljs-keyword,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-strong,.hljs-title{font-weight:700}.hljs-emphasis{font-style:italic}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/far.min/" data-id="clt8trqut007j58s405a7fnoq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/161/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/160/">160</a><a class="page-number" href="/page/161/">161</a><span class="page-number current">162</span><a class="page-number" href="/page/163/">163</a><a class="page-number" href="/page/164/">164</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/163/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

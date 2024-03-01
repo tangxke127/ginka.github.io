@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/175/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/prismjs/components/prism-bqn" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-bqn/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.863Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.bqn = {
+	'shebang': {
+		pattern: /^#![ \t]*\/.*/,
+		alias: 'important',
+		greedy: true
+	},
+	'comment': {
+		pattern: /#.*/,
+		greedy: true
+	},
+	'string-literal': {
+		pattern: /"(?:[^"]|"")*"/,
+		greedy: true,
+		alias: 'string'
+	},
+	'character-literal': {
+		pattern: /'(?:[\s\S]|[\uD800-\uDBFF][\uDC00-\uDFFF])'/,
+		greedy: true,
+		alias: 'char'
+	},
+	'function': /•[\w¯.∞π]+[\w¯.∞π]*/,
+	'dot-notation-on-brackets': {
+		pattern: /\{(?=.*\}\.)|\}\./,
+		alias: 'namespace'
+	},
+	'special-name': {
+		pattern: /(?:𝕨|𝕩|𝕗|𝕘|𝕤|𝕣|𝕎|𝕏|𝔽|𝔾|𝕊|_𝕣_|_𝕣)/,
+		alias: 'keyword'
+	},
+	'dot-notation-on-name': {
+		pattern: /[A-Za-z_][\w¯∞π]*\./,
+		alias: 'namespace'
+	},
+	'word-number-scientific': {
+		pattern: /\d+(?:\.\d+)?[eE]¯?\d+/,
+		alias: 'number'
+	},
+	'word-name': {
+		pattern: /[A-Za-z_][\w¯∞π]*/,
+		alias: 'symbol'
+	},
+	'word-number': {
+		pattern: /[¯∞π]?(?:\d*\.?\b\d+(?:e[+¯]?\d+|E[+¯]?\d+)?|¯|∞|π)(?:j¯?(?:(?:\d+(?:\.\d+)?|\.\d+)(?:e[+¯]?\d+|E[+¯]?\d+)?|¯|∞|π))?/,
+		alias: 'number'
+	},
+	'null-literal': {
+		pattern: /@/,
+		alias: 'char'
+	},
+	'primitive-functions': {
+		pattern: /[-+×÷⋆√⌊⌈|¬∧∨<>≠=≤≥≡≢⊣⊢⥊∾≍⋈↑↓↕«»⌽⍉/⍋⍒⊏⊑⊐⊒∊⍷⊔!]/,
+		alias: 'operator'
+	},
+	'primitive-1-operators': {
+		pattern: /[`˜˘¨⁼⌜´˝˙]/,
+		alias: 'operator'
+	},
+	'primitive-2-operators': {
+		pattern: /[∘⊸⟜○⌾⎉⚇⍟⊘◶⎊]/,
+		alias: 'operator'
+	},
+	'punctuation': /[←⇐↩(){}⟨⟩[\]‿·⋄,.;:?]/
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-bqn/" data-id="clt8trqxp00ef58s4dqcphl9e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/color-brewer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/color-brewer/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.862Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*
+
+Colorbrewer theme
+Original: https://github.com/mbostock/colorbrewer-theme (c) Mike Bostock <mike@ocks.org>
+Ported by Fabrício Tavares de Oliveira
+
+*/
+.hljs {
+  color: #000;
+  background: #fff
+}
+.hljs-subst {
+  /* default */
+  
+}
+.hljs-string,
+.hljs-meta,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: #756bb1
+}
+.hljs-comment,
+.hljs-quote {
+  color: #636363
+}
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-bullet,
+.hljs-link {
+  color: #31a354
+}
+.hljs-deletion,
+.hljs-variable {
+  color: #88f
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-title,
+.hljs-section,
+.hljs-built_in,
+.hljs-doctag,
+.hljs-type,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-strong {
+  color: #3182bd
+}
+.hljs-emphasis {
+  font-style: italic
+}
+.hljs-attribute {
+  color: #e6550d
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/color-brewer/" data-id="clt8trquo007858s48elobt3v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-bnf.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-bnf.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.862Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.bnf={string:{pattern:/"[^\r\n"]*"|'[^\r\n']*'/},definition:{pattern:/<[^<>\r\n\t]+>(?=\s*::=)/,alias:["rule","keyword"],inside:{punctuation:/^<|>$/}},rule:{pattern:/<[^<>\r\n\t]+>/,inside:{punctuation:/^<|>$/}},operator:/::=|[|()[\]{}*+?]|\.{3}/},Prism.languages.rbnf=Prism.languages.bnf;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-bnf.min/" data-id="clt8trqxp00ee58s4bw6l812e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-bnf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-bnf/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.861Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.bnf = {
+	'string': {
+		pattern: /"[^\r\n"]*"|'[^\r\n']*'/
+	},
+	'definition': {
+		pattern: /<[^<>\r\n\t]+>(?=\s*::=)/,
+		alias: ['rule', 'keyword'],
+		inside: {
+			'punctuation': /^<|>$/
+		}
+	},
+	'rule': {
+		pattern: /<[^<>\r\n\t]+>/,
+		inside: {
+			'punctuation': /^<|>$/
+		}
+	},
+	'operator': /::=|[|()[\]{}*+?]|\.{3}/
+};
+
+Prism.languages.rbnf = Prism.languages.bnf;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-bnf/" data-id="clt8trqxp00ed58s47f03g5ik" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/codeschool.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/codeschool.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.858Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*!
+  Theme: Codeschool
+  Author: blockloop
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#9ea7a6;background:#232c31}.hljs ::selection,.hljs::selection{background-color:#2a343a;color:#9ea7a6}.hljs-comment{color:#3f4944}.hljs-tag{color:#84898c}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#9ea7a6}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#2a5491}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#43820d}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#a03b1e}.hljs-strong{font-weight:700;color:#a03b1e}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#237986}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#b02f30}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#484d79}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#c59820}.hljs-emphasis{color:#c59820;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#c98344}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/codeschool.min/" data-id="clt8trrbm01im58s483rx7gg7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-bison.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-bison.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.853Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.bison=Prism.languages.extend("c",{}),Prism.languages.insertBefore("bison","comment",{bison:{pattern:/^(?:[^%]|%(?!%))*%%[\s\S]*?%%/,inside:{c:{pattern:/%\{[\s\S]*?%\}|\{(?:\{[^}]*\}|[^{}])*\}/,inside:{delimiter:{pattern:/^%?\{|%?\}$/,alias:"punctuation"},"bison-variable":{pattern:/[$@](?:<[^\s>]+>)?[\w$]+/,alias:"variable",inside:{punctuation:/<|>/}},rest:Prism.languages.c}},comment:Prism.languages.c.comment,string:Prism.languages.c.string,property:/\S+(?=:)/,keyword:/%\w+/,number:{pattern:/(^|[^@])\b(?:0x[\da-f]+|\d+)/i,lookbehind:!0},punctuation:/%[%?]|[|:;\[\]<>]/}}});
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-bison.min/" data-id="clt8trqxo00ec58s45h0k3q4a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-bison" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-bison/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.850Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.bison = Prism.languages.extend('c', {});
+
+Prism.languages.insertBefore('bison', 'comment', {
+	'bison': {
+		// This should match all the beginning of the file
+		// including the prologue(s), the bison declarations and
+		// the grammar rules.
+		pattern: /^(?:[^%]|%(?!%))*%%[\s\S]*?%%/,
+		inside: {
+			'c': {
+				// Allow for one level of nested braces
+				pattern: /%\{[\s\S]*?%\}|\{(?:\{[^}]*\}|[^{}])*\}/,
+				inside: {
+					'delimiter': {
+						pattern: /^%?\{|%?\}$/,
+						alias: 'punctuation'
+					},
+					'bison-variable': {
+						pattern: /[$@](?:<[^\s>]+>)?[\w$]+/,
+						alias: 'variable',
+						inside: {
+							'punctuation': /<|>/
+						}
+					},
+					rest: Prism.languages.c
+				}
+			},
+			'comment': Prism.languages.c.comment,
+			'string': Prism.languages.c.string,
+			'property': /\S+(?=:)/,
+			'keyword': /%\w+/,
+			'number': {
+				pattern: /(^|[^@])\b(?:0x[\da-f]+|\d+)/i,
+				lookbehind: true
+			},
+			'punctuation': /%[%?]|[|:;\[\]<>]/
+		}
+	}
+});
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-bison/" data-id="clt8trqxo00eb58s4dm2q3psg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/codeschool" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/codeschool/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.850Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: Codeschool
+  Author: blockloop
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/*
+  WARNING: DO NOT EDIT THIS FILE DIRECTLY.
+
+  This theme file was auto-generated from the Base16 scheme codeschool
+  by the Highlight.js Base16 template builder.
+
+  - https://github.com/highlightjs/base16-highlightjs
+*/
+/*
+base00  #232c31  Default Background
+base01  #1c3657  Lighter Background (Used for status bars, line number and folding marks)
+base02  #2a343a  Selection Background
+base03  #3f4944  Comments, Invisibles, Line Highlighting
+base04  #84898c  Dark Foreground (Used for status bars)
+base05  #9ea7a6  Default Foreground, Caret, Delimiters, Operators
+base06  #a7cfa3  Light Foreground (Not often used)
+base07  #b5d8f6  Light Background (Not often used)
+base08  #2a5491  Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+base09  #43820d  Integers, Boolean, Constants, XML Attributes, Markup Link Url
+base0A  #a03b1e  Classes, Markup Bold, Search Text Background
+base0B  #237986  Strings, Inherited Class, Markup Code, Diff Inserted
+base0C  #b02f30  Support, Regular Expressions, Escape Characters, Markup Quotes
+base0D  #484d79  Functions, Methods, Attribute IDs, Headings
+base0E  #c59820  Keywords, Storage, Selector, Markup Italic, Diff Changed
+base0F  #c98344  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+.hljs {
+  color: #9ea7a6;
+  background: #232c31
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #2a343a;
+  color: #9ea7a6
+}
+/* purposely do not highlight these things */
+.hljs-formula,
+.hljs-params,
+.hljs-property {
+  
+}
+/* base03 - #3f4944 -  Comments, Invisibles, Line Highlighting */
+.hljs-comment {
+  color: #3f4944
+}
+/* base04 - #84898c -  Dark Foreground (Used for status bars) */
+.hljs-tag {
+  color: #84898c
+}
+/* base05 - #9ea7a6 -  Default Foreground, Caret, Delimiters, Operators */
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #9ea7a6
+}
+.hljs-operator {
+  opacity: 0.7
+}
+/* base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #2a5491
+}
+/* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #43820d
+}
+/* base0A - Classes, Markup Bold, Search Text Background */
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #a03b1e
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #a03b1e
+}
+/* base0B - Strings, Inherited Class, Markup Code, Diff Inserted */
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #237986
+}
+/* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
+/* guessing */
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #b02f30
+}
+/* base0D - Functions, Methods, Attribute IDs, Headings */
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #484d79
+}
+/* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
+/* .hljs-selector-id, */
+/* .hljs-selector-class, */
+/* .hljs-selector-attr, */
+/* .hljs-selector-pseudo, */
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #c59820
+}
+.hljs-emphasis {
+  color: #c59820;
+  font-style: italic
+}
+/* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
+/*
+  prevent top level .keyword and .string scopes
+  from leaking into meta by accident
+*/
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #c98344
+}
+/* for v10 compatible themes */
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/codeschool/" data-id="clt8trrbm01il58s4d5lx9e9d" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/codepen-embed.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/codepen-embed.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.849Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#222;color:#fff}.hljs-comment,.hljs-quote{color:#777}.hljs-built_in,.hljs-bullet,.hljs-deletion,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-regexp,.hljs-symbol,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#ab875d}.hljs-attribute,.hljs-name,.hljs-section,.hljs-selector-class,.hljs-selector-id,.hljs-title,.hljs-type{color:#9b869b}.hljs-addition,.hljs-keyword,.hljs-selector-tag,.hljs-string{color:#8f9c6c}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/codepen-embed.min/" data-id="clt8trquo007758s4f14k6d8o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-birb.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-birb.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:15.849Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.birb=Prism.languages.extend("clike",{string:{pattern:/r?("|')(?:\\.|(?!\1)[^\\])*\1/,greedy:!0},"class-name":[/\b[A-Z](?:[\d_]*[a-zA-Z]\w*)?\b/,/\b(?:[A-Z]\w*|(?!(?:var|void)\b)[a-z]\w*)(?=\s+\w+\s*[;,=()])/],keyword:/\b(?:assert|break|case|class|const|default|else|enum|final|follows|for|grab|if|nest|new|next|noSeeb|return|static|switch|throw|var|void|while)\b/,operator:/\+\+|--|&&|\|\||<<=?|>>=?|~(?:\/=?)?|[+\-*\/%&^|=!<>]=?|\?|:/,variable:/\b[a-z_]\w*\b/}),Prism.languages.insertBefore("birb","function",{metadata:{pattern:/<\w+>/,greedy:!0,alias:"symbol"}});
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-birb.min/" data-id="clt8trqxn00e958s47qwb4jn4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/174/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/173/">173</a><a class="page-number" href="/page/174/">174</a><span class="page-number current">175</span><a class="page-number" href="/page/176/">176</a><a class="page-number" href="/page/177/">177</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/176/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

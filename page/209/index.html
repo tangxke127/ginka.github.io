@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/209/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/luxon/src/impl/conversions" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/luxon/src/impl/conversions/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.666Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        import {
+  integerBetween,
+  isLeapYear,
+  timeObject,
+  daysInYear,
+  daysInMonth,
+  weeksInWeekYear,
+  isInteger,
+  isUndefined,
+} from "./util.js";
+import Invalid from "./invalid.js";
+import { ConflictingSpecificationError } from "../errors.js";
+
+const nonLeapLadder = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
+  leapLadder = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
+
+function unitOutOfRange(unit, value) {
+  return new Invalid(
+    "unit out of range",
+    `you specified ${value} (of type ${typeof value}) as a ${unit}, which is invalid`
+  );
+}
+
+export function dayOfWeek(year, month, day) {
+  const d = new Date(Date.UTC(year, month - 1, day));
+
+  if (year < 100 && year >= 0) {
+    d.setUTCFullYear(d.getUTCFullYear() - 1900);
+  }
+
+  const js = d.getUTCDay();
+
+  return js === 0 ? 7 : js;
+}
+
+function computeOrdinal(year, month, day) {
+  return day + (isLeapYear(year) ? leapLadder : nonLeapLadder)[month - 1];
+}
+
+function uncomputeOrdinal(year, ordinal) {
+  const table = isLeapYear(year) ? leapLadder : nonLeapLadder,
+    month0 = table.findIndex((i) => i < ordinal),
+    day = ordinal - table[month0];
+  return { month: month0 + 1, day };
+}
+
+export function isoWeekdayToLocal(isoWeekday, startOfWeek) {
+  return ((isoWeekday - startOfWeek + 7) % 7) + 1;
+}
+
+/**
+ * @private
+ */
+
+export function gregorianToWeek(gregObj, minDaysInFirstWeek = 4, startOfWeek = 1) {
+  const { year, month, day } = gregObj,
+    ordinal = computeOrdinal(year, month, day),
+    weekday = isoWeekdayToLocal(dayOfWeek(year, month, day), startOfWeek);
+
+  let weekNumber = Math.floor((ordinal - weekday + 14 - minDaysInFirstWeek) / 7),
+    weekYear;
+
+  if (weekNumber < 1) {
+    weekYear = year - 1;
+    weekNumber = weeksInWeekYear(weekYear, minDaysInFirstWeek, startOfWeek);
+  } else if (weekNumber > weeksInWeekYear(year, minDaysInFirstWeek, startOfWeek)) {
+    weekYear = year + 1;
+    weekNumber = 1;
+  } else {
+    weekYear = year;
+  }
+
+  return { weekYear, weekNumber, weekday, ...timeObject(gregObj) };
+}
+
+export function weekToGregorian(weekData, minDaysInFirstWeek = 4, startOfWeek = 1) {
+  const { weekYear, weekNumber, weekday } = weekData,
+    weekdayOfJan4 = isoWeekdayToLocal(dayOfWeek(weekYear, 1, minDaysInFirstWeek), startOfWeek),
+    yearInDays = daysInYear(weekYear);
+
+  let ordinal = weekNumber * 7 + weekday - weekdayOfJan4 - 7 + minDaysInFirstWeek,
+    year;
+
+  if (ordinal < 1) {
+    year = weekYear - 1;
+    ordinal += daysInYear(year);
+  } else if (ordinal > yearInDays) {
+    year = weekYear + 1;
+    ordinal -= daysInYear(weekYear);
+  } else {
+    year = weekYear;
+  }
+
+  const { month, day } = uncomputeOrdinal(year, ordinal);
+  return { year, month, day, ...timeObject(weekData) };
+}
+
+export function gregorianToOrdinal(gregData) {
+  const { year, month, day } = gregData;
+  const ordinal = computeOrdinal(year, month, day);
+  return { year, ordinal, ...timeObject(gregData) };
+}
+
+export function ordinalToGregorian(ordinalData) {
+  const { year, ordinal } = ordinalData;
+  const { month, day } = uncomputeOrdinal(year, ordinal);
+  return { year, month, day, ...timeObject(ordinalData) };
+}
+
+/**
+ * Check if local week units like localWeekday are used in obj.
+ * If so, validates that they are not mixed with ISO week units and then copies them to the normal week unit properties.
+ * Modifies obj in-place!
+ * @param obj the object values
+ */
+export function usesLocalWeekValues(obj, loc) {
+  const hasLocaleWeekData =
+    !isUndefined(obj.localWeekday) ||
+    !isUndefined(obj.localWeekNumber) ||
+    !isUndefined(obj.localWeekYear);
+  if (hasLocaleWeekData) {
+    const hasIsoWeekData =
+      !isUndefined(obj.weekday) || !isUndefined(obj.weekNumber) || !isUndefined(obj.weekYear);
+
+    if (hasIsoWeekData) {
+      throw new ConflictingSpecificationError(
+        "Cannot mix locale-based week fields with ISO-based week fields"
+      );
+    }
+    if (!isUndefined(obj.localWeekday)) obj.weekday = obj.localWeekday;
+    if (!isUndefined(obj.localWeekNumber)) obj.weekNumber = obj.localWeekNumber;
+    if (!isUndefined(obj.localWeekYear)) obj.weekYear = obj.localWeekYear;
+    delete obj.localWeekday;
+    delete obj.localWeekNumber;
+    delete obj.localWeekYear;
+    return {
+      minDaysInFirstWeek: loc.getMinDaysInFirstWeek(),
+      startOfWeek: loc.getStartOfWeek(),
+    };
+  } else {
+    return { minDaysInFirstWeek: 4, startOfWeek: 1 };
+  }
+}
+
+export function hasInvalidWeekData(obj, minDaysInFirstWeek = 4, startOfWeek = 1) {
+  const validYear = isInteger(obj.weekYear),
+    validWeek = integerBetween(
+      obj.weekNumber,
+      1,
+      weeksInWeekYear(obj.weekYear, minDaysInFirstWeek, startOfWeek)
+    ),
+    validWeekday = integerBetween(obj.weekday, 1, 7);
+
+  if (!validYear) {
+    return unitOutOfRange("weekYear", obj.weekYear);
+  } else if (!validWeek) {
+    return unitOutOfRange("week", obj.weekNumber);
+  } else if (!validWeekday) {
+    return unitOutOfRange("weekday", obj.weekday);
+  } else return false;
+}
+
+export function hasInvalidOrdinalData(obj) {
+  const validYear = isInteger(obj.year),
+    validOrdinal = integerBetween(obj.ordinal, 1, daysInYear(obj.year));
+
+  if (!validYear) {
+    return unitOutOfRange("year", obj.year);
+  } else if (!validOrdinal) {
+    return unitOutOfRange("ordinal", obj.ordinal);
+  } else return false;
+}
+
+export function hasInvalidGregorianData(obj) {
+  const validYear = isInteger(obj.year),
+    validMonth = integerBetween(obj.month, 1, 12),
+    validDay = integerBetween(obj.day, 1, daysInMonth(obj.year, obj.month));
+
+  if (!validYear) {
+    return unitOutOfRange("year", obj.year);
+  } else if (!validMonth) {
+    return unitOutOfRange("month", obj.month);
+  } else if (!validDay) {
+    return unitOutOfRange("day", obj.day);
+  } else return false;
+}
+
+export function hasInvalidTimeData(obj) {
+  const { hour, minute, second, millisecond } = obj;
+  const validHour =
+      integerBetween(hour, 0, 23) ||
+      (hour === 24 && minute === 0 && second === 0 && millisecond === 0),
+    validMinute = integerBetween(minute, 0, 59),
+    validSecond = integerBetween(second, 0, 59),
+    validMillisecond = integerBetween(millisecond, 0, 999);
+
+  if (!validHour) {
+    return unitOutOfRange("hour", hour);
+  } else if (!validMinute) {
+    return unitOutOfRange("minute", minute);
+  } else if (!validSecond) {
+    return unitOutOfRange("second", second);
+  } else if (!validMillisecond) {
+    return unitOutOfRange("millisecond", millisecond);
+  } else return false;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/luxon/src/impl/conversions/" data-id="clt8trrds01pt58s4depygm0e" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/nunjucks/src/lexer" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/nunjucks/src/lexer/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.656Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        'use strict';
+
+var lib = require('./lib');
+var whitespaceChars = " \n\t\r\xA0";
+var delimChars = '()[]{}%*-+~/#,:|.<>=!';
+var intChars = '0123456789';
+var BLOCK_START = '{%';
+var BLOCK_END = '%}';
+var VARIABLE_START = '{{';
+var VARIABLE_END = '}}';
+var COMMENT_START = '{#';
+var COMMENT_END = '#}';
+var TOKEN_STRING = 'string';
+var TOKEN_WHITESPACE = 'whitespace';
+var TOKEN_DATA = 'data';
+var TOKEN_BLOCK_START = 'block-start';
+var TOKEN_BLOCK_END = 'block-end';
+var TOKEN_VARIABLE_START = 'variable-start';
+var TOKEN_VARIABLE_END = 'variable-end';
+var TOKEN_COMMENT = 'comment';
+var TOKEN_LEFT_PAREN = 'left-paren';
+var TOKEN_RIGHT_PAREN = 'right-paren';
+var TOKEN_LEFT_BRACKET = 'left-bracket';
+var TOKEN_RIGHT_BRACKET = 'right-bracket';
+var TOKEN_LEFT_CURLY = 'left-curly';
+var TOKEN_RIGHT_CURLY = 'right-curly';
+var TOKEN_OPERATOR = 'operator';
+var TOKEN_COMMA = 'comma';
+var TOKEN_COLON = 'colon';
+var TOKEN_TILDE = 'tilde';
+var TOKEN_PIPE = 'pipe';
+var TOKEN_INT = 'int';
+var TOKEN_FLOAT = 'float';
+var TOKEN_BOOLEAN = 'boolean';
+var TOKEN_NONE = 'none';
+var TOKEN_SYMBOL = 'symbol';
+var TOKEN_SPECIAL = 'special';
+var TOKEN_REGEX = 'regex';
+function token(type, value, lineno, colno) {
+  return {
+    type: type,
+    value: value,
+    lineno: lineno,
+    colno: colno
+  };
+}
+var Tokenizer = /*#__PURE__*/function () {
+  function Tokenizer(str, opts) {
+    this.str = str;
+    this.index = 0;
+    this.len = str.length;
+    this.lineno = 0;
+    this.colno = 0;
+    this.in_code = false;
+    opts = opts || {};
+    var tags = opts.tags || {};
+    this.tags = {
+      BLOCK_START: tags.blockStart || BLOCK_START,
+      BLOCK_END: tags.blockEnd || BLOCK_END,
+      VARIABLE_START: tags.variableStart || VARIABLE_START,
+      VARIABLE_END: tags.variableEnd || VARIABLE_END,
+      COMMENT_START: tags.commentStart || COMMENT_START,
+      COMMENT_END: tags.commentEnd || COMMENT_END
+    };
+    this.trimBlocks = !!opts.trimBlocks;
+    this.lstripBlocks = !!opts.lstripBlocks;
+  }
+  var _proto = Tokenizer.prototype;
+  _proto.nextToken = function nextToken() {
+    var lineno = this.lineno;
+    var colno = this.colno;
+    var tok;
+    if (this.in_code) {
+      // Otherwise, if we are in a block parse it as code
+      var cur = this.current();
+      if (this.isFinished()) {
+        // We have nothing else to parse
+        return null;
+      } else if (cur === '"' || cur === '\'') {
+        // We've hit a string
+        return token(TOKEN_STRING, this._parseString(cur), lineno, colno);
+      } else if (tok = this._extract(whitespaceChars)) {
+        // We hit some whitespace
+        return token(TOKEN_WHITESPACE, tok, lineno, colno);
+      } else if ((tok = this._extractString(this.tags.BLOCK_END)) || (tok = this._extractString('-' + this.tags.BLOCK_END))) {
+        // Special check for the block end tag
+        //
+        // It is a requirement that start and end tags are composed of
+        // delimiter characters (%{}[] etc), and our code always
+        // breaks on delimiters so we can assume the token parsing
+        // doesn't consume these elsewhere
+        this.in_code = false;
+        if (this.trimBlocks) {
+          cur = this.current();
+          if (cur === '\n') {
+            // Skip newline
+            this.forward();
+          } else if (cur === '\r') {
+            // Skip CRLF newline
+            this.forward();
+            cur = this.current();
+            if (cur === '\n') {
+              this.forward();
+            } else {
+              // Was not a CRLF, so go back
+              this.back();
+            }
+          }
+        }
+        return token(TOKEN_BLOCK_END, tok, lineno, colno);
+      } else if ((tok = this._extractString(this.tags.VARIABLE_END)) || (tok = this._extractString('-' + this.tags.VARIABLE_END))) {
+        // Special check for variable end tag (see above)
+        this.in_code = false;
+        return token(TOKEN_VARIABLE_END, tok, lineno, colno);
+      } else if (cur === 'r' && this.str.charAt(this.index + 1) === '/') {
+        // Skip past 'r/'.
+        this.forwardN(2);
+
+        // Extract until the end of the regex -- / ends it, \/ does not.
+        var regexBody = '';
+        while (!this.isFinished()) {
+          if (this.current() === '/' && this.previous() !== '\\') {
+            this.forward();
+            break;
+          } else {
+            regexBody += this.current();
+            this.forward();
+          }
+        }
+
+        // Check for flags.
+        // The possible flags are according to https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/RegExp)
+        var POSSIBLE_FLAGS = ['g', 'i', 'm', 'y'];
+        var regexFlags = '';
+        while (!this.isFinished()) {
+          var isCurrentAFlag = POSSIBLE_FLAGS.indexOf(this.current()) !== -1;
+          if (isCurrentAFlag) {
+            regexFlags += this.current();
+            this.forward();
+          } else {
+            break;
+          }
+        }
+        return token(TOKEN_REGEX, {
+          body: regexBody,
+          flags: regexFlags
+        }, lineno, colno);
+      } else if (delimChars.indexOf(cur) !== -1) {
+        // We've hit a delimiter (a special char like a bracket)
+        this.forward();
+        var complexOps = ['==', '===', '!=', '!==', '<=', '>=', '//', '**'];
+        var curComplex = cur + this.current();
+        var type;
+        if (lib.indexOf(complexOps, curComplex) !== -1) {
+          this.forward();
+          cur = curComplex;
+
+          // See if this is a strict equality/inequality comparator
+          if (lib.indexOf(complexOps, curComplex + this.current()) !== -1) {
+            cur = curComplex + this.current();
+            this.forward();
+          }
+        }
+        switch (cur) {
+          case '(':
+            type = TOKEN_LEFT_PAREN;
+            break;
+          case ')':
+            type = TOKEN_RIGHT_PAREN;
+            break;
+          case '[':
+            type = TOKEN_LEFT_BRACKET;
+            break;
+          case ']':
+            type = TOKEN_RIGHT_BRACKET;
+            break;
+          case '{':
+            type = TOKEN_LEFT_CURLY;
+            break;
+          case '}':
+            type = TOKEN_RIGHT_CURLY;
+            break;
+          case ',':
+            type = TOKEN_COMMA;
+            break;
+          case ':':
+            type = TOKEN_COLON;
+            break;
+          case '~':
+            type = TOKEN_TILDE;
+            break;
+          case '|':
+            type = TOKEN_PIPE;
+            break;
+          default:
+            type = TOKEN_OPERATOR;
+        }
+        return token(type, cur, lineno, colno);
+      } else {
+        // We are not at whitespace or a delimiter, so extract the
+        // text and parse it
+        tok = this._extractUntil(whitespaceChars + delimChars);
+        if (tok.match(/^[-+]?[0-9]+$/)) {
+          if (this.current() === '.') {
+            this.forward();
+            var dec = this._extract(intChars);
+            return token(TOKEN_FLOAT, tok + '.' + dec, lineno, colno);
+          } else {
+            return token(TOKEN_INT, tok, lineno, colno);
+          }
+        } else if (tok.match(/^(true|false)$/)) {
+          return token(TOKEN_BOOLEAN, tok, lineno, colno);
+        } else if (tok === 'none') {
+          return token(TOKEN_NONE, tok, lineno, colno);
+          /*
+           * Added to make the test `null is null` evaluate truthily.
+           * Otherwise, Nunjucks will look up null in the context and
+           * return `undefined`, which is not what we want. This *may* have
+           * consequences is someone is using null in their templates as a
+           * variable.
+           */
+        } else if (tok === 'null') {
+          return token(TOKEN_NONE, tok, lineno, colno);
+        } else if (tok) {
+          return token(TOKEN_SYMBOL, tok, lineno, colno);
+        } else {
+          throw new Error('Unexpected value while parsing: ' + tok);
+        }
+      }
+    } else {
+      // Parse out the template text, breaking on tag
+      // delimiters because we need to look for block/variable start
+      // tags (don't use the full delimChars for optimization)
+      var beginChars = this.tags.BLOCK_START.charAt(0) + this.tags.VARIABLE_START.charAt(0) + this.tags.COMMENT_START.charAt(0) + this.tags.COMMENT_END.charAt(0);
+      if (this.isFinished()) {
+        return null;
+      } else if ((tok = this._extractString(this.tags.BLOCK_START + '-')) || (tok = this._extractString(this.tags.BLOCK_START))) {
+        this.in_code = true;
+        return token(TOKEN_BLOCK_START, tok, lineno, colno);
+      } else if ((tok = this._extractString(this.tags.VARIABLE_START + '-')) || (tok = this._extractString(this.tags.VARIABLE_START))) {
+        this.in_code = true;
+        return token(TOKEN_VARIABLE_START, tok, lineno, colno);
+      } else {
+        tok = '';
+        var data;
+        var inComment = false;
+        if (this._matches(this.tags.COMMENT_START)) {
+          inComment = true;
+          tok = this._extractString(this.tags.COMMENT_START);
+        }
+
+        // Continually consume text, breaking on the tag delimiter
+        // characters and checking to see if it's a start tag.
+        //
+        // We could hit the end of the template in the middle of
+        // our looping, so check for the null return value from
+        // _extractUntil
+        while ((data = this._extractUntil(beginChars)) !== null) {
+          tok += data;
+          if ((this._matches(this.tags.BLOCK_START) || this._matches(this.tags.VARIABLE_START) || this._matches(this.tags.COMMENT_START)) && !inComment) {
+            if (this.lstripBlocks && this._matches(this.tags.BLOCK_START) && this.colno > 0 && this.colno <= tok.length) {
+              var lastLine = tok.slice(-this.colno);
+              if (/^\s+$/.test(lastLine)) {
+                // Remove block leading whitespace from beginning of the string
+                tok = tok.slice(0, -this.colno);
+                if (!tok.length) {
+                  // All data removed, collapse to avoid unnecessary nodes
+                  // by returning next token (block start)
+                  return this.nextToken();
+                }
+              }
+            }
+            // If it is a start tag, stop looping
+            break;
+          } else if (this._matches(this.tags.COMMENT_END)) {
+            if (!inComment) {
+              throw new Error('unexpected end of comment');
+            }
+            tok += this._extractString(this.tags.COMMENT_END);
+            break;
+          } else {
+            // It does not match any tag, so add the character and
+            // carry on
+            tok += this.current();
+            this.forward();
+          }
+        }
+        if (data === null && inComment) {
+          throw new Error('expected end of comment, got end of file');
+        }
+        return token(inComment ? TOKEN_COMMENT : TOKEN_DATA, tok, lineno, colno);
+      }
+    }
+  };
+  _proto._parseString = function _parseString(delimiter) {
+    this.forward();
+    var str = '';
+    while (!this.isFinished() && this.current() !== delimiter) {
+      var cur = this.current();
+      if (cur === '\\') {
+        this.forward();
+        switch (this.current()) {
+          case 'n':
+            str += '\n';
+            break;
+          case 't':
+            str += '\t';
+            break;
+          case 'r':
+            str += '\r';
+            break;
+          default:
+            str += this.current();
+        }
+        this.forward();
+      } else {
+        str += cur;
+        this.forward();
+      }
+    }
+    this.forward();
+    return str;
+  };
+  _proto._matches = function _matches(str) {
+    if (this.index + str.length > this.len) {
+      return null;
+    }
+    var m = this.str.slice(this.index, this.index + str.length);
+    return m === str;
+  };
+  _proto._extractString = function _extractString(str) {
+    if (this._matches(str)) {
+      this.forwardN(str.length);
+      return str;
+    }
+    return null;
+  };
+  _proto._extractUntil = function _extractUntil(charString) {
+    // Extract all non-matching chars, with the default matching set
+    // to everything
+    return this._extractMatching(true, charString || '');
+  };
+  _proto._extract = function _extract(charString) {
+    // Extract all matching chars (no default, so charString must be
+    // explicit)
+    return this._extractMatching(false, charString);
+  };
+  _proto._extractMatching = function _extractMatching(breakOnMatch, charString) {
+    // Pull out characters until a breaking char is hit.
+    // If breakOnMatch is false, a non-matching char stops it.
+    // If breakOnMatch is true, a matching char stops it.
+
+    if (this.isFinished()) {
+      return null;
+    }
+    var first = charString.indexOf(this.current());
+
+    // Only proceed if the first character doesn't meet our condition
+    if (breakOnMatch && first === -1 || !breakOnMatch && first !== -1) {
+      var t = this.current();
+      this.forward();
+
+      // And pull out all the chars one at a time until we hit a
+      // breaking char
+      var idx = charString.indexOf(this.current());
+      while ((breakOnMatch && idx === -1 || !breakOnMatch && idx !== -1) && !this.isFinished()) {
+        t += this.current();
+        this.forward();
+        idx = charString.indexOf(this.current());
+      }
+      return t;
+    }
+    return '';
+  };
+  _proto._extractRegex = function _extractRegex(regex) {
+    var matches = this.currentStr().match(regex);
+    if (!matches) {
+      return null;
+    }
+
+    // Move forward whatever was matched
+    this.forwardN(matches[0].length);
+    return matches;
+  };
+  _proto.isFinished = function isFinished() {
+    return this.index >= this.len;
+  };
+  _proto.forwardN = function forwardN(n) {
+    for (var i = 0; i < n; i++) {
+      this.forward();
+    }
+  };
+  _proto.forward = function forward() {
+    this.index++;
+    if (this.previous() === '\n') {
+      this.lineno++;
+      this.colno = 0;
+    } else {
+      this.colno++;
+    }
+  };
+  _proto.backN = function backN(n) {
+    for (var i = 0; i < n; i++) {
+      this.back();
+    }
+  };
+  _proto.back = function back() {
+    this.index--;
+    if (this.current() === '\n') {
+      this.lineno--;
+      var idx = this.src.lastIndexOf('\n', this.index - 1);
+      if (idx === -1) {
+        this.colno = this.index;
+      } else {
+        this.colno = this.index - idx;
+      }
+    } else {
+      this.colno--;
+    }
+  }
+
+  // current returns current character
+  ;
+  _proto.current = function current() {
+    if (!this.isFinished()) {
+      return this.str.charAt(this.index);
+    }
+    return '';
+  }
+
+  // currentStr returns what's left of the unparsed string
+  ;
+  _proto.currentStr = function currentStr() {
+    if (!this.isFinished()) {
+      return this.str.substr(this.index);
+    }
+    return '';
+  };
+  _proto.previous = function previous() {
+    return this.str.charAt(this.index - 1);
+  };
+  return Tokenizer;
+}();
+module.exports = {
+  lex: function lex(src, opts) {
+    return new Tokenizer(src, opts);
+  },
+  TOKEN_STRING: TOKEN_STRING,
+  TOKEN_WHITESPACE: TOKEN_WHITESPACE,
+  TOKEN_DATA: TOKEN_DATA,
+  TOKEN_BLOCK_START: TOKEN_BLOCK_START,
+  TOKEN_BLOCK_END: TOKEN_BLOCK_END,
+  TOKEN_VARIABLE_START: TOKEN_VARIABLE_START,
+  TOKEN_VARIABLE_END: TOKEN_VARIABLE_END,
+  TOKEN_COMMENT: TOKEN_COMMENT,
+  TOKEN_LEFT_PAREN: TOKEN_LEFT_PAREN,
+  TOKEN_RIGHT_PAREN: TOKEN_RIGHT_PAREN,
+  TOKEN_LEFT_BRACKET: TOKEN_LEFT_BRACKET,
+  TOKEN_RIGHT_BRACKET: TOKEN_RIGHT_BRACKET,
+  TOKEN_LEFT_CURLY: TOKEN_LEFT_CURLY,
+  TOKEN_RIGHT_CURLY: TOKEN_RIGHT_CURLY,
+  TOKEN_OPERATOR: TOKEN_OPERATOR,
+  TOKEN_COMMA: TOKEN_COMMA,
+  TOKEN_COLON: TOKEN_COLON,
+  TOKEN_TILDE: TOKEN_TILDE,
+  TOKEN_PIPE: TOKEN_PIPE,
+  TOKEN_INT: TOKEN_INT,
+  TOKEN_FLOAT: TOKEN_FLOAT,
+  TOKEN_BOOLEAN: TOKEN_BOOLEAN,
+  TOKEN_NONE: TOKEN_NONE,
+  TOKEN_SYMBOL: TOKEN_SYMBOL,
+  TOKEN_SPECIAL: TOKEN_SPECIAL,
+  TOKEN_REGEX: TOKEN_REGEX
+};
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/nunjucks/src/lexer/" data-id="clt8trqwg00bf58s49799br2v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/hexo-util/lib/escape_regexp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/hexo-util/lib/escape_regexp/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.650Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        'use strict';
+
+function escapeRegExp(str) {
+  if (typeof str !== 'string') throw new TypeError('str must be a string!');
+
+  // http://stackoverflow.com/a/6969486
+  return str.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&');
+}
+
+module.exports = escapeRegExp;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/hexo-util/lib/escape_regexp/" data-id="clt8trqtv005o58s4de5w53b8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/an-old-hope.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/an-old-hope.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.650Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
+  Theme: An Old Hope – Star Wars Syntax
+  Author: (c) Gustavo Costa <gusbemacbe@gmail.com>
+  Maintainer: @gusbemacbe
+
+  Original theme - Ocean Dark Theme – by https://github.com/gavsiu
+  Based on Jesse Leite's Atom syntax theme 'An Old Hope'
+    https://github.com/JesseLeite/an-old-hope-syntax-atom
+*/.hljs{background:#1c1d21;color:#c0c5ce}.hljs-comment,.hljs-quote{color:#b6b18b}.hljs-deletion,.hljs-name,.hljs-regexp,.hljs-selector-class,.hljs-selector-id,.hljs-tag,.hljs-template-variable,.hljs-variable{color:#eb3c54}.hljs-built_in,.hljs-link,.hljs-literal,.hljs-meta,.hljs-number,.hljs-params,.hljs-type{color:#e7ce56}.hljs-attribute{color:#ee7c2b}.hljs-addition,.hljs-bullet,.hljs-string,.hljs-symbol{color:#4fb4d7}.hljs-section,.hljs-title{color:#78bb65}.hljs-keyword,.hljs-selector-tag{color:#b45ea4}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/an-old-hope.min/" data-id="clt8trqug006p58s48lq89w21" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/diff-highlight/prism-diff-highlight" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/diff-highlight/prism-diff-highlight/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.636Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre.diff-highlight > code .token.deleted:not(.prefix),
+pre > code.diff-highlight .token.deleted:not(.prefix) {
+	background-color: rgba(255, 0, 0, .1);
+	color: inherit;
+	display: block;
+}
+
+pre.diff-highlight > code .token.inserted:not(.prefix),
+pre > code.diff-highlight .token.inserted:not(.prefix) {
+	background-color: rgba(0, 255, 128, .1);
+	color: inherit;
+	display: block;
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/diff-highlight/prism-diff-highlight/" data-id="clt8trre101qs58s48izb9hdg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/no-case/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/no-case/README/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.634Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="No-Case"><a href="#No-Case" class="headerlink" title="No Case"></a>No Case</h1><p><a target="_blank" rel="noopener" href="https://npmjs.org/package/no-case"><img src="https://img.shields.io/npm/v/no-case.svg?style=flat" alt="NPM version"></a><br><a target="_blank" rel="noopener" href="https://npmjs.org/package/no-case"><img src="https://img.shields.io/npm/dm/no-case.svg?style=flat" alt="NPM downloads"></a><br><a target="_blank" rel="noopener" href="https://bundlephobia.com/result?p=no-case"><img src="https://img.shields.io/bundlephobia/minzip/no-case.svg" alt="Bundle size"></a></p>
+<blockquote>
+<p>Transform into a lower cased string with spaces between words.</p>
+</blockquote>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install no-case --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; noCase &#125; <span class="keyword">from</span> <span class="string">&quot;no-case&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">noCase</span>(<span class="string">&quot;string&quot;</span>); <span class="comment">//=&gt; &quot;string&quot;</span></span><br><span class="line"><span class="title function_">noCase</span>(<span class="string">&quot;dot.case&quot;</span>); <span class="comment">//=&gt; &quot;dot case&quot;</span></span><br><span class="line"><span class="title function_">noCase</span>(<span class="string">&quot;PascalCase&quot;</span>); <span class="comment">//=&gt; &quot;pascal case&quot;</span></span><br><span class="line"><span class="title function_">noCase</span>(<span class="string">&quot;version 1.2.10&quot;</span>); <span class="comment">//=&gt; &quot;version 1 2 10&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>The function also accepts <a target="_blank" rel="noopener" href="https://github.com/blakeembrey/change-case#options"><code>options</code></a>.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/no-case/README/" data-id="clt8trqsd002u58s44vssecpg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/dom-serializer/node_modules/entities/lib/maps/xml" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/dom-serializer/node_modules/entities/lib/maps/xml/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.616Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        {"amp":"&","apos":"'","gt":">","lt":"<","quot":"\""}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/dom-serializer/node_modules/entities/lib/maps/xml/" data-id="clt8trrek01sr58s4h3s1ao4j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/braces/lib/utils" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/braces/lib/utils/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.611Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        'use strict';
+
+exports.isInteger = num => {
+  if (typeof num === 'number') {
+    return Number.isInteger(num);
+  }
+  if (typeof num === 'string' && num.trim() !== '') {
+    return Number.isInteger(Number(num));
+  }
+  return false;
+};
+
+/**
+ * Find a node of the given type
+ */
+
+exports.find = (node, type) => node.nodes.find(node => node.type === type);
+
+/**
+ * Find a node of the given type
+ */
+
+exports.exceedsLimit = (min, max, step = 1, limit) => {
+  if (limit === false) return false;
+  if (!exports.isInteger(min) || !exports.isInteger(max)) return false;
+  return ((Number(max) - Number(min)) / Number(step)) >= limit;
+};
+
+/**
+ * Escape the given node with '\\' before node.value
+ */
+
+exports.escapeNode = (block, n = 0, type) => {
+  let node = block.nodes[n];
+  if (!node) return;
+
+  if ((type && node.type === type) || node.type === 'open' || node.type === 'close') {
+    if (node.escaped !== true) {
+      node.value = '\\' + node.value;
+      node.escaped = true;
+    }
+  }
+};
+
+/**
+ * Returns true if the given brace node should be enclosed in literal braces
+ */
+
+exports.encloseBrace = node => {
+  if (node.type !== 'brace') return false;
+  if ((node.commas >> 0 + node.ranges >> 0) === 0) {
+    node.invalid = true;
+    return true;
+  }
+  return false;
+};
+
+/**
+ * Returns true if a brace node is invalid.
+ */
+
+exports.isInvalidBrace = block => {
+  if (block.type !== 'brace') return false;
+  if (block.invalid === true || block.dollar) return true;
+  if ((block.commas >> 0 + block.ranges >> 0) === 0) {
+    block.invalid = true;
+    return true;
+  }
+  if (block.open !== true || block.close !== true) {
+    block.invalid = true;
+    return true;
+  }
+  return false;
+};
+
+/**
+ * Returns true if a node is an open or close node
+ */
+
+exports.isOpenOrClose = node => {
+  if (node.type === 'open' || node.type === 'close') {
+    return true;
+  }
+  return node.open === true || node.close === true;
+};
+
+/**
+ * Reduce an array of text nodes.
+ */
+
+exports.reduce = nodes => nodes.reduce((acc, node) => {
+  if (node.type === 'text') acc.push(node.value);
+  if (node.type === 'range') node.type = 'text';
+  return acc;
+}, []);
+
+/**
+ * Flatten an array
+ */
+
+exports.flatten = (...args) => {
+  const result = [];
+  const flat = arr => {
+    for (let i = 0; i < arr.length; i++) {
+      let ele = arr[i];
+      Array.isArray(ele) ? flat(ele, result) : ele !== void 0 && result.push(ele);
+    }
+    return result;
+  };
+  flat(args);
+  return result;
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/braces/lib/utils/" data-id="clt8trqt6004i58s4gdycgg5r" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/nunjucks/src/jinja-compat" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/nunjucks/src/jinja-compat/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.609Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        "use strict";
+
+function installCompat() {
+  'use strict';
+
+  /* eslint-disable camelcase */
+
+  // This must be called like `nunjucks.installCompat` so that `this`
+  // references the nunjucks instance
+  var runtime = this.runtime;
+  var lib = this.lib;
+  // Handle slim case where these 'modules' are excluded from the built source
+  var Compiler = this.compiler.Compiler;
+  var Parser = this.parser.Parser;
+  var nodes = this.nodes;
+  var lexer = this.lexer;
+  var orig_contextOrFrameLookup = runtime.contextOrFrameLookup;
+  var orig_memberLookup = runtime.memberLookup;
+  var orig_Compiler_assertType;
+  var orig_Parser_parseAggregate;
+  if (Compiler) {
+    orig_Compiler_assertType = Compiler.prototype.assertType;
+  }
+  if (Parser) {
+    orig_Parser_parseAggregate = Parser.prototype.parseAggregate;
+  }
+  function uninstall() {
+    runtime.contextOrFrameLookup = orig_contextOrFrameLookup;
+    runtime.memberLookup = orig_memberLookup;
+    if (Compiler) {
+      Compiler.prototype.assertType = orig_Compiler_assertType;
+    }
+    if (Parser) {
+      Parser.prototype.parseAggregate = orig_Parser_parseAggregate;
+    }
+  }
+  runtime.contextOrFrameLookup = function contextOrFrameLookup(context, frame, key) {
+    var val = orig_contextOrFrameLookup.apply(this, arguments);
+    if (val !== undefined) {
+      return val;
+    }
+    switch (key) {
+      case 'True':
+        return true;
+      case 'False':
+        return false;
+      case 'None':
+        return null;
+      default:
+        return undefined;
+    }
+  };
+  function getTokensState(tokens) {
+    return {
+      index: tokens.index,
+      lineno: tokens.lineno,
+      colno: tokens.colno
+    };
+  }
+  if (process.env.BUILD_TYPE !== 'SLIM' && nodes && Compiler && Parser) {
+    // i.e., not slim mode
+    var Slice = nodes.Node.extend('Slice', {
+      fields: ['start', 'stop', 'step'],
+      init: function init(lineno, colno, start, stop, step) {
+        start = start || new nodes.Literal(lineno, colno, null);
+        stop = stop || new nodes.Literal(lineno, colno, null);
+        step = step || new nodes.Literal(lineno, colno, 1);
+        this.parent(lineno, colno, start, stop, step);
+      }
+    });
+    Compiler.prototype.assertType = function assertType(node) {
+      if (node instanceof Slice) {
+        return;
+      }
+      orig_Compiler_assertType.apply(this, arguments);
+    };
+    Compiler.prototype.compileSlice = function compileSlice(node, frame) {
+      this._emit('(');
+      this._compileExpression(node.start, frame);
+      this._emit('),(');
+      this._compileExpression(node.stop, frame);
+      this._emit('),(');
+      this._compileExpression(node.step, frame);
+      this._emit(')');
+    };
+    Parser.prototype.parseAggregate = function parseAggregate() {
+      var _this = this;
+      var origState = getTokensState(this.tokens);
+      // Set back one accounting for opening bracket/parens
+      origState.colno--;
+      origState.index--;
+      try {
+        return orig_Parser_parseAggregate.apply(this);
+      } catch (e) {
+        var errState = getTokensState(this.tokens);
+        var rethrow = function rethrow() {
+          lib._assign(_this.tokens, errState);
+          return e;
+        };
+
+        // Reset to state before original parseAggregate called
+        lib._assign(this.tokens, origState);
+        this.peeked = false;
+        var tok = this.peekToken();
+        if (tok.type !== lexer.TOKEN_LEFT_BRACKET) {
+          throw rethrow();
+        } else {
+          this.nextToken();
+        }
+        var node = new Slice(tok.lineno, tok.colno);
+
+        // If we don't encounter a colon while parsing, this is not a slice,
+        // so re-raise the original exception.
+        var isSlice = false;
+        for (var i = 0; i <= node.fields.length; i++) {
+          if (this.skip(lexer.TOKEN_RIGHT_BRACKET)) {
+            break;
+          }
+          if (i === node.fields.length) {
+            if (isSlice) {
+              this.fail('parseSlice: too many slice components', tok.lineno, tok.colno);
+            } else {
+              break;
+            }
+          }
+          if (this.skip(lexer.TOKEN_COLON)) {
+            isSlice = true;
+          } else {
+            var field = node.fields[i];
+            node[field] = this.parseExpression();
+            isSlice = this.skip(lexer.TOKEN_COLON) || isSlice;
+          }
+        }
+        if (!isSlice) {
+          throw rethrow();
+        }
+        return new nodes.Array(tok.lineno, tok.colno, [node]);
+      }
+    };
+  }
+  function sliceLookup(obj, start, stop, step) {
+    obj = obj || [];
+    if (start === null) {
+      start = step < 0 ? obj.length - 1 : 0;
+    }
+    if (stop === null) {
+      stop = step < 0 ? -1 : obj.length;
+    } else if (stop < 0) {
+      stop += obj.length;
+    }
+    if (start < 0) {
+      start += obj.length;
+    }
+    var results = [];
+    for (var i = start;; i += step) {
+      if (i < 0 || i > obj.length) {
+        break;
+      }
+      if (step > 0 && i >= stop) {
+        break;
+      }
+      if (step < 0 && i <= stop) {
+        break;
+      }
+      results.push(runtime.memberLookup(obj, i));
+    }
+    return results;
+  }
+  function hasOwnProp(obj, key) {
+    return Object.prototype.hasOwnProperty.call(obj, key);
+  }
+  var ARRAY_MEMBERS = {
+    pop: function pop(index) {
+      if (index === undefined) {
+        return this.pop();
+      }
+      if (index >= this.length || index < 0) {
+        throw new Error('KeyError');
+      }
+      return this.splice(index, 1);
+    },
+    append: function append(element) {
+      return this.push(element);
+    },
+    remove: function remove(element) {
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] === element) {
+          return this.splice(i, 1);
+        }
+      }
+      throw new Error('ValueError');
+    },
+    count: function count(element) {
+      var count = 0;
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] === element) {
+          count++;
+        }
+      }
+      return count;
+    },
+    index: function index(element) {
+      var i;
+      if ((i = this.indexOf(element)) === -1) {
+        throw new Error('ValueError');
+      }
+      return i;
+    },
+    find: function find(element) {
+      return this.indexOf(element);
+    },
+    insert: function insert(index, elem) {
+      return this.splice(index, 0, elem);
+    }
+  };
+  var OBJECT_MEMBERS = {
+    items: function items() {
+      return lib._entries(this);
+    },
+    values: function values() {
+      return lib._values(this);
+    },
+    keys: function keys() {
+      return lib.keys(this);
+    },
+    get: function get(key, def) {
+      var output = this[key];
+      if (output === undefined) {
+        output = def;
+      }
+      return output;
+    },
+    has_key: function has_key(key) {
+      return hasOwnProp(this, key);
+    },
+    pop: function pop(key, def) {
+      var output = this[key];
+      if (output === undefined && def !== undefined) {
+        output = def;
+      } else if (output === undefined) {
+        throw new Error('KeyError');
+      } else {
+        delete this[key];
+      }
+      return output;
+    },
+    popitem: function popitem() {
+      var keys = lib.keys(this);
+      if (!keys.length) {
+        throw new Error('KeyError');
+      }
+      var k = keys[0];
+      var val = this[k];
+      delete this[k];
+      return [k, val];
+    },
+    setdefault: function setdefault(key, def) {
+      if (def === void 0) {
+        def = null;
+      }
+      if (!(key in this)) {
+        this[key] = def;
+      }
+      return this[key];
+    },
+    update: function update(kwargs) {
+      lib._assign(this, kwargs);
+      return null; // Always returns None
+    }
+  };
+
+  OBJECT_MEMBERS.iteritems = OBJECT_MEMBERS.items;
+  OBJECT_MEMBERS.itervalues = OBJECT_MEMBERS.values;
+  OBJECT_MEMBERS.iterkeys = OBJECT_MEMBERS.keys;
+  runtime.memberLookup = function memberLookup(obj, val, autoescape) {
+    if (arguments.length === 4) {
+      return sliceLookup.apply(this, arguments);
+    }
+    obj = obj || {};
+
+    // If the object is an object, return any of the methods that Python would
+    // otherwise provide.
+    if (lib.isArray(obj) && hasOwnProp(ARRAY_MEMBERS, val)) {
+      return ARRAY_MEMBERS[val].bind(obj);
+    }
+    if (lib.isObject(obj) && hasOwnProp(OBJECT_MEMBERS, val)) {
+      return OBJECT_MEMBERS[val].bind(obj);
+    }
+    return orig_memberLookup.apply(this, arguments);
+  };
+  return uninstall;
+}
+module.exports = installCompat;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/nunjucks/src/jinja-compat/" data-id="clt8trqwg00bd58s4fc8tbm0p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/camel-case/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/camel-case/README/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.607Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Camel-Case"><a href="#Camel-Case" class="headerlink" title="Camel Case"></a>Camel Case</h1><p><a target="_blank" rel="noopener" href="https://npmjs.org/package/camel-case"><img src="https://img.shields.io/npm/v/camel-case.svg?style=flat" alt="NPM version"></a><br><a target="_blank" rel="noopener" href="https://npmjs.org/package/camel-case"><img src="https://img.shields.io/npm/dm/camel-case.svg?style=flat" alt="NPM downloads"></a><br><a target="_blank" rel="noopener" href="https://bundlephobia.com/result?p=camel-case"><img src="https://img.shields.io/bundlephobia/minzip/camel-case.svg" alt="Bundle size"></a></p>
+<blockquote>
+<p>Transform into a string with the separator denoted by the next word capitalized.</p>
+</blockquote>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install camel-case --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; camelCase &#125; <span class="keyword">from</span> <span class="string">&quot;camel-case&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">camelCase</span>(<span class="string">&quot;string&quot;</span>); <span class="comment">//=&gt; &quot;string&quot;</span></span><br><span class="line"><span class="title function_">camelCase</span>(<span class="string">&quot;dot.case&quot;</span>); <span class="comment">//=&gt; &quot;dotCase&quot;</span></span><br><span class="line"><span class="title function_">camelCase</span>(<span class="string">&quot;PascalCase&quot;</span>); <span class="comment">//=&gt; &quot;pascalCase&quot;</span></span><br><span class="line"><span class="title function_">camelCase</span>(<span class="string">&quot;version 1.2.10&quot;</span>); <span class="comment">//=&gt; &quot;version_1_2_10&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>The function also accepts <a target="_blank" rel="noopener" href="https://github.com/blakeembrey/change-case#options"><code>options</code></a>.</p>
+<h3 id="Merge-Numbers"><a href="#Merge-Numbers" class="headerlink" title="Merge Numbers"></a>Merge Numbers</h3><p>If you’d like to remove the behavior prefixing <code>_</code> before numbers, you can use <code>camelCaseTransformMerge</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; camelCaseTransformMerge &#125; <span class="keyword">from</span> <span class="string">&quot;camel-case&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title function_">camelCase</span>(<span class="string">&quot;version 12&quot;</span>, &#123; <span class="attr">transform</span>: camelCaseTransformMerge &#125;); <span class="comment">//=&gt; &quot;version12&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/camel-case/README/" data-id="clt8trqpz000t58s4a8dc6k77" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/208/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/207/">207</a><a class="page-number" href="/page/208/">208</a><span class="page-number current">209</span><a class="page-number" href="/page/210/">210</a><a class="page-number" href="/page/211/">211</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/210/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

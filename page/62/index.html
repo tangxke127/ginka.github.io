@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/62/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/prismjs/components/prism-wren" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-wren/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.025Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        // https://wren.io/
+
+Prism.languages.wren = {
+	// Multiline comments in Wren can have nested multiline comments
+	// Comments: // and /* */
+	'comment': [
+		{
+			// support 3 levels of nesting
+			// regex: \/\*(?:[^*/]|\*(?!\/)|\/(?!\*)|<self>)*\*\/
+			pattern: /\/\*(?:[^*/]|\*(?!\/)|\/(?!\*)|\/\*(?:[^*/]|\*(?!\/)|\/(?!\*)|\/\*(?:[^*/]|\*(?!\/)|\/(?!\*))*\*\/)*\*\/)*\*\//,
+			greedy: true
+		},
+		{
+			pattern: /(^|[^\\:])\/\/.*/,
+			lookbehind: true,
+			greedy: true
+		}
+	],
+
+	// Triple quoted strings are multiline but cannot have interpolation (raw strings)
+	// Based on prism-python.js
+	'triple-quoted-string': {
+		pattern: /"""[\s\S]*?"""/,
+		greedy: true,
+		alias: 'string'
+	},
+
+	// see below
+	'string-literal': null,
+
+	// #!/usr/bin/env wren on the first line
+	'hashbang': {
+		pattern: /^#!\/.+/,
+		greedy: true,
+		alias: 'comment'
+	},
+
+	// Attributes are special keywords to add meta data to classes
+	'attribute': {
+		// #! attributes are stored in class properties
+		// #!myvar = true
+		// #attributes are not stored and dismissed at compilation
+		pattern: /#!?[ \t\u3000]*\w+/,
+		alias: 'keyword'
+	},
+	'class-name': [
+		{
+			// class definition
+			// class Meta {}
+			pattern: /(\bclass\s+)\w+/,
+			lookbehind: true
+		},
+		// A class must always start with an uppercase.
+		// File.read
+		/\b[A-Z][a-z\d_]*\b/,
+	],
+
+	// A constant can be a variable, class, property or method. Just named in all uppercase letters
+	'constant': /\b[A-Z][A-Z\d_]*\b/,
+
+	'null': {
+		pattern: /\bnull\b/,
+		alias: 'keyword'
+	},
+	'keyword': /\b(?:as|break|class|construct|continue|else|for|foreign|if|import|in|is|return|static|super|this|var|while)\b/,
+	'boolean': /\b(?:false|true)\b/,
+	'number': /\b(?:0x[\da-f]+|\d+(?:\.\d+)?(?:e[+-]?\d+)?)\b/i,
+
+	// Functions can be Class.method()
+	'function': /\b[a-z_]\w*(?=\s*[({])/i,
+
+	'operator': /<<|>>|[=!<>]=?|&&|\|\||[-+*/%~^&|?:]|\.{2,3}/,
+	'punctuation': /[\[\](){}.,;]/,
+};
+
+Prism.languages.wren['string-literal'] = {
+	// A single quote string is multiline and can have interpolation (similar to JS backticks ``)
+	pattern: /(^|[^\\"])"(?:[^\\"%]|\\[\s\S]|%(?!\()|%\((?:[^()]|\((?:[^()]|\([^)]*\))*\))*\))*"/,
+	lookbehind: true,
+	greedy: true,
+	inside: {
+		'interpolation': {
+			// "%(interpolation)"
+			pattern: /((?:^|[^\\])(?:\\{2})*)%\((?:[^()]|\((?:[^()]|\([^)]*\))*\))*\)/,
+			lookbehind: true,
+			inside: {
+				'expression': {
+					pattern: /^(%\()[\s\S]+(?=\)$)/,
+					lookbehind: true,
+					inside: Prism.languages.wren
+				},
+				'interpolation-punctuation': {
+					pattern: /^%\(|\)$/,
+					alias: 'punctuation'
+				},
+			}
+		},
+		'string': /[\s\S]+/
+	}
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-wren/" data-id="clt8trr3000sn58s46zgsgxhb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/dsconfig" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/dsconfig/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.024Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+ Language: dsconfig
+ Description: dsconfig batch configuration language for LDAP directory servers
+ Contributors: Jacob Childress <jacobc@gmail.com>
+ Category: enterprise, config
+ */
+
+/** @type LanguageFn */
+function dsconfig(hljs) {
+  const QUOTED_PROPERTY = {
+    className: 'string',
+    begin: /"/,
+    end: /"/
+  };
+  const APOS_PROPERTY = {
+    className: 'string',
+    begin: /'/,
+    end: /'/
+  };
+  const UNQUOTED_PROPERTY = {
+    className: 'string',
+    begin: /[\w\-?]+:\w+/,
+    end: /\W/,
+    relevance: 0
+  };
+  const VALUELESS_PROPERTY = {
+    className: 'string',
+    begin: /\w+(\-\w+)*/,
+    end: /(?=\W)/,
+    relevance: 0
+  };
+
+  return {
+    keywords: 'dsconfig',
+    contains: [
+      {
+        className: 'keyword',
+        begin: '^dsconfig',
+        end: /\s/,
+        excludeEnd: true,
+        relevance: 10
+      },
+      {
+        className: 'built_in',
+        begin: /(list|create|get|set|delete)-(\w+)/,
+        end: /\s/,
+        excludeEnd: true,
+        illegal: '!@#$%^&*()',
+        relevance: 10
+      },
+      {
+        className: 'built_in',
+        begin: /--(\w+)/,
+        end: /\s/,
+        excludeEnd: true
+      },
+      QUOTED_PROPERTY,
+      APOS_PROPERTY,
+      UNQUOTED_PROPERTY,
+      VALUELESS_PROPERTY,
+      hljs.HASH_COMMENT_MODE
+    ]
+  };
+}
+
+export { dsconfig as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/dsconfig/" data-id="clt8trr4n00xb58s42pzrfptn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/dos.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/dos.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.020Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/dos" instead of "highlight.js/lib/languages/dos.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./dos.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/dos.js/" data-id="clt8trr88017x58s40vr8crgj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/wpd/prism-wpd.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/wpd/prism-wpd.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.017Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(){if("undefined"!=typeof Prism){if(Prism.languages.css&&(Prism.languages.css.selector.pattern?(Prism.languages.css.selector.inside["pseudo-class"]=/:[\w-]+/,Prism.languages.css.selector.inside["pseudo-element"]=/::[\w-]+/):Prism.languages.css.selector={pattern:Prism.languages.css.selector,inside:{"pseudo-class":/:[\w-]+/,"pseudo-element":/::[\w-]+/}}),Prism.languages.markup){Prism.languages.markup.tag.inside.tag.inside["tag-id"]=/[\w-]+/;var e={HTML:{a:1,abbr:1,acronym:1,b:1,basefont:1,bdo:1,big:1,blink:1,cite:1,code:1,dfn:1,em:1,kbd:1,i:1,rp:1,rt:1,ruby:1,s:1,samp:1,small:1,spacer:1,strike:1,strong:1,sub:1,sup:1,time:1,tt:1,u:1,var:1,wbr:1,noframes:1,summary:1,command:1,dt:1,dd:1,figure:1,figcaption:1,center:1,section:1,nav:1,article:1,aside:1,hgroup:1,header:1,footer:1,address:1,noscript:1,isIndex:1,main:1,mark:1,marquee:1,meter:1,menu:1},SVG:{animateColor:1,animateMotion:1,animateTransform:1,glyph:1,feBlend:1,feColorMatrix:1,feComponentTransfer:1,feFuncR:1,feFuncG:1,feFuncB:1,feFuncA:1,feComposite:1,feConvolveMatrix:1,feDiffuseLighting:1,feDisplacementMap:1,feFlood:1,feGaussianBlur:1,feImage:1,feMerge:1,feMergeNode:1,feMorphology:1,feOffset:1,feSpecularLighting:1,feTile:1,feTurbulence:1,feDistantLight:1,fePointLight:1,feSpotLight:1,linearGradient:1,radialGradient:1,altGlyph:1,textPath:1,tref:1,altglyph:1,textpath:1,altglyphdef:1,altglyphitem:1,clipPath:1,"color-profile":1,cursor:1,"font-face":1,"font-face-format":1,"font-face-name":1,"font-face-src":1,"font-face-uri":1,foreignObject:1,glyphRef:1,hkern:1,vkern:1},MathML:{}}}var t;Prism.hooks.add("wrap",(function(n){if(("tag-id"==n.type||"property"==n.type&&0!=n.content.indexOf("-")||"rule"==n.type&&0!=n.content.indexOf("@-")||"pseudo-class"==n.type&&0!=n.content.indexOf(":-")||"pseudo-element"==n.type&&0!=n.content.indexOf("::-")||"attr-name"==n.type&&0!=n.content.indexOf("data-"))&&-1===n.content.indexOf("<")&&("css"==n.language||"scss"==n.language||"markup"==n.language)){var a="https://webplatform.github.io/docs/",s=n.content;if("css"==n.language||"scss"==n.language)a+="css/","property"==n.type?a+="properties/":"rule"==n.type?(a+="atrules/",s=s.substring(1)):"pseudo-class"==n.type?(a+="selectors/pseudo-classes/",s=s.substring(1)):"pseudo-element"==n.type&&(a+="selectors/pseudo-elements/",s=s.substring(2));else if("markup"==n.language)if("tag-id"==n.type){if(!(t=function(t){var n=t.toLowerCase();if(e.HTML[n])return"html";if(e.SVG[t])return"svg";if(e.MathML[t])return"mathml";if(0!==e.HTML[n]&&"undefined"!=typeof document){var a=(document.createElement(t).toString().match(/\[object HTML(.+)Element\]/)||[])[1];if(a&&"Unknown"!=a)return e.HTML[n]=1,"html"}if(e.HTML[n]=0,0!==e.SVG[t]&&"undefined"!=typeof document){var s=(document.createElementNS("http://www.w3.org/2000/svg",t).toString().match(/\[object SVG(.+)Element\]/)||[])[1];if(s&&"Unknown"!=s)return e.SVG[t]=1,"svg"}return e.SVG[t]=0,0!==e.MathML[t]&&0===t.indexOf("m")?(e.MathML[t]=1,"mathml"):(e.MathML[t]=0,null)}(n.content)||t))return;a+=t+"/elements/"}else if("attr-name"==n.type){if(!t)return;a+=t+"/attributes/"}a+=s,n.tag="a",n.attributes.href=a,n.attributes.target="_blank"}}))}}();
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/wpd/prism-wpd.min/" data-id="clt8trreh01sj58s4cuhk4odp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/dos.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/dos.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.015Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/dos" instead of "highlight.js/lib/languages/dos.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './dos.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/dos.js/" data-id="clt8trr4n00xa58s4b0apf17w" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/wpd/prism-wpd" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/wpd/prism-wpd/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.014Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        (function () {
+
+	if (typeof Prism === 'undefined') {
+		return;
+	}
+
+	if (Prism.languages.css) {
+		// check whether the selector is an advanced pattern before extending it
+		if (Prism.languages.css.selector.pattern) {
+			Prism.languages.css.selector.inside['pseudo-class'] = /:[\w-]+/;
+			Prism.languages.css.selector.inside['pseudo-element'] = /::[\w-]+/;
+		} else {
+			Prism.languages.css.selector = {
+				pattern: Prism.languages.css.selector,
+				inside: {
+					'pseudo-class': /:[\w-]+/,
+					'pseudo-element': /::[\w-]+/
+				}
+			};
+		}
+	}
+
+	if (Prism.languages.markup) {
+		Prism.languages.markup.tag.inside.tag.inside['tag-id'] = /[\w-]+/;
+
+		var Tags = {
+			HTML: {
+				'a': 1, 'abbr': 1, 'acronym': 1, 'b': 1, 'basefont': 1, 'bdo': 1, 'big': 1, 'blink': 1, 'cite': 1, 'code': 1, 'dfn': 1, 'em': 1, 'kbd': 1, 'i': 1,
+				'rp': 1, 'rt': 1, 'ruby': 1, 's': 1, 'samp': 1, 'small': 1, 'spacer': 1, 'strike': 1, 'strong': 1, 'sub': 1, 'sup': 1, 'time': 1, 'tt': 1, 'u': 1,
+				'var': 1, 'wbr': 1, 'noframes': 1, 'summary': 1, 'command': 1, 'dt': 1, 'dd': 1, 'figure': 1, 'figcaption': 1, 'center': 1, 'section': 1, 'nav': 1,
+				'article': 1, 'aside': 1, 'hgroup': 1, 'header': 1, 'footer': 1, 'address': 1, 'noscript': 1, 'isIndex': 1, 'main': 1, 'mark': 1, 'marquee': 1,
+				'meter': 1, 'menu': 1
+			},
+			SVG: {
+				'animateColor': 1, 'animateMotion': 1, 'animateTransform': 1, 'glyph': 1, 'feBlend': 1, 'feColorMatrix': 1, 'feComponentTransfer': 1,
+				'feFuncR': 1, 'feFuncG': 1, 'feFuncB': 1, 'feFuncA': 1, 'feComposite': 1, 'feConvolveMatrix': 1, 'feDiffuseLighting': 1, 'feDisplacementMap': 1,
+				'feFlood': 1, 'feGaussianBlur': 1, 'feImage': 1, 'feMerge': 1, 'feMergeNode': 1, 'feMorphology': 1, 'feOffset': 1, 'feSpecularLighting': 1,
+				'feTile': 1, 'feTurbulence': 1, 'feDistantLight': 1, 'fePointLight': 1, 'feSpotLight': 1, 'linearGradient': 1, 'radialGradient': 1, 'altGlyph': 1,
+				'textPath': 1, 'tref': 1, 'altglyph': 1, 'textpath': 1, 'altglyphdef': 1, 'altglyphitem': 1, 'clipPath': 1, 'color-profile': 1, 'cursor': 1,
+				'font-face': 1, 'font-face-format': 1, 'font-face-name': 1, 'font-face-src': 1, 'font-face-uri': 1, 'foreignObject': 1, 'glyphRef': 1,
+				'hkern': 1, 'vkern': 1
+			},
+			MathML: {}
+		};
+	}
+
+	var language;
+
+	Prism.hooks.add('wrap', function (env) {
+		if ((env.type == 'tag-id'
+			|| (env.type == 'property' && env.content.indexOf('-') != 0)
+			|| (env.type == 'rule' && env.content.indexOf('@-') != 0)
+			|| (env.type == 'pseudo-class' && env.content.indexOf(':-') != 0)
+			|| (env.type == 'pseudo-element' && env.content.indexOf('::-') != 0)
+			|| (env.type == 'attr-name' && env.content.indexOf('data-') != 0)
+		) && env.content.indexOf('<') === -1
+		) {
+			if (env.language == 'css'
+				|| env.language == 'scss'
+				|| env.language == 'markup'
+			) {
+				var href = 'https://webplatform.github.io/docs/';
+				var content = env.content;
+
+				if (env.language == 'css' || env.language == 'scss') {
+					href += 'css/';
+
+					if (env.type == 'property') {
+						href += 'properties/';
+					} else if (env.type == 'rule') {
+						href += 'atrules/';
+						content = content.substring(1);
+					} else if (env.type == 'pseudo-class') {
+						href += 'selectors/pseudo-classes/';
+						content = content.substring(1);
+					} else if (env.type == 'pseudo-element') {
+						href += 'selectors/pseudo-elements/';
+						content = content.substring(2);
+					}
+				} else if (env.language == 'markup') {
+					if (env.type == 'tag-id') {
+						// Check language
+						language = getLanguage(env.content) || language;
+
+						if (language) {
+							href += language + '/elements/';
+						} else {
+							return; // Abort
+						}
+					} else if (env.type == 'attr-name') {
+						if (language) {
+							href += language + '/attributes/';
+						} else {
+							return; // Abort
+						}
+					}
+				}
+
+				href += content;
+				env.tag = 'a';
+				env.attributes.href = href;
+				env.attributes.target = '_blank';
+			}
+		}
+	});
+
+	function getLanguage(tag) {
+		var tagL = tag.toLowerCase();
+
+		if (Tags.HTML[tagL]) {
+			return 'html';
+		} else if (Tags.SVG[tag]) {
+			return 'svg';
+		} else if (Tags.MathML[tag]) {
+			return 'mathml';
+		}
+
+		// Not in dictionary, perform check
+		if (Tags.HTML[tagL] !== 0 && typeof document !== 'undefined') {
+			var htmlInterface = (document.createElement(tag).toString().match(/\[object HTML(.+)Element\]/) || [])[1];
+
+			if (htmlInterface && htmlInterface != 'Unknown') {
+				Tags.HTML[tagL] = 1;
+				return 'html';
+			}
+		}
+
+		Tags.HTML[tagL] = 0;
+
+		if (Tags.SVG[tag] !== 0 && typeof document !== 'undefined') {
+			var svgInterface = (document.createElementNS('http://www.w3.org/2000/svg', tag).toString().match(/\[object SVG(.+)Element\]/) || [])[1];
+
+			if (svgInterface && svgInterface != 'Unknown') {
+				Tags.SVG[tag] = 1;
+				return 'svg';
+			}
+		}
+
+		Tags.SVG[tag] = 0;
+
+		// Lame way to detect MathML, but browsers don’t expose interface names there :(
+		if (Tags.MathML[tag] !== 0) {
+			if (tag.indexOf('m') === 0) {
+				Tags.MathML[tag] = 1;
+				return 'mathml';
+			}
+		}
+
+		Tags.MathML[tag] = 0;
+
+		return null;
+	}
+
+}());
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/wpd/prism-wpd/" data-id="clt8trreh01sh58s4bjyocq1x" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/dos" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/dos/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.012Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Batch file (DOS)
+Author: Alexander Makarov <sam@rmcreative.ru>
+Contributors: Anton Kochkov <anton.kochkov@gmail.com>
+Website: https://en.wikipedia.org/wiki/Batch_file
+*/
+
+/** @type LanguageFn */
+function dos(hljs) {
+  const COMMENT = hljs.COMMENT(
+    /^\s*@?rem\b/, /$/,
+    { relevance: 10 }
+  );
+  const LABEL = {
+    className: 'symbol',
+    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+    relevance: 0
+  };
+  const KEYWORDS = [
+    "if",
+    "else",
+    "goto",
+    "for",
+    "in",
+    "do",
+    "call",
+    "exit",
+    "not",
+    "exist",
+    "errorlevel",
+    "defined",
+    "equ",
+    "neq",
+    "lss",
+    "leq",
+    "gtr",
+    "geq"
+  ];
+  const BUILT_INS = [
+    "prn",
+    "nul",
+    "lpt3",
+    "lpt2",
+    "lpt1",
+    "con",
+    "com4",
+    "com3",
+    "com2",
+    "com1",
+    "aux",
+    "shift",
+    "cd",
+    "dir",
+    "echo",
+    "setlocal",
+    "endlocal",
+    "set",
+    "pause",
+    "copy",
+    "append",
+    "assoc",
+    "at",
+    "attrib",
+    "break",
+    "cacls",
+    "cd",
+    "chcp",
+    "chdir",
+    "chkdsk",
+    "chkntfs",
+    "cls",
+    "cmd",
+    "color",
+    "comp",
+    "compact",
+    "convert",
+    "date",
+    "dir",
+    "diskcomp",
+    "diskcopy",
+    "doskey",
+    "erase",
+    "fs",
+    "find",
+    "findstr",
+    "format",
+    "ftype",
+    "graftabl",
+    "help",
+    "keyb",
+    "label",
+    "md",
+    "mkdir",
+    "mode",
+    "more",
+    "move",
+    "path",
+    "pause",
+    "print",
+    "popd",
+    "pushd",
+    "promt",
+    "rd",
+    "recover",
+    "rem",
+    "rename",
+    "replace",
+    "restore",
+    "rmdir",
+    "shift",
+    "sort",
+    "start",
+    "subst",
+    "time",
+    "title",
+    "tree",
+    "type",
+    "ver",
+    "verify",
+    "vol",
+    // winutils
+    "ping",
+    "net",
+    "ipconfig",
+    "taskkill",
+    "xcopy",
+    "ren",
+    "del"
+  ];
+  return {
+    name: 'Batch file (DOS)',
+    aliases: [
+      'bat',
+      'cmd'
+    ],
+    case_insensitive: true,
+    illegal: /\/\*/,
+    keywords: {
+      keyword: KEYWORDS,
+      built_in: BUILT_INS
+    },
+    contains: [
+      {
+        className: 'variable',
+        begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
+      },
+      {
+        className: 'function',
+        begin: LABEL.begin,
+        end: 'goto:eof',
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
+          COMMENT
+        ]
+      },
+      {
+        className: 'number',
+        begin: '\\b\\d+',
+        relevance: 0
+      },
+      COMMENT
+    ]
+  };
+}
+
+module.exports = dos;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/dos/" data-id="clt8trr89017z58s46p5qb4bo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-wolfram.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-wolfram.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.011Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.wolfram={comment:/\(\*(?:\(\*(?:[^*]|\*(?!\)))*\*\)|(?!\(\*)[\s\S])*?\*\)/,string:{pattern:/"(?:\\.|[^"\\\r\n])*"/,greedy:!0},keyword:/\b(?:Abs|AbsArg|Accuracy|Block|Do|For|Function|If|Manipulate|Module|Nest|NestList|None|Return|Switch|Table|Which|While)\b/,context:{pattern:/\b\w+`+\w*/,alias:"class-name"},blank:{pattern:/\b\w+_\b/,alias:"regex"},"global-variable":{pattern:/\$\w+/,alias:"variable"},boolean:/\b(?:False|True)\b/,number:/(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,operator:/\/\.|;|=\.|\^=|\^:=|:=|<<|>>|<\||\|>|:>|\|->|->|<-|@@@|@@|@|\/@|=!=|===|==|=|\+|-|\[\/-+%=\]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,punctuation:/[{}[\];(),.:]/},Prism.languages.mathematica=Prism.languages.wolfram,Prism.languages.wl=Prism.languages.wolfram,Prism.languages.nb=Prism.languages.wolfram;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-wolfram.min/" data-id="clt8trr3000sm58s4hk40hfo3" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-wolfram" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-wolfram/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.009Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.wolfram = {
+	'comment': // Allow one level of nesting - note: regex taken from applescipt
+		/\(\*(?:\(\*(?:[^*]|\*(?!\)))*\*\)|(?!\(\*)[\s\S])*?\*\)/,
+	'string': {
+		pattern: /"(?:\\.|[^"\\\r\n])*"/,
+		greedy: true
+	},
+	'keyword': /\b(?:Abs|AbsArg|Accuracy|Block|Do|For|Function|If|Manipulate|Module|Nest|NestList|None|Return|Switch|Table|Which|While)\b/,
+	'context': {
+		pattern: /\b\w+`+\w*/,
+		alias: 'class-name'
+	},
+	'blank': {
+		pattern: /\b\w+_\b/,
+		alias: 'regex'
+	},
+	'global-variable': {
+		pattern: /\$\w+/,
+		alias: 'variable'
+	},
+	'boolean': /\b(?:False|True)\b/,
+	'number': /(?:\b(?=\d)|\B(?=\.))(?:0[bo])?(?:(?:\d|0x[\da-f])[\da-f]*(?:\.\d*)?|\.\d+)(?:e[+-]?\d+)?j?\b/i,
+	'operator': /\/\.|;|=\.|\^=|\^:=|:=|<<|>>|<\||\|>|:>|\|->|->|<-|@@@|@@|@|\/@|=!=|===|==|=|\+|-|\[\/-+%=\]=?|!=|\*\*?=?|\/\/?=?|<[<=>]?|>[=>]?|[&|^~]/,
+	'punctuation': /[{}[\];(),.:]/
+};
+
+Prism.languages.mathematica = Prism.languages.wolfram;
+Prism.languages.wl = Prism.languages.wolfram;
+Prism.languages.nb = Prism.languages.wolfram;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-wolfram/" data-id="clt8trr2z00sl58s45z6ffq6u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/dos" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/dos/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.009Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Batch file (DOS)
+Author: Alexander Makarov <sam@rmcreative.ru>
+Contributors: Anton Kochkov <anton.kochkov@gmail.com>
+Website: https://en.wikipedia.org/wiki/Batch_file
+*/
+
+/** @type LanguageFn */
+function dos(hljs) {
+  const COMMENT = hljs.COMMENT(
+    /^\s*@?rem\b/, /$/,
+    { relevance: 10 }
+  );
+  const LABEL = {
+    className: 'symbol',
+    begin: '^\\s*[A-Za-z._?][A-Za-z0-9_$#@~.?]*(:|\\s+label)',
+    relevance: 0
+  };
+  const KEYWORDS = [
+    "if",
+    "else",
+    "goto",
+    "for",
+    "in",
+    "do",
+    "call",
+    "exit",
+    "not",
+    "exist",
+    "errorlevel",
+    "defined",
+    "equ",
+    "neq",
+    "lss",
+    "leq",
+    "gtr",
+    "geq"
+  ];
+  const BUILT_INS = [
+    "prn",
+    "nul",
+    "lpt3",
+    "lpt2",
+    "lpt1",
+    "con",
+    "com4",
+    "com3",
+    "com2",
+    "com1",
+    "aux",
+    "shift",
+    "cd",
+    "dir",
+    "echo",
+    "setlocal",
+    "endlocal",
+    "set",
+    "pause",
+    "copy",
+    "append",
+    "assoc",
+    "at",
+    "attrib",
+    "break",
+    "cacls",
+    "cd",
+    "chcp",
+    "chdir",
+    "chkdsk",
+    "chkntfs",
+    "cls",
+    "cmd",
+    "color",
+    "comp",
+    "compact",
+    "convert",
+    "date",
+    "dir",
+    "diskcomp",
+    "diskcopy",
+    "doskey",
+    "erase",
+    "fs",
+    "find",
+    "findstr",
+    "format",
+    "ftype",
+    "graftabl",
+    "help",
+    "keyb",
+    "label",
+    "md",
+    "mkdir",
+    "mode",
+    "more",
+    "move",
+    "path",
+    "pause",
+    "print",
+    "popd",
+    "pushd",
+    "promt",
+    "rd",
+    "recover",
+    "rem",
+    "rename",
+    "replace",
+    "restore",
+    "rmdir",
+    "shift",
+    "sort",
+    "start",
+    "subst",
+    "time",
+    "title",
+    "tree",
+    "type",
+    "ver",
+    "verify",
+    "vol",
+    // winutils
+    "ping",
+    "net",
+    "ipconfig",
+    "taskkill",
+    "xcopy",
+    "ren",
+    "del"
+  ];
+  return {
+    name: 'Batch file (DOS)',
+    aliases: [
+      'bat',
+      'cmd'
+    ],
+    case_insensitive: true,
+    illegal: /\/\*/,
+    keywords: {
+      keyword: KEYWORDS,
+      built_in: BUILT_INS
+    },
+    contains: [
+      {
+        className: 'variable',
+        begin: /%%[^ ]|%[^ ]+?%|![^ ]+?!/
+      },
+      {
+        className: 'function',
+        begin: LABEL.begin,
+        end: 'goto:eof',
+        contains: [
+          hljs.inherit(hljs.TITLE_MODE, { begin: '([_a-zA-Z]\\w*\\.)*([_a-zA-Z]\\w*:)?[_a-zA-Z]\\w*' }),
+          COMMENT
+        ]
+      },
+      {
+        className: 'number',
+        begin: '\\b\\d+',
+        relevance: 0
+      },
+      COMMENT
+    ]
+  };
+}
+
+export { dos as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/dos/" data-id="clt8trr4n00x958s479si13mc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/61/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/60/">60</a><a class="page-number" href="/page/61/">61</a><span class="page-number current">62</span><a class="page-number" href="/page/63/">63</a><a class="page-number" href="/page/64/">64</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/63/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/223/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/which/package" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/which/package/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.400Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        {"author":"Isaac Z. Schlueter <i@izs.me> (http://blog.izs.me)","name":"which","description":"Like which(1) unix command. Find the first instance of an executable in the PATH.","version":"2.0.2","repository":{"type":"git","url":"git://github.com/isaacs/node-which.git"},"main":"which.js","bin":{"node-which":"./bin/node-which"},"license":"ISC","dependencies":{"isexe":"^2.0.0"},"devDependencies":{"mkdirp":"^0.5.0","rimraf":"^2.6.2","tap":"^14.6.9"},"scripts":{"test":"tap","preversion":"npm test","postversion":"npm publish","prepublish":"npm run changelog","prechangelog":"bash gen-changelog.sh","changelog":"git add CHANGELOG.md","postchangelog":"git commit -m 'update changelog - '${npm_package_version}","postpublish":"git push origin --follow-tags"},"files":["which.js","bin/node-which"],"tap":{"check-coverage":true},"engines":{"node":">= 8"}}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/which/package/" data-id="clt8trqt3004b58s4fol2cm45" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/domutils/lib/index" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/domutils/lib/index/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.400Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.hasChildren = exports.isDocument = exports.isComment = exports.isText = exports.isCDATA = exports.isTag = void 0;
+__exportStar(require("./stringify"), exports);
+__exportStar(require("./traversal"), exports);
+__exportStar(require("./manipulation"), exports);
+__exportStar(require("./querying"), exports);
+__exportStar(require("./legacy"), exports);
+__exportStar(require("./helpers"), exports);
+__exportStar(require("./feeds"), exports);
+/** @deprecated Use these methods from `domhandler` directly. */
+var domhandler_1 = require("domhandler");
+Object.defineProperty(exports, "isTag", { enumerable: true, get: function () { return domhandler_1.isTag; } });
+Object.defineProperty(exports, "isCDATA", { enumerable: true, get: function () { return domhandler_1.isCDATA; } });
+Object.defineProperty(exports, "isText", { enumerable: true, get: function () { return domhandler_1.isText; } });
+Object.defineProperty(exports, "isComment", { enumerable: true, get: function () { return domhandler_1.isComment; } });
+Object.defineProperty(exports, "isDocument", { enumerable: true, get: function () { return domhandler_1.isDocument; } });
+Object.defineProperty(exports, "hasChildren", { enumerable: true, get: function () { return domhandler_1.hasChildren; } });
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/domutils/lib/index/" data-id="clt8trqtj005158s43aza9ri6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/glob-parent/CHANGELOG" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/glob-parent/CHANGELOG/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.399Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="5-1-2-2021-03-06"><a href="#5-1-2-2021-03-06" class="headerlink" title="5.1.2 (2021-03-06)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v5.1.1...v5.1.2">5.1.2</a> (2021-03-06)</h3><h3 id="Bug-Fixes"><a href="#Bug-Fixes" class="headerlink" title="Bug Fixes"></a>Bug Fixes</h3><ul>
+<li>eliminate ReDoS (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/issues/36">#36</a>) (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/f9231168b0041fea3f8f954b3cceb56269fc6366">f923116</a>)</li>
+</ul>
+<h3 id="5-1-1-2021-01-27"><a href="#5-1-1-2021-01-27" class="headerlink" title="5.1.1 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v5.1.0...v5.1.1">5.1.1</a> (2021-01-27)</h3><h3 id="Bug-Fixes-1"><a href="#Bug-Fixes-1" class="headerlink" title="Bug Fixes"></a>Bug Fixes</h3><ul>
+<li>unescape exclamation mark (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/issues/26">#26</a>) (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/a98874f1a59e407f4fb1beb0db4efa8392da60bb">a98874f</a>)</li>
+</ul>
+<h2 id="5-1-0-2021-01-27"><a href="#5-1-0-2021-01-27" class="headerlink" title="5.1.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v5.0.0...v5.1.0">5.1.0</a> (2021-01-27)</h2><h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>add <code>flipBackslashes</code> option to disable auto conversion of slashes (closes <a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/issues/24">#24</a>) (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/issues/25">#25</a>) (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/eecf91d5e3834ed78aee39c4eaaae654d76b87b3">eecf91d</a>)</li>
+</ul>
+<h2 id="5-0-0-2021-01-27"><a href="#5-0-0-2021-01-27" class="headerlink" title="5.0.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v4.0.0...v5.0.0">5.0.0</a> (2021-01-27)</h2><h3 id="⚠-BREAKING-CHANGES"><a href="#⚠-BREAKING-CHANGES" class="headerlink" title="⚠ BREAKING CHANGES"></a>⚠ BREAKING CHANGES</h3><ul>
+<li>Drop support for node &lt;6 &amp; bump dependencies</li>
+</ul>
+<h3 id="Miscellaneous-Chores"><a href="#Miscellaneous-Chores" class="headerlink" title="Miscellaneous Chores"></a>Miscellaneous Chores</h3><ul>
+<li>Drop support for node &lt;6 &amp; bump dependencies (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/896c0c00b4e7362f60b96e7fc295ae929245255a">896c0c0</a>)</li>
+</ul>
+<h2 id="4-0-0-2021-01-27"><a href="#4-0-0-2021-01-27" class="headerlink" title="4.0.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v3.1.0...v4.0.0">4.0.0</a> (2021-01-27)</h2><h3 id="⚠-BREAKING-CHANGES-1"><a href="#⚠-BREAKING-CHANGES-1" class="headerlink" title="⚠ BREAKING CHANGES"></a>⚠ BREAKING CHANGES</h3><ul>
+<li>question marks are valid path characters on Windows so avoid flagging as a glob when alone</li>
+<li>Update is-glob dependency</li>
+</ul>
+<h3 id="Features-1"><a href="#Features-1" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>hoist regexps and strings for performance gains (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/4a80667c69355c76a572a5892b0f133c8e1f457e">4a80667</a>)</li>
+<li>question marks are valid path characters on Windows so avoid flagging as a glob when alone (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/2a551dd0dc3235e78bf3c94843d4107072d17841">2a551dd</a>)</li>
+<li>Update is-glob dependency (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/e41fcd895d1f7bc617dba45c9d935a7949b9c281">e41fcd8</a>)</li>
+</ul>
+<h2 id="3-1-0-2021-01-27"><a href="#3-1-0-2021-01-27" class="headerlink" title="3.1.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v3.0.1...v3.1.0">3.1.0</a> (2021-01-27)</h2><h3 id="Features-2"><a href="#Features-2" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>allow basic win32 backslash use (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/272afa5fd070fc0f796386a5993d4ee4a846988b">272afa5</a>)</li>
+<li>handle extglobs (parentheses) containing separators (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/7db1bdb0756e55fd14619e8ce31aa31b17b117fd">7db1bdb</a>)</li>
+<li>new approach to braces&#x2F;brackets handling (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/8269bd89290d99fac9395a354fb56fdcdb80f0be">8269bd8</a>)</li>
+<li>pre-process braces&#x2F;brackets sections (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/9ef8a87f66b1a43d0591e7a8e4fc5a18415ee388">9ef8a87</a>)</li>
+<li>preserve escaped brace&#x2F;bracket at end of string (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/8cfb0ba84202d51571340dcbaf61b79d16a26c76">8cfb0ba</a>)</li>
+</ul>
+<h3 id="Bug-Fixes-2"><a href="#Bug-Fixes-2" class="headerlink" title="Bug Fixes"></a>Bug Fixes</h3><ul>
+<li>trailing escaped square brackets (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/99ec9fecc60ee488ded20a94dd4f18b4f55c4ccf">99ec9fe</a>)</li>
+</ul>
+<h3 id="3-0-1-2021-01-27"><a href="#3-0-1-2021-01-27" class="headerlink" title="3.0.1 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v3.0.0...v3.0.1">3.0.1</a> (2021-01-27)</h3><h3 id="Features-3"><a href="#Features-3" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>use path-dirname ponyfill (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/cdbea5f32a58a54e001a75ddd7c0fccd4776aacc">cdbea5f</a>)</li>
+</ul>
+<h3 id="Bug-Fixes-3"><a href="#Bug-Fixes-3" class="headerlink" title="Bug Fixes"></a>Bug Fixes</h3><ul>
+<li>unescape glob-escaped dirnames on output (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/598c533bdf49c1428bc063aa9b8db40c5a86b030">598c533</a>)</li>
+</ul>
+<h2 id="3-0-0-2021-01-27"><a href="#3-0-0-2021-01-27" class="headerlink" title="3.0.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v2.0.0...v3.0.0">3.0.0</a> (2021-01-27)</h2><h3 id="⚠-BREAKING-CHANGES-2"><a href="#⚠-BREAKING-CHANGES-2" class="headerlink" title="⚠ BREAKING CHANGES"></a>⚠ BREAKING CHANGES</h3><ul>
+<li>update is-glob dependency</li>
+</ul>
+<h3 id="Features-4"><a href="#Features-4" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>update is-glob dependency (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/5c5f8efcee362a8e7638cf8220666acd8784f6bd">5c5f8ef</a>)</li>
+</ul>
+<h2 id="2-0-0-2021-01-27"><a href="#2-0-0-2021-01-27" class="headerlink" title="2.0.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v1.3.0...v2.0.0">2.0.0</a> (2021-01-27)</h2><h3 id="Features-5"><a href="#Features-5" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>move up to dirname regardless of glob characters (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/f97fb83be2e0a9fc8d3b760e789d2ecadd6aa0c2">f97fb83</a>)</li>
+</ul>
+<h2 id="1-3-0-2021-01-27"><a href="#1-3-0-2021-01-27" class="headerlink" title="1.3.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v1.2.0...v1.3.0">1.3.0</a> (2021-01-27)</h2><h2 id="1-2-0-2021-01-27"><a href="#1-2-0-2021-01-27" class="headerlink" title="1.2.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v1.1.0...v1.2.0">1.2.0</a> (2021-01-27)</h2><h3 id="Reverts"><a href="#Reverts" class="headerlink" title="Reverts"></a>Reverts</h3><ul>
+<li>feat: make regex test strings smaller (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/dc80fa9658dca20549cfeba44bbd37d5246fcce0">dc80fa9</a>)</li>
+</ul>
+<h2 id="1-1-0-2021-01-27"><a href="#1-1-0-2021-01-27" class="headerlink" title="1.1.0 (2021-01-27)"></a><a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/compare/v1.0.0...v1.1.0">1.1.0</a> (2021-01-27)</h2><h3 id="Features-6"><a href="#Features-6" class="headerlink" title="Features"></a>Features</h3><ul>
+<li>make regex test strings smaller (<a target="_blank" rel="noopener" href="https://github.com/gulpjs/glob-parent/commit/cd832208638f45169f986d80fcf66e401f35d233">cd83220</a>)</li>
+</ul>
+<h2 id="1-0-0-2021-01-27"><a href="#1-0-0-2021-01-27" class="headerlink" title="1.0.0 (2021-01-27)"></a>1.0.0 (2021-01-27)</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/glob-parent/CHANGELOG/" data-id="clt8trqra001q58s46ojvclac" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/hexo-fs/package" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/hexo-fs/package/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.399Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        {"name":"hexo-fs","version":"4.1.1","description":"File system module for Hexo.","main":"./dist/fs.js","scripts":{"prepublish ":"npm install && npm run clean && npm run build","build":"tsc -b","clean":"tsc -b --clean","eslint":"eslint .","pretest":"npm run clean && npm run build","test":"mocha test/index.js --require ts-node/register","test-cov":"c8 --reporter=lcovonly npm run test"},"files":["dist/**"],"types":"./dist/fs.d.ts","repository":"hexojs/hexo-fs","homepage":"https://hexo.io/","keywords":["file","file system","fs","hexo"],"author":"Tommy Chen <tommy351@gmail.com> (https://zespia.tw)","maintainers":["Abner Chou <hi@abnerchou.me> (https://abnerchou.me)"],"license":"MIT","dependencies":{"bluebird":"^3.7.2","chokidar":"^3.5.3","graceful-fs":"^4.2.10","hexo-util":"^2.7.0"},"devDependencies":{"@types/bluebird":"^3.5.36","@types/graceful-fs":"^4.1.5","@types/node":"^18.7.16","@typescript-eslint/eslint-plugin":"^5.36.2","@typescript-eslint/parser":"^5.36.2","c8":"^7.12.0","chai":"^4.3.6","eslint":"^8.23.0","eslint-config-hexo":"^5.0.0","eslint-plugin-import":"^2.26.0","mocha":"^10.0.0","ts-node":"^10.9.1","typescript":"^4.8.3"},"engines":{"node":">=14"}}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/hexo-fs/package/" data-id="clt8trqri001x58s42uf01abm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/bluebird/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/bluebird/README/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.398Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <a target="_blank" rel="noopener" href="http://promisesaplus.com/">
+    <img src="http://promisesaplus.com/assets/logo-small.png" alt="Promises/A+ logo"
+         title="Promises/A+ 1.1 compliant" align="right" />
+</a>
+
+
+<p><a target="_blank" rel="noopener" href="https://travis-ci.org/petkaantonov/bluebird"><img src="https://travis-ci.org/petkaantonov/bluebird.svg?branch=master" alt="Build Status"></a><br><a target="_blank" rel="noopener" href="http://petkaantonov.github.io/bluebird/coverage/debug/index.html"><img src="https://img.shields.io/badge/coverage-98%25-brightgreen.svg?style=flat" alt="coverage-98%"></a></p>
+<p><strong>Got a question?</strong> Join us on <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/tagged/bluebird">stackoverflow</a>, the <a target="_blank" rel="noopener" href="https://groups.google.com/forum/#!forum/bluebird-js">mailing list</a> or chat on <a target="_blank" rel="noopener" href="https://webchat.freenode.net/?channels=#promises">IRC</a></p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Bluebird is a fully featured promise library with focus on innovative features and performance</p>
+<p>See the <a target="_blank" rel="noopener" href="http://bluebirdjs.com/docs/getting-started.html"><strong>bluebird website</strong></a> for further documentation, references and instructions. See the <a target="_blank" rel="noopener" href="http://bluebirdjs.com/docs/api-reference.html"><strong>API reference</strong></a> here.</p>
+<p>For bluebird 2.x documentation and files, see the <a target="_blank" rel="noopener" href="https://github.com/petkaantonov/bluebird/tree/2.x">2.x tree</a>.</p>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><p>Promises in Node.js 10 are significantly faster than before. Bluebird still includes a lot of features like cancellation, iteration methods and warnings that native promises don’t. If you are using Bluebird for performance rather than for those - please consider giving native promises a shot and running the benchmarks yourself.</p>
+<h1 id="Questions-and-issues"><a href="#Questions-and-issues" class="headerlink" title="Questions and issues"></a>Questions and issues</h1><p>The <a target="_blank" rel="noopener" href="https://github.com/petkaantonov/bluebird/issues">github issue tracker</a> is <strong><em>only</em></strong> for bug reports and feature requests. Anything else, such as questions for help in using the library, should be posted in <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/tagged/bluebird">StackOverflow</a> under tags <code>promise</code> and <code>bluebird</code>.</p>
+<h2 id="Thanks"><a href="#Thanks" class="headerlink" title="Thanks"></a>Thanks</h2><p>Thanks to BrowserStack for providing us with a free account which lets us support old browsers like IE8. </p>
+<h1 id="License"><a href="#License" class="headerlink" title="License"></a>License</h1><p>The MIT License (MIT)</p>
+<p>Copyright (c) 2013-2019 Petka Antonov</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy<br>of this software and associated documentation files (the “Software”), to deal<br>in the Software without restriction, including without limitation the rights<br>to use, copy, modify, merge, publish, distribute, sublicense, and&#x2F;or sell<br>copies of the Software, and to permit persons to whom the Software is<br>furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in<br>all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR<br>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,<br>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE<br>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER<br>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,<br>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN<br>THE SOFTWARE.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/bluebird/README/" data-id="clt8trqp4000m58s4cr109adx" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/tslib/tslib.es6" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/tslib/tslib.es6/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.398Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /******************************************************************************
+Copyright (c) Microsoft Corporation.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+***************************************************************************** */
+/* global Reflect, Promise, SuppressedError, Symbol */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+export function __extends(d, b) {
+    if (typeof b !== "function" && b !== null)
+        throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+export var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    }
+    return __assign.apply(this, arguments);
+}
+
+export function __rest(s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+}
+
+export function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
+
+export function __param(paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+}
+
+export function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
+
+export function __runInitializers(thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+
+export function __propKey(x) {
+    return typeof x === "symbol" ? x : "".concat(x);
+};
+
+export function __setFunctionName(f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
+
+export function __metadata(metadataKey, metadataValue) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
+}
+
+export function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+export function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
+export var __createBinding = Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+        desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+});
+
+export function __exportStar(m, o) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(o, p)) __createBinding(o, m, p);
+}
+
+export function __values(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m) return m.call(o);
+    if (o && typeof o.length === "number") return {
+        next: function () {
+            if (o && i >= o.length) o = void 0;
+            return { value: o && o[i++], done: !o };
+        }
+    };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+}
+
+export function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m) return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
+    }
+    catch (error) { e = { error: error }; }
+    finally {
+        try {
+            if (r && !r.done && (m = i["return"])) m.call(i);
+        }
+        finally { if (e) throw e.error; }
+    }
+    return ar;
+}
+
+/** @deprecated */
+export function __spread() {
+    for (var ar = [], i = 0; i < arguments.length; i++)
+        ar = ar.concat(__read(arguments[i]));
+    return ar;
+}
+
+/** @deprecated */
+export function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+}
+
+export function __spreadArray(to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+}
+
+export function __await(v) {
+    return this instanceof __await ? (this.v = v, this) : new __await(v);
+}
+
+export function __asyncGenerator(thisArg, _arguments, generator) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var g = generator.apply(thisArg, _arguments || []), i, q = [];
+    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
+    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
+    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
+    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+    function fulfill(value) { resume("next", value); }
+    function reject(value) { resume("throw", value); }
+    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
+}
+
+export function __asyncDelegator(o) {
+    var i, p;
+    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
+    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v; } : f; }
+}
+
+export function __asyncValues(o) {
+    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
+    var m = o[Symbol.asyncIterator], i;
+    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
+    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
+}
+
+export function __makeTemplateObject(cooked, raw) {
+    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
+    return cooked;
+};
+
+var __setModuleDefault = Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+};
+
+export function __importStar(mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+}
+
+export function __importDefault(mod) {
+    return (mod && mod.__esModule) ? mod : { default: mod };
+}
+
+export function __classPrivateFieldGet(receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+}
+
+export function __classPrivateFieldSet(receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+}
+
+export function __classPrivateFieldIn(state, receiver) {
+    if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
+    return typeof state === "function" ? receiver === state : state.has(receiver);
+}
+
+export function __addDisposableResource(env, value, async) {
+    if (value !== null && value !== void 0) {
+        if (typeof value !== "object" && typeof value !== "function") throw new TypeError("Object expected.");
+        var dispose;
+        if (async) {
+            if (!Symbol.asyncDispose) throw new TypeError("Symbol.asyncDispose is not defined.");
+            dispose = value[Symbol.asyncDispose];
+        }
+        if (dispose === void 0) {
+            if (!Symbol.dispose) throw new TypeError("Symbol.dispose is not defined.");
+            dispose = value[Symbol.dispose];
+        }
+        if (typeof dispose !== "function") throw new TypeError("Object not disposable.");
+        env.stack.push({ value: value, dispose: dispose, async: async });
+    }
+    else if (async) {
+        env.stack.push({ async: true });
+    }
+    return value;
+}
+
+var _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+    var e = new Error(message);
+    return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
+};
+
+export function __disposeResources(env) {
+    function fail(e) {
+        env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
+        env.hasError = true;
+    }
+    function next() {
+        while (env.stack.length) {
+            var rec = env.stack.pop();
+            try {
+                var result = rec.dispose && rec.dispose.call(rec.value);
+                if (rec.async) return Promise.resolve(result).then(next, function(e) { fail(e); return next(); });
+            }
+            catch (e) {
+                fail(e);
+            }
+        }
+        if (env.hasError) throw env.error;
+    }
+    return next();
+}
+
+export default {
+    __extends: __extends,
+    __assign: __assign,
+    __rest: __rest,
+    __decorate: __decorate,
+    __param: __param,
+    __metadata: __metadata,
+    __awaiter: __awaiter,
+    __generator: __generator,
+    __createBinding: __createBinding,
+    __exportStar: __exportStar,
+    __values: __values,
+    __read: __read,
+    __spread: __spread,
+    __spreadArrays: __spreadArrays,
+    __spreadArray: __spreadArray,
+    __await: __await,
+    __asyncGenerator: __asyncGenerator,
+    __asyncDelegator: __asyncDelegator,
+    __asyncValues: __asyncValues,
+    __makeTemplateObject: __makeTemplateObject,
+    __importStar: __importStar,
+    __importDefault: __importDefault,
+    __classPrivateFieldGet: __classPrivateFieldGet,
+    __classPrivateFieldSet: __classPrivateFieldSet,
+    __classPrivateFieldIn: __classPrivateFieldIn,
+    __addDisposableResource: __addDisposableResource,
+    __disposeResources: __disposeResources,
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/tslib/tslib.es6/" data-id="clt8trqt1004658s4aoad69wl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/is-glob/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/is-glob/README/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.397Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="is-glob"><a href="#is-glob" class="headerlink" title="is-glob    "></a>is-glob <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/is-glob"><img src="https://img.shields.io/npm/v/is-glob.svg?style=flat" alt="NPM version"></a> <a target="_blank" rel="noopener" href="https://npmjs.org/package/is-glob"><img src="https://img.shields.io/npm/dm/is-glob.svg?style=flat" alt="NPM monthly downloads"></a> <a target="_blank" rel="noopener" href="https://npmjs.org/package/is-glob"><img src="https://img.shields.io/npm/dt/is-glob.svg?style=flat" alt="NPM total downloads"></a> <a target="_blank" rel="noopener" href="https://github.com/micromatch/is-glob/actions"><img src="https://img.shields.io/github/workflow/status/micromatch/is-glob/dev" alt="Build Status"></a></h1><blockquote>
+<p>Returns <code>true</code> if the given string looks like a glob pattern or an extglob pattern. This makes it easy to create code that only uses external modules like node-glob when necessary, resulting in much faster code execution and initialization time, and a better user experience.</p>
+</blockquote>
+<p>Please consider following this project’s author, <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">Jon Schlinkert</a>, and consider starring the project to show your :heart: and support.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Install with <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a>:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save is-glob</span><br></pre></td></tr></table></figure>
+
+<p>You might also be interested in <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/is-valid-glob">is-valid-glob</a> and <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/has-glob">has-glob</a>.</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isGlob = <span class="built_in">require</span>(<span class="string">&#x27;is-glob&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="Default-behavior"><a href="#Default-behavior" class="headerlink" title="Default behavior"></a>Default behavior</h3><p><strong>True</strong></p>
+<p>Patterns that have glob characters or regex patterns will return <code>true</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;!foo.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;*.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;**/abc.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/*.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/(aaa|bbb).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/[a-z].js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/&#123;a,b&#125;.js&#x27;</span>);</span><br><span class="line"><span class="comment">//=&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<p>Extglobs</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/@(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/!(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/+(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/*(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/?(a).js&#x27;</span>);</span><br><span class="line"><span class="comment">//=&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>False</strong></p>
+<p>Escaped globs or extglobs return <code>false</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\@(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\!(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\+(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\*(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\?(a).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;\\!foo.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;\\*.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;\\*\\*/abc.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\*.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\(aaa|bbb).js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\[a-z].js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\&#123;a,b&#125;.js&#x27;</span>);</span><br><span class="line"><span class="comment">//=&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<p>Patterns that do not have glob patterns return <code>false</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/def/ghi.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;foo.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/@.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/+.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/?.js&#x27;</span>);</span><br><span class="line"><span class="title function_">isGlob</span>();</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">//=&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<p>Arrays are also <code>false</code> (If you want to check if an array has a glob pattern, use <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/has-glob">has-glob</a>):</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>([<span class="string">&#x27;**/*.js&#x27;</span>]);</span><br><span class="line"><span class="title function_">isGlob</span>([<span class="string">&#x27;foo.js&#x27;</span>]);</span><br><span class="line"><span class="comment">//=&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Option-strict"><a href="#Option-strict" class="headerlink" title="Option strict"></a>Option strict</h3><p>When <code>options.strict === false</code> the behavior is less strict in determining if a pattern is a glob. Meaning that<br>some patterns that would return <code>false</code> may return <code>true</code>. This is done so that matching libraries like <a target="_blank" rel="noopener" href="https://github.com/micromatch/micromatch">micromatch</a> have a chance at determining if the pattern is a glob or not.</p>
+<p><strong>True</strong></p>
+<p>Patterns that have glob characters or regex patterns will return <code>true</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;!foo.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;*.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;**/abc.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/*.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/(aaa|bbb).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/[a-z].js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/&#123;a,b&#125;.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="comment">//=&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<p>Extglobs</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/@(a).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/!(a).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/+(a).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/*(a).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/?(a).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="comment">//=&gt; true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>False</strong></p>
+<p>Escaped globs or extglobs return <code>false</code>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;\\!foo.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;\\*.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;\\*\\*/abc.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\*.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\(aaa|bbb).js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\[a-z].js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="title function_">isGlob</span>(<span class="string">&#x27;abc/\\&#123;a,b&#125;.js&#x27;</span>, &#123;<span class="attr">strict</span>: <span class="literal">false</span>&#125;);</span><br><span class="line"><span class="comment">//=&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><details>
+<summary><strong>Contributing</strong></summary>
+
+<p>Pull requests and stars are always welcome. For bugs and feature requests, <a href="../../issues/new">please create an issue</a>.</p>
+</details>
+
+<details>
+<summary><strong>Running Tests</strong></summary>
+
+<p>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install &amp;&amp; npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+<summary><strong>Building docs</strong></summary>
+
+<p><em>(This project’s readme.md is generated by <a target="_blank" rel="noopener" href="https://github.com/verbose/verb-generate-readme">verb</a>, please don’t edit the readme directly. Any changes to the readme must be made in the <a href=".verb.md">.verb.md</a> readme template.)</em></p>
+<p>To generate the readme, run the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g verbose/verb<span class="comment">#dev verb-generate-readme &amp;&amp; verb</span></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="Related-projects"><a href="#Related-projects" class="headerlink" title="Related projects"></a>Related projects</h3><p>You might also be interested in these projects:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/assemble">assemble</a>: Get the rocks out of your socks! Assemble makes you fast at creating web projects… <a target="_blank" rel="noopener" href="https://github.com/assemble/assemble">more</a> | <a target="_blank" rel="noopener" href="https://github.com/assemble/assemble" title="Get the rocks out of your socks! Assemble makes you fast at creating web projects. Assemble is used by thousands of projects for rapid prototyping, creating themes, scaffolds, boilerplates, e-books, UI components, API documentation, blogs, building websit">homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/base">base</a>: Framework for rapidly creating high quality, server-side node.js applications, using plugins like building blocks | <a target="_blank" rel="noopener" href="https://github.com/node-base/base" title="Framework for rapidly creating high quality, server-side node.js applications, using plugins like building blocks">homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/update">update</a>: Be scalable! Update is a new, open source developer framework and CLI for automating updates… <a target="_blank" rel="noopener" href="https://github.com/update/update">more</a> | <a target="_blank" rel="noopener" href="https://github.com/update/update" title="Be scalable! Update is a new, open source developer framework and CLI for automating updates of any kind in code projects.">homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/verb">verb</a>: Documentation generator for GitHub projects. Verb is extremely powerful, easy to use, and is used… <a target="_blank" rel="noopener" href="https://github.com/verbose/verb">more</a> | <a target="_blank" rel="noopener" href="https://github.com/verbose/verb" title="Documentation generator for GitHub projects. Verb is extremely powerful, easy to use, and is used on hundreds of projects of all sizes to generate everything from API docs to readmes.">homepage</a></li>
+</ul>
+<h3 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h3><table>
+<thead>
+<tr>
+<th><strong>Commits</strong></th>
+<th><strong>Contributor</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>47</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">jonschlinkert</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/doowb">doowb</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/phated">phated</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/danhper">danhper</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/paulmillr">paulmillr</a></td>
+</tr>
+</tbody></table>
+<h3 id="Author"><a href="#Author" class="headerlink" title="Author"></a>Author</h3><p><strong>Jon Schlinkert</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">GitHub Profile</a></li>
+<li><a target="_blank" rel="noopener" href="https://twitter.com/jonschlinkert">Twitter Profile</a></li>
+<li><a target="_blank" rel="noopener" href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</a></li>
+</ul>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>Copyright © 2019, <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">Jon Schlinkert</a>.<br>Released under the <a href="LICENSE">MIT License</a>.</p>
+<hr>
+<p><em>This file was generated by <a target="_blank" rel="noopener" href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</a>, v0.8.0, on March 27, 2019.</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/is-glob/README/" data-id="clt8trqrx002e58s4dgbh4v30" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/picocolors/package" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/picocolors/package/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.397Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        {"name":"picocolors","version":"1.0.0","main":"./picocolors.js","types":"./picocolors.d.ts","browser":{"./picocolors.js":"./picocolors.browser.js"},"sideEffects":false,"description":"The tiniest and the fastest library for terminal output formatting with ANSI colors","files":["picocolors.*","types.ts"],"keywords":["terminal","colors","formatting","cli","console"],"author":"Alexey Raspopov","repository":"alexeyraspopov/picocolors","license":"ISC"}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/picocolors/package/" data-id="clt8trqsl003a58s46ltl5fuj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/a-sync-waterfall/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/a-sync-waterfall/README/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.396Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="a-sync-waterfall"><a href="#a-sync-waterfall" class="headerlink" title="a-sync-waterfall"></a>a-sync-waterfall</h1><p>Simple, isolated sync&#x2F;async waterfall module for JavaScript.</p>
+<p>Runs an array of functions in series, each passing their results to the next in<br>the array. However, if any of the functions pass an error to the callback, the<br>next function is not executed and the main callback is immediately called with<br>the error.</p>
+<p>For browsers and node.js.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><ul>
+<li>Just include a-sync-waterfall before your scripts.</li>
+<li><code>npm install a-sync-waterfall</code> if you’re using node.js.</li>
+</ul>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ul>
+<li><code>waterfall(tasks, optionalCallback, forceAsync);</code></li>
+<li><strong>tasks</strong> - An array of functions to run, each function is passed a<br><code>callback(err, result1, result2, ...)</code> it must call on completion. The first<br>argument is an error (which can be null) and any further arguments will be<br>passed as arguments in order to the next task.</li>
+<li><strong>optionalCallback</strong> - An optional callback to run once all the functions have<br>completed. This will be passed the results of the last task’s callback.</li>
+<li><strong>forceAsync</strong> An optional flag that force tasks run asynchronously even if they are sync.</li>
+</ul>
+<h5 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js:"></a>Node.js:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> waterfall = <span class="built_in">require</span>(<span class="string">&#x27;a-sync-waterfall&#x27;</span>);</span><br><span class="line"><span class="title function_">waterfall</span>(tasks, callback);</span><br></pre></td></tr></table></figure>
+
+<h5 id="Browser"><a href="#Browser" class="headerlink" title="Browser:"></a>Browser:</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> waterfall = <span class="built_in">require</span>(<span class="string">&#x27;a-sync-waterfall&#x27;</span>);</span><br><span class="line"><span class="title function_">waterfall</span>(tasks, callback);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Default:</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">waterfall</span>(tasks, callback);</span><br></pre></td></tr></table></figure>
+
+<h5 id="Tasks-as-Array-of-Functions"><a href="#Tasks-as-Array-of-Functions" class="headerlink" title="Tasks as Array of Functions"></a>Tasks as Array of Functions</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">waterfall</span>([</span><br><span class="line">  <span class="keyword">function</span>(<span class="params">callback</span>)&#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="literal">null</span>, <span class="string">&#x27;one&#x27;</span>, <span class="string">&#x27;two&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">function</span>(<span class="params">arg1, arg2, callback</span>)&#123;</span><br><span class="line">    <span class="title function_">callback</span>(<span class="literal">null</span>, <span class="string">&#x27;three&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">function</span>(<span class="params">arg1, callback</span>)&#123;</span><br><span class="line">    <span class="comment">// arg1 now equals &#x27;three&#x27;</span></span><br><span class="line">    <span class="title function_">callback</span>(<span class="literal">null</span>, <span class="string">&#x27;done&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">], <span class="keyword">function</span> (<span class="params">err, result</span>) &#123;</span><br><span class="line">  <span class="comment">// result now equals &#x27;done&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="Derive-Tasks-from-an-Array-map"><a href="#Derive-Tasks-from-an-Array-map" class="headerlink" title="Derive Tasks from an Array.map"></a>Derive Tasks from an Array.map</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* basic - no arguments */</span></span><br><span class="line"><span class="title function_">waterfall</span>(myArray.<span class="title function_">map</span>(<span class="keyword">function</span> (<span class="params">arrayItem</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">nextCallback</span>) &#123;</span><br><span class="line">    <span class="comment">// same execution for each item, call the next one when done</span></span><br><span class="line">    <span class="title function_">doAsyncThingsWith</span>(arrayItem, nextCallback);</span><br><span class="line">&#125;&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">/* with arguments, initializer function, and final callback */</span></span><br><span class="line"><span class="title function_">waterfall</span>([<span class="keyword">function</span> <span class="title function_">initializer</span> (firstMapFunction) &#123;</span><br><span class="line">    <span class="title function_">firstMapFunction</span>(<span class="literal">null</span>, initialValue);</span><br><span class="line">  &#125;].<span class="title function_">concat</span>(myArray.<span class="title function_">map</span>(<span class="keyword">function</span> (<span class="params">arrayItem</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">function</span> (<span class="params">lastItemResult, nextCallback</span>) &#123;</span><br><span class="line">      <span class="comment">// same execution for each item in the array</span></span><br><span class="line">      <span class="keyword">var</span> itemResult = <span class="title function_">doThingsWith</span>(arrayItem, lastItemResult);</span><br><span class="line">      <span class="comment">// results carried along from each to the next</span></span><br><span class="line">      <span class="title function_">nextCallback</span>(<span class="literal">null</span>, itemResult);</span><br><span class="line">&#125;&#125;)), <span class="keyword">function</span> (<span class="params">err, finalResult</span>) &#123;</span><br><span class="line">  <span class="comment">// final callback</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Acknowledgements"><a href="#Acknowledgements" class="headerlink" title="Acknowledgements"></a>Acknowledgements</h2><p>Hat tip to <a target="_blank" rel="noopener" href="https://github.com/caolan">Caolan McMahon</a> and<br><a target="_blank" rel="noopener" href="https://github.com/paulmillr">Paul Miller</a>, whose prior contributions this is<br>based upon.<br>Also <a target="_blank" rel="noopener" href="https://github.com/es128">Elan Shanker</a> from which this rep is forked</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p><a target="_blank" rel="noopener" href="https://raw.github.com/hydiak/a-sync-waterfall/master/LICENSE">MIT</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/a-sync-waterfall/README/" data-id="clt8trqop000558s4483bbcii" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/graceful-fs/legacy-streams" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/graceful-fs/legacy-streams/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.395Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        var Stream = require('stream').Stream
+
+module.exports = legacy
+
+function legacy (fs) {
+  return {
+    ReadStream: ReadStream,
+    WriteStream: WriteStream
+  }
+
+  function ReadStream (path, options) {
+    if (!(this instanceof ReadStream)) return new ReadStream(path, options);
+
+    Stream.call(this);
+
+    var self = this;
+
+    this.path = path;
+    this.fd = null;
+    this.readable = true;
+    this.paused = false;
+
+    this.flags = 'r';
+    this.mode = 438; /*=0666*/
+    this.bufferSize = 64 * 1024;
+
+    options = options || {};
+
+    // Mixin options into this
+    var keys = Object.keys(options);
+    for (var index = 0, length = keys.length; index < length; index++) {
+      var key = keys[index];
+      this[key] = options[key];
+    }
+
+    if (this.encoding) this.setEncoding(this.encoding);
+
+    if (this.start !== undefined) {
+      if ('number' !== typeof this.start) {
+        throw TypeError('start must be a Number');
+      }
+      if (this.end === undefined) {
+        this.end = Infinity;
+      } else if ('number' !== typeof this.end) {
+        throw TypeError('end must be a Number');
+      }
+
+      if (this.start > this.end) {
+        throw new Error('start must be <= end');
+      }
+
+      this.pos = this.start;
+    }
+
+    if (this.fd !== null) {
+      process.nextTick(function() {
+        self._read();
+      });
+      return;
+    }
+
+    fs.open(this.path, this.flags, this.mode, function (err, fd) {
+      if (err) {
+        self.emit('error', err);
+        self.readable = false;
+        return;
+      }
+
+      self.fd = fd;
+      self.emit('open', fd);
+      self._read();
+    })
+  }
+
+  function WriteStream (path, options) {
+    if (!(this instanceof WriteStream)) return new WriteStream(path, options);
+
+    Stream.call(this);
+
+    this.path = path;
+    this.fd = null;
+    this.writable = true;
+
+    this.flags = 'w';
+    this.encoding = 'binary';
+    this.mode = 438; /*=0666*/
+    this.bytesWritten = 0;
+
+    options = options || {};
+
+    // Mixin options into this
+    var keys = Object.keys(options);
+    for (var index = 0, length = keys.length; index < length; index++) {
+      var key = keys[index];
+      this[key] = options[key];
+    }
+
+    if (this.start !== undefined) {
+      if ('number' !== typeof this.start) {
+        throw TypeError('start must be a Number');
+      }
+      if (this.start < 0) {
+        throw new Error('start must be >= zero');
+      }
+
+      this.pos = this.start;
+    }
+
+    this.busy = false;
+    this._queue = [];
+
+    if (this.fd === null) {
+      this._open = fs.open;
+      this._queue.push([this._open, this.path, this.flags, this.mode, undefined]);
+      this.flush();
+    }
+  }
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/graceful-fs/legacy-streams/" data-id="clt8trqr8001n58s47tv3a9mp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/222/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/221/">221</a><a class="page-number" href="/page/222/">222</a><span class="page-number current">223</span><a class="page-number" href="/page/224/">224</a><a class="page-number" href="/page/225/">225</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/224/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

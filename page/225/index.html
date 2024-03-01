@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/225/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/is-number/README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/is-number/README/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.389Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="is-number"><a href="#is-number" class="headerlink" title="is-number    "></a>is-number <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/is-number"><img src="https://img.shields.io/npm/v/is-number.svg?style=flat" alt="NPM version"></a> <a target="_blank" rel="noopener" href="https://npmjs.org/package/is-number"><img src="https://img.shields.io/npm/dm/is-number.svg?style=flat" alt="NPM monthly downloads"></a> <a target="_blank" rel="noopener" href="https://npmjs.org/package/is-number"><img src="https://img.shields.io/npm/dt/is-number.svg?style=flat" alt="NPM total downloads"></a> <a target="_blank" rel="noopener" href="https://travis-ci.org/jonschlinkert/is-number"><img src="https://img.shields.io/travis/jonschlinkert/is-number.svg?style=flat&label=Travis" alt="Linux Build Status"></a></h1><blockquote>
+<p>Returns true if the value is a finite number.</p>
+</blockquote>
+<p>Please consider following this project’s author, <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">Jon Schlinkert</a>, and consider starring the project to show your :heart: and support.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Install with <a target="_blank" rel="noopener" href="https://www.npmjs.com/">npm</a>:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save is-number</span><br></pre></td></tr></table></figure>
+
+<h2 id="Why-is-this-needed"><a href="#Why-is-this-needed" class="headerlink" title="Why is this needed?"></a>Why is this needed?</h2><p>In JavaScript, it’s not always as straightforward as it should be to reliably check if a value is a number. It’s common for devs to use <code>+</code>, <code>-</code>, or <code>Number()</code> to cast a string value to a number (for example, when values are returned from user input, regex matches, parsers, etc). But there are many non-intuitive edge cases that yield unexpected results:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+[]); <span class="comment">//=&gt; 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="string">&#x27;&#x27;</span>); <span class="comment">//=&gt; 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(+<span class="string">&#x27;   &#x27;</span>); <span class="comment">//=&gt; 0</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="keyword">typeof</span> <span class="title class_">NaN</span>); <span class="comment">//=&gt; &#x27;number&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>This library offers a performant way to smooth out edge cases like these.</p>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isNumber = <span class="built_in">require</span>(<span class="string">&#x27;is-number&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>See the <a href="./test.js">tests</a> for more examples.</p>
+<h3 id="true"><a href="#true" class="headerlink" title="true"></a>true</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isNumber</span>(<span class="number">5e3</span>);               <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">0xff</span>);              <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(-<span class="number">1.1</span>);              <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">0</span>);                 <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">1</span>);                 <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">1.1</span>);               <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">10</span>);                <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">10.10</span>);             <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="number">100</span>);               <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;-1.1&#x27;</span>);            <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;0&#x27;</span>);               <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;012&#x27;</span>);             <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;0xff&#x27;</span>);            <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;1&#x27;</span>);               <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;1.1&#x27;</span>);             <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;10&#x27;</span>);              <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;10.10&#x27;</span>);           <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;100&#x27;</span>);             <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;5e3&#x27;</span>);             <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="built_in">parseInt</span>(<span class="string">&#x27;012&#x27;</span>));   <span class="comment">// true</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="built_in">parseFloat</span>(<span class="string">&#x27;012&#x27;</span>)); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="False"><a href="#False" class="headerlink" title="False"></a>False</h3><p>Everything else is false, as you would expect:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">isNumber</span>(<span class="title class_">Infinity</span>);          <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="title class_">NaN</span>);               <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="literal">null</span>);              <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="literal">undefined</span>);         <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;&#x27;</span>);                <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;   &#x27;</span>);             <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="string">&#x27;foo&#x27;</span>);             <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>([<span class="number">1</span>]);               <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>([]);                <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;&#125;);    <span class="comment">// false</span></span><br><span class="line"><span class="title function_">isNumber</span>(&#123;&#125;);                <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Release-history"><a href="#Release-history" class="headerlink" title="Release history"></a>Release history</h2><h3 id="7-0-0"><a href="#7-0-0" class="headerlink" title="7.0.0"></a>7.0.0</h3><ul>
+<li>Refactor. Now uses <code>.isFinite</code> if it exists.</li>
+<li>Performance is about the same as v6.0 when the value is a string or number. But it’s now 3x-4x faster when the value is not a string or number.</li>
+</ul>
+<h3 id="6-0-0"><a href="#6-0-0" class="headerlink" title="6.0.0"></a>6.0.0</h3><ul>
+<li>Optimizations, thanks to @benaadams.</li>
+</ul>
+<h3 id="5-0-0"><a href="#5-0-0" class="headerlink" title="5.0.0"></a>5.0.0</h3><p><strong>Breaking changes</strong></p>
+<ul>
+<li>removed support for <code>instanceof Number</code> and <code>instanceof String</code></li>
+</ul>
+<h2 id="Benchmarks"><a href="#Benchmarks" class="headerlink" title="Benchmarks"></a>Benchmarks</h2><p>As with all benchmarks, take these with a grain of salt. See the <a href="./benchmark/index.js">benchmarks</a> for more detail.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># all</span><br><span class="line">v7.0 x 413,222 ops/sec ±2.02% (86 runs sampled)</span><br><span class="line">v6.0 x 111,061 ops/sec ±1.29% (85 runs sampled)</span><br><span class="line">parseFloat x 317,596 ops/sec ±1.36% (86 runs sampled)</span><br><span class="line">fastest is &#x27;v7.0&#x27;</span><br><span class="line"></span><br><span class="line"># string</span><br><span class="line">v7.0 x 3,054,496 ops/sec ±1.05% (89 runs sampled)</span><br><span class="line">v6.0 x 2,957,781 ops/sec ±0.98% (88 runs sampled)</span><br><span class="line">parseFloat x 3,071,060 ops/sec ±1.13% (88 runs sampled)</span><br><span class="line">fastest is &#x27;parseFloat,v7.0&#x27;</span><br><span class="line"></span><br><span class="line"># number</span><br><span class="line">v7.0 x 3,146,895 ops/sec ±0.89% (89 runs sampled)</span><br><span class="line">v6.0 x 3,214,038 ops/sec ±1.07% (89 runs sampled)</span><br><span class="line">parseFloat x 3,077,588 ops/sec ±1.07% (87 runs sampled)</span><br><span class="line">fastest is &#x27;v6.0&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><details>
+<summary><strong>Contributing</strong></summary>
+
+<p>Pull requests and stars are always welcome. For bugs and feature requests, <a href="../../issues/new">please create an issue</a>.</p>
+</details>
+
+<details>
+<summary><strong>Running Tests</strong></summary>
+
+<p>Running and reviewing unit tests is a great way to get familiarized with a library and its API. You can install dependencies and run tests with the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install &amp;&amp; npm <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<details>
+<summary><strong>Building docs</strong></summary>
+
+<p><em>(This project’s readme.md is generated by <a target="_blank" rel="noopener" href="https://github.com/verbose/verb-generate-readme">verb</a>, please don’t edit the readme directly. Any changes to the readme must be made in the <a href=".verb.md">.verb.md</a> readme template.)</em></p>
+<p>To generate the readme, run the following command:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g verbose/verb<span class="comment">#dev verb-generate-readme &amp;&amp; verb</span></span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="Related-projects"><a href="#Related-projects" class="headerlink" title="Related projects"></a>Related projects</h3><p>You might also be interested in these projects:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/is-plain-object">is-plain-object</a>: Returns true if an object was created by the <code>Object</code> constructor. | <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/is-plain-object" title="Returns true if an object was created by the `Object` constructor.">homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/is-primitive">is-primitive</a>: Returns <code>true</code> if the value is a primitive.  | <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/is-primitive" title="Returns `true` if the value is a primitive. ">homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/isobject">isobject</a>: Returns true if the value is an object and not an array or null. | <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/isobject" title="Returns true if the value is an object and not an array or null.">homepage</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/kind-of">kind-of</a>: Get the native type of a value. | <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert/kind-of" title="Get the native type of a value.">homepage</a></li>
+</ul>
+<h3 id="Contributors"><a href="#Contributors" class="headerlink" title="Contributors"></a>Contributors</h3><table>
+<thead>
+<tr>
+<th><strong>Commits</strong></th>
+<th><strong>Contributor</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>49</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">jonschlinkert</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/charlike-old">charlike-old</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/benaadams">benaadams</a></td>
+</tr>
+<tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/realityking">realityking</a></td>
+</tr>
+</tbody></table>
+<h3 id="Author"><a href="#Author" class="headerlink" title="Author"></a>Author</h3><p><strong>Jon Schlinkert</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://linkedin.com/in/jonschlinkert">LinkedIn Profile</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">GitHub Profile</a></li>
+<li><a target="_blank" rel="noopener" href="https://twitter.com/jonschlinkert">Twitter Profile</a></li>
+</ul>
+<h3 id="License"><a href="#License" class="headerlink" title="License"></a>License</h3><p>Copyright © 2018, <a target="_blank" rel="noopener" href="https://github.com/jonschlinkert">Jon Schlinkert</a>.<br>Released under the <a href="LICENSE">MIT License</a>.</p>
+<hr>
+<p><em>This file was generated by <a target="_blank" rel="noopener" href="https://github.com/verbose/verb-generate-readme">verb-generate-readme</a>, v0.6.0, on June 15, 2018.</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/is-number/README/" data-id="clt8trqrz002h58s45x4mf1eq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/min-indent/readme" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/min-indent/readme/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.388Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="min-indent"><a href="#min-indent" class="headerlink" title="min-indent "></a>min-indent <a target="_blank" rel="noopener" href="https://travis-ci.org/thejameskyle/min-indent"><img src="https://travis-ci.org/thejameskyle/min-indent.svg?branch=master" alt="Build Status"></a></h1><blockquote>
+<p>Get the shortest leading whitespace from lines in a string</p>
+</blockquote>
+<p>The line with the least number of leading whitespace, ignoring empty lines, determines the number.</p>
+<p>Useful for removing redundant indentation.</p>
+<h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install --save min-indent</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> minIndent = <span class="built_in">require</span>(<span class="string">&#x27;min-indent&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> str = <span class="string">&#x27;\tunicorn\n\t\tcake&#x27;</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	unicorn</span></span><br><span class="line"><span class="comment">		cake</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">minIndent</span>(str); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Related"><a href="#Related" class="headerlink" title="Related"></a>Related</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/strip-indent">strip-indent</a> - Strip leading whitespace from each line in a string</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/strip-indent-cli">strip-indent-cli</a> - CLI for this module</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/sindresorhus/indent-string">indent-string</a> - Indent each line in a string</li>
+</ul>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT © <a target="_blank" rel="noopener" href="https://thejameskyle.com/">James Kyle</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/min-indent/readme/" data-id="clt8trqsb002t58s48o7xfbdh" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/commander/package" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/commander/package/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.384Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        {"name":"commander","version":"5.1.0","description":"the complete solution for node.js command-line programs","keywords":["commander","command","option","parser","cli","argument","args","argv"],"author":"TJ Holowaychuk <tj@vision-media.ca>","license":"MIT","repository":{"type":"git","url":"https://github.com/tj/commander.js.git"},"scripts":{"lint":"eslint index.js \"tests/**/*.js\"","typescript-lint":"eslint typings/*.ts","test":"jest && npm run test-typings","test-typings":"tsc -p tsconfig.json"},"main":"index","files":["index.js","typings/index.d.ts"],"dependencies":{},"devDependencies":{"@types/jest":"^25.2.1","@types/node":"^12.12.36","@typescript-eslint/eslint-plugin":"^2.29.0","eslint":"^6.8.0","eslint-config-standard-with-typescript":"^15.0.1","eslint-plugin-jest":"^23.8.2","jest":"^25.4.0","standard":"^14.3.3","typescript":"^3.7.5"},"typings":"typings/index.d.ts","engines":{"node":">= 6"}}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/commander/package/" data-id="clt8trqqg001158s44vij8tva" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/hexo-util/lib/cache_stream" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/hexo-util/lib/cache_stream/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.382Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        'use strict';
+
+const { Transform } = require('stream');
+
+class CacheStream extends Transform {
+  constructor() {
+    super();
+
+    this._cache = [];
+  }
+
+  _transform(chunk, enc, callback) {
+    const buf = chunk instanceof Buffer ? chunk : Buffer.from(chunk, enc);
+    this._cache.push(buf);
+    this.push(buf);
+    callback();
+  }
+
+  getCache() {
+    return Buffer.concat(this._cache);
+  }
+}
+
+module.exports = CacheStream;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/hexo-util/lib/cache_stream/" data-id="clt8trqtr005g58s43mcohrc7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/3024.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/3024.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.382Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*!
+  Theme: 3024
+  Author: Jan T. Sott (http://github.com/idleberg)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#a5a2a2;background:#090300}.hljs ::selection,.hljs::selection{background-color:#4a4543;color:#a5a2a2}.hljs-comment{color:#5c5855}.hljs-tag{color:#807d7c}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#a5a2a2}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#db2d20}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#e8bbd0}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#fded02}.hljs-strong{font-weight:700;color:#fded02}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#01a252}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#b5e4f4}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#01a0e4}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#a16a94}.hljs-emphasis{color:#a16a94;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#cdab53}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/3024.min/" data-id="clt8trray01g258s4agxs1syn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/autolinker/prism-autolinker.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/autolinker/prism-autolinker.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.382Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        .token a{color:inherit}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/autolinker/prism-autolinker.min/" data-id="clt8trrdx01qe58s4f19ghzyn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/dom-serializer/node_modules/entities/lib/decode" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/dom-serializer/node_modules/entities/lib/decode/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.382Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.decodeHTML = exports.decodeHTMLStrict = exports.decodeXML = void 0;
+var entities_json_1 = __importDefault(require("./maps/entities.json"));
+var legacy_json_1 = __importDefault(require("./maps/legacy.json"));
+var xml_json_1 = __importDefault(require("./maps/xml.json"));
+var decode_codepoint_1 = __importDefault(require("./decode_codepoint"));
+var strictEntityRe = /&(?:[a-zA-Z0-9]+|#[xX][\da-fA-F]+|#\d+);/g;
+exports.decodeXML = getStrictDecoder(xml_json_1.default);
+exports.decodeHTMLStrict = getStrictDecoder(entities_json_1.default);
+function getStrictDecoder(map) {
+    var replace = getReplacer(map);
+    return function (str) { return String(str).replace(strictEntityRe, replace); };
+}
+var sorter = function (a, b) { return (a < b ? 1 : -1); };
+exports.decodeHTML = (function () {
+    var legacy = Object.keys(legacy_json_1.default).sort(sorter);
+    var keys = Object.keys(entities_json_1.default).sort(sorter);
+    for (var i = 0, j = 0; i < keys.length; i++) {
+        if (legacy[j] === keys[i]) {
+            keys[i] += ";?";
+            j++;
+        }
+        else {
+            keys[i] += ";";
+        }
+    }
+    var re = new RegExp("&(?:" + keys.join("|") + "|#[xX][\\da-fA-F]+;?|#\\d+;?)", "g");
+    var replace = getReplacer(entities_json_1.default);
+    function replacer(str) {
+        if (str.substr(-1) !== ";")
+            str += ";";
+        return replace(str);
+    }
+    // TODO consider creating a merged map
+    return function (str) { return String(str).replace(re, replacer); };
+})();
+function getReplacer(map) {
+    return function replace(str) {
+        if (str.charAt(1) === "#") {
+            var secondChar = str.charAt(2);
+            if (secondChar === "X" || secondChar === "x") {
+                return decode_codepoint_1.default(parseInt(str.substr(3), 16));
+            }
+            return decode_codepoint_1.default(parseInt(str.substr(2), 10));
+        }
+        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+        return map[str.slice(1, -1)] || str;
+    };
+}
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/dom-serializer/node_modules/entities/lib/decode/" data-id="clt8trreh01sl58s41ftj3njp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/camel-case/dist/index" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/camel-case/dist/index/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.381Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.camelCase = exports.camelCaseTransformMerge = exports.camelCaseTransform = void 0;
+var tslib_1 = require("tslib");
+var pascal_case_1 = require("pascal-case");
+function camelCaseTransform(input, index) {
+    if (index === 0)
+        return input.toLowerCase();
+    return pascal_case_1.pascalCaseTransform(input, index);
+}
+exports.camelCaseTransform = camelCaseTransform;
+function camelCaseTransformMerge(input, index) {
+    if (index === 0)
+        return input.toLowerCase();
+    return pascal_case_1.pascalCaseTransformMerge(input);
+}
+exports.camelCaseTransformMerge = camelCaseTransformMerge;
+function camelCase(input, options) {
+    if (options === void 0) { options = {}; }
+    return pascal_case_1.pascalCase(input, tslib_1.__assign({ transform: camelCaseTransform }, options));
+}
+exports.camelCase = camelCase;
+//# sourceMappingURL=index.js.map
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/camel-case/dist/index/" data-id="clt8trqt6004j58s47wra57py" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/pascal-case/dist/index" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/pascal-case/dist/index/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.381Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.pascalCase = exports.pascalCaseTransformMerge = exports.pascalCaseTransform = void 0;
+var tslib_1 = require("tslib");
+var no_case_1 = require("no-case");
+function pascalCaseTransform(input, index) {
+    var firstChar = input.charAt(0);
+    var lowerChars = input.substr(1).toLowerCase();
+    if (index > 0 && firstChar >= "0" && firstChar <= "9") {
+        return "_" + firstChar + lowerChars;
+    }
+    return "" + firstChar.toUpperCase() + lowerChars;
+}
+exports.pascalCaseTransform = pascalCaseTransform;
+function pascalCaseTransformMerge(input) {
+    return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
+}
+exports.pascalCaseTransformMerge = pascalCaseTransformMerge;
+function pascalCase(input, options) {
+    if (options === void 0) { options = {}; }
+    return no_case_1.noCase(input, tslib_1.__assign({ delimiter: "", transform: pascalCaseTransform }, options));
+}
+exports.pascalCase = pascalCase;
+//# sourceMappingURL=index.js.map
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/pascal-case/dist/index/" data-id="clt8trqwm00bu58s4g2wu3j5b" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/cross-spawn/lib/util/escape" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/cross-spawn/lib/util/escape/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:14.381Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        'use strict';
+
+// See http://www.robvanderwoude.com/escapechars.php
+const metaCharsRegExp = /([()\][%!^"`<>&|;, *?])/g;
+
+function escapeCommand(arg) {
+    // Escape meta chars
+    arg = arg.replace(metaCharsRegExp, '^$1');
+
+    return arg;
+}
+
+function escapeArgument(arg, doubleEscapeMetaChars) {
+    // Convert to string
+    arg = `${arg}`;
+
+    // Algorithm below is based on https://qntm.org/cmd
+
+    // Sequence of backslashes followed by a double quote:
+    // double up all the backslashes and escape the double quote
+    arg = arg.replace(/(\\*)"/g, '$1$1\\"');
+
+    // Sequence of backslashes followed by the end of the string
+    // (which will become a double quote later):
+    // double up all the backslashes
+    arg = arg.replace(/(\\*)$/, '$1$1');
+
+    // All other backslashes occur literally
+
+    // Quote the whole thing:
+    arg = `"${arg}"`;
+
+    // Escape meta chars
+    arg = arg.replace(metaCharsRegExp, '^$1');
+
+    // Double escape meta chars if necessary
+    if (doubleEscapeMetaChars) {
+        arg = arg.replace(metaCharsRegExp, '^$1');
+    }
+
+    return arg;
+}
+
+module.exports.command = escapeCommand;
+module.exports.argument = escapeArgument;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/cross-spawn/lib/util/escape/" data-id="clt8trr3i00u958s41bfb3vo6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/224/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/223/">223</a><a class="page-number" href="/page/224/">224</a><span class="page-number current">225</span><a class="page-number" href="/page/226/">226</a><a class="page-number" href="/page/227/">227</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/226/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

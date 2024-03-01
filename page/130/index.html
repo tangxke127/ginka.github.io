@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/130/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/prismjs/components/prism-jsstacktrace" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-jsstacktrace/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.676Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.jsstacktrace = {
+	'error-message': {
+		pattern: /^\S.*/m,
+		alias: 'string'
+	},
+
+	'stack-frame': {
+		pattern: /(^[ \t]+)at[ \t].*/m,
+		lookbehind: true,
+		inside: {
+			'not-my-code': {
+				pattern: /^at[ \t]+(?!\s)(?:node\.js|<unknown>|.*(?:node_modules|\(<anonymous>\)|\(<unknown>|<anonymous>$|\(internal\/|\(node\.js)).*/m,
+				alias: 'comment'
+			},
+
+			'filename': {
+				pattern: /(\bat\s+(?!\s)|\()(?:[a-zA-Z]:)?[^():]+(?=:)/,
+				lookbehind: true,
+				alias: 'url'
+			},
+
+			'function': {
+				pattern: /(\bat\s+(?:new\s+)?)(?!\s)[_$a-zA-Z\xA0-\uFFFF<][.$\w\xA0-\uFFFF<>]*/,
+				lookbehind: true,
+				inside: {
+					'punctuation': /\./
+				}
+			},
+
+			'punctuation': /[()]/,
+
+			'keyword': /\b(?:at|new)\b/,
+
+			'alias': {
+				pattern: /\[(?:as\s+)?(?!\s)[_$a-zA-Z\xA0-\uFFFF][$\w\xA0-\uFFFF]*\]/,
+				alias: 'variable'
+			},
+
+			'line-number': {
+				pattern: /:\d+(?::\d+)?\b/,
+				alias: 'number',
+				inside: {
+					'punctuation': /:/
+				}
+			},
+
+		}
+	}
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-jsstacktrace/" data-id="clt8trqzz00k958s46dke0119" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/nova" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/nova/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.676Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: Nova
+  Author: George Essig (https://github.com/gessig), Trevor D. Miller (https://trevordmiller.com)
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/*
+  WARNING: DO NOT EDIT THIS FILE DIRECTLY.
+
+  This theme file was auto-generated from the Base16 scheme nova
+  by the Highlight.js Base16 template builder.
+
+  - https://github.com/highlightjs/base16-highlightjs
+*/
+/*
+base00  #3C4C55  Default Background
+base01  #556873  Lighter Background (Used for status bars, line number and folding marks)
+base02  #6A7D89  Selection Background
+base03  #899BA6  Comments, Invisibles, Line Highlighting
+base04  #899BA6  Dark Foreground (Used for status bars)
+base05  #C5D4DD  Default Foreground, Caret, Delimiters, Operators
+base06  #899BA6  Light Foreground (Not often used)
+base07  #556873  Light Background (Not often used)
+base08  #83AFE5  Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+base09  #7FC1CA  Integers, Boolean, Constants, XML Attributes, Markup Link Url
+base0A  #A8CE93  Classes, Markup Bold, Search Text Background
+base0B  #7FC1CA  Strings, Inherited Class, Markup Code, Diff Inserted
+base0C  #F2C38F  Support, Regular Expressions, Escape Characters, Markup Quotes
+base0D  #83AFE5  Functions, Methods, Attribute IDs, Headings
+base0E  #9A93E1  Keywords, Storage, Selector, Markup Italic, Diff Changed
+base0F  #F2C38F  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+.hljs {
+  color: #C5D4DD;
+  background: #3C4C55
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #6A7D89;
+  color: #C5D4DD
+}
+/* purposely do not highlight these things */
+.hljs-formula,
+.hljs-params,
+.hljs-property {
+  
+}
+/* base03 - #899BA6 -  Comments, Invisibles, Line Highlighting */
+.hljs-comment {
+  color: #899BA6
+}
+/* base04 - #899BA6 -  Dark Foreground (Used for status bars) */
+.hljs-tag {
+  color: #899BA6
+}
+/* base05 - #C5D4DD -  Default Foreground, Caret, Delimiters, Operators */
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #C5D4DD
+}
+.hljs-operator {
+  opacity: 0.7
+}
+/* base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #83AFE5
+}
+/* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #7FC1CA
+}
+/* base0A - Classes, Markup Bold, Search Text Background */
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #A8CE93
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #A8CE93
+}
+/* base0B - Strings, Inherited Class, Markup Code, Diff Inserted */
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #7FC1CA
+}
+/* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
+/* guessing */
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #F2C38F
+}
+/* base0D - Functions, Methods, Attribute IDs, Headings */
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #83AFE5
+}
+/* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
+/* .hljs-selector-id, */
+/* .hljs-selector-class, */
+/* .hljs-selector-attr, */
+/* .hljs-selector-pseudo, */
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #9A93E1
+}
+.hljs-emphasis {
+  color: #9A93E1;
+  font-style: italic
+}
+/* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
+/*
+  prevent top level .keyword and .string scopes
+  from leaking into meta by accident
+*/
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #F2C38F
+}
+/* for v10 compatible themes */
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/nova/" data-id="clt8trrcv01mn58s47iyla37g" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-jsonp.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-jsonp.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.675Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.jsonp=Prism.languages.extend("json",{punctuation:/[{}[\]();,.]/}),Prism.languages.insertBefore("jsonp","punctuation",{function:/(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*\()/});
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-jsonp.min/" data-id="clt8trqzz00k858s4gar5f0bc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/nord.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/nord.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.674Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#2e3440}.hljs,.hljs-subst{color:#d8dee9}.hljs-selector-tag{color:#81a1c1}.hljs-selector-id{color:#8fbcbb;font-weight:700}.hljs-selector-attr,.hljs-selector-class{color:#8fbcbb}.hljs-property,.hljs-selector-pseudo{color:#88c0d0}.hljs-addition{background-color:rgba(163,190,140,.5)}.hljs-deletion{background-color:rgba(191,97,106,.5)}.hljs-built_in,.hljs-class,.hljs-type{color:#8fbcbb}.hljs-function,.hljs-function>.hljs-title,.hljs-title.hljs-function{color:#88c0d0}.hljs-keyword,.hljs-literal,.hljs-symbol{color:#81a1c1}.hljs-number{color:#b48ead}.hljs-regexp{color:#ebcb8b}.hljs-string{color:#a3be8c}.hljs-title{color:#8fbcbb}.hljs-params{color:#d8dee9}.hljs-bullet{color:#81a1c1}.hljs-code{color:#8fbcbb}.hljs-emphasis{font-style:italic}.hljs-formula{color:#8fbcbb}.hljs-strong{font-weight:700}.hljs-link:hover{text-decoration:underline}.hljs-comment,.hljs-quote{color:#4c566a}.hljs-doctag{color:#8fbcbb}.hljs-meta,.hljs-meta .hljs-keyword{color:#5e81ac}.hljs-meta .hljs-string{color:#a3be8c}.hljs-attr{color:#8fbcbb}.hljs-attribute{color:#d8dee9}.hljs-name{color:#81a1c1}.hljs-section{color:#88c0d0}.hljs-tag{color:#81a1c1}.hljs-template-variable,.hljs-variable{color:#d8dee9}.hljs-template-tag{color:#5e81ac}.language-abnf .hljs-attribute{color:#88c0d0}.language-abnf .hljs-symbol{color:#ebcb8b}.language-apache .hljs-attribute{color:#88c0d0}.language-apache .hljs-section{color:#81a1c1}.language-arduino .hljs-built_in{color:#88c0d0}.language-aspectj .hljs-meta{color:#d08770}.language-aspectj>.hljs-title{color:#88c0d0}.language-bnf .hljs-attribute{color:#8fbcbb}.language-clojure .hljs-name{color:#88c0d0}.language-clojure .hljs-symbol{color:#ebcb8b}.language-coq .hljs-built_in{color:#88c0d0}.language-cpp .hljs-meta .hljs-string{color:#8fbcbb}.language-css .hljs-built_in{color:#88c0d0}.language-css .hljs-keyword{color:#d08770}.language-diff .hljs-meta,.language-ebnf .hljs-attribute{color:#8fbcbb}.language-glsl .hljs-built_in{color:#88c0d0}.language-groovy .hljs-meta:not(:first-child),.language-haxe .hljs-meta,.language-java .hljs-meta{color:#d08770}.language-ldif .hljs-attribute{color:#8fbcbb}.language-lisp .hljs-name,.language-lua .hljs-built_in,.language-moonscript .hljs-built_in,.language-nginx .hljs-attribute{color:#88c0d0}.language-nginx .hljs-section{color:#5e81ac}.language-pf .hljs-built_in,.language-processing .hljs-built_in{color:#88c0d0}.language-scss .hljs-keyword,.language-stylus .hljs-keyword{color:#81a1c1}.language-swift .hljs-meta{color:#d08770}.language-vim .hljs-built_in{color:#88c0d0;font-style:italic}.language-yaml .hljs-meta{color:#d08770}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/nord.min/" data-id="clt8trqvh009358s4dabt0r1o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-jsonp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-jsonp/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.673Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.jsonp = Prism.languages.extend('json', {
+	'punctuation': /[{}[\]();,.]/
+});
+
+Prism.languages.insertBefore('jsonp', 'punctuation', {
+	'function': /(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*\()/
+});
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-jsonp/" data-id="clt8trqzz00k758s432qxgva9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/nord.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/nord.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.672Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*!
+  Theme: Nord
+  Author: arcticicestudio
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#e5e9f0;background:#2e3440}.hljs ::selection,.hljs::selection{background-color:#434c5e;color:#e5e9f0}.hljs-comment{color:#4c566a}.hljs-tag{color:#d8dee9}.hljs-operator,.hljs-punctuation,.hljs-subst{color:#e5e9f0}.hljs-operator{opacity:.7}.hljs-bullet,.hljs-deletion,.hljs-name,.hljs-selector-tag,.hljs-template-variable,.hljs-variable{color:#bf616a}.hljs-attr,.hljs-link,.hljs-literal,.hljs-number,.hljs-symbol,.hljs-variable.constant_{color:#d08770}.hljs-class .hljs-title,.hljs-title,.hljs-title.class_{color:#ebcb8b}.hljs-strong{font-weight:700;color:#ebcb8b}.hljs-addition,.hljs-code,.hljs-string,.hljs-title.class_.inherited__{color:#a3be8c}.hljs-built_in,.hljs-doctag,.hljs-keyword.hljs-atrule,.hljs-quote,.hljs-regexp{color:#88c0d0}.hljs-attribute,.hljs-function .hljs-title,.hljs-section,.hljs-title.function_,.ruby .hljs-property{color:#81a1c1}.diff .hljs-meta,.hljs-keyword,.hljs-template-tag,.hljs-type{color:#b48ead}.hljs-emphasis{color:#b48ead;font-style:italic}.hljs-meta,.hljs-meta .hljs-keyword,.hljs-meta .hljs-string{color:#5e81ac}.hljs-meta .hljs-keyword,.hljs-meta-keyword{font-weight:700}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/nord.min/" data-id="clt8trrcv01mm58s44e5n472s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/nord" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/nord/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.669Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*
+ * Copyright (c) 2017-present Arctic Ice Studio <development@arcticicestudio.com>
+ * Copyright (c) 2017-present Sven Greb <development@svengreb.de>
+ *
+ * Project:    Nord highlight.js
+ * Version:    0.1.0
+ * Repository: https://github.com/arcticicestudio/nord-highlightjs
+ * License:    MIT
+ * References:
+ *   https://github.com/arcticicestudio/nord
+ */
+/*
+
+Polar Night
+
+#2E3440
+#3B4252
+#434C5E
+#4C566A
+
+Snow Storm
+
+#D8DEE9
+#E5E9F0
+#ECEFF4
+
+Frost
+
+#8FBCBB
+#88C0D0
+#81A1C1
+#5E81AC
+
+Aurora
+
+#BF616A
+#D08770
+#EBCB8B
+#A3BE8C
+#B48EAD
+
+*/
+.hljs {
+  background: #2E3440
+}
+.hljs,
+.hljs-subst {
+  color: #D8DEE9
+}
+.hljs-selector-tag {
+  color: #81A1C1
+}
+.hljs-selector-id {
+  color: #8FBCBB;
+  font-weight: bold
+}
+.hljs-selector-class {
+  color: #8FBCBB
+}
+.hljs-selector-attr {
+  color: #8FBCBB
+}
+.hljs-property {
+  color: #88C0D0
+}
+.hljs-selector-pseudo {
+  color: #88C0D0
+}
+.hljs-addition {
+  background-color: rgba(163, 190, 140, 0.5)
+}
+.hljs-deletion {
+  background-color: rgba(191, 97, 106, 0.5)
+}
+.hljs-built_in,
+.hljs-type {
+  color: #8FBCBB
+}
+.hljs-class {
+  color: #8FBCBB
+}
+.hljs-function {
+  color: #88C0D0
+}
+.hljs-title.hljs-function,
+.hljs-function > .hljs-title {
+  color: #88C0D0
+}
+.hljs-keyword,
+.hljs-literal,
+.hljs-symbol {
+  color: #81A1C1
+}
+.hljs-number {
+  color: #B48EAD
+}
+.hljs-regexp {
+  color: #EBCB8B
+}
+.hljs-string {
+  color: #A3BE8C
+}
+.hljs-title {
+  color: #8FBCBB
+}
+.hljs-params {
+  color: #D8DEE9
+}
+.hljs-bullet {
+  color: #81A1C1
+}
+.hljs-code {
+  color: #8FBCBB
+}
+.hljs-emphasis {
+  font-style: italic
+}
+.hljs-formula {
+  color: #8FBCBB
+}
+.hljs-strong {
+  font-weight: bold
+}
+.hljs-link:hover {
+  text-decoration: underline
+}
+.hljs-quote {
+  color: #4C566A
+}
+.hljs-comment {
+  color: #4C566A
+}
+.hljs-doctag {
+  color: #8FBCBB
+}
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: #5E81AC
+}
+.hljs-meta .hljs-string {
+  color: #A3BE8C
+}
+.hljs-attr {
+  color: #8FBCBB
+}
+.hljs-attribute {
+  color: #D8DEE9
+}
+.hljs-name {
+  color: #81A1C1
+}
+.hljs-section {
+  color: #88C0D0
+}
+.hljs-tag {
+  color: #81A1C1
+}
+.hljs-variable {
+  color: #D8DEE9
+}
+.hljs-template-variable {
+  color: #D8DEE9
+}
+.hljs-template-tag {
+  color: #5E81AC
+}
+/* per language customizations */
+.language-abnf .hljs-attribute {
+  color: #88C0D0
+}
+.language-abnf .hljs-symbol {
+  color: #EBCB8B
+}
+.language-apache .hljs-attribute {
+  color: #88C0D0
+}
+.language-apache .hljs-section {
+  color: #81A1C1
+}
+.language-arduino .hljs-built_in {
+  color: #88C0D0
+}
+.language-aspectj .hljs-meta {
+  color: #D08770
+}
+.language-aspectj > .hljs-title {
+  color: #88C0D0
+}
+.language-bnf .hljs-attribute {
+  color: #8FBCBB
+}
+.language-clojure .hljs-name {
+  color: #88C0D0
+}
+.language-clojure .hljs-symbol {
+  color: #EBCB8B
+}
+.language-coq .hljs-built_in {
+  color: #88C0D0
+}
+.language-cpp .hljs-meta .hljs-string {
+  color: #8FBCBB
+}
+.language-css .hljs-built_in {
+  color: #88C0D0
+}
+.language-css .hljs-keyword {
+  color: #D08770
+}
+.language-diff .hljs-meta {
+  color: #8FBCBB
+}
+.language-ebnf .hljs-attribute {
+  color: #8FBCBB
+}
+.language-glsl .hljs-built_in {
+  color: #88C0D0
+}
+.language-groovy .hljs-meta:not(:first-child) {
+  color: #D08770
+}
+.language-haxe .hljs-meta {
+  color: #D08770
+}
+.language-java .hljs-meta {
+  color: #D08770
+}
+.language-ldif .hljs-attribute {
+  color: #8FBCBB
+}
+.language-lisp .hljs-name {
+  color: #88C0D0
+}
+.language-lua .hljs-built_in {
+  color: #88C0D0
+}
+.language-moonscript .hljs-built_in {
+  color: #88C0D0
+}
+.language-nginx .hljs-attribute {
+  color: #88C0D0
+}
+.language-nginx .hljs-section {
+  color: #5E81AC
+}
+.language-pf .hljs-built_in {
+  color: #88C0D0
+}
+.language-processing .hljs-built_in {
+  color: #88C0D0
+}
+.language-scss .hljs-keyword {
+  color: #81A1C1
+}
+.language-stylus .hljs-keyword {
+  color: #81A1C1
+}
+.language-swift .hljs-meta {
+  color: #D08770
+}
+.language-vim .hljs-built_in {
+  color: #88C0D0;
+  font-style: italic
+}
+.language-yaml .hljs-meta {
+  color: #D08770
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/nord/" data-id="clt8trqvh009258s4ghq96kol" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/jsonp-highlight/prism-jsonp-highlight.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/jsonp-highlight/prism-jsonp-highlight.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.669Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(){if("undefined"!=typeof Prism&&"undefined"!=typeof document){var t=[];o((function(t){if(t&&t.meta&&t.data){if(t.meta.status&&t.meta.status>=400)return"Error: "+(t.data.message||t.meta.status);if("string"==typeof t.data.content)return"function"==typeof atob?atob(t.data.content.replace(/\s/g,"")):"Your browser cannot decode base64"}return null}),"github"),o((function(t,e){if(t&&t.meta&&t.data&&t.data.files){if(t.meta.status&&t.meta.status>=400)return"Error: "+(t.data.message||t.meta.status);var n=t.data.files,a=e.getAttribute("data-filename");if(null==a)for(var r in n)if(n.hasOwnProperty(r)){a=r;break}return void 0!==n[a]?n[a].content:"Error: unknown or missing gist file "+a}return null}),"gist"),o((function(t){return t&&t.node&&"string"==typeof t.data?t.data:null}),"bitbucket");var e=0,n="data-jsonp-status",a="failed",r='pre[data-jsonp]:not([data-jsonp-status="loaded"]):not([data-jsonp-status="loading"])';Prism.hooks.add("before-highlightall",(function(t){t.selector+=", "+r})),Prism.hooks.add("before-sanity-check",(function(o){var i,u=o.element;if(u.matches(r)){o.code="",u.setAttribute(n,"loading");var s=u.appendChild(document.createElement("CODE"));s.textContent="Loading…";var d=o.language;s.className="language-"+d;var f=Prism.plugins.autoloader;f&&f.loadLanguages(d);var l=u.getAttribute("data-adapter"),c=null;if(l){if("function"!=typeof window[l])return u.setAttribute(n,a),void(s.textContent=(i=l,'✖ Error: JSONP adapter function "'+i+"\" doesn't exist"));c=window[l]}var p=u.getAttribute("data-jsonp");!function(r,o,i,d){var f="prismjsonp"+e++,l=document.createElement("a");l.href=r,l.href+=(l.search?"&":"?")+(o||"callback")+"="+f;var p=document.createElement("script");p.src=l.href,p.onerror=function(){g(),d()};var m=setTimeout((function(){g(),d()}),Prism.plugins.jsonphighlight.timeout);function g(){clearTimeout(m),document.head.removeChild(p),delete window[f]}window[f]=function(e){g(),function(e){var r=null;if(c)r=c(e,u);else for(var o=0,i=t.length;o<i&&null===(r=t[o].adapter(e,u));o++);null===r?(u.setAttribute(n,a),s.textContent="✖ Error: Cannot parse response (perhaps you need an adapter function?)"):(u.setAttribute(n,"loaded"),s.textContent=r,Prism.highlightElement(s))}(e)},document.head.appendChild(p)}(p,u.getAttribute("data-callback"),0,(function(){u.setAttribute(n,a),s.textContent="✖ Error: Timeout loading "+p}))}})),Prism.plugins.jsonphighlight={timeout:5e3,registerAdapter:o,removeAdapter:function(e){if("string"==typeof e&&(e=i(e)),"function"==typeof e){var n=t.findIndex((function(t){return t.adapter===e}));n>=0&&t.splice(n,1)}},highlight:function(t){for(var e,n=(t||document).querySelectorAll(r),a=0;e=n[a++];)Prism.highlightElement(e)}}}function o(e,n){n=n||e.name,"function"!=typeof e||i(e)||i(n)||t.push({adapter:e,name:n})}function i(e){if("function"==typeof e){for(var n=0;a=t[n++];)if(a.adapter.valueOf()===e.valueOf())return a.adapter}else if("string"==typeof e){var a;for(n=0;a=t[n++];)if(a.name===e)return a.adapter}return null}}();
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/jsonp-highlight/prism-jsonp-highlight.min/" data-id="clt8trre501r858s4hvgcavp1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/plugins/jsonp-highlight/prism-jsonp-highlight" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/plugins/jsonp-highlight/prism-jsonp-highlight/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.665Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        (function () {
+
+	if (typeof Prism === 'undefined' || typeof document === 'undefined') {
+		return;
+	}
+
+	/**
+	 * @callback Adapter
+	 * @param {any} response
+	 * @param {HTMLPreElement} [pre]
+	 * @returns {string | null}
+	 */
+
+	/**
+	 * The list of adapter which will be used if `data-adapter` is not specified.
+	 *
+	 * @type {Array<{adapter: Adapter, name: string}>}
+	 */
+	var adapters = [];
+
+	/**
+	 * Adds a new function to the list of adapters.
+	 *
+	 * If the given adapter is already registered or not a function or there is an adapter with the given name already,
+	 * nothing will happen.
+	 *
+	 * @param {Adapter} adapter The adapter to be registered.
+	 * @param {string} [name] The name of the adapter. Defaults to the function name of `adapter`.
+	 */
+	function registerAdapter(adapter, name) {
+		name = name || adapter.name;
+		if (typeof adapter === 'function' && !getAdapter(adapter) && !getAdapter(name)) {
+			adapters.push({ adapter: adapter, name: name });
+		}
+	}
+	/**
+	 * Returns the given adapter itself, if registered, or a registered adapter with the given name.
+	 *
+	 * If no fitting adapter is registered, `null` will be returned.
+	 *
+	 * @param {string|Function} adapter The adapter itself or the name of an adapter.
+	 * @returns {Adapter} A registered adapter or `null`.
+	 */
+	function getAdapter(adapter) {
+		if (typeof adapter === 'function') {
+			for (var i = 0, item; (item = adapters[i++]);) {
+				if (item.adapter.valueOf() === adapter.valueOf()) {
+					return item.adapter;
+				}
+			}
+		} else if (typeof adapter === 'string') {
+			// eslint-disable-next-line no-redeclare
+			for (var i = 0, item; (item = adapters[i++]);) {
+				if (item.name === adapter) {
+					return item.adapter;
+				}
+			}
+		}
+		return null;
+	}
+	/**
+	 * Remove the given adapter or the first registered adapter with the given name from the list of
+	 * registered adapters.
+	 *
+	 * @param {string|Function} adapter The adapter itself or the name of an adapter.
+	 */
+	function removeAdapter(adapter) {
+		if (typeof adapter === 'string') {
+			adapter = getAdapter(adapter);
+		}
+		if (typeof adapter === 'function') {
+			var index = adapters.findIndex(function (item) {
+				return item.adapter === adapter;
+			});
+			if (index >= 0) {
+				adapters.splice(index, 1);
+			}
+		}
+	}
+
+	registerAdapter(function github(rsp) {
+		if (rsp && rsp.meta && rsp.data) {
+			if (rsp.meta.status && rsp.meta.status >= 400) {
+				return 'Error: ' + (rsp.data.message || rsp.meta.status);
+			} else if (typeof (rsp.data.content) === 'string') {
+				return typeof (atob) === 'function'
+					? atob(rsp.data.content.replace(/\s/g, ''))
+					: 'Your browser cannot decode base64';
+			}
+		}
+		return null;
+	}, 'github');
+	registerAdapter(function gist(rsp, el) {
+		if (rsp && rsp.meta && rsp.data && rsp.data.files) {
+			if (rsp.meta.status && rsp.meta.status >= 400) {
+				return 'Error: ' + (rsp.data.message || rsp.meta.status);
+			}
+
+			var files = rsp.data.files;
+			var filename = el.getAttribute('data-filename');
+			if (filename == null) {
+				// Maybe in the future we can somehow render all files
+				// But the standard <script> include for gists does that nicely already,
+				// so that might be getting beyond the scope of this plugin
+				for (var key in files) {
+					if (files.hasOwnProperty(key)) {
+						filename = key;
+						break;
+					}
+				}
+			}
+
+			if (files[filename] !== undefined) {
+				return files[filename].content;
+			}
+			return 'Error: unknown or missing gist file ' + filename;
+		}
+		return null;
+	}, 'gist');
+	registerAdapter(function bitbucket(rsp) {
+		if (rsp && rsp.node && typeof (rsp.data) === 'string') {
+			return rsp.data;
+		}
+		return null;
+	}, 'bitbucket');
+
+
+	var jsonpCallbackCounter = 0;
+	/**
+	 * Makes a JSONP request.
+	 *
+	 * @param {string} src The URL of the resource to request.
+	 * @param {string | undefined | null} callbackParameter The name of the callback parameter. If falsy, `"callback"`
+	 * will be used.
+	 * @param {(data: unknown) => void} onSuccess
+	 * @param {(reason: "timeout" | "network") => void} onError
+	 * @returns {void}
+	 */
+	function jsonp(src, callbackParameter, onSuccess, onError) {
+		var callbackName = 'prismjsonp' + jsonpCallbackCounter++;
+
+		var uri = document.createElement('a');
+		uri.href = src;
+		uri.href += (uri.search ? '&' : '?') + (callbackParameter || 'callback') + '=' + callbackName;
+
+		var script = document.createElement('script');
+		script.src = uri.href;
+		script.onerror = function () {
+			cleanup();
+			onError('network');
+		};
+
+		var timeoutId = setTimeout(function () {
+			cleanup();
+			onError('timeout');
+		}, Prism.plugins.jsonphighlight.timeout);
+
+		function cleanup() {
+			clearTimeout(timeoutId);
+			document.head.removeChild(script);
+			delete window[callbackName];
+		}
+
+		// the JSONP callback function
+		window[callbackName] = function (response) {
+			cleanup();
+			onSuccess(response);
+		};
+
+		document.head.appendChild(script);
+	}
+
+	var LOADING_MESSAGE = 'Loading…';
+	var MISSING_ADAPTER_MESSAGE = function (name) {
+		return '✖ Error: JSONP adapter function "' + name + '" doesn\'t exist';
+	};
+	var TIMEOUT_MESSAGE = function (url) {
+		return '✖ Error: Timeout loading ' + url;
+	};
+	var UNKNOWN_FAILURE_MESSAGE = '✖ Error: Cannot parse response (perhaps you need an adapter function?)';
+
+	var STATUS_ATTR = 'data-jsonp-status';
+	var STATUS_LOADING = 'loading';
+	var STATUS_LOADED = 'loaded';
+	var STATUS_FAILED = 'failed';
+
+	var SELECTOR = 'pre[data-jsonp]:not([' + STATUS_ATTR + '="' + STATUS_LOADED + '"])'
+		+ ':not([' + STATUS_ATTR + '="' + STATUS_LOADING + '"])';
+
+
+	Prism.hooks.add('before-highlightall', function (env) {
+		env.selector += ', ' + SELECTOR;
+	});
+
+	Prism.hooks.add('before-sanity-check', function (env) {
+		var pre = /** @type {HTMLPreElement} */ (env.element);
+		if (pre.matches(SELECTOR)) {
+			env.code = ''; // fast-path the whole thing and go to complete
+
+			// mark as loading
+			pre.setAttribute(STATUS_ATTR, STATUS_LOADING);
+
+			// add code element with loading message
+			var code = pre.appendChild(document.createElement('CODE'));
+			code.textContent = LOADING_MESSAGE;
+
+			// set language
+			var language = env.language;
+			code.className = 'language-' + language;
+
+			// preload the language
+			var autoloader = Prism.plugins.autoloader;
+			if (autoloader) {
+				autoloader.loadLanguages(language);
+			}
+
+			var adapterName = pre.getAttribute('data-adapter');
+			var adapter = null;
+			if (adapterName) {
+				if (typeof window[adapterName] === 'function') {
+					adapter = window[adapterName];
+				} else {
+					// mark as failed
+					pre.setAttribute(STATUS_ATTR, STATUS_FAILED);
+
+					code.textContent = MISSING_ADAPTER_MESSAGE(adapterName);
+					return;
+				}
+			}
+
+			var src = pre.getAttribute('data-jsonp');
+
+			jsonp(
+				src,
+				pre.getAttribute('data-callback'),
+				function (response) {
+					// interpret the received data using the adapter(s)
+					var data = null;
+					if (adapter) {
+						data = adapter(response, pre);
+					} else {
+						for (var i = 0, l = adapters.length; i < l; i++) {
+							data = adapters[i].adapter(response, pre);
+							if (data !== null) {
+								break;
+							}
+						}
+					}
+
+					if (data === null) {
+						// mark as failed
+						pre.setAttribute(STATUS_ATTR, STATUS_FAILED);
+
+						code.textContent = UNKNOWN_FAILURE_MESSAGE;
+					} else {
+						// mark as loaded
+						pre.setAttribute(STATUS_ATTR, STATUS_LOADED);
+
+						code.textContent = data;
+						Prism.highlightElement(code);
+					}
+				},
+				function () {
+					// mark as failed
+					pre.setAttribute(STATUS_ATTR, STATUS_FAILED);
+
+					code.textContent = TIMEOUT_MESSAGE(src);
+				}
+			);
+		}
+	});
+
+
+	Prism.plugins.jsonphighlight = {
+		/**
+		 * The timeout after which an error message will be displayed.
+		 *
+		 * __Note:__ If the request succeeds after the timeout, it will still be processed and will override any
+		 * displayed error messages.
+		 */
+		timeout: 5000,
+		registerAdapter: registerAdapter,
+		removeAdapter: removeAdapter,
+
+		/**
+		 * Highlights all `pre` elements under the given container with a `data-jsonp` attribute by requesting the
+		 * specified JSON and using the specified adapter or a registered adapter to extract the code to highlight
+		 * from the response. The highlighted code will be inserted into the `pre` element.
+		 *
+		 * Note: Elements which are already loaded or currently loading will not be touched by this method.
+		 *
+		 * @param {Element | Document} [container=document]
+		 */
+		highlight: function (container) {
+			var elements = (container || document).querySelectorAll(SELECTOR);
+
+			for (var i = 0, element; (element = elements[i++]);) {
+				Prism.highlightElement(element);
+			}
+		}
+	};
+
+}());
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/plugins/jsonp-highlight/prism-jsonp-highlight/" data-id="clt8trre501r758s49ttx7m8u" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/styles/base16/nord" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/styles/base16/nord/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:16.664Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+/*!
+  Theme: Nord
+  Author: arcticicestudio
+  License: ~ MIT (or more permissive) [via base16-schemes-source]
+  Maintainer: @highlightjs/core-team
+  Version: 2021.09.0
+*/
+/*
+  WARNING: DO NOT EDIT THIS FILE DIRECTLY.
+
+  This theme file was auto-generated from the Base16 scheme nord
+  by the Highlight.js Base16 template builder.
+
+  - https://github.com/highlightjs/base16-highlightjs
+*/
+/*
+base00  #2E3440  Default Background
+base01  #3B4252  Lighter Background (Used for status bars, line number and folding marks)
+base02  #434C5E  Selection Background
+base03  #4C566A  Comments, Invisibles, Line Highlighting
+base04  #D8DEE9  Dark Foreground (Used for status bars)
+base05  #E5E9F0  Default Foreground, Caret, Delimiters, Operators
+base06  #ECEFF4  Light Foreground (Not often used)
+base07  #8FBCBB  Light Background (Not often used)
+base08  #BF616A  Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted
+base09  #D08770  Integers, Boolean, Constants, XML Attributes, Markup Link Url
+base0A  #EBCB8B  Classes, Markup Bold, Search Text Background
+base0B  #A3BE8C  Strings, Inherited Class, Markup Code, Diff Inserted
+base0C  #88C0D0  Support, Regular Expressions, Escape Characters, Markup Quotes
+base0D  #81A1C1  Functions, Methods, Attribute IDs, Headings
+base0E  #B48EAD  Keywords, Storage, Selector, Markup Italic, Diff Changed
+base0F  #5E81AC  Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?>
+*/
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+.hljs {
+  color: #E5E9F0;
+  background: #2E3440
+}
+.hljs::selection,
+.hljs ::selection {
+  background-color: #434C5E;
+  color: #E5E9F0
+}
+/* purposely do not highlight these things */
+.hljs-formula,
+.hljs-params,
+.hljs-property {
+  
+}
+/* base03 - #4C566A -  Comments, Invisibles, Line Highlighting */
+.hljs-comment {
+  color: #4C566A
+}
+/* base04 - #D8DEE9 -  Dark Foreground (Used for status bars) */
+.hljs-tag {
+  color: #D8DEE9
+}
+/* base05 - #E5E9F0 -  Default Foreground, Caret, Delimiters, Operators */
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+  color: #E5E9F0
+}
+.hljs-operator {
+  opacity: 0.7
+}
+/* base08 - Variables, XML Tags, Markup Link Text, Markup Lists, Diff Deleted */
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+  color: #BF616A
+}
+/* base09 - Integers, Boolean, Constants, XML Attributes, Markup Link Url */
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+  color: #D08770
+}
+/* base0A - Classes, Markup Bold, Search Text Background */
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: #EBCB8B
+}
+.hljs-strong {
+  font-weight: bold;
+  color: #EBCB8B
+}
+/* base0B - Strings, Inherited Class, Markup Code, Diff Inserted */
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+  color: #A3BE8C
+}
+/* base0C - Support, Regular Expressions, Escape Characters, Markup Quotes */
+/* guessing */
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+  color: #88C0D0
+}
+/* base0D - Functions, Methods, Attribute IDs, Headings */
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+  color: #81A1C1
+}
+/* base0E - Keywords, Storage, Selector, Markup Italic, Diff Changed */
+/* .hljs-selector-id, */
+/* .hljs-selector-class, */
+/* .hljs-selector-attr, */
+/* .hljs-selector-pseudo, */
+.hljs-type,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword {
+  color: #B48EAD
+}
+.hljs-emphasis {
+  color: #B48EAD;
+  font-style: italic
+}
+/* base0F - Deprecated, Opening/Closing Embedded Language Tags, e.g. <?php ?> */
+/*
+  prevent top level .keyword and .string scopes
+  from leaking into meta by accident
+*/
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+  color: #5E81AC
+}
+/* for v10 compatible themes */
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+  font-weight: bold
+}
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/styles/base16/nord/" data-id="clt8trrcv01ml58s4dikcdxnf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/129/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/128/">128</a><a class="page-number" href="/page/129/">129</a><span class="page-number current">130</span><a class="page-number" href="/page/131/">131</a><a class="page-number" href="/page/132/">132</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/131/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

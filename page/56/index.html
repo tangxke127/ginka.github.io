@@ -1,0 +1,2041 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/56/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/highlight.js/lib/languages/fix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/fix/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.125Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: FIX
+Author: Brent Bradbury <brent@brentium.com>
+*/
+
+/** @type LanguageFn */
+function fix(hljs) {
+  return {
+    name: 'FIX',
+    contains: [
+      {
+        begin: /[^\u2401\u0001]+/,
+        end: /[\u2401\u0001]/,
+        excludeEnd: true,
+        returnBegin: true,
+        returnEnd: false,
+        contains: [
+          {
+            begin: /([^\u2401\u0001=]+)/,
+            end: /=([^\u2401\u0001=]+)/,
+            returnEnd: true,
+            returnBegin: false,
+            className: 'attr'
+          },
+          {
+            begin: /=/,
+            end: /([\u2401\u0001])/,
+            excludeEnd: true,
+            excludeBegin: true,
+            className: 'string'
+          }
+        ]
+      }
+    ],
+    case_insensitive: true
+  };
+}
+
+module.exports = fix;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/fix/" data-id="clt8trr8f018i58s458ph2hx7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/fix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/fix/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.123Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: FIX
+Author: Brent Bradbury <brent@brentium.com>
+*/
+
+/** @type LanguageFn */
+function fix(hljs) {
+  return {
+    name: 'FIX',
+    contains: [
+      {
+        begin: /[^\u2401\u0001]+/,
+        end: /[\u2401\u0001]/,
+        excludeEnd: true,
+        returnBegin: true,
+        returnEnd: false,
+        contains: [
+          {
+            begin: /([^\u2401\u0001=]+)/,
+            end: /=([^\u2401\u0001=]+)/,
+            returnEnd: true,
+            returnBegin: false,
+            className: 'attr'
+          },
+          {
+            begin: /=/,
+            end: /([\u2401\u0001])/,
+            excludeEnd: true,
+            excludeBegin: true,
+            className: 'string'
+          }
+        ]
+      }
+    ],
+    case_insensitive: true
+  };
+}
+
+export { fix as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/fix/" data-id="clt8trr4u00xv58s41jce745y" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/excel.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/excel.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.122Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/excel" instead of "highlight.js/lib/languages/excel.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./excel.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/excel.js/" data-id="clt8trr8g018l58s46xdf499x" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/excel.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/excel.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.119Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/excel" instead of "highlight.js/lib/languages/excel.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './excel.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/excel.js/" data-id="clt8trr4u00xu58s482vm60yp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/excel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/excel/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.117Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Excel formulae
+Author: Victor Zhou <OiCMudkips@users.noreply.github.com>
+Description: Excel formulae
+Website: https://products.office.com/en-us/excel/
+*/
+
+/** @type LanguageFn */
+function excel(hljs) {
+  // built-in functions imported from https://web.archive.org/web/20160513042710/https://support.office.com/en-us/article/Excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188
+  const BUILT_INS = [
+    "ABS",
+    "ACCRINT",
+    "ACCRINTM",
+    "ACOS",
+    "ACOSH",
+    "ACOT",
+    "ACOTH",
+    "AGGREGATE",
+    "ADDRESS",
+    "AMORDEGRC",
+    "AMORLINC",
+    "AND",
+    "ARABIC",
+    "AREAS",
+    "ASC",
+    "ASIN",
+    "ASINH",
+    "ATAN",
+    "ATAN2",
+    "ATANH",
+    "AVEDEV",
+    "AVERAGE",
+    "AVERAGEA",
+    "AVERAGEIF",
+    "AVERAGEIFS",
+    "BAHTTEXT",
+    "BASE",
+    "BESSELI",
+    "BESSELJ",
+    "BESSELK",
+    "BESSELY",
+    "BETADIST",
+    "BETA.DIST",
+    "BETAINV",
+    "BETA.INV",
+    "BIN2DEC",
+    "BIN2HEX",
+    "BIN2OCT",
+    "BINOMDIST",
+    "BINOM.DIST",
+    "BINOM.DIST.RANGE",
+    "BINOM.INV",
+    "BITAND",
+    "BITLSHIFT",
+    "BITOR",
+    "BITRSHIFT",
+    "BITXOR",
+    "CALL",
+    "CEILING",
+    "CEILING.MATH",
+    "CEILING.PRECISE",
+    "CELL",
+    "CHAR",
+    "CHIDIST",
+    "CHIINV",
+    "CHITEST",
+    "CHISQ.DIST",
+    "CHISQ.DIST.RT",
+    "CHISQ.INV",
+    "CHISQ.INV.RT",
+    "CHISQ.TEST",
+    "CHOOSE",
+    "CLEAN",
+    "CODE",
+    "COLUMN",
+    "COLUMNS",
+    "COMBIN",
+    "COMBINA",
+    "COMPLEX",
+    "CONCAT",
+    "CONCATENATE",
+    "CONFIDENCE",
+    "CONFIDENCE.NORM",
+    "CONFIDENCE.T",
+    "CONVERT",
+    "CORREL",
+    "COS",
+    "COSH",
+    "COT",
+    "COTH",
+    "COUNT",
+    "COUNTA",
+    "COUNTBLANK",
+    "COUNTIF",
+    "COUNTIFS",
+    "COUPDAYBS",
+    "COUPDAYS",
+    "COUPDAYSNC",
+    "COUPNCD",
+    "COUPNUM",
+    "COUPPCD",
+    "COVAR",
+    "COVARIANCE.P",
+    "COVARIANCE.S",
+    "CRITBINOM",
+    "CSC",
+    "CSCH",
+    "CUBEKPIMEMBER",
+    "CUBEMEMBER",
+    "CUBEMEMBERPROPERTY",
+    "CUBERANKEDMEMBER",
+    "CUBESET",
+    "CUBESETCOUNT",
+    "CUBEVALUE",
+    "CUMIPMT",
+    "CUMPRINC",
+    "DATE",
+    "DATEDIF",
+    "DATEVALUE",
+    "DAVERAGE",
+    "DAY",
+    "DAYS",
+    "DAYS360",
+    "DB",
+    "DBCS",
+    "DCOUNT",
+    "DCOUNTA",
+    "DDB",
+    "DEC2BIN",
+    "DEC2HEX",
+    "DEC2OCT",
+    "DECIMAL",
+    "DEGREES",
+    "DELTA",
+    "DEVSQ",
+    "DGET",
+    "DISC",
+    "DMAX",
+    "DMIN",
+    "DOLLAR",
+    "DOLLARDE",
+    "DOLLARFR",
+    "DPRODUCT",
+    "DSTDEV",
+    "DSTDEVP",
+    "DSUM",
+    "DURATION",
+    "DVAR",
+    "DVARP",
+    "EDATE",
+    "EFFECT",
+    "ENCODEURL",
+    "EOMONTH",
+    "ERF",
+    "ERF.PRECISE",
+    "ERFC",
+    "ERFC.PRECISE",
+    "ERROR.TYPE",
+    "EUROCONVERT",
+    "EVEN",
+    "EXACT",
+    "EXP",
+    "EXPON.DIST",
+    "EXPONDIST",
+    "FACT",
+    "FACTDOUBLE",
+    "FALSE|0",
+    "F.DIST",
+    "FDIST",
+    "F.DIST.RT",
+    "FILTERXML",
+    "FIND",
+    "FINDB",
+    "F.INV",
+    "F.INV.RT",
+    "FINV",
+    "FISHER",
+    "FISHERINV",
+    "FIXED",
+    "FLOOR",
+    "FLOOR.MATH",
+    "FLOOR.PRECISE",
+    "FORECAST",
+    "FORECAST.ETS",
+    "FORECAST.ETS.CONFINT",
+    "FORECAST.ETS.SEASONALITY",
+    "FORECAST.ETS.STAT",
+    "FORECAST.LINEAR",
+    "FORMULATEXT",
+    "FREQUENCY",
+    "F.TEST",
+    "FTEST",
+    "FV",
+    "FVSCHEDULE",
+    "GAMMA",
+    "GAMMA.DIST",
+    "GAMMADIST",
+    "GAMMA.INV",
+    "GAMMAINV",
+    "GAMMALN",
+    "GAMMALN.PRECISE",
+    "GAUSS",
+    "GCD",
+    "GEOMEAN",
+    "GESTEP",
+    "GETPIVOTDATA",
+    "GROWTH",
+    "HARMEAN",
+    "HEX2BIN",
+    "HEX2DEC",
+    "HEX2OCT",
+    "HLOOKUP",
+    "HOUR",
+    "HYPERLINK",
+    "HYPGEOM.DIST",
+    "HYPGEOMDIST",
+    "IF",
+    "IFERROR",
+    "IFNA",
+    "IFS",
+    "IMABS",
+    "IMAGINARY",
+    "IMARGUMENT",
+    "IMCONJUGATE",
+    "IMCOS",
+    "IMCOSH",
+    "IMCOT",
+    "IMCSC",
+    "IMCSCH",
+    "IMDIV",
+    "IMEXP",
+    "IMLN",
+    "IMLOG10",
+    "IMLOG2",
+    "IMPOWER",
+    "IMPRODUCT",
+    "IMREAL",
+    "IMSEC",
+    "IMSECH",
+    "IMSIN",
+    "IMSINH",
+    "IMSQRT",
+    "IMSUB",
+    "IMSUM",
+    "IMTAN",
+    "INDEX",
+    "INDIRECT",
+    "INFO",
+    "INT",
+    "INTERCEPT",
+    "INTRATE",
+    "IPMT",
+    "IRR",
+    "ISBLANK",
+    "ISERR",
+    "ISERROR",
+    "ISEVEN",
+    "ISFORMULA",
+    "ISLOGICAL",
+    "ISNA",
+    "ISNONTEXT",
+    "ISNUMBER",
+    "ISODD",
+    "ISREF",
+    "ISTEXT",
+    "ISO.CEILING",
+    "ISOWEEKNUM",
+    "ISPMT",
+    "JIS",
+    "KURT",
+    "LARGE",
+    "LCM",
+    "LEFT",
+    "LEFTB",
+    "LEN",
+    "LENB",
+    "LINEST",
+    "LN",
+    "LOG",
+    "LOG10",
+    "LOGEST",
+    "LOGINV",
+    "LOGNORM.DIST",
+    "LOGNORMDIST",
+    "LOGNORM.INV",
+    "LOOKUP",
+    "LOWER",
+    "MATCH",
+    "MAX",
+    "MAXA",
+    "MAXIFS",
+    "MDETERM",
+    "MDURATION",
+    "MEDIAN",
+    "MID",
+    "MIDBs",
+    "MIN",
+    "MINIFS",
+    "MINA",
+    "MINUTE",
+    "MINVERSE",
+    "MIRR",
+    "MMULT",
+    "MOD",
+    "MODE",
+    "MODE.MULT",
+    "MODE.SNGL",
+    "MONTH",
+    "MROUND",
+    "MULTINOMIAL",
+    "MUNIT",
+    "N",
+    "NA",
+    "NEGBINOM.DIST",
+    "NEGBINOMDIST",
+    "NETWORKDAYS",
+    "NETWORKDAYS.INTL",
+    "NOMINAL",
+    "NORM.DIST",
+    "NORMDIST",
+    "NORMINV",
+    "NORM.INV",
+    "NORM.S.DIST",
+    "NORMSDIST",
+    "NORM.S.INV",
+    "NORMSINV",
+    "NOT",
+    "NOW",
+    "NPER",
+    "NPV",
+    "NUMBERVALUE",
+    "OCT2BIN",
+    "OCT2DEC",
+    "OCT2HEX",
+    "ODD",
+    "ODDFPRICE",
+    "ODDFYIELD",
+    "ODDLPRICE",
+    "ODDLYIELD",
+    "OFFSET",
+    "OR",
+    "PDURATION",
+    "PEARSON",
+    "PERCENTILE.EXC",
+    "PERCENTILE.INC",
+    "PERCENTILE",
+    "PERCENTRANK.EXC",
+    "PERCENTRANK.INC",
+    "PERCENTRANK",
+    "PERMUT",
+    "PERMUTATIONA",
+    "PHI",
+    "PHONETIC",
+    "PI",
+    "PMT",
+    "POISSON.DIST",
+    "POISSON",
+    "POWER",
+    "PPMT",
+    "PRICE",
+    "PRICEDISC",
+    "PRICEMAT",
+    "PROB",
+    "PRODUCT",
+    "PROPER",
+    "PV",
+    "QUARTILE",
+    "QUARTILE.EXC",
+    "QUARTILE.INC",
+    "QUOTIENT",
+    "RADIANS",
+    "RAND",
+    "RANDBETWEEN",
+    "RANK.AVG",
+    "RANK.EQ",
+    "RANK",
+    "RATE",
+    "RECEIVED",
+    "REGISTER.ID",
+    "REPLACE",
+    "REPLACEB",
+    "REPT",
+    "RIGHT",
+    "RIGHTB",
+    "ROMAN",
+    "ROUND",
+    "ROUNDDOWN",
+    "ROUNDUP",
+    "ROW",
+    "ROWS",
+    "RRI",
+    "RSQ",
+    "RTD",
+    "SEARCH",
+    "SEARCHB",
+    "SEC",
+    "SECH",
+    "SECOND",
+    "SERIESSUM",
+    "SHEET",
+    "SHEETS",
+    "SIGN",
+    "SIN",
+    "SINH",
+    "SKEW",
+    "SKEW.P",
+    "SLN",
+    "SLOPE",
+    "SMALL",
+    "SQL.REQUEST",
+    "SQRT",
+    "SQRTPI",
+    "STANDARDIZE",
+    "STDEV",
+    "STDEV.P",
+    "STDEV.S",
+    "STDEVA",
+    "STDEVP",
+    "STDEVPA",
+    "STEYX",
+    "SUBSTITUTE",
+    "SUBTOTAL",
+    "SUM",
+    "SUMIF",
+    "SUMIFS",
+    "SUMPRODUCT",
+    "SUMSQ",
+    "SUMX2MY2",
+    "SUMX2PY2",
+    "SUMXMY2",
+    "SWITCH",
+    "SYD",
+    "T",
+    "TAN",
+    "TANH",
+    "TBILLEQ",
+    "TBILLPRICE",
+    "TBILLYIELD",
+    "T.DIST",
+    "T.DIST.2T",
+    "T.DIST.RT",
+    "TDIST",
+    "TEXT",
+    "TEXTJOIN",
+    "TIME",
+    "TIMEVALUE",
+    "T.INV",
+    "T.INV.2T",
+    "TINV",
+    "TODAY",
+    "TRANSPOSE",
+    "TREND",
+    "TRIM",
+    "TRIMMEAN",
+    "TRUE|0",
+    "TRUNC",
+    "T.TEST",
+    "TTEST",
+    "TYPE",
+    "UNICHAR",
+    "UNICODE",
+    "UPPER",
+    "VALUE",
+    "VAR",
+    "VAR.P",
+    "VAR.S",
+    "VARA",
+    "VARP",
+    "VARPA",
+    "VDB",
+    "VLOOKUP",
+    "WEBSERVICE",
+    "WEEKDAY",
+    "WEEKNUM",
+    "WEIBULL",
+    "WEIBULL.DIST",
+    "WORKDAY",
+    "WORKDAY.INTL",
+    "XIRR",
+    "XNPV",
+    "XOR",
+    "YEAR",
+    "YEARFRAC",
+    "YIELD",
+    "YIELDDISC",
+    "YIELDMAT",
+    "Z.TEST",
+    "ZTEST"
+  ];
+  return {
+    name: 'Excel formulae',
+    aliases: [
+      'xlsx',
+      'xls'
+    ],
+    case_insensitive: true,
+    keywords: {
+      $pattern: /[a-zA-Z][\w\.]*/,
+      built_in: BUILT_INS
+    },
+    contains: [
+      {
+        /* matches a beginning equal sign found in Excel formula examples */
+        begin: /^=/,
+        end: /[^=]/,
+        returnEnd: true,
+        illegal: /=/, /* only allow single equal sign at front of line */
+        relevance: 10
+      },
+      /* technically, there can be more than 2 letters in column names, but this prevents conflict with some keywords */
+      {
+        /* matches a reference to a single cell */
+        className: 'symbol',
+        begin: /\b[A-Z]{1,2}\d+\b/,
+        end: /[^\d]/,
+        excludeEnd: true,
+        relevance: 0
+      },
+      {
+        /* matches a reference to a range of cells */
+        className: 'symbol',
+        begin: /[A-Z]{0,2}\d*:[A-Z]{0,2}\d*/,
+        relevance: 0
+      },
+      hljs.BACKSLASH_ESCAPE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'number',
+        begin: hljs.NUMBER_RE + '(%)?',
+        relevance: 0
+      },
+      /* Excel formula comments are done by putting the comment in a function call to N() */
+      hljs.COMMENT(/\bN\(/, /\)/,
+        {
+          excludeBegin: true,
+          excludeEnd: true,
+          illegal: /\n/
+        })
+    ]
+  };
+}
+
+module.exports = excel;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/excel/" data-id="clt8trr8f018h58s4a3swenti" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/excel" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/excel/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.113Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Excel formulae
+Author: Victor Zhou <OiCMudkips@users.noreply.github.com>
+Description: Excel formulae
+Website: https://products.office.com/en-us/excel/
+*/
+
+/** @type LanguageFn */
+function excel(hljs) {
+  // built-in functions imported from https://web.archive.org/web/20160513042710/https://support.office.com/en-us/article/Excel-functions-alphabetical-b3944572-255d-4efb-bb96-c6d90033e188
+  const BUILT_INS = [
+    "ABS",
+    "ACCRINT",
+    "ACCRINTM",
+    "ACOS",
+    "ACOSH",
+    "ACOT",
+    "ACOTH",
+    "AGGREGATE",
+    "ADDRESS",
+    "AMORDEGRC",
+    "AMORLINC",
+    "AND",
+    "ARABIC",
+    "AREAS",
+    "ASC",
+    "ASIN",
+    "ASINH",
+    "ATAN",
+    "ATAN2",
+    "ATANH",
+    "AVEDEV",
+    "AVERAGE",
+    "AVERAGEA",
+    "AVERAGEIF",
+    "AVERAGEIFS",
+    "BAHTTEXT",
+    "BASE",
+    "BESSELI",
+    "BESSELJ",
+    "BESSELK",
+    "BESSELY",
+    "BETADIST",
+    "BETA.DIST",
+    "BETAINV",
+    "BETA.INV",
+    "BIN2DEC",
+    "BIN2HEX",
+    "BIN2OCT",
+    "BINOMDIST",
+    "BINOM.DIST",
+    "BINOM.DIST.RANGE",
+    "BINOM.INV",
+    "BITAND",
+    "BITLSHIFT",
+    "BITOR",
+    "BITRSHIFT",
+    "BITXOR",
+    "CALL",
+    "CEILING",
+    "CEILING.MATH",
+    "CEILING.PRECISE",
+    "CELL",
+    "CHAR",
+    "CHIDIST",
+    "CHIINV",
+    "CHITEST",
+    "CHISQ.DIST",
+    "CHISQ.DIST.RT",
+    "CHISQ.INV",
+    "CHISQ.INV.RT",
+    "CHISQ.TEST",
+    "CHOOSE",
+    "CLEAN",
+    "CODE",
+    "COLUMN",
+    "COLUMNS",
+    "COMBIN",
+    "COMBINA",
+    "COMPLEX",
+    "CONCAT",
+    "CONCATENATE",
+    "CONFIDENCE",
+    "CONFIDENCE.NORM",
+    "CONFIDENCE.T",
+    "CONVERT",
+    "CORREL",
+    "COS",
+    "COSH",
+    "COT",
+    "COTH",
+    "COUNT",
+    "COUNTA",
+    "COUNTBLANK",
+    "COUNTIF",
+    "COUNTIFS",
+    "COUPDAYBS",
+    "COUPDAYS",
+    "COUPDAYSNC",
+    "COUPNCD",
+    "COUPNUM",
+    "COUPPCD",
+    "COVAR",
+    "COVARIANCE.P",
+    "COVARIANCE.S",
+    "CRITBINOM",
+    "CSC",
+    "CSCH",
+    "CUBEKPIMEMBER",
+    "CUBEMEMBER",
+    "CUBEMEMBERPROPERTY",
+    "CUBERANKEDMEMBER",
+    "CUBESET",
+    "CUBESETCOUNT",
+    "CUBEVALUE",
+    "CUMIPMT",
+    "CUMPRINC",
+    "DATE",
+    "DATEDIF",
+    "DATEVALUE",
+    "DAVERAGE",
+    "DAY",
+    "DAYS",
+    "DAYS360",
+    "DB",
+    "DBCS",
+    "DCOUNT",
+    "DCOUNTA",
+    "DDB",
+    "DEC2BIN",
+    "DEC2HEX",
+    "DEC2OCT",
+    "DECIMAL",
+    "DEGREES",
+    "DELTA",
+    "DEVSQ",
+    "DGET",
+    "DISC",
+    "DMAX",
+    "DMIN",
+    "DOLLAR",
+    "DOLLARDE",
+    "DOLLARFR",
+    "DPRODUCT",
+    "DSTDEV",
+    "DSTDEVP",
+    "DSUM",
+    "DURATION",
+    "DVAR",
+    "DVARP",
+    "EDATE",
+    "EFFECT",
+    "ENCODEURL",
+    "EOMONTH",
+    "ERF",
+    "ERF.PRECISE",
+    "ERFC",
+    "ERFC.PRECISE",
+    "ERROR.TYPE",
+    "EUROCONVERT",
+    "EVEN",
+    "EXACT",
+    "EXP",
+    "EXPON.DIST",
+    "EXPONDIST",
+    "FACT",
+    "FACTDOUBLE",
+    "FALSE|0",
+    "F.DIST",
+    "FDIST",
+    "F.DIST.RT",
+    "FILTERXML",
+    "FIND",
+    "FINDB",
+    "F.INV",
+    "F.INV.RT",
+    "FINV",
+    "FISHER",
+    "FISHERINV",
+    "FIXED",
+    "FLOOR",
+    "FLOOR.MATH",
+    "FLOOR.PRECISE",
+    "FORECAST",
+    "FORECAST.ETS",
+    "FORECAST.ETS.CONFINT",
+    "FORECAST.ETS.SEASONALITY",
+    "FORECAST.ETS.STAT",
+    "FORECAST.LINEAR",
+    "FORMULATEXT",
+    "FREQUENCY",
+    "F.TEST",
+    "FTEST",
+    "FV",
+    "FVSCHEDULE",
+    "GAMMA",
+    "GAMMA.DIST",
+    "GAMMADIST",
+    "GAMMA.INV",
+    "GAMMAINV",
+    "GAMMALN",
+    "GAMMALN.PRECISE",
+    "GAUSS",
+    "GCD",
+    "GEOMEAN",
+    "GESTEP",
+    "GETPIVOTDATA",
+    "GROWTH",
+    "HARMEAN",
+    "HEX2BIN",
+    "HEX2DEC",
+    "HEX2OCT",
+    "HLOOKUP",
+    "HOUR",
+    "HYPERLINK",
+    "HYPGEOM.DIST",
+    "HYPGEOMDIST",
+    "IF",
+    "IFERROR",
+    "IFNA",
+    "IFS",
+    "IMABS",
+    "IMAGINARY",
+    "IMARGUMENT",
+    "IMCONJUGATE",
+    "IMCOS",
+    "IMCOSH",
+    "IMCOT",
+    "IMCSC",
+    "IMCSCH",
+    "IMDIV",
+    "IMEXP",
+    "IMLN",
+    "IMLOG10",
+    "IMLOG2",
+    "IMPOWER",
+    "IMPRODUCT",
+    "IMREAL",
+    "IMSEC",
+    "IMSECH",
+    "IMSIN",
+    "IMSINH",
+    "IMSQRT",
+    "IMSUB",
+    "IMSUM",
+    "IMTAN",
+    "INDEX",
+    "INDIRECT",
+    "INFO",
+    "INT",
+    "INTERCEPT",
+    "INTRATE",
+    "IPMT",
+    "IRR",
+    "ISBLANK",
+    "ISERR",
+    "ISERROR",
+    "ISEVEN",
+    "ISFORMULA",
+    "ISLOGICAL",
+    "ISNA",
+    "ISNONTEXT",
+    "ISNUMBER",
+    "ISODD",
+    "ISREF",
+    "ISTEXT",
+    "ISO.CEILING",
+    "ISOWEEKNUM",
+    "ISPMT",
+    "JIS",
+    "KURT",
+    "LARGE",
+    "LCM",
+    "LEFT",
+    "LEFTB",
+    "LEN",
+    "LENB",
+    "LINEST",
+    "LN",
+    "LOG",
+    "LOG10",
+    "LOGEST",
+    "LOGINV",
+    "LOGNORM.DIST",
+    "LOGNORMDIST",
+    "LOGNORM.INV",
+    "LOOKUP",
+    "LOWER",
+    "MATCH",
+    "MAX",
+    "MAXA",
+    "MAXIFS",
+    "MDETERM",
+    "MDURATION",
+    "MEDIAN",
+    "MID",
+    "MIDBs",
+    "MIN",
+    "MINIFS",
+    "MINA",
+    "MINUTE",
+    "MINVERSE",
+    "MIRR",
+    "MMULT",
+    "MOD",
+    "MODE",
+    "MODE.MULT",
+    "MODE.SNGL",
+    "MONTH",
+    "MROUND",
+    "MULTINOMIAL",
+    "MUNIT",
+    "N",
+    "NA",
+    "NEGBINOM.DIST",
+    "NEGBINOMDIST",
+    "NETWORKDAYS",
+    "NETWORKDAYS.INTL",
+    "NOMINAL",
+    "NORM.DIST",
+    "NORMDIST",
+    "NORMINV",
+    "NORM.INV",
+    "NORM.S.DIST",
+    "NORMSDIST",
+    "NORM.S.INV",
+    "NORMSINV",
+    "NOT",
+    "NOW",
+    "NPER",
+    "NPV",
+    "NUMBERVALUE",
+    "OCT2BIN",
+    "OCT2DEC",
+    "OCT2HEX",
+    "ODD",
+    "ODDFPRICE",
+    "ODDFYIELD",
+    "ODDLPRICE",
+    "ODDLYIELD",
+    "OFFSET",
+    "OR",
+    "PDURATION",
+    "PEARSON",
+    "PERCENTILE.EXC",
+    "PERCENTILE.INC",
+    "PERCENTILE",
+    "PERCENTRANK.EXC",
+    "PERCENTRANK.INC",
+    "PERCENTRANK",
+    "PERMUT",
+    "PERMUTATIONA",
+    "PHI",
+    "PHONETIC",
+    "PI",
+    "PMT",
+    "POISSON.DIST",
+    "POISSON",
+    "POWER",
+    "PPMT",
+    "PRICE",
+    "PRICEDISC",
+    "PRICEMAT",
+    "PROB",
+    "PRODUCT",
+    "PROPER",
+    "PV",
+    "QUARTILE",
+    "QUARTILE.EXC",
+    "QUARTILE.INC",
+    "QUOTIENT",
+    "RADIANS",
+    "RAND",
+    "RANDBETWEEN",
+    "RANK.AVG",
+    "RANK.EQ",
+    "RANK",
+    "RATE",
+    "RECEIVED",
+    "REGISTER.ID",
+    "REPLACE",
+    "REPLACEB",
+    "REPT",
+    "RIGHT",
+    "RIGHTB",
+    "ROMAN",
+    "ROUND",
+    "ROUNDDOWN",
+    "ROUNDUP",
+    "ROW",
+    "ROWS",
+    "RRI",
+    "RSQ",
+    "RTD",
+    "SEARCH",
+    "SEARCHB",
+    "SEC",
+    "SECH",
+    "SECOND",
+    "SERIESSUM",
+    "SHEET",
+    "SHEETS",
+    "SIGN",
+    "SIN",
+    "SINH",
+    "SKEW",
+    "SKEW.P",
+    "SLN",
+    "SLOPE",
+    "SMALL",
+    "SQL.REQUEST",
+    "SQRT",
+    "SQRTPI",
+    "STANDARDIZE",
+    "STDEV",
+    "STDEV.P",
+    "STDEV.S",
+    "STDEVA",
+    "STDEVP",
+    "STDEVPA",
+    "STEYX",
+    "SUBSTITUTE",
+    "SUBTOTAL",
+    "SUM",
+    "SUMIF",
+    "SUMIFS",
+    "SUMPRODUCT",
+    "SUMSQ",
+    "SUMX2MY2",
+    "SUMX2PY2",
+    "SUMXMY2",
+    "SWITCH",
+    "SYD",
+    "T",
+    "TAN",
+    "TANH",
+    "TBILLEQ",
+    "TBILLPRICE",
+    "TBILLYIELD",
+    "T.DIST",
+    "T.DIST.2T",
+    "T.DIST.RT",
+    "TDIST",
+    "TEXT",
+    "TEXTJOIN",
+    "TIME",
+    "TIMEVALUE",
+    "T.INV",
+    "T.INV.2T",
+    "TINV",
+    "TODAY",
+    "TRANSPOSE",
+    "TREND",
+    "TRIM",
+    "TRIMMEAN",
+    "TRUE|0",
+    "TRUNC",
+    "T.TEST",
+    "TTEST",
+    "TYPE",
+    "UNICHAR",
+    "UNICODE",
+    "UPPER",
+    "VALUE",
+    "VAR",
+    "VAR.P",
+    "VAR.S",
+    "VARA",
+    "VARP",
+    "VARPA",
+    "VDB",
+    "VLOOKUP",
+    "WEBSERVICE",
+    "WEEKDAY",
+    "WEEKNUM",
+    "WEIBULL",
+    "WEIBULL.DIST",
+    "WORKDAY",
+    "WORKDAY.INTL",
+    "XIRR",
+    "XNPV",
+    "XOR",
+    "YEAR",
+    "YEARFRAC",
+    "YIELD",
+    "YIELDDISC",
+    "YIELDMAT",
+    "Z.TEST",
+    "ZTEST"
+  ];
+  return {
+    name: 'Excel formulae',
+    aliases: [
+      'xlsx',
+      'xls'
+    ],
+    case_insensitive: true,
+    keywords: {
+      $pattern: /[a-zA-Z][\w\.]*/,
+      built_in: BUILT_INS
+    },
+    contains: [
+      {
+        /* matches a beginning equal sign found in Excel formula examples */
+        begin: /^=/,
+        end: /[^=]/,
+        returnEnd: true,
+        illegal: /=/, /* only allow single equal sign at front of line */
+        relevance: 10
+      },
+      /* technically, there can be more than 2 letters in column names, but this prevents conflict with some keywords */
+      {
+        /* matches a reference to a single cell */
+        className: 'symbol',
+        begin: /\b[A-Z]{1,2}\d+\b/,
+        end: /[^\d]/,
+        excludeEnd: true,
+        relevance: 0
+      },
+      {
+        /* matches a reference to a range of cells */
+        className: 'symbol',
+        begin: /[A-Z]{0,2}\d*:[A-Z]{0,2}\d*/,
+        relevance: 0
+      },
+      hljs.BACKSLASH_ESCAPE,
+      hljs.QUOTE_STRING_MODE,
+      {
+        className: 'number',
+        begin: hljs.NUMBER_RE + '(%)?',
+        relevance: 0
+      },
+      /* Excel formula comments are done by putting the comment in a function call to N() */
+      hljs.COMMENT(/\bN\(/, /\)/,
+        {
+          excludeBegin: true,
+          excludeEnd: true,
+          illegal: /\n/
+        })
+    ]
+  };
+}
+
+export { excel as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/excel/" data-id="clt8trr4t00xt58s4fzk18ml7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/erlang.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/erlang.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.112Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/erlang" instead of "highlight.js/lib/languages/erlang.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./erlang.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/erlang.js/" data-id="clt8trr8e018g58s4hggc0or9" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/erlang.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/erlang.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.111Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/erlang" instead of "highlight.js/lib/languages/erlang.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './erlang.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/erlang.js/" data-id="clt8trr4t00xs58s420b25ow2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/erlang" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/erlang/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.109Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Erlang
+Description: Erlang is a general-purpose functional language, with strict evaluation, single assignment, and dynamic typing.
+Author: Nikolay Zakharov <nikolay.desh@gmail.com>, Dmitry Kovega <arhibot@gmail.com>
+Website: https://www.erlang.org
+Category: functional
+*/
+
+/** @type LanguageFn */
+function erlang(hljs) {
+  const BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
+  const FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
+  const ERLANG_RESERVED = {
+    keyword:
+      'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if '
+      + 'let not of orelse|10 query receive rem try when xor',
+    literal:
+      'false true'
+  };
+
+  const COMMENT = hljs.COMMENT('%', '$');
+  const NUMBER = {
+    className: 'number',
+    begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
+    relevance: 0
+  };
+  const NAMED_FUN = { begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+' };
+  const FUNCTION_CALL = {
+    begin: FUNCTION_NAME_RE + '\\(',
+    end: '\\)',
+    returnBegin: true,
+    relevance: 0,
+    contains: [
+      {
+        begin: FUNCTION_NAME_RE,
+        relevance: 0
+      },
+      {
+        begin: '\\(',
+        end: '\\)',
+        endsWithParent: true,
+        returnEnd: true,
+        relevance: 0
+        // "contains" defined later
+      }
+    ]
+  };
+  const TUPLE = {
+    begin: /\{/,
+    end: /\}/,
+    relevance: 0
+    // "contains" defined later
+  };
+  const VAR1 = {
+    begin: '\\b_([A-Z][A-Za-z0-9_]*)?',
+    relevance: 0
+  };
+  const VAR2 = {
+    begin: '[A-Z][a-zA-Z0-9_]*',
+    relevance: 0
+  };
+  const RECORD_ACCESS = {
+    begin: '#' + hljs.UNDERSCORE_IDENT_RE,
+    relevance: 0,
+    returnBegin: true,
+    contains: [
+      {
+        begin: '#' + hljs.UNDERSCORE_IDENT_RE,
+        relevance: 0
+      },
+      {
+        begin: /\{/,
+        end: /\}/,
+        relevance: 0
+        // "contains" defined later
+      }
+    ]
+  };
+
+  const BLOCK_STATEMENTS = {
+    beginKeywords: 'fun receive if try case',
+    end: 'end',
+    keywords: ERLANG_RESERVED
+  };
+  BLOCK_STATEMENTS.contains = [
+    COMMENT,
+    NAMED_FUN,
+    hljs.inherit(hljs.APOS_STRING_MODE, { className: '' }),
+    BLOCK_STATEMENTS,
+    FUNCTION_CALL,
+    hljs.QUOTE_STRING_MODE,
+    NUMBER,
+    TUPLE,
+    VAR1,
+    VAR2,
+    RECORD_ACCESS
+  ];
+
+  const BASIC_MODES = [
+    COMMENT,
+    NAMED_FUN,
+    BLOCK_STATEMENTS,
+    FUNCTION_CALL,
+    hljs.QUOTE_STRING_MODE,
+    NUMBER,
+    TUPLE,
+    VAR1,
+    VAR2,
+    RECORD_ACCESS
+  ];
+  FUNCTION_CALL.contains[1].contains = BASIC_MODES;
+  TUPLE.contains = BASIC_MODES;
+  RECORD_ACCESS.contains[1].contains = BASIC_MODES;
+
+  const DIRECTIVES = [
+    "-module",
+    "-record",
+    "-undef",
+    "-export",
+    "-ifdef",
+    "-ifndef",
+    "-author",
+    "-copyright",
+    "-doc",
+    "-vsn",
+    "-import",
+    "-include",
+    "-include_lib",
+    "-compile",
+    "-define",
+    "-else",
+    "-endif",
+    "-file",
+    "-behaviour",
+    "-behavior",
+    "-spec"
+  ];
+
+  const PARAMS = {
+    className: 'params',
+    begin: '\\(',
+    end: '\\)',
+    contains: BASIC_MODES
+  };
+  return {
+    name: 'Erlang',
+    aliases: [ 'erl' ],
+    keywords: ERLANG_RESERVED,
+    illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',
+    contains: [
+      {
+        className: 'function',
+        begin: '^' + BASIC_ATOM_RE + '\\s*\\(',
+        end: '->',
+        returnBegin: true,
+        illegal: '\\(|#|//|/\\*|\\\\|:|;',
+        contains: [
+          PARAMS,
+          hljs.inherit(hljs.TITLE_MODE, { begin: BASIC_ATOM_RE })
+        ],
+        starts: {
+          end: ';|\\.',
+          keywords: ERLANG_RESERVED,
+          contains: BASIC_MODES
+        }
+      },
+      COMMENT,
+      {
+        begin: '^-',
+        end: '\\.',
+        relevance: 0,
+        excludeEnd: true,
+        returnBegin: true,
+        keywords: {
+          $pattern: '-' + hljs.IDENT_RE,
+          keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
+        },
+        contains: [ PARAMS ]
+      },
+      NUMBER,
+      hljs.QUOTE_STRING_MODE,
+      RECORD_ACCESS,
+      VAR1,
+      VAR2,
+      TUPLE,
+      { begin: /\.$/ } // relevance booster
+    ]
+  };
+}
+
+module.exports = erlang;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/erlang/" data-id="clt8trr8e018f58s4ag4davtu" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/erlang" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/erlang/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:18.104Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Erlang
+Description: Erlang is a general-purpose functional language, with strict evaluation, single assignment, and dynamic typing.
+Author: Nikolay Zakharov <nikolay.desh@gmail.com>, Dmitry Kovega <arhibot@gmail.com>
+Website: https://www.erlang.org
+Category: functional
+*/
+
+/** @type LanguageFn */
+function erlang(hljs) {
+  const BASIC_ATOM_RE = '[a-z\'][a-zA-Z0-9_\']*';
+  const FUNCTION_NAME_RE = '(' + BASIC_ATOM_RE + ':' + BASIC_ATOM_RE + '|' + BASIC_ATOM_RE + ')';
+  const ERLANG_RESERVED = {
+    keyword:
+      'after and andalso|10 band begin bnot bor bsl bzr bxor case catch cond div end fun if '
+      + 'let not of orelse|10 query receive rem try when xor',
+    literal:
+      'false true'
+  };
+
+  const COMMENT = hljs.COMMENT('%', '$');
+  const NUMBER = {
+    className: 'number',
+    begin: '\\b(\\d+(_\\d+)*#[a-fA-F0-9]+(_[a-fA-F0-9]+)*|\\d+(_\\d+)*(\\.\\d+(_\\d+)*)?([eE][-+]?\\d+)?)',
+    relevance: 0
+  };
+  const NAMED_FUN = { begin: 'fun\\s+' + BASIC_ATOM_RE + '/\\d+' };
+  const FUNCTION_CALL = {
+    begin: FUNCTION_NAME_RE + '\\(',
+    end: '\\)',
+    returnBegin: true,
+    relevance: 0,
+    contains: [
+      {
+        begin: FUNCTION_NAME_RE,
+        relevance: 0
+      },
+      {
+        begin: '\\(',
+        end: '\\)',
+        endsWithParent: true,
+        returnEnd: true,
+        relevance: 0
+        // "contains" defined later
+      }
+    ]
+  };
+  const TUPLE = {
+    begin: /\{/,
+    end: /\}/,
+    relevance: 0
+    // "contains" defined later
+  };
+  const VAR1 = {
+    begin: '\\b_([A-Z][A-Za-z0-9_]*)?',
+    relevance: 0
+  };
+  const VAR2 = {
+    begin: '[A-Z][a-zA-Z0-9_]*',
+    relevance: 0
+  };
+  const RECORD_ACCESS = {
+    begin: '#' + hljs.UNDERSCORE_IDENT_RE,
+    relevance: 0,
+    returnBegin: true,
+    contains: [
+      {
+        begin: '#' + hljs.UNDERSCORE_IDENT_RE,
+        relevance: 0
+      },
+      {
+        begin: /\{/,
+        end: /\}/,
+        relevance: 0
+        // "contains" defined later
+      }
+    ]
+  };
+
+  const BLOCK_STATEMENTS = {
+    beginKeywords: 'fun receive if try case',
+    end: 'end',
+    keywords: ERLANG_RESERVED
+  };
+  BLOCK_STATEMENTS.contains = [
+    COMMENT,
+    NAMED_FUN,
+    hljs.inherit(hljs.APOS_STRING_MODE, { className: '' }),
+    BLOCK_STATEMENTS,
+    FUNCTION_CALL,
+    hljs.QUOTE_STRING_MODE,
+    NUMBER,
+    TUPLE,
+    VAR1,
+    VAR2,
+    RECORD_ACCESS
+  ];
+
+  const BASIC_MODES = [
+    COMMENT,
+    NAMED_FUN,
+    BLOCK_STATEMENTS,
+    FUNCTION_CALL,
+    hljs.QUOTE_STRING_MODE,
+    NUMBER,
+    TUPLE,
+    VAR1,
+    VAR2,
+    RECORD_ACCESS
+  ];
+  FUNCTION_CALL.contains[1].contains = BASIC_MODES;
+  TUPLE.contains = BASIC_MODES;
+  RECORD_ACCESS.contains[1].contains = BASIC_MODES;
+
+  const DIRECTIVES = [
+    "-module",
+    "-record",
+    "-undef",
+    "-export",
+    "-ifdef",
+    "-ifndef",
+    "-author",
+    "-copyright",
+    "-doc",
+    "-vsn",
+    "-import",
+    "-include",
+    "-include_lib",
+    "-compile",
+    "-define",
+    "-else",
+    "-endif",
+    "-file",
+    "-behaviour",
+    "-behavior",
+    "-spec"
+  ];
+
+  const PARAMS = {
+    className: 'params',
+    begin: '\\(',
+    end: '\\)',
+    contains: BASIC_MODES
+  };
+  return {
+    name: 'Erlang',
+    aliases: [ 'erl' ],
+    keywords: ERLANG_RESERVED,
+    illegal: '(</|\\*=|\\+=|-=|/\\*|\\*/|\\(\\*|\\*\\))',
+    contains: [
+      {
+        className: 'function',
+        begin: '^' + BASIC_ATOM_RE + '\\s*\\(',
+        end: '->',
+        returnBegin: true,
+        illegal: '\\(|#|//|/\\*|\\\\|:|;',
+        contains: [
+          PARAMS,
+          hljs.inherit(hljs.TITLE_MODE, { begin: BASIC_ATOM_RE })
+        ],
+        starts: {
+          end: ';|\\.',
+          keywords: ERLANG_RESERVED,
+          contains: BASIC_MODES
+        }
+      },
+      COMMENT,
+      {
+        begin: '^-',
+        end: '\\.',
+        relevance: 0,
+        excludeEnd: true,
+        returnBegin: true,
+        keywords: {
+          $pattern: '-' + hljs.IDENT_RE,
+          keyword: DIRECTIVES.map(x => `${x}|1.5`).join(" ")
+        },
+        contains: [ PARAMS ]
+      },
+      NUMBER,
+      hljs.QUOTE_STRING_MODE,
+      RECORD_ACCESS,
+      VAR1,
+      VAR2,
+      TUPLE,
+      { begin: /\.$/ } // relevance booster
+    ]
+  };
+}
+
+export { erlang as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/erlang/" data-id="clt8trr4s00xr58s4hmp35u8v" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/55/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/54/">54</a><a class="page-number" href="/page/55/">55</a><span class="page-number current">56</span><a class="page-number" href="/page/57/">57</a><a class="page-number" href="/page/58/">58</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/57/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

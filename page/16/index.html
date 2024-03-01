@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/16/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/highlight.js/es/languages/scilab.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/scilab.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.534Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/scilab" instead of "highlight.js/lib/languages/scilab.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './scilab.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/scilab.js/" data-id="clt8trr6q013e58s44egedp23" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/scilab" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/scilab/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.532Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Scilab
+Author: Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
+Origin: matlab.js
+Description: Scilab is a port from Matlab
+Website: https://www.scilab.org
+Category: scientific
+*/
+
+function scilab(hljs) {
+  const COMMON_CONTAINS = [
+    hljs.C_NUMBER_MODE,
+    {
+      className: 'string',
+      begin: '\'|\"',
+      end: '\'|\"',
+      contains: [
+        hljs.BACKSLASH_ESCAPE,
+        { begin: '\'\'' }
+      ]
+    }
+  ];
+
+  return {
+    name: 'Scilab',
+    aliases: [ 'sci' ],
+    keywords: {
+      $pattern: /%?\w+/,
+      keyword: 'abort break case clear catch continue do elseif else endfunction end for function '
+        + 'global if pause return resume select try then while',
+      literal:
+        '%f %F %t %T %pi %eps %inf %nan %e %i %z %s',
+      built_in: // Scilab has more than 2000 functions. Just list the most commons
+       'abs and acos asin atan ceil cd chdir clearglobal cosh cos cumprod deff disp error '
+       + 'exec execstr exists exp eye gettext floor fprintf fread fsolve imag isdef isempty '
+       + 'isinfisnan isvector lasterror length load linspace list listfiles log10 log2 log '
+       + 'max min msprintf mclose mopen ones or pathconvert poly printf prod pwd rand real '
+       + 'round sinh sin size gsort sprintf sqrt strcat strcmps tring sum system tanh tan '
+       + 'type typename warning zeros matrix'
+    },
+    illegal: '("|#|/\\*|\\s+/\\w+)',
+    contains: [
+      {
+        className: 'function',
+        beginKeywords: 'function',
+        end: '$',
+        contains: [
+          hljs.UNDERSCORE_TITLE_MODE,
+          {
+            className: 'params',
+            begin: '\\(',
+            end: '\\)'
+          }
+        ]
+      },
+      // seems to be a guard against [ident]' or [ident].
+      // perhaps to prevent attributes from flagging as keywords?
+      {
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*[\\.\']+',
+        relevance: 0
+      },
+      {
+        begin: '\\[',
+        end: '\\][\\.\']*',
+        relevance: 0,
+        contains: COMMON_CONTAINS
+      },
+      hljs.COMMENT('//', '$')
+    ].concat(COMMON_CONTAINS)
+  };
+}
+
+module.exports = scilab;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/scilab/" data-id="clt8trrac01e158s48nrphmm8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/scilab" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/scilab/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.529Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Scilab
+Author: Sylvestre Ledru <sylvestre.ledru@scilab-enterprises.com>
+Origin: matlab.js
+Description: Scilab is a port from Matlab
+Website: https://www.scilab.org
+Category: scientific
+*/
+
+function scilab(hljs) {
+  const COMMON_CONTAINS = [
+    hljs.C_NUMBER_MODE,
+    {
+      className: 'string',
+      begin: '\'|\"',
+      end: '\'|\"',
+      contains: [
+        hljs.BACKSLASH_ESCAPE,
+        { begin: '\'\'' }
+      ]
+    }
+  ];
+
+  return {
+    name: 'Scilab',
+    aliases: [ 'sci' ],
+    keywords: {
+      $pattern: /%?\w+/,
+      keyword: 'abort break case clear catch continue do elseif else endfunction end for function '
+        + 'global if pause return resume select try then while',
+      literal:
+        '%f %F %t %T %pi %eps %inf %nan %e %i %z %s',
+      built_in: // Scilab has more than 2000 functions. Just list the most commons
+       'abs and acos asin atan ceil cd chdir clearglobal cosh cos cumprod deff disp error '
+       + 'exec execstr exists exp eye gettext floor fprintf fread fsolve imag isdef isempty '
+       + 'isinfisnan isvector lasterror length load linspace list listfiles log10 log2 log '
+       + 'max min msprintf mclose mopen ones or pathconvert poly printf prod pwd rand real '
+       + 'round sinh sin size gsort sprintf sqrt strcat strcmps tring sum system tanh tan '
+       + 'type typename warning zeros matrix'
+    },
+    illegal: '("|#|/\\*|\\s+/\\w+)',
+    contains: [
+      {
+        className: 'function',
+        beginKeywords: 'function',
+        end: '$',
+        contains: [
+          hljs.UNDERSCORE_TITLE_MODE,
+          {
+            className: 'params',
+            begin: '\\(',
+            end: '\\)'
+          }
+        ]
+      },
+      // seems to be a guard against [ident]' or [ident].
+      // perhaps to prevent attributes from flagging as keywords?
+      {
+        begin: '[a-zA-Z_][a-zA-Z_0-9]*[\\.\']+',
+        relevance: 0
+      },
+      {
+        begin: '\\[',
+        end: '\\][\\.\']*',
+        relevance: 0,
+        contains: COMMON_CONTAINS
+      },
+      hljs.COMMENT('//', '$')
+    ].concat(COMMON_CONTAINS)
+  };
+}
+
+export { scilab as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/scilab/" data-id="clt8trr6q013d58s48awjaqjs" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/scheme.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/scheme.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.528Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/scheme" instead of "highlight.js/lib/languages/scheme.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./scheme.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/scheme.js/" data-id="clt8trrac01e058s41jtwd2xc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/scheme.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/scheme.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.527Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/scheme" instead of "highlight.js/lib/languages/scheme.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './scheme.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/scheme.js/" data-id="clt8trr6m013c58s42zxbd2xb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/scheme" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/scheme/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.524Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Scheme
+Description: Scheme is a programming language in the Lisp family.
+             (keywords based on http://community.schemewiki.org/?scheme-keywords)
+Author: JP Verkamp <me@jverkamp.com>
+Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Origin: clojure.js
+Website: http://community.schemewiki.org/?what-is-scheme
+Category: lisp
+*/
+
+function scheme(hljs) {
+  const SCHEME_IDENT_RE = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
+  const SCHEME_SIMPLE_NUMBER_RE = '(-|\\+)?\\d+([./]\\d+)?';
+  const SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
+  const KEYWORDS = {
+    $pattern: SCHEME_IDENT_RE,
+    built_in:
+      'case-lambda call/cc class define-class exit-handler field import '
+      + 'inherit init-field interface let*-values let-values let/ec mixin '
+      + 'opt-lambda override protect provide public rename require '
+      + 'require-for-syntax syntax syntax-case syntax-error unit/sig unless '
+      + 'when with-syntax and begin call-with-current-continuation '
+      + 'call-with-input-file call-with-output-file case cond define '
+      + 'define-syntax delay do dynamic-wind else for-each if lambda let let* '
+      + 'let-syntax letrec letrec-syntax map or syntax-rules \' * + , ,@ - ... / '
+      + '; < <= = => > >= ` abs acos angle append apply asin assoc assq assv atan '
+      + 'boolean? caar cadr call-with-input-file call-with-output-file '
+      + 'call-with-values car cdddar cddddr cdr ceiling char->integer '
+      + 'char-alphabetic? char-ci<=? char-ci<? char-ci=? char-ci>=? char-ci>? '
+      + 'char-downcase char-lower-case? char-numeric? char-ready? char-upcase '
+      + 'char-upper-case? char-whitespace? char<=? char<? char=? char>=? char>? '
+      + 'char? close-input-port close-output-port complex? cons cos '
+      + 'current-input-port current-output-port denominator display eof-object? '
+      + 'eq? equal? eqv? eval even? exact->inexact exact? exp expt floor '
+      + 'force gcd imag-part inexact->exact inexact? input-port? integer->char '
+      + 'integer? interaction-environment lcm length list list->string '
+      + 'list->vector list-ref list-tail list? load log magnitude make-polar '
+      + 'make-rectangular make-string make-vector max member memq memv min '
+      + 'modulo negative? newline not null-environment null? number->string '
+      + 'number? numerator odd? open-input-file open-output-file output-port? '
+      + 'pair? peek-char port? positive? procedure? quasiquote quote quotient '
+      + 'rational? rationalize read read-char real-part real? remainder reverse '
+      + 'round scheme-report-environment set! set-car! set-cdr! sin sqrt string '
+      + 'string->list string->number string->symbol string-append string-ci<=? '
+      + 'string-ci<? string-ci=? string-ci>=? string-ci>? string-copy '
+      + 'string-fill! string-length string-ref string-set! string<=? string<? '
+      + 'string=? string>=? string>? string? substring symbol->string symbol? '
+      + 'tan transcript-off transcript-on truncate values vector '
+      + 'vector->list vector-fill! vector-length vector-ref vector-set! '
+      + 'with-input-from-file with-output-to-file write write-char zero?'
+  };
+
+  const LITERAL = {
+    className: 'literal',
+    begin: '(#t|#f|#\\\\' + SCHEME_IDENT_RE + '|#\\\\.)'
+  };
+
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      {
+        begin: SCHEME_SIMPLE_NUMBER_RE,
+        relevance: 0
+      },
+      {
+        begin: SCHEME_COMPLEX_NUMBER_RE,
+        relevance: 0
+      },
+      { begin: '#b[0-1]+(/[0-1]+)?' },
+      { begin: '#o[0-7]+(/[0-7]+)?' },
+      { begin: '#x[0-9a-f]+(/[0-9a-f]+)?' }
+    ]
+  };
+
+  const STRING = hljs.QUOTE_STRING_MODE;
+
+  const COMMENT_MODES = [
+    hljs.COMMENT(
+      ';',
+      '$',
+      { relevance: 0 }
+    ),
+    hljs.COMMENT('#\\|', '\\|#')
+  ];
+
+  const IDENT = {
+    begin: SCHEME_IDENT_RE,
+    relevance: 0
+  };
+
+  const QUOTED_IDENT = {
+    className: 'symbol',
+    begin: '\'' + SCHEME_IDENT_RE
+  };
+
+  const BODY = {
+    endsWithParent: true,
+    relevance: 0
+  };
+
+  const QUOTED_LIST = {
+    variants: [
+      { begin: /'/ },
+      { begin: '`' }
+    ],
+    contains: [
+      {
+        begin: '\\(',
+        end: '\\)',
+        contains: [
+          'self',
+          LITERAL,
+          STRING,
+          NUMBER,
+          IDENT,
+          QUOTED_IDENT
+        ]
+      }
+    ]
+  };
+
+  const NAME = {
+    className: 'name',
+    relevance: 0,
+    begin: SCHEME_IDENT_RE,
+    keywords: KEYWORDS
+  };
+
+  const LAMBDA = {
+    begin: /lambda/,
+    endsWithParent: true,
+    returnBegin: true,
+    contains: [
+      NAME,
+      {
+        endsParent: true,
+        variants: [
+          {
+            begin: /\(/,
+            end: /\)/
+          },
+          {
+            begin: /\[/,
+            end: /\]/
+          }
+        ],
+        contains: [ IDENT ]
+      }
+    ]
+  };
+
+  const LIST = {
+    variants: [
+      {
+        begin: '\\(',
+        end: '\\)'
+      },
+      {
+        begin: '\\[',
+        end: '\\]'
+      }
+    ],
+    contains: [
+      LAMBDA,
+      NAME,
+      BODY
+    ]
+  };
+
+  BODY.contains = [
+    LITERAL,
+    NUMBER,
+    STRING,
+    IDENT,
+    QUOTED_IDENT,
+    QUOTED_LIST,
+    LIST
+  ].concat(COMMENT_MODES);
+
+  return {
+    name: 'Scheme',
+    aliases: ['scm'],
+    illegal: /\S/,
+    contains: [
+      hljs.SHEBANG(),
+      NUMBER,
+      STRING,
+      QUOTED_IDENT,
+      QUOTED_LIST,
+      LIST
+    ].concat(COMMENT_MODES)
+  };
+}
+
+module.exports = scheme;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/scheme/" data-id="clt8trrac01dz58s44s3s0zw2" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/scheme" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/scheme/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.521Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Scheme
+Description: Scheme is a programming language in the Lisp family.
+             (keywords based on http://community.schemewiki.org/?scheme-keywords)
+Author: JP Verkamp <me@jverkamp.com>
+Contributors: Ivan Sagalaev <maniac@softwaremaniacs.org>
+Origin: clojure.js
+Website: http://community.schemewiki.org/?what-is-scheme
+Category: lisp
+*/
+
+function scheme(hljs) {
+  const SCHEME_IDENT_RE = '[^\\(\\)\\[\\]\\{\\}",\'`;#|\\\\\\s]+';
+  const SCHEME_SIMPLE_NUMBER_RE = '(-|\\+)?\\d+([./]\\d+)?';
+  const SCHEME_COMPLEX_NUMBER_RE = SCHEME_SIMPLE_NUMBER_RE + '[+\\-]' + SCHEME_SIMPLE_NUMBER_RE + 'i';
+  const KEYWORDS = {
+    $pattern: SCHEME_IDENT_RE,
+    built_in:
+      'case-lambda call/cc class define-class exit-handler field import '
+      + 'inherit init-field interface let*-values let-values let/ec mixin '
+      + 'opt-lambda override protect provide public rename require '
+      + 'require-for-syntax syntax syntax-case syntax-error unit/sig unless '
+      + 'when with-syntax and begin call-with-current-continuation '
+      + 'call-with-input-file call-with-output-file case cond define '
+      + 'define-syntax delay do dynamic-wind else for-each if lambda let let* '
+      + 'let-syntax letrec letrec-syntax map or syntax-rules \' * + , ,@ - ... / '
+      + '; < <= = => > >= ` abs acos angle append apply asin assoc assq assv atan '
+      + 'boolean? caar cadr call-with-input-file call-with-output-file '
+      + 'call-with-values car cdddar cddddr cdr ceiling char->integer '
+      + 'char-alphabetic? char-ci<=? char-ci<? char-ci=? char-ci>=? char-ci>? '
+      + 'char-downcase char-lower-case? char-numeric? char-ready? char-upcase '
+      + 'char-upper-case? char-whitespace? char<=? char<? char=? char>=? char>? '
+      + 'char? close-input-port close-output-port complex? cons cos '
+      + 'current-input-port current-output-port denominator display eof-object? '
+      + 'eq? equal? eqv? eval even? exact->inexact exact? exp expt floor '
+      + 'force gcd imag-part inexact->exact inexact? input-port? integer->char '
+      + 'integer? interaction-environment lcm length list list->string '
+      + 'list->vector list-ref list-tail list? load log magnitude make-polar '
+      + 'make-rectangular make-string make-vector max member memq memv min '
+      + 'modulo negative? newline not null-environment null? number->string '
+      + 'number? numerator odd? open-input-file open-output-file output-port? '
+      + 'pair? peek-char port? positive? procedure? quasiquote quote quotient '
+      + 'rational? rationalize read read-char real-part real? remainder reverse '
+      + 'round scheme-report-environment set! set-car! set-cdr! sin sqrt string '
+      + 'string->list string->number string->symbol string-append string-ci<=? '
+      + 'string-ci<? string-ci=? string-ci>=? string-ci>? string-copy '
+      + 'string-fill! string-length string-ref string-set! string<=? string<? '
+      + 'string=? string>=? string>? string? substring symbol->string symbol? '
+      + 'tan transcript-off transcript-on truncate values vector '
+      + 'vector->list vector-fill! vector-length vector-ref vector-set! '
+      + 'with-input-from-file with-output-to-file write write-char zero?'
+  };
+
+  const LITERAL = {
+    className: 'literal',
+    begin: '(#t|#f|#\\\\' + SCHEME_IDENT_RE + '|#\\\\.)'
+  };
+
+  const NUMBER = {
+    className: 'number',
+    variants: [
+      {
+        begin: SCHEME_SIMPLE_NUMBER_RE,
+        relevance: 0
+      },
+      {
+        begin: SCHEME_COMPLEX_NUMBER_RE,
+        relevance: 0
+      },
+      { begin: '#b[0-1]+(/[0-1]+)?' },
+      { begin: '#o[0-7]+(/[0-7]+)?' },
+      { begin: '#x[0-9a-f]+(/[0-9a-f]+)?' }
+    ]
+  };
+
+  const STRING = hljs.QUOTE_STRING_MODE;
+
+  const COMMENT_MODES = [
+    hljs.COMMENT(
+      ';',
+      '$',
+      { relevance: 0 }
+    ),
+    hljs.COMMENT('#\\|', '\\|#')
+  ];
+
+  const IDENT = {
+    begin: SCHEME_IDENT_RE,
+    relevance: 0
+  };
+
+  const QUOTED_IDENT = {
+    className: 'symbol',
+    begin: '\'' + SCHEME_IDENT_RE
+  };
+
+  const BODY = {
+    endsWithParent: true,
+    relevance: 0
+  };
+
+  const QUOTED_LIST = {
+    variants: [
+      { begin: /'/ },
+      { begin: '`' }
+    ],
+    contains: [
+      {
+        begin: '\\(',
+        end: '\\)',
+        contains: [
+          'self',
+          LITERAL,
+          STRING,
+          NUMBER,
+          IDENT,
+          QUOTED_IDENT
+        ]
+      }
+    ]
+  };
+
+  const NAME = {
+    className: 'name',
+    relevance: 0,
+    begin: SCHEME_IDENT_RE,
+    keywords: KEYWORDS
+  };
+
+  const LAMBDA = {
+    begin: /lambda/,
+    endsWithParent: true,
+    returnBegin: true,
+    contains: [
+      NAME,
+      {
+        endsParent: true,
+        variants: [
+          {
+            begin: /\(/,
+            end: /\)/
+          },
+          {
+            begin: /\[/,
+            end: /\]/
+          }
+        ],
+        contains: [ IDENT ]
+      }
+    ]
+  };
+
+  const LIST = {
+    variants: [
+      {
+        begin: '\\(',
+        end: '\\)'
+      },
+      {
+        begin: '\\[',
+        end: '\\]'
+      }
+    ],
+    contains: [
+      LAMBDA,
+      NAME,
+      BODY
+    ]
+  };
+
+  BODY.contains = [
+    LITERAL,
+    NUMBER,
+    STRING,
+    IDENT,
+    QUOTED_IDENT,
+    QUOTED_LIST,
+    LIST
+  ].concat(COMMENT_MODES);
+
+  return {
+    name: 'Scheme',
+    aliases: ['scm'],
+    illegal: /\S/,
+    contains: [
+      hljs.SHEBANG(),
+      NUMBER,
+      STRING,
+      QUOTED_IDENT,
+      QUOTED_LIST,
+      LIST
+    ].concat(COMMENT_MODES)
+  };
+}
+
+export { scheme as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/scheme/" data-id="clt8trr6l013b58s44s8i3n1p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/scala.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/scala.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.519Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/scala" instead of "highlight.js/lib/languages/scala.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./scala.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/scala.js/" data-id="clt8trrab01dy58s498hchidr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/scala.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/scala.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.518Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/scala" instead of "highlight.js/lib/languages/scala.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './scala.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/scala.js/" data-id="clt8trr6l013a58s4h9jkfy16" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/scala" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/scala/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.510Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Scala
+Category: functional
+Author: Jan Berkel <jan.berkel@gmail.com>
+Contributors: Erik Osheim <d_m@plastic-idolatry.com>
+Website: https://www.scala-lang.org
+*/
+
+function scala(hljs) {
+  const regex = hljs.regex;
+  const ANNOTATION = {
+    className: 'meta',
+    begin: '@[A-Za-z]+'
+  };
+
+  // used in strings for escaping/interpolation/substitution
+  const SUBST = {
+    className: 'subst',
+    variants: [
+      { begin: '\\$[A-Za-z0-9_]+' },
+      {
+        begin: /\$\{/,
+        end: /\}/
+      }
+    ]
+  };
+
+  const STRING = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"""',
+        end: '"""'
+      },
+      {
+        begin: '"',
+        end: '"',
+        illegal: '\\n',
+        contains: [ hljs.BACKSLASH_ESCAPE ]
+      },
+      {
+        begin: '[a-z]+"',
+        end: '"',
+        illegal: '\\n',
+        contains: [
+          hljs.BACKSLASH_ESCAPE,
+          SUBST
+        ]
+      },
+      {
+        className: 'string',
+        begin: '[a-z]+"""',
+        end: '"""',
+        contains: [ SUBST ],
+        relevance: 10
+      }
+    ]
+
+  };
+
+  const TYPE = {
+    className: 'type',
+    begin: '\\b[A-Z][A-Za-z0-9_]*',
+    relevance: 0
+  };
+
+  const NAME = {
+    className: 'title',
+    begin: /[^0-9\n\t "'(),.`{}\[\]:;][^\n\t "'(),.`{}\[\]:;]+|[^0-9\n\t "'(),.`{}\[\]:;=]/,
+    relevance: 0
+  };
+
+  const CLASS = {
+    className: 'class',
+    beginKeywords: 'class object trait type',
+    end: /[:={\[\n;]/,
+    excludeEnd: true,
+    contains: [
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      {
+        beginKeywords: 'extends with',
+        relevance: 10
+      },
+      {
+        begin: /\[/,
+        end: /\]/,
+        excludeBegin: true,
+        excludeEnd: true,
+        relevance: 0,
+        contains: [ 
+          TYPE, 
+          hljs.C_LINE_COMMENT_MODE, 
+          hljs.C_BLOCK_COMMENT_MODE, 
+        ]
+      },
+      {
+        className: 'params',
+        begin: /\(/,
+        end: /\)/,
+        excludeBegin: true,
+        excludeEnd: true,
+        relevance: 0,
+        contains: [ 
+          TYPE, 
+          hljs.C_LINE_COMMENT_MODE, 
+          hljs.C_BLOCK_COMMENT_MODE, 
+        ]
+      },
+      NAME
+    ]
+  };
+
+  const METHOD = {
+    className: 'function',
+    beginKeywords: 'def',
+    end: regex.lookahead(/[:={\[(\n;]/),
+    contains: [ NAME ]
+  };
+
+  const EXTENSION = {
+    begin: [
+      /^\s*/, // Is first token on the line
+      'extension',
+      /\s+(?=[[(])/, // followed by at least one space and `[` or `(`
+    ],
+    beginScope: { 2: "keyword", }
+  };
+
+  const END = {
+    begin: [
+      /^\s*/, // Is first token on the line
+      /end/,
+      /\s+/,
+      /(extension\b)?/, // `extension` is the only marker that follows an `end` that cannot be captured by another rule.
+    ],
+    beginScope: {
+      2: "keyword",
+      4: "keyword",
+    }
+  };
+
+  // TODO: use negative look-behind in future
+  //       /(?<!\.)\binline(?=\s)/
+  const INLINE_MODES = [
+    { match: /\.inline\b/ },
+    {
+      begin: /\binline(?=\s)/,
+      keywords: 'inline'
+    }
+  ];
+
+  const USING_PARAM_CLAUSE = {
+    begin: [
+      /\(\s*/, // Opening `(` of a parameter or argument list
+      /using/,
+      /\s+(?!\))/, // Spaces not followed by `)`
+    ],
+    beginScope: { 2: "keyword", }
+  };
+
+  // glob all non-whitespace characters as a "string"
+  // sourced from https://github.com/scala/docs.scala-lang/pull/2845
+  const DIRECTIVE_VALUE = {
+    className: 'string',
+    begin: /\S+/,
+  };
+
+  // directives
+  // sourced from https://github.com/scala/docs.scala-lang/pull/2845
+  const USING_DIRECTIVE = {
+    begin: [
+      '//>',
+      /\s+/,
+      /using/,
+      /\s+/,
+      /\S+/
+    ],
+    beginScope: {
+      1: "comment",
+      3: "keyword",
+      5: "type"
+    },
+    end: /$/,
+    contains: [
+      DIRECTIVE_VALUE,
+    ]
+  };
+
+  return {
+    name: 'Scala',
+    keywords: {
+      literal: 'true false null',
+      keyword: 'type yield lazy override def with val var sealed abstract private trait object if then forSome for while do throw finally protected extends import final return else break new catch super class case package default try this match continue throws implicit export enum given transparent'
+    },
+    contains: [
+      USING_DIRECTIVE,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      STRING,
+      TYPE,
+      METHOD,
+      CLASS,
+      hljs.C_NUMBER_MODE,
+      EXTENSION,
+      END,
+      ...INLINE_MODES,
+      USING_PARAM_CLAUSE,
+      ANNOTATION
+    ]
+  };
+}
+
+module.exports = scala;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/scala/" data-id="clt8trraa01dw58s4hv3nhbai" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/15/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/17/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/72/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/highlight.js/lib/languages/cpp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/cpp/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.906Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: C++
+Category: common, system
+Website: https://isocpp.org
+*/
+
+/** @type LanguageFn */
+function cpp(hljs) {
+  const regex = hljs.regex;
+  // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
+  // not include such support nor can we be sure all the grammars depending
+  // on it would desire this behavior
+  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
+  const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
+  const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
+  const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
+  const FUNCTION_TYPE_RE = '(?!struct)('
+    + DECLTYPE_AUTO_RE + '|'
+    + regex.optional(NAMESPACE_RE)
+    + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
+  + ')';
+
+  const CPP_PRIMITIVE_TYPES = {
+    className: 'type',
+    begin: '\\b[a-z\\d_]*_t\\b'
+  };
+
+  // https://en.cppreference.com/w/cpp/language/escape
+  // \\ \x \xFF \u2837 \u00323747 \374
+  const CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)';
+  const STRINGS = {
+    className: 'string',
+    variants: [
+      {
+        begin: '(u8?|U|L)?"',
+        end: '"',
+        illegal: '\\n',
+        contains: [ hljs.BACKSLASH_ESCAPE ]
+      },
+      {
+        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + '|.)',
+        end: '\'',
+        illegal: '.'
+      },
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
+        end: /\)([^()\\ ]{0,16})"/
+      })
+    ]
+  };
+
+  const NUMBERS = {
+    className: 'number',
+    variants: [
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
+    ],
+    relevance: 0
+  };
+
+  const PREPROCESSOR = {
+    className: 'meta',
+    begin: /#\s*[a-z]+\b/,
+    end: /$/,
+    keywords: { keyword:
+        'if else elif endif define undef warning error line '
+        + 'pragma _Pragma ifdef ifndef include' },
+    contains: [
+      {
+        begin: /\\\n/,
+        relevance: 0
+      },
+      hljs.inherit(STRINGS, { className: 'string' }),
+      {
+        className: 'string',
+        begin: /<.*?>/
+      },
+      C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
+
+  const TITLE_MODE = {
+    className: 'title',
+    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
+    relevance: 0
+  };
+
+  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_KEYWORDS = [
+    'alignas',
+    'alignof',
+    'and',
+    'and_eq',
+    'asm',
+    'atomic_cancel',
+    'atomic_commit',
+    'atomic_noexcept',
+    'auto',
+    'bitand',
+    'bitor',
+    'break',
+    'case',
+    'catch',
+    'class',
+    'co_await',
+    'co_return',
+    'co_yield',
+    'compl',
+    'concept',
+    'const_cast|10',
+    'consteval',
+    'constexpr',
+    'constinit',
+    'continue',
+    'decltype',
+    'default',
+    'delete',
+    'do',
+    'dynamic_cast|10',
+    'else',
+    'enum',
+    'explicit',
+    'export',
+    'extern',
+    'false',
+    'final',
+    'for',
+    'friend',
+    'goto',
+    'if',
+    'import',
+    'inline',
+    'module',
+    'mutable',
+    'namespace',
+    'new',
+    'noexcept',
+    'not',
+    'not_eq',
+    'nullptr',
+    'operator',
+    'or',
+    'or_eq',
+    'override',
+    'private',
+    'protected',
+    'public',
+    'reflexpr',
+    'register',
+    'reinterpret_cast|10',
+    'requires',
+    'return',
+    'sizeof',
+    'static_assert',
+    'static_cast|10',
+    'struct',
+    'switch',
+    'synchronized',
+    'template',
+    'this',
+    'thread_local',
+    'throw',
+    'transaction_safe',
+    'transaction_safe_dynamic',
+    'true',
+    'try',
+    'typedef',
+    'typeid',
+    'typename',
+    'union',
+    'using',
+    'virtual',
+    'volatile',
+    'while',
+    'xor',
+    'xor_eq'
+  ];
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_TYPES = [
+    'bool',
+    'char',
+    'char16_t',
+    'char32_t',
+    'char8_t',
+    'double',
+    'float',
+    'int',
+    'long',
+    'short',
+    'void',
+    'wchar_t',
+    'unsigned',
+    'signed',
+    'const',
+    'static'
+  ];
+
+  const TYPE_HINTS = [
+    'any',
+    'auto_ptr',
+    'barrier',
+    'binary_semaphore',
+    'bitset',
+    'complex',
+    'condition_variable',
+    'condition_variable_any',
+    'counting_semaphore',
+    'deque',
+    'false_type',
+    'future',
+    'imaginary',
+    'initializer_list',
+    'istringstream',
+    'jthread',
+    'latch',
+    'lock_guard',
+    'multimap',
+    'multiset',
+    'mutex',
+    'optional',
+    'ostringstream',
+    'packaged_task',
+    'pair',
+    'promise',
+    'priority_queue',
+    'queue',
+    'recursive_mutex',
+    'recursive_timed_mutex',
+    'scoped_lock',
+    'set',
+    'shared_future',
+    'shared_lock',
+    'shared_mutex',
+    'shared_timed_mutex',
+    'shared_ptr',
+    'stack',
+    'string_view',
+    'stringstream',
+    'timed_mutex',
+    'thread',
+    'true_type',
+    'tuple',
+    'unique_lock',
+    'unique_ptr',
+    'unordered_map',
+    'unordered_multimap',
+    'unordered_multiset',
+    'unordered_set',
+    'variant',
+    'vector',
+    'weak_ptr',
+    'wstring',
+    'wstring_view'
+  ];
+
+  const FUNCTION_HINTS = [
+    'abort',
+    'abs',
+    'acos',
+    'apply',
+    'as_const',
+    'asin',
+    'atan',
+    'atan2',
+    'calloc',
+    'ceil',
+    'cerr',
+    'cin',
+    'clog',
+    'cos',
+    'cosh',
+    'cout',
+    'declval',
+    'endl',
+    'exchange',
+    'exit',
+    'exp',
+    'fabs',
+    'floor',
+    'fmod',
+    'forward',
+    'fprintf',
+    'fputs',
+    'free',
+    'frexp',
+    'fscanf',
+    'future',
+    'invoke',
+    'isalnum',
+    'isalpha',
+    'iscntrl',
+    'isdigit',
+    'isgraph',
+    'islower',
+    'isprint',
+    'ispunct',
+    'isspace',
+    'isupper',
+    'isxdigit',
+    'labs',
+    'launder',
+    'ldexp',
+    'log',
+    'log10',
+    'make_pair',
+    'make_shared',
+    'make_shared_for_overwrite',
+    'make_tuple',
+    'make_unique',
+    'malloc',
+    'memchr',
+    'memcmp',
+    'memcpy',
+    'memset',
+    'modf',
+    'move',
+    'pow',
+    'printf',
+    'putchar',
+    'puts',
+    'realloc',
+    'scanf',
+    'sin',
+    'sinh',
+    'snprintf',
+    'sprintf',
+    'sqrt',
+    'sscanf',
+    'std',
+    'stderr',
+    'stdin',
+    'stdout',
+    'strcat',
+    'strchr',
+    'strcmp',
+    'strcpy',
+    'strcspn',
+    'strlen',
+    'strncat',
+    'strncmp',
+    'strncpy',
+    'strpbrk',
+    'strrchr',
+    'strspn',
+    'strstr',
+    'swap',
+    'tan',
+    'tanh',
+    'terminate',
+    'to_underlying',
+    'tolower',
+    'toupper',
+    'vfprintf',
+    'visit',
+    'vprintf',
+    'vsprintf'
+  ];
+
+  const LITERALS = [
+    'NULL',
+    'false',
+    'nullopt',
+    'nullptr',
+    'true'
+  ];
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const BUILT_IN = [ '_Pragma' ];
+
+  const CPP_KEYWORDS = {
+    type: RESERVED_TYPES,
+    keyword: RESERVED_KEYWORDS,
+    literal: LITERALS,
+    built_in: BUILT_IN,
+    _type_hints: TYPE_HINTS
+  };
+
+  const FUNCTION_DISPATCH = {
+    className: 'function.dispatch',
+    relevance: 0,
+    keywords: {
+      // Only for relevance, not highlighting.
+      _hint: FUNCTION_HINTS },
+    begin: regex.concat(
+      /\b/,
+      /(?!decltype)/,
+      /(?!if)/,
+      /(?!for)/,
+      /(?!switch)/,
+      /(?!while)/,
+      hljs.IDENT_RE,
+      regex.lookahead(/(<[^<>]+>|)\s*\(/))
+  };
+
+  const EXPRESSION_CONTAINS = [
+    FUNCTION_DISPATCH,
+    PREPROCESSOR,
+    CPP_PRIMITIVE_TYPES,
+    C_LINE_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    NUMBERS,
+    STRINGS
+  ];
+
+  const EXPRESSION_CONTEXT = {
+    // This mode covers expression context where we can't expect a function
+    // definition and shouldn't highlight anything that looks like one:
+    // `return some()`, `else if()`, `(x*sum(1, 2))`
+    variants: [
+      {
+        begin: /=/,
+        end: /;/
+      },
+      {
+        begin: /\(/,
+        end: /\)/
+      },
+      {
+        beginKeywords: 'new throw return else',
+        end: /;/
+      }
+    ],
+    keywords: CPP_KEYWORDS,
+    contains: EXPRESSION_CONTAINS.concat([
+      {
+        begin: /\(/,
+        end: /\)/,
+        keywords: CPP_KEYWORDS,
+        contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
+        relevance: 0
+      }
+    ]),
+    relevance: 0
+  };
+
+  const FUNCTION_DECLARATION = {
+    className: 'function',
+    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    returnBegin: true,
+    end: /[{;=]/,
+    excludeEnd: true,
+    keywords: CPP_KEYWORDS,
+    illegal: /[^\w\s\*&:<>.]/,
+    contains: [
+      { // to prevent it from being confused as the function title
+        begin: DECLTYPE_AUTO_RE,
+        keywords: CPP_KEYWORDS,
+        relevance: 0
+      },
+      {
+        begin: FUNCTION_TITLE,
+        returnBegin: true,
+        contains: [ TITLE_MODE ],
+        relevance: 0
+      },
+      // needed because we do not have look-behind on the below rule
+      // to prevent it from grabbing the final : in a :: pair
+      {
+        begin: /::/,
+        relevance: 0
+      },
+      // initializers
+      {
+        begin: /:/,
+        endsWithParent: true,
+        contains: [
+          STRINGS,
+          NUMBERS
+        ]
+      },
+      // allow for multiple declarations, e.g.:
+      // extern void f(int), g(char);
+      {
+        relevance: 0,
+        match: /,/
+      },
+      {
+        className: 'params',
+        begin: /\(/,
+        end: /\)/,
+        keywords: CPP_KEYWORDS,
+        relevance: 0,
+        contains: [
+          C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          STRINGS,
+          NUMBERS,
+          CPP_PRIMITIVE_TYPES,
+          // Count matching parentheses.
+          {
+            begin: /\(/,
+            end: /\)/,
+            keywords: CPP_KEYWORDS,
+            relevance: 0,
+            contains: [
+              'self',
+              C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRINGS,
+              NUMBERS,
+              CPP_PRIMITIVE_TYPES
+            ]
+          }
+        ]
+      },
+      CPP_PRIMITIVE_TYPES,
+      C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      PREPROCESSOR
+    ]
+  };
+
+  return {
+    name: 'C++',
+    aliases: [
+      'cc',
+      'c++',
+      'h++',
+      'hpp',
+      'hh',
+      'hxx',
+      'cxx'
+    ],
+    keywords: CPP_KEYWORDS,
+    illegal: '</',
+    classNameAliases: { 'function.dispatch': 'built_in' },
+    contains: [].concat(
+      EXPRESSION_CONTEXT,
+      FUNCTION_DECLARATION,
+      FUNCTION_DISPATCH,
+      EXPRESSION_CONTAINS,
+      [
+        PREPROCESSOR,
+        { // containers: ie, `vector <int> rooms (9);`
+          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function)\\s*<(?!<)',
+          end: '>',
+          keywords: CPP_KEYWORDS,
+          contains: [
+            'self',
+            CPP_PRIMITIVE_TYPES
+          ]
+        },
+        {
+          begin: hljs.IDENT_RE + '::',
+          keywords: CPP_KEYWORDS
+        },
+        {
+          match: [
+            // extra complexity to deal with `enum class` and `enum struct`
+            /\b(?:enum(?:\s+(?:class|struct))?|class|struct|union)/,
+            /\s+/,
+            /\w+/
+          ],
+          className: {
+            1: 'keyword',
+            3: 'title.class'
+          }
+        }
+      ])
+  };
+}
+
+module.exports = cpp;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/cpp/" data-id="clt8trr82017758s4dzpsf79j" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-turtle.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-turtle.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.905Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.turtle={comment:{pattern:/#.*/,greedy:!0},"multiline-string":{pattern:/"""(?:(?:""?)?(?:[^"\\]|\\.))*"""|'''(?:(?:''?)?(?:[^'\\]|\\.))*'''/,greedy:!0,alias:"string",inside:{comment:/#.*/}},string:{pattern:/"(?:[^\\"\r\n]|\\.)*"|'(?:[^\\'\r\n]|\\.)*'/,greedy:!0},url:{pattern:/<(?:[^\x00-\x20<>"{}|^`\\]|\\(?:u[\da-fA-F]{4}|U[\da-fA-F]{8}))*>/,greedy:!0,inside:{punctuation:/[<>]/}},function:{pattern:/(?:(?![-.\d\xB7])[-.\w\xB7\xC0-\uFFFD]+)?:(?:(?![-.])(?:[-.:\w\xC0-\uFFFD]|%[\da-f]{2}|\\.)+)?/i,inside:{"local-name":{pattern:/([^:]*:)[\s\S]+/,lookbehind:!0},prefix:{pattern:/[\s\S]+/,inside:{punctuation:/:/}}}},number:/[+-]?\b\d+(?:\.\d*)?(?:e[+-]?\d+)?/i,punctuation:/[{}.,;()[\]]|\^\^/,boolean:/\b(?:false|true)\b/,keyword:[/(?:\ba|@prefix|@base)\b|=/,/\b(?:base|graph|prefix)\b/i],tag:{pattern:/@[a-z]+(?:-[a-z\d]+)*/i,inside:{punctuation:/@/}}},Prism.languages.trig=Prism.languages.turtle;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-turtle.min/" data-id="clt8trr2n00ri58s4g63gb91o" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-turtle" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-turtle/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.901Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.turtle = {
+	'comment': {
+		pattern: /#.*/,
+		greedy: true
+	},
+	'multiline-string': {
+		pattern: /"""(?:(?:""?)?(?:[^"\\]|\\.))*"""|'''(?:(?:''?)?(?:[^'\\]|\\.))*'''/,
+		greedy: true,
+		alias: 'string',
+		inside: {
+			'comment': /#.*/
+		}
+	},
+	'string': {
+		pattern: /"(?:[^\\"\r\n]|\\.)*"|'(?:[^\\'\r\n]|\\.)*'/,
+		greedy: true
+	},
+	'url': {
+		pattern: /<(?:[^\x00-\x20<>"{}|^`\\]|\\(?:u[\da-fA-F]{4}|U[\da-fA-F]{8}))*>/,
+		greedy: true,
+		inside: {
+			'punctuation': /[<>]/
+		}
+	},
+	'function': {
+		pattern: /(?:(?![-.\d\xB7])[-.\w\xB7\xC0-\uFFFD]+)?:(?:(?![-.])(?:[-.:\w\xC0-\uFFFD]|%[\da-f]{2}|\\.)+)?/i,
+		inside: {
+			'local-name': {
+				pattern: /([^:]*:)[\s\S]+/,
+				lookbehind: true
+			},
+			'prefix': {
+				pattern: /[\s\S]+/,
+				inside: {
+					'punctuation': /:/
+				}
+			}
+		}
+	},
+	'number': /[+-]?\b\d+(?:\.\d*)?(?:e[+-]?\d+)?/i,
+	'punctuation': /[{}.,;()[\]]|\^\^/,
+	'boolean': /\b(?:false|true)\b/,
+	'keyword': [
+		/(?:\ba|@prefix|@base)\b|=/,
+		/\b(?:base|graph|prefix)\b/i
+	],
+	'tag': {
+		pattern: /@[a-z]+(?:-[a-z\d]+)*/i,
+		inside: {
+			'punctuation': /@/
+		}
+	}
+};
+Prism.languages.trig = Prism.languages['turtle'];
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-turtle/" data-id="clt8trr2n00rh58s4dzenb2yj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/cpp" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/cpp/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.901Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: C++
+Category: common, system
+Website: https://isocpp.org
+*/
+
+/** @type LanguageFn */
+function cpp(hljs) {
+  const regex = hljs.regex;
+  // added for historic reasons because `hljs.C_LINE_COMMENT_MODE` does
+  // not include such support nor can we be sure all the grammars depending
+  // on it would desire this behavior
+  const C_LINE_COMMENT_MODE = hljs.COMMENT('//', '$', { contains: [ { begin: /\\\n/ } ] });
+  const DECLTYPE_AUTO_RE = 'decltype\\(auto\\)';
+  const NAMESPACE_RE = '[a-zA-Z_]\\w*::';
+  const TEMPLATE_ARGUMENT_RE = '<[^<>]+>';
+  const FUNCTION_TYPE_RE = '(?!struct)('
+    + DECLTYPE_AUTO_RE + '|'
+    + regex.optional(NAMESPACE_RE)
+    + '[a-zA-Z_]\\w*' + regex.optional(TEMPLATE_ARGUMENT_RE)
+  + ')';
+
+  const CPP_PRIMITIVE_TYPES = {
+    className: 'type',
+    begin: '\\b[a-z\\d_]*_t\\b'
+  };
+
+  // https://en.cppreference.com/w/cpp/language/escape
+  // \\ \x \xFF \u2837 \u00323747 \374
+  const CHARACTER_ESCAPES = '\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)';
+  const STRINGS = {
+    className: 'string',
+    variants: [
+      {
+        begin: '(u8?|U|L)?"',
+        end: '"',
+        illegal: '\\n',
+        contains: [ hljs.BACKSLASH_ESCAPE ]
+      },
+      {
+        begin: '(u8?|U|L)?\'(' + CHARACTER_ESCAPES + '|.)',
+        end: '\'',
+        illegal: '.'
+      },
+      hljs.END_SAME_AS_BEGIN({
+        begin: /(?:u8?|U|L)?R"([^()\\ ]{0,16})\(/,
+        end: /\)([^()\\ ]{0,16})"/
+      })
+    ]
+  };
+
+  const NUMBERS = {
+    className: 'number',
+    variants: [
+      { begin: '\\b(0b[01\']+)' },
+      { begin: '(-?)\\b([\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)' },
+      { begin: '(-?)(\\b0[xX][a-fA-F0-9\']+|(\\b[\\d\']+(\\.[\\d\']*)?|\\.[\\d\']+)([eE][-+]?[\\d\']+)?)' }
+    ],
+    relevance: 0
+  };
+
+  const PREPROCESSOR = {
+    className: 'meta',
+    begin: /#\s*[a-z]+\b/,
+    end: /$/,
+    keywords: { keyword:
+        'if else elif endif define undef warning error line '
+        + 'pragma _Pragma ifdef ifndef include' },
+    contains: [
+      {
+        begin: /\\\n/,
+        relevance: 0
+      },
+      hljs.inherit(STRINGS, { className: 'string' }),
+      {
+        className: 'string',
+        begin: /<.*?>/
+      },
+      C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE
+    ]
+  };
+
+  const TITLE_MODE = {
+    className: 'title',
+    begin: regex.optional(NAMESPACE_RE) + hljs.IDENT_RE,
+    relevance: 0
+  };
+
+  const FUNCTION_TITLE = regex.optional(NAMESPACE_RE) + hljs.IDENT_RE + '\\s*\\(';
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_KEYWORDS = [
+    'alignas',
+    'alignof',
+    'and',
+    'and_eq',
+    'asm',
+    'atomic_cancel',
+    'atomic_commit',
+    'atomic_noexcept',
+    'auto',
+    'bitand',
+    'bitor',
+    'break',
+    'case',
+    'catch',
+    'class',
+    'co_await',
+    'co_return',
+    'co_yield',
+    'compl',
+    'concept',
+    'const_cast|10',
+    'consteval',
+    'constexpr',
+    'constinit',
+    'continue',
+    'decltype',
+    'default',
+    'delete',
+    'do',
+    'dynamic_cast|10',
+    'else',
+    'enum',
+    'explicit',
+    'export',
+    'extern',
+    'false',
+    'final',
+    'for',
+    'friend',
+    'goto',
+    'if',
+    'import',
+    'inline',
+    'module',
+    'mutable',
+    'namespace',
+    'new',
+    'noexcept',
+    'not',
+    'not_eq',
+    'nullptr',
+    'operator',
+    'or',
+    'or_eq',
+    'override',
+    'private',
+    'protected',
+    'public',
+    'reflexpr',
+    'register',
+    'reinterpret_cast|10',
+    'requires',
+    'return',
+    'sizeof',
+    'static_assert',
+    'static_cast|10',
+    'struct',
+    'switch',
+    'synchronized',
+    'template',
+    'this',
+    'thread_local',
+    'throw',
+    'transaction_safe',
+    'transaction_safe_dynamic',
+    'true',
+    'try',
+    'typedef',
+    'typeid',
+    'typename',
+    'union',
+    'using',
+    'virtual',
+    'volatile',
+    'while',
+    'xor',
+    'xor_eq'
+  ];
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const RESERVED_TYPES = [
+    'bool',
+    'char',
+    'char16_t',
+    'char32_t',
+    'char8_t',
+    'double',
+    'float',
+    'int',
+    'long',
+    'short',
+    'void',
+    'wchar_t',
+    'unsigned',
+    'signed',
+    'const',
+    'static'
+  ];
+
+  const TYPE_HINTS = [
+    'any',
+    'auto_ptr',
+    'barrier',
+    'binary_semaphore',
+    'bitset',
+    'complex',
+    'condition_variable',
+    'condition_variable_any',
+    'counting_semaphore',
+    'deque',
+    'false_type',
+    'future',
+    'imaginary',
+    'initializer_list',
+    'istringstream',
+    'jthread',
+    'latch',
+    'lock_guard',
+    'multimap',
+    'multiset',
+    'mutex',
+    'optional',
+    'ostringstream',
+    'packaged_task',
+    'pair',
+    'promise',
+    'priority_queue',
+    'queue',
+    'recursive_mutex',
+    'recursive_timed_mutex',
+    'scoped_lock',
+    'set',
+    'shared_future',
+    'shared_lock',
+    'shared_mutex',
+    'shared_timed_mutex',
+    'shared_ptr',
+    'stack',
+    'string_view',
+    'stringstream',
+    'timed_mutex',
+    'thread',
+    'true_type',
+    'tuple',
+    'unique_lock',
+    'unique_ptr',
+    'unordered_map',
+    'unordered_multimap',
+    'unordered_multiset',
+    'unordered_set',
+    'variant',
+    'vector',
+    'weak_ptr',
+    'wstring',
+    'wstring_view'
+  ];
+
+  const FUNCTION_HINTS = [
+    'abort',
+    'abs',
+    'acos',
+    'apply',
+    'as_const',
+    'asin',
+    'atan',
+    'atan2',
+    'calloc',
+    'ceil',
+    'cerr',
+    'cin',
+    'clog',
+    'cos',
+    'cosh',
+    'cout',
+    'declval',
+    'endl',
+    'exchange',
+    'exit',
+    'exp',
+    'fabs',
+    'floor',
+    'fmod',
+    'forward',
+    'fprintf',
+    'fputs',
+    'free',
+    'frexp',
+    'fscanf',
+    'future',
+    'invoke',
+    'isalnum',
+    'isalpha',
+    'iscntrl',
+    'isdigit',
+    'isgraph',
+    'islower',
+    'isprint',
+    'ispunct',
+    'isspace',
+    'isupper',
+    'isxdigit',
+    'labs',
+    'launder',
+    'ldexp',
+    'log',
+    'log10',
+    'make_pair',
+    'make_shared',
+    'make_shared_for_overwrite',
+    'make_tuple',
+    'make_unique',
+    'malloc',
+    'memchr',
+    'memcmp',
+    'memcpy',
+    'memset',
+    'modf',
+    'move',
+    'pow',
+    'printf',
+    'putchar',
+    'puts',
+    'realloc',
+    'scanf',
+    'sin',
+    'sinh',
+    'snprintf',
+    'sprintf',
+    'sqrt',
+    'sscanf',
+    'std',
+    'stderr',
+    'stdin',
+    'stdout',
+    'strcat',
+    'strchr',
+    'strcmp',
+    'strcpy',
+    'strcspn',
+    'strlen',
+    'strncat',
+    'strncmp',
+    'strncpy',
+    'strpbrk',
+    'strrchr',
+    'strspn',
+    'strstr',
+    'swap',
+    'tan',
+    'tanh',
+    'terminate',
+    'to_underlying',
+    'tolower',
+    'toupper',
+    'vfprintf',
+    'visit',
+    'vprintf',
+    'vsprintf'
+  ];
+
+  const LITERALS = [
+    'NULL',
+    'false',
+    'nullopt',
+    'nullptr',
+    'true'
+  ];
+
+  // https://en.cppreference.com/w/cpp/keyword
+  const BUILT_IN = [ '_Pragma' ];
+
+  const CPP_KEYWORDS = {
+    type: RESERVED_TYPES,
+    keyword: RESERVED_KEYWORDS,
+    literal: LITERALS,
+    built_in: BUILT_IN,
+    _type_hints: TYPE_HINTS
+  };
+
+  const FUNCTION_DISPATCH = {
+    className: 'function.dispatch',
+    relevance: 0,
+    keywords: {
+      // Only for relevance, not highlighting.
+      _hint: FUNCTION_HINTS },
+    begin: regex.concat(
+      /\b/,
+      /(?!decltype)/,
+      /(?!if)/,
+      /(?!for)/,
+      /(?!switch)/,
+      /(?!while)/,
+      hljs.IDENT_RE,
+      regex.lookahead(/(<[^<>]+>|)\s*\(/))
+  };
+
+  const EXPRESSION_CONTAINS = [
+    FUNCTION_DISPATCH,
+    PREPROCESSOR,
+    CPP_PRIMITIVE_TYPES,
+    C_LINE_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    NUMBERS,
+    STRINGS
+  ];
+
+  const EXPRESSION_CONTEXT = {
+    // This mode covers expression context where we can't expect a function
+    // definition and shouldn't highlight anything that looks like one:
+    // `return some()`, `else if()`, `(x*sum(1, 2))`
+    variants: [
+      {
+        begin: /=/,
+        end: /;/
+      },
+      {
+        begin: /\(/,
+        end: /\)/
+      },
+      {
+        beginKeywords: 'new throw return else',
+        end: /;/
+      }
+    ],
+    keywords: CPP_KEYWORDS,
+    contains: EXPRESSION_CONTAINS.concat([
+      {
+        begin: /\(/,
+        end: /\)/,
+        keywords: CPP_KEYWORDS,
+        contains: EXPRESSION_CONTAINS.concat([ 'self' ]),
+        relevance: 0
+      }
+    ]),
+    relevance: 0
+  };
+
+  const FUNCTION_DECLARATION = {
+    className: 'function',
+    begin: '(' + FUNCTION_TYPE_RE + '[\\*&\\s]+)+' + FUNCTION_TITLE,
+    returnBegin: true,
+    end: /[{;=]/,
+    excludeEnd: true,
+    keywords: CPP_KEYWORDS,
+    illegal: /[^\w\s\*&:<>.]/,
+    contains: [
+      { // to prevent it from being confused as the function title
+        begin: DECLTYPE_AUTO_RE,
+        keywords: CPP_KEYWORDS,
+        relevance: 0
+      },
+      {
+        begin: FUNCTION_TITLE,
+        returnBegin: true,
+        contains: [ TITLE_MODE ],
+        relevance: 0
+      },
+      // needed because we do not have look-behind on the below rule
+      // to prevent it from grabbing the final : in a :: pair
+      {
+        begin: /::/,
+        relevance: 0
+      },
+      // initializers
+      {
+        begin: /:/,
+        endsWithParent: true,
+        contains: [
+          STRINGS,
+          NUMBERS
+        ]
+      },
+      // allow for multiple declarations, e.g.:
+      // extern void f(int), g(char);
+      {
+        relevance: 0,
+        match: /,/
+      },
+      {
+        className: 'params',
+        begin: /\(/,
+        end: /\)/,
+        keywords: CPP_KEYWORDS,
+        relevance: 0,
+        contains: [
+          C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          STRINGS,
+          NUMBERS,
+          CPP_PRIMITIVE_TYPES,
+          // Count matching parentheses.
+          {
+            begin: /\(/,
+            end: /\)/,
+            keywords: CPP_KEYWORDS,
+            relevance: 0,
+            contains: [
+              'self',
+              C_LINE_COMMENT_MODE,
+              hljs.C_BLOCK_COMMENT_MODE,
+              STRINGS,
+              NUMBERS,
+              CPP_PRIMITIVE_TYPES
+            ]
+          }
+        ]
+      },
+      CPP_PRIMITIVE_TYPES,
+      C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      PREPROCESSOR
+    ]
+  };
+
+  return {
+    name: 'C++',
+    aliases: [
+      'cc',
+      'c++',
+      'h++',
+      'hpp',
+      'hh',
+      'hxx',
+      'cxx'
+    ],
+    keywords: CPP_KEYWORDS,
+    illegal: '</',
+    classNameAliases: { 'function.dispatch': 'built_in' },
+    contains: [].concat(
+      EXPRESSION_CONTEXT,
+      FUNCTION_DECLARATION,
+      FUNCTION_DISPATCH,
+      EXPRESSION_CONTAINS,
+      [
+        PREPROCESSOR,
+        { // containers: ie, `vector <int> rooms (9);`
+          begin: '\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function)\\s*<(?!<)',
+          end: '>',
+          keywords: CPP_KEYWORDS,
+          contains: [
+            'self',
+            CPP_PRIMITIVE_TYPES
+          ]
+        },
+        {
+          begin: hljs.IDENT_RE + '::',
+          keywords: CPP_KEYWORDS
+        },
+        {
+          match: [
+            // extra complexity to deal with `enum class` and `enum struct`
+            /\b(?:enum(?:\s+(?:class|struct))?|class|struct|union)/,
+            /\s+/,
+            /\w+/
+          ],
+          className: {
+            1: 'keyword',
+            3: 'title.class'
+          }
+        }
+      ])
+  };
+}
+
+export { cpp as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/cpp/" data-id="clt8trr4e00wj58s4di44aqjb" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/cos.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/cos.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.901Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/cos" instead of "highlight.js/lib/languages/cos.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./cos.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/cos.js/" data-id="clt8trr81017658s40zq39w09" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-tt2.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-tt2.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.899Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(e){e.languages.tt2=e.languages.extend("clike",{comment:/#.*|\[%#[\s\S]*?%\]/,keyword:/\b(?:BLOCK|CALL|CASE|CATCH|CLEAR|DEBUG|DEFAULT|ELSE|ELSIF|END|FILTER|FINAL|FOREACH|GET|IF|IN|INCLUDE|INSERT|LAST|MACRO|META|NEXT|PERL|PROCESS|RAWPERL|RETURN|SET|STOP|SWITCH|TAGS|THROW|TRY|UNLESS|USE|WHILE|WRAPPER)\b/,punctuation:/[[\]{},()]/}),e.languages.insertBefore("tt2","number",{operator:/=[>=]?|!=?|<=?|>=?|&&|\|\|?|\b(?:and|not|or)\b/,variable:{pattern:/\b[a-z]\w*(?:\s*\.\s*(?:\d+|\$?[a-z]\w*))*\b/i}}),e.languages.insertBefore("tt2","keyword",{delimiter:{pattern:/^(?:\[%|%%)-?|-?%\]$/,alias:"punctuation"}}),e.languages.insertBefore("tt2","string",{"single-quoted-string":{pattern:/'[^\\']*(?:\\[\s\S][^\\']*)*'/,greedy:!0,alias:"string"},"double-quoted-string":{pattern:/"[^\\"]*(?:\\[\s\S][^\\"]*)*"/,greedy:!0,alias:"string",inside:{variable:{pattern:/\$(?:[a-z]\w*(?:\.(?:\d+|\$?[a-z]\w*))*)/i}}}}),delete e.languages.tt2.string,e.hooks.add("before-tokenize",(function(t){e.languages["markup-templating"].buildPlaceholders(t,"tt2",/\[%[\s\S]+?%\]/g)})),e.hooks.add("after-tokenize",(function(t){e.languages["markup-templating"].tokenizePlaceholders(t,"tt2")}))}(Prism);
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-tt2.min/" data-id="clt8trr2m00rg58s4bhycbbxl" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/cos.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/cos.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.899Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/cos" instead of "highlight.js/lib/languages/cos.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './cos.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/cos.js/" data-id="clt8trr4d00wi58s41qt56obe" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-tt2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-tt2/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.897Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        (function (Prism) {
+
+	Prism.languages.tt2 = Prism.languages.extend('clike', {
+		'comment': /#.*|\[%#[\s\S]*?%\]/,
+		'keyword': /\b(?:BLOCK|CALL|CASE|CATCH|CLEAR|DEBUG|DEFAULT|ELSE|ELSIF|END|FILTER|FINAL|FOREACH|GET|IF|IN|INCLUDE|INSERT|LAST|MACRO|META|NEXT|PERL|PROCESS|RAWPERL|RETURN|SET|STOP|SWITCH|TAGS|THROW|TRY|UNLESS|USE|WHILE|WRAPPER)\b/,
+		'punctuation': /[[\]{},()]/
+	});
+
+	Prism.languages.insertBefore('tt2', 'number', {
+		'operator': /=[>=]?|!=?|<=?|>=?|&&|\|\|?|\b(?:and|not|or)\b/,
+		'variable': {
+			pattern: /\b[a-z]\w*(?:\s*\.\s*(?:\d+|\$?[a-z]\w*))*\b/i
+		}
+	});
+
+	Prism.languages.insertBefore('tt2', 'keyword', {
+		'delimiter': {
+			pattern: /^(?:\[%|%%)-?|-?%\]$/,
+			alias: 'punctuation'
+		}
+	});
+
+	Prism.languages.insertBefore('tt2', 'string', {
+		'single-quoted-string': {
+			pattern: /'[^\\']*(?:\\[\s\S][^\\']*)*'/,
+			greedy: true,
+			alias: 'string'
+		},
+		'double-quoted-string': {
+			pattern: /"[^\\"]*(?:\\[\s\S][^\\"]*)*"/,
+			greedy: true,
+			alias: 'string',
+			inside: {
+				'variable': {
+					pattern: /\$(?:[a-z]\w*(?:\.(?:\d+|\$?[a-z]\w*))*)/i
+				}
+			}
+		}
+	});
+
+	// The different types of TT2 strings "replace" the C-like standard string
+	delete Prism.languages.tt2.string;
+
+	Prism.hooks.add('before-tokenize', function (env) {
+		var tt2Pattern = /\[%[\s\S]+?%\]/g;
+		Prism.languages['markup-templating'].buildPlaceholders(env, 'tt2', tt2Pattern);
+	});
+
+	Prism.hooks.add('after-tokenize', function (env) {
+		Prism.languages['markup-templating'].tokenizePlaceholders(env, 'tt2');
+	});
+
+}(Prism));
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-tt2/" data-id="clt8trr2m00rf58s439ig7cv5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/cos" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/cos/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.897Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Caché Object Script
+Author: Nikita Savchenko <zitros.lab@gmail.com>
+Category: enterprise, scripting
+Website: https://cedocs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls
+*/
+
+/** @type LanguageFn */
+function cos(hljs) {
+  const STRINGS = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"',
+        end: '"',
+        contains: [
+          { // escaped
+            begin: "\"\"",
+            relevance: 0
+          }
+        ]
+      }
+    ]
+  };
+
+  const NUMBERS = {
+    className: "number",
+    begin: "\\b(\\d+(\\.\\d*)?|\\.\\d+)",
+    relevance: 0
+  };
+
+  const COS_KEYWORDS =
+    'property parameter class classmethod clientmethod extends as break '
+    + 'catch close continue do d|0 else elseif for goto halt hang h|0 if job '
+    + 'j|0 kill k|0 lock l|0 merge new open quit q|0 read r|0 return set s|0 '
+    + 'tcommit throw trollback try tstart use view while write w|0 xecute x|0 '
+    + 'zkill znspace zn ztrap zwrite zw zzdump zzwrite print zbreak zinsert '
+    + 'zload zprint zremove zsave zzprint mv mvcall mvcrt mvdim mvprint zquit '
+    + 'zsync ascii';
+
+  // registered function - no need in them due to all functions are highlighted,
+  // but I'll just leave this here.
+
+  // "$bit", "$bitcount",
+  // "$bitfind", "$bitlogic", "$case", "$char", "$classmethod", "$classname",
+  // "$compile", "$data", "$decimal", "$double", "$extract", "$factor",
+  // "$find", "$fnumber", "$get", "$increment", "$inumber", "$isobject",
+  // "$isvaliddouble", "$isvalidnum", "$justify", "$length", "$list",
+  // "$listbuild", "$listdata", "$listfind", "$listfromstring", "$listget",
+  // "$listlength", "$listnext", "$listsame", "$listtostring", "$listvalid",
+  // "$locate", "$match", "$method", "$name", "$nconvert", "$next",
+  // "$normalize", "$now", "$number", "$order", "$parameter", "$piece",
+  // "$prefetchoff", "$prefetchon", "$property", "$qlength", "$qsubscript",
+  // "$query", "$random", "$replace", "$reverse", "$sconvert", "$select",
+  // "$sortbegin", "$sortend", "$stack", "$text", "$translate", "$view",
+  // "$wascii", "$wchar", "$wextract", "$wfind", "$wiswide", "$wlength",
+  // "$wreverse", "$xecute", "$zabs", "$zarccos", "$zarcsin", "$zarctan",
+  // "$zcos", "$zcot", "$zcsc", "$zdate", "$zdateh", "$zdatetime",
+  // "$zdatetimeh", "$zexp", "$zhex", "$zln", "$zlog", "$zpower", "$zsec",
+  // "$zsin", "$zsqr", "$ztan", "$ztime", "$ztimeh", "$zboolean",
+  // "$zconvert", "$zcrc", "$zcyc", "$zdascii", "$zdchar", "$zf",
+  // "$ziswide", "$zlascii", "$zlchar", "$zname", "$zposition", "$zqascii",
+  // "$zqchar", "$zsearch", "$zseek", "$zstrip", "$zwascii", "$zwchar",
+  // "$zwidth", "$zwpack", "$zwbpack", "$zwunpack", "$zwbunpack", "$zzenkaku",
+  // "$change", "$mv", "$mvat", "$mvfmt", "$mvfmts", "$mviconv",
+  // "$mviconvs", "$mvinmat", "$mvlover", "$mvoconv", "$mvoconvs", "$mvraise",
+  // "$mvtrans", "$mvv", "$mvname", "$zbitand", "$zbitcount", "$zbitfind",
+  // "$zbitget", "$zbitlen", "$zbitnot", "$zbitor", "$zbitset", "$zbitstr",
+  // "$zbitxor", "$zincrement", "$znext", "$zorder", "$zprevious", "$zsort",
+  // "device", "$ecode", "$estack", "$etrap", "$halt", "$horolog",
+  // "$io", "$job", "$key", "$namespace", "$principal", "$quit", "$roles",
+  // "$storage", "$system", "$test", "$this", "$tlevel", "$username",
+  // "$x", "$y", "$za", "$zb", "$zchild", "$zeof", "$zeos", "$zerror",
+  // "$zhorolog", "$zio", "$zjob", "$zmode", "$znspace", "$zparent", "$zpi",
+  // "$zpos", "$zreference", "$zstorage", "$ztimestamp", "$ztimezone",
+  // "$ztrap", "$zversion"
+
+  return {
+    name: 'Caché Object Script',
+    case_insensitive: true,
+    aliases: [ "cls" ],
+    keywords: COS_KEYWORDS,
+    contains: [
+      NUMBERS,
+      STRINGS,
+      hljs.C_LINE_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      {
+        className: "comment",
+        begin: /;/,
+        end: "$",
+        relevance: 0
+      },
+      { // Functions and user-defined functions: write $ztime(60*60*3), $$myFunc(10), $$^Val(1)
+        className: "built_in",
+        begin: /(?:\$\$?|\.\.)\^?[a-zA-Z]+/
+      },
+      { // Macro command: quit $$$OK
+        className: "built_in",
+        begin: /\$\$\$[a-zA-Z]+/
+      },
+      { // Special (global) variables: write %request.Content; Built-in classes: %Library.Integer
+        className: "built_in",
+        begin: /%[a-z]+(?:\.[a-z]+)*/
+      },
+      { // Global variable: set ^globalName = 12 write ^globalName
+        className: "symbol",
+        begin: /\^%?[a-zA-Z][\w]*/
+      },
+      { // Some control constructions: do ##class(Package.ClassName).Method(), ##super()
+        className: "keyword",
+        begin: /##class|##super|#define|#dim/
+      },
+      // sub-languages: are not fully supported by hljs by 11/15/2015
+      // left for the future implementation.
+      {
+        begin: /&sql\(/,
+        end: /\)/,
+        excludeBegin: true,
+        excludeEnd: true,
+        subLanguage: "sql"
+      },
+      {
+        begin: /&(js|jscript|javascript)</,
+        end: />/,
+        excludeBegin: true,
+        excludeEnd: true,
+        subLanguage: "javascript"
+      },
+      {
+        // this brakes first and last tag, but this is the only way to embed a valid html
+        begin: /&html<\s*</,
+        end: />\s*>/,
+        subLanguage: "xml"
+      }
+    ]
+  };
+}
+
+module.exports = cos;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/cos/" data-id="clt8trr81017558s49037dkpr" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-tsx.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-tsx.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.896Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(e){var a=e.util.clone(e.languages.typescript);e.languages.tsx=e.languages.extend("jsx",a),delete e.languages.tsx.parameter,delete e.languages.tsx["literal-property"];var t=e.languages.tsx.tag;t.pattern=RegExp("(^|[^\\w$]|(?=</))(?:"+t.pattern.source+")",t.pattern.flags),t.lookbehind=!0}(Prism);
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-tsx.min/" data-id="clt8trr2m00re58s4b07q5i9p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/71/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/70/">70</a><a class="page-number" href="/page/71/">71</a><span class="page-number current">72</span><a class="page-number" href="/page/73/">73</a><a class="page-number" href="/page/74/">74</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/73/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

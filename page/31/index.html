@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/31/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/highlight.js/lib/languages/nsis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/nsis/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.124Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: NSIS
+Description: Nullsoft Scriptable Install System
+Author: Jan T. Sott <jan.sott@gmail.com>
+Website: https://nsis.sourceforge.io/Main_Page
+*/
+
+
+function nsis(hljs) {
+  const regex = hljs.regex;
+  const LANGUAGE_CONSTANTS = [
+    "ADMINTOOLS",
+    "APPDATA",
+    "CDBURN_AREA",
+    "CMDLINE",
+    "COMMONFILES32",
+    "COMMONFILES64",
+    "COMMONFILES",
+    "COOKIES",
+    "DESKTOP",
+    "DOCUMENTS",
+    "EXEDIR",
+    "EXEFILE",
+    "EXEPATH",
+    "FAVORITES",
+    "FONTS",
+    "HISTORY",
+    "HWNDPARENT",
+    "INSTDIR",
+    "INTERNET_CACHE",
+    "LANGUAGE",
+    "LOCALAPPDATA",
+    "MUSIC",
+    "NETHOOD",
+    "OUTDIR",
+    "PICTURES",
+    "PLUGINSDIR",
+    "PRINTHOOD",
+    "PROFILE",
+    "PROGRAMFILES32",
+    "PROGRAMFILES64",
+    "PROGRAMFILES",
+    "QUICKLAUNCH",
+    "RECENT",
+    "RESOURCES_LOCALIZED",
+    "RESOURCES",
+    "SENDTO",
+    "SMPROGRAMS",
+    "SMSTARTUP",
+    "STARTMENU",
+    "SYSDIR",
+    "TEMP",
+    "TEMPLATES",
+    "VIDEOS",
+    "WINDIR"
+  ];
+
+  const PARAM_NAMES = [
+    "ARCHIVE",
+    "FILE_ATTRIBUTE_ARCHIVE",
+    "FILE_ATTRIBUTE_NORMAL",
+    "FILE_ATTRIBUTE_OFFLINE",
+    "FILE_ATTRIBUTE_READONLY",
+    "FILE_ATTRIBUTE_SYSTEM",
+    "FILE_ATTRIBUTE_TEMPORARY",
+    "HKCR",
+    "HKCU",
+    "HKDD",
+    "HKEY_CLASSES_ROOT",
+    "HKEY_CURRENT_CONFIG",
+    "HKEY_CURRENT_USER",
+    "HKEY_DYN_DATA",
+    "HKEY_LOCAL_MACHINE",
+    "HKEY_PERFORMANCE_DATA",
+    "HKEY_USERS",
+    "HKLM",
+    "HKPD",
+    "HKU",
+    "IDABORT",
+    "IDCANCEL",
+    "IDIGNORE",
+    "IDNO",
+    "IDOK",
+    "IDRETRY",
+    "IDYES",
+    "MB_ABORTRETRYIGNORE",
+    "MB_DEFBUTTON1",
+    "MB_DEFBUTTON2",
+    "MB_DEFBUTTON3",
+    "MB_DEFBUTTON4",
+    "MB_ICONEXCLAMATION",
+    "MB_ICONINFORMATION",
+    "MB_ICONQUESTION",
+    "MB_ICONSTOP",
+    "MB_OK",
+    "MB_OKCANCEL",
+    "MB_RETRYCANCEL",
+    "MB_RIGHT",
+    "MB_RTLREADING",
+    "MB_SETFOREGROUND",
+    "MB_TOPMOST",
+    "MB_USERICON",
+    "MB_YESNO",
+    "NORMAL",
+    "OFFLINE",
+    "READONLY",
+    "SHCTX",
+    "SHELL_CONTEXT",
+    "SYSTEM|TEMPORARY",
+  ];
+
+  const COMPILER_FLAGS = [
+    "addincludedir",
+    "addplugindir",
+    "appendfile",
+    "assert",
+    "cd",
+    "define",
+    "delfile",
+    "echo",
+    "else",
+    "endif",
+    "error",
+    "execute",
+    "finalize",
+    "getdllversion",
+    "gettlbversion",
+    "if",
+    "ifdef",
+    "ifmacrodef",
+    "ifmacrondef",
+    "ifndef",
+    "include",
+    "insertmacro",
+    "macro",
+    "macroend",
+    "makensis",
+    "packhdr",
+    "searchparse",
+    "searchreplace",
+    "system",
+    "tempfile",
+    "undef",
+    "uninstfinalize",
+    "verbose",
+    "warning",
+  ];
+
+  const CONSTANTS = {
+    className: 'variable.constant',
+    begin: regex.concat(/\$/, regex.either(...LANGUAGE_CONSTANTS))
+  };
+
+  const DEFINES = {
+    // ${defines}
+    className: 'variable',
+    begin: /\$+\{[\!\w.:-]+\}/
+  };
+
+  const VARIABLES = {
+    // $variables
+    className: 'variable',
+    begin: /\$+\w[\w\.]*/,
+    illegal: /\(\)\{\}/
+  };
+
+  const LANGUAGES = {
+    // $(language_strings)
+    className: 'variable',
+    begin: /\$+\([\w^.:!-]+\)/
+  };
+
+  const PARAMETERS = {
+    // command parameters
+    className: 'params',
+    begin: regex.either(...PARAM_NAMES)
+  };
+
+  const COMPILER = {
+    // !compiler_flags
+    className: 'keyword',
+    begin: regex.concat(
+      /!/,
+      regex.either(...COMPILER_FLAGS)
+    )
+  };
+
+  const ESCAPE_CHARS = {
+    // $\n, $\r, $\t, $$
+    className: 'char.escape',
+    begin: /\$(\\[nrt]|\$)/
+  };
+
+  const PLUGINS = {
+    // plug::ins
+    className: 'title.function',
+    begin: /\w+::\w+/
+  };
+
+  const STRING = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"',
+        end: '"'
+      },
+      {
+        begin: '\'',
+        end: '\''
+      },
+      {
+        begin: '`',
+        end: '`'
+      }
+    ],
+    illegal: /\n/,
+    contains: [
+      ESCAPE_CHARS,
+      CONSTANTS,
+      DEFINES,
+      VARIABLES,
+      LANGUAGES
+    ]
+  };
+
+  const KEYWORDS = [
+    "Abort",
+    "AddBrandingImage",
+    "AddSize",
+    "AllowRootDirInstall",
+    "AllowSkipFiles",
+    "AutoCloseWindow",
+    "BGFont",
+    "BGGradient",
+    "BrandingText",
+    "BringToFront",
+    "Call",
+    "CallInstDLL",
+    "Caption",
+    "ChangeUI",
+    "CheckBitmap",
+    "ClearErrors",
+    "CompletedText",
+    "ComponentText",
+    "CopyFiles",
+    "CRCCheck",
+    "CreateDirectory",
+    "CreateFont",
+    "CreateShortCut",
+    "Delete",
+    "DeleteINISec",
+    "DeleteINIStr",
+    "DeleteRegKey",
+    "DeleteRegValue",
+    "DetailPrint",
+    "DetailsButtonText",
+    "DirText",
+    "DirVar",
+    "DirVerify",
+    "EnableWindow",
+    "EnumRegKey",
+    "EnumRegValue",
+    "Exch",
+    "Exec",
+    "ExecShell",
+    "ExecShellWait",
+    "ExecWait",
+    "ExpandEnvStrings",
+    "File",
+    "FileBufSize",
+    "FileClose",
+    "FileErrorText",
+    "FileOpen",
+    "FileRead",
+    "FileReadByte",
+    "FileReadUTF16LE",
+    "FileReadWord",
+    "FileWriteUTF16LE",
+    "FileSeek",
+    "FileWrite",
+    "FileWriteByte",
+    "FileWriteWord",
+    "FindClose",
+    "FindFirst",
+    "FindNext",
+    "FindWindow",
+    "FlushINI",
+    "GetCurInstType",
+    "GetCurrentAddress",
+    "GetDlgItem",
+    "GetDLLVersion",
+    "GetDLLVersionLocal",
+    "GetErrorLevel",
+    "GetFileTime",
+    "GetFileTimeLocal",
+    "GetFullPathName",
+    "GetFunctionAddress",
+    "GetInstDirError",
+    "GetKnownFolderPath",
+    "GetLabelAddress",
+    "GetTempFileName",
+    "GetWinVer",
+    "Goto",
+    "HideWindow",
+    "Icon",
+    "IfAbort",
+    "IfErrors",
+    "IfFileExists",
+    "IfRebootFlag",
+    "IfRtlLanguage",
+    "IfShellVarContextAll",
+    "IfSilent",
+    "InitPluginsDir",
+    "InstallButtonText",
+    "InstallColors",
+    "InstallDir",
+    "InstallDirRegKey",
+    "InstProgressFlags",
+    "InstType",
+    "InstTypeGetText",
+    "InstTypeSetText",
+    "Int64Cmp",
+    "Int64CmpU",
+    "Int64Fmt",
+    "IntCmp",
+    "IntCmpU",
+    "IntFmt",
+    "IntOp",
+    "IntPtrCmp",
+    "IntPtrCmpU",
+    "IntPtrOp",
+    "IsWindow",
+    "LangString",
+    "LicenseBkColor",
+    "LicenseData",
+    "LicenseForceSelection",
+    "LicenseLangString",
+    "LicenseText",
+    "LoadAndSetImage",
+    "LoadLanguageFile",
+    "LockWindow",
+    "LogSet",
+    "LogText",
+    "ManifestDPIAware",
+    "ManifestLongPathAware",
+    "ManifestMaxVersionTested",
+    "ManifestSupportedOS",
+    "MessageBox",
+    "MiscButtonText",
+    "Name|0",
+    "Nop",
+    "OutFile",
+    "Page",
+    "PageCallbacks",
+    "PEAddResource",
+    "PEDllCharacteristics",
+    "PERemoveResource",
+    "PESubsysVer",
+    "Pop",
+    "Push",
+    "Quit",
+    "ReadEnvStr",
+    "ReadINIStr",
+    "ReadRegDWORD",
+    "ReadRegStr",
+    "Reboot",
+    "RegDLL",
+    "Rename",
+    "RequestExecutionLevel",
+    "ReserveFile",
+    "Return",
+    "RMDir",
+    "SearchPath",
+    "SectionGetFlags",
+    "SectionGetInstTypes",
+    "SectionGetSize",
+    "SectionGetText",
+    "SectionIn",
+    "SectionSetFlags",
+    "SectionSetInstTypes",
+    "SectionSetSize",
+    "SectionSetText",
+    "SendMessage",
+    "SetAutoClose",
+    "SetBrandingImage",
+    "SetCompress",
+    "SetCompressor",
+    "SetCompressorDictSize",
+    "SetCtlColors",
+    "SetCurInstType",
+    "SetDatablockOptimize",
+    "SetDateSave",
+    "SetDetailsPrint",
+    "SetDetailsView",
+    "SetErrorLevel",
+    "SetErrors",
+    "SetFileAttributes",
+    "SetFont",
+    "SetOutPath",
+    "SetOverwrite",
+    "SetRebootFlag",
+    "SetRegView",
+    "SetShellVarContext",
+    "SetSilent",
+    "ShowInstDetails",
+    "ShowUninstDetails",
+    "ShowWindow",
+    "SilentInstall",
+    "SilentUnInstall",
+    "Sleep",
+    "SpaceTexts",
+    "StrCmp",
+    "StrCmpS",
+    "StrCpy",
+    "StrLen",
+    "SubCaption",
+    "Unicode",
+    "UninstallButtonText",
+    "UninstallCaption",
+    "UninstallIcon",
+    "UninstallSubCaption",
+    "UninstallText",
+    "UninstPage",
+    "UnRegDLL",
+    "Var",
+    "VIAddVersionKey",
+    "VIFileVersion",
+    "VIProductVersion",
+    "WindowIcon",
+    "WriteINIStr",
+    "WriteRegBin",
+    "WriteRegDWORD",
+    "WriteRegExpandStr",
+    "WriteRegMultiStr",
+    "WriteRegNone",
+    "WriteRegStr",
+    "WriteUninstaller",
+    "XPStyle"
+  ];
+
+  const LITERALS = [
+    "admin",
+    "all",
+    "auto",
+    "both",
+    "bottom",
+    "bzip2",
+    "colored",
+    "components",
+    "current",
+    "custom",
+    "directory",
+    "false",
+    "force",
+    "hide",
+    "highest",
+    "ifdiff",
+    "ifnewer",
+    "instfiles",
+    "lastused",
+    "leave",
+    "left",
+    "license",
+    "listonly",
+    "lzma",
+    "nevershow",
+    "none",
+    "normal",
+    "notset",
+    "off",
+    "on",
+    "open",
+    "print",
+    "right",
+    "show",
+    "silent",
+    "silentlog",
+    "smooth",
+    "textonly",
+    "top",
+    "true",
+    "try",
+    "un.components",
+    "un.custom",
+    "un.directory",
+    "un.instfiles",
+    "un.license",
+    "uninstConfirm",
+    "user",
+    "Win10",
+    "Win7",
+    "Win8",
+    "WinVista",
+    "zlib"
+  ];
+
+  const FUNCTION_DEFINITION = {
+    match: [
+      /Function/,
+      /\s+/,
+      regex.concat(/(\.)?/, hljs.IDENT_RE)
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    }
+  };
+
+  // Var Custom.Variable.Name.Item
+  // Var /GLOBAL Custom.Variable.Name.Item
+  const VARIABLE_NAME_RE = /[A-Za-z][\w.]*/;
+  const VARIABLE_DEFINITION = {
+    match: [
+      /Var/,
+      /\s+/,
+      /(?:\/GLOBAL\s+)?/,
+      VARIABLE_NAME_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "params",
+      4: "variable"
+    }
+  };
+
+  return {
+    name: 'NSIS',
+    case_insensitive: true,
+    keywords: {
+      keyword: KEYWORDS,
+      literal: LITERALS
+    },
+    contains: [
+      hljs.HASH_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.COMMENT(
+        ';',
+        '$',
+        { relevance: 0 }
+      ),
+      VARIABLE_DEFINITION,
+      FUNCTION_DEFINITION,
+      { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd', },
+      STRING,
+      COMPILER,
+      DEFINES,
+      VARIABLES,
+      LANGUAGES,
+      PARAMETERS,
+      PLUGINS,
+      hljs.NUMBER_MODE
+    ]
+  };
+}
+
+module.exports = nsis;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/nsis/" data-id="clt8trr9o01bz58s46a1ydnc4" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/nsis" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/nsis/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.083Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: NSIS
+Description: Nullsoft Scriptable Install System
+Author: Jan T. Sott <jan.sott@gmail.com>
+Website: https://nsis.sourceforge.io/Main_Page
+*/
+
+
+function nsis(hljs) {
+  const regex = hljs.regex;
+  const LANGUAGE_CONSTANTS = [
+    "ADMINTOOLS",
+    "APPDATA",
+    "CDBURN_AREA",
+    "CMDLINE",
+    "COMMONFILES32",
+    "COMMONFILES64",
+    "COMMONFILES",
+    "COOKIES",
+    "DESKTOP",
+    "DOCUMENTS",
+    "EXEDIR",
+    "EXEFILE",
+    "EXEPATH",
+    "FAVORITES",
+    "FONTS",
+    "HISTORY",
+    "HWNDPARENT",
+    "INSTDIR",
+    "INTERNET_CACHE",
+    "LANGUAGE",
+    "LOCALAPPDATA",
+    "MUSIC",
+    "NETHOOD",
+    "OUTDIR",
+    "PICTURES",
+    "PLUGINSDIR",
+    "PRINTHOOD",
+    "PROFILE",
+    "PROGRAMFILES32",
+    "PROGRAMFILES64",
+    "PROGRAMFILES",
+    "QUICKLAUNCH",
+    "RECENT",
+    "RESOURCES_LOCALIZED",
+    "RESOURCES",
+    "SENDTO",
+    "SMPROGRAMS",
+    "SMSTARTUP",
+    "STARTMENU",
+    "SYSDIR",
+    "TEMP",
+    "TEMPLATES",
+    "VIDEOS",
+    "WINDIR"
+  ];
+
+  const PARAM_NAMES = [
+    "ARCHIVE",
+    "FILE_ATTRIBUTE_ARCHIVE",
+    "FILE_ATTRIBUTE_NORMAL",
+    "FILE_ATTRIBUTE_OFFLINE",
+    "FILE_ATTRIBUTE_READONLY",
+    "FILE_ATTRIBUTE_SYSTEM",
+    "FILE_ATTRIBUTE_TEMPORARY",
+    "HKCR",
+    "HKCU",
+    "HKDD",
+    "HKEY_CLASSES_ROOT",
+    "HKEY_CURRENT_CONFIG",
+    "HKEY_CURRENT_USER",
+    "HKEY_DYN_DATA",
+    "HKEY_LOCAL_MACHINE",
+    "HKEY_PERFORMANCE_DATA",
+    "HKEY_USERS",
+    "HKLM",
+    "HKPD",
+    "HKU",
+    "IDABORT",
+    "IDCANCEL",
+    "IDIGNORE",
+    "IDNO",
+    "IDOK",
+    "IDRETRY",
+    "IDYES",
+    "MB_ABORTRETRYIGNORE",
+    "MB_DEFBUTTON1",
+    "MB_DEFBUTTON2",
+    "MB_DEFBUTTON3",
+    "MB_DEFBUTTON4",
+    "MB_ICONEXCLAMATION",
+    "MB_ICONINFORMATION",
+    "MB_ICONQUESTION",
+    "MB_ICONSTOP",
+    "MB_OK",
+    "MB_OKCANCEL",
+    "MB_RETRYCANCEL",
+    "MB_RIGHT",
+    "MB_RTLREADING",
+    "MB_SETFOREGROUND",
+    "MB_TOPMOST",
+    "MB_USERICON",
+    "MB_YESNO",
+    "NORMAL",
+    "OFFLINE",
+    "READONLY",
+    "SHCTX",
+    "SHELL_CONTEXT",
+    "SYSTEM|TEMPORARY",
+  ];
+
+  const COMPILER_FLAGS = [
+    "addincludedir",
+    "addplugindir",
+    "appendfile",
+    "assert",
+    "cd",
+    "define",
+    "delfile",
+    "echo",
+    "else",
+    "endif",
+    "error",
+    "execute",
+    "finalize",
+    "getdllversion",
+    "gettlbversion",
+    "if",
+    "ifdef",
+    "ifmacrodef",
+    "ifmacrondef",
+    "ifndef",
+    "include",
+    "insertmacro",
+    "macro",
+    "macroend",
+    "makensis",
+    "packhdr",
+    "searchparse",
+    "searchreplace",
+    "system",
+    "tempfile",
+    "undef",
+    "uninstfinalize",
+    "verbose",
+    "warning",
+  ];
+
+  const CONSTANTS = {
+    className: 'variable.constant',
+    begin: regex.concat(/\$/, regex.either(...LANGUAGE_CONSTANTS))
+  };
+
+  const DEFINES = {
+    // ${defines}
+    className: 'variable',
+    begin: /\$+\{[\!\w.:-]+\}/
+  };
+
+  const VARIABLES = {
+    // $variables
+    className: 'variable',
+    begin: /\$+\w[\w\.]*/,
+    illegal: /\(\)\{\}/
+  };
+
+  const LANGUAGES = {
+    // $(language_strings)
+    className: 'variable',
+    begin: /\$+\([\w^.:!-]+\)/
+  };
+
+  const PARAMETERS = {
+    // command parameters
+    className: 'params',
+    begin: regex.either(...PARAM_NAMES)
+  };
+
+  const COMPILER = {
+    // !compiler_flags
+    className: 'keyword',
+    begin: regex.concat(
+      /!/,
+      regex.either(...COMPILER_FLAGS)
+    )
+  };
+
+  const ESCAPE_CHARS = {
+    // $\n, $\r, $\t, $$
+    className: 'char.escape',
+    begin: /\$(\\[nrt]|\$)/
+  };
+
+  const PLUGINS = {
+    // plug::ins
+    className: 'title.function',
+    begin: /\w+::\w+/
+  };
+
+  const STRING = {
+    className: 'string',
+    variants: [
+      {
+        begin: '"',
+        end: '"'
+      },
+      {
+        begin: '\'',
+        end: '\''
+      },
+      {
+        begin: '`',
+        end: '`'
+      }
+    ],
+    illegal: /\n/,
+    contains: [
+      ESCAPE_CHARS,
+      CONSTANTS,
+      DEFINES,
+      VARIABLES,
+      LANGUAGES
+    ]
+  };
+
+  const KEYWORDS = [
+    "Abort",
+    "AddBrandingImage",
+    "AddSize",
+    "AllowRootDirInstall",
+    "AllowSkipFiles",
+    "AutoCloseWindow",
+    "BGFont",
+    "BGGradient",
+    "BrandingText",
+    "BringToFront",
+    "Call",
+    "CallInstDLL",
+    "Caption",
+    "ChangeUI",
+    "CheckBitmap",
+    "ClearErrors",
+    "CompletedText",
+    "ComponentText",
+    "CopyFiles",
+    "CRCCheck",
+    "CreateDirectory",
+    "CreateFont",
+    "CreateShortCut",
+    "Delete",
+    "DeleteINISec",
+    "DeleteINIStr",
+    "DeleteRegKey",
+    "DeleteRegValue",
+    "DetailPrint",
+    "DetailsButtonText",
+    "DirText",
+    "DirVar",
+    "DirVerify",
+    "EnableWindow",
+    "EnumRegKey",
+    "EnumRegValue",
+    "Exch",
+    "Exec",
+    "ExecShell",
+    "ExecShellWait",
+    "ExecWait",
+    "ExpandEnvStrings",
+    "File",
+    "FileBufSize",
+    "FileClose",
+    "FileErrorText",
+    "FileOpen",
+    "FileRead",
+    "FileReadByte",
+    "FileReadUTF16LE",
+    "FileReadWord",
+    "FileWriteUTF16LE",
+    "FileSeek",
+    "FileWrite",
+    "FileWriteByte",
+    "FileWriteWord",
+    "FindClose",
+    "FindFirst",
+    "FindNext",
+    "FindWindow",
+    "FlushINI",
+    "GetCurInstType",
+    "GetCurrentAddress",
+    "GetDlgItem",
+    "GetDLLVersion",
+    "GetDLLVersionLocal",
+    "GetErrorLevel",
+    "GetFileTime",
+    "GetFileTimeLocal",
+    "GetFullPathName",
+    "GetFunctionAddress",
+    "GetInstDirError",
+    "GetKnownFolderPath",
+    "GetLabelAddress",
+    "GetTempFileName",
+    "GetWinVer",
+    "Goto",
+    "HideWindow",
+    "Icon",
+    "IfAbort",
+    "IfErrors",
+    "IfFileExists",
+    "IfRebootFlag",
+    "IfRtlLanguage",
+    "IfShellVarContextAll",
+    "IfSilent",
+    "InitPluginsDir",
+    "InstallButtonText",
+    "InstallColors",
+    "InstallDir",
+    "InstallDirRegKey",
+    "InstProgressFlags",
+    "InstType",
+    "InstTypeGetText",
+    "InstTypeSetText",
+    "Int64Cmp",
+    "Int64CmpU",
+    "Int64Fmt",
+    "IntCmp",
+    "IntCmpU",
+    "IntFmt",
+    "IntOp",
+    "IntPtrCmp",
+    "IntPtrCmpU",
+    "IntPtrOp",
+    "IsWindow",
+    "LangString",
+    "LicenseBkColor",
+    "LicenseData",
+    "LicenseForceSelection",
+    "LicenseLangString",
+    "LicenseText",
+    "LoadAndSetImage",
+    "LoadLanguageFile",
+    "LockWindow",
+    "LogSet",
+    "LogText",
+    "ManifestDPIAware",
+    "ManifestLongPathAware",
+    "ManifestMaxVersionTested",
+    "ManifestSupportedOS",
+    "MessageBox",
+    "MiscButtonText",
+    "Name|0",
+    "Nop",
+    "OutFile",
+    "Page",
+    "PageCallbacks",
+    "PEAddResource",
+    "PEDllCharacteristics",
+    "PERemoveResource",
+    "PESubsysVer",
+    "Pop",
+    "Push",
+    "Quit",
+    "ReadEnvStr",
+    "ReadINIStr",
+    "ReadRegDWORD",
+    "ReadRegStr",
+    "Reboot",
+    "RegDLL",
+    "Rename",
+    "RequestExecutionLevel",
+    "ReserveFile",
+    "Return",
+    "RMDir",
+    "SearchPath",
+    "SectionGetFlags",
+    "SectionGetInstTypes",
+    "SectionGetSize",
+    "SectionGetText",
+    "SectionIn",
+    "SectionSetFlags",
+    "SectionSetInstTypes",
+    "SectionSetSize",
+    "SectionSetText",
+    "SendMessage",
+    "SetAutoClose",
+    "SetBrandingImage",
+    "SetCompress",
+    "SetCompressor",
+    "SetCompressorDictSize",
+    "SetCtlColors",
+    "SetCurInstType",
+    "SetDatablockOptimize",
+    "SetDateSave",
+    "SetDetailsPrint",
+    "SetDetailsView",
+    "SetErrorLevel",
+    "SetErrors",
+    "SetFileAttributes",
+    "SetFont",
+    "SetOutPath",
+    "SetOverwrite",
+    "SetRebootFlag",
+    "SetRegView",
+    "SetShellVarContext",
+    "SetSilent",
+    "ShowInstDetails",
+    "ShowUninstDetails",
+    "ShowWindow",
+    "SilentInstall",
+    "SilentUnInstall",
+    "Sleep",
+    "SpaceTexts",
+    "StrCmp",
+    "StrCmpS",
+    "StrCpy",
+    "StrLen",
+    "SubCaption",
+    "Unicode",
+    "UninstallButtonText",
+    "UninstallCaption",
+    "UninstallIcon",
+    "UninstallSubCaption",
+    "UninstallText",
+    "UninstPage",
+    "UnRegDLL",
+    "Var",
+    "VIAddVersionKey",
+    "VIFileVersion",
+    "VIProductVersion",
+    "WindowIcon",
+    "WriteINIStr",
+    "WriteRegBin",
+    "WriteRegDWORD",
+    "WriteRegExpandStr",
+    "WriteRegMultiStr",
+    "WriteRegNone",
+    "WriteRegStr",
+    "WriteUninstaller",
+    "XPStyle"
+  ];
+
+  const LITERALS = [
+    "admin",
+    "all",
+    "auto",
+    "both",
+    "bottom",
+    "bzip2",
+    "colored",
+    "components",
+    "current",
+    "custom",
+    "directory",
+    "false",
+    "force",
+    "hide",
+    "highest",
+    "ifdiff",
+    "ifnewer",
+    "instfiles",
+    "lastused",
+    "leave",
+    "left",
+    "license",
+    "listonly",
+    "lzma",
+    "nevershow",
+    "none",
+    "normal",
+    "notset",
+    "off",
+    "on",
+    "open",
+    "print",
+    "right",
+    "show",
+    "silent",
+    "silentlog",
+    "smooth",
+    "textonly",
+    "top",
+    "true",
+    "try",
+    "un.components",
+    "un.custom",
+    "un.directory",
+    "un.instfiles",
+    "un.license",
+    "uninstConfirm",
+    "user",
+    "Win10",
+    "Win7",
+    "Win8",
+    "WinVista",
+    "zlib"
+  ];
+
+  const FUNCTION_DEFINITION = {
+    match: [
+      /Function/,
+      /\s+/,
+      regex.concat(/(\.)?/, hljs.IDENT_RE)
+    ],
+    scope: {
+      1: "keyword",
+      3: "title.function"
+    }
+  };
+
+  // Var Custom.Variable.Name.Item
+  // Var /GLOBAL Custom.Variable.Name.Item
+  const VARIABLE_NAME_RE = /[A-Za-z][\w.]*/;
+  const VARIABLE_DEFINITION = {
+    match: [
+      /Var/,
+      /\s+/,
+      /(?:\/GLOBAL\s+)?/,
+      VARIABLE_NAME_RE
+    ],
+    scope: {
+      1: "keyword",
+      3: "params",
+      4: "variable"
+    }
+  };
+
+  return {
+    name: 'NSIS',
+    case_insensitive: true,
+    keywords: {
+      keyword: KEYWORDS,
+      literal: LITERALS
+    },
+    contains: [
+      hljs.HASH_COMMENT_MODE,
+      hljs.C_BLOCK_COMMENT_MODE,
+      hljs.COMMENT(
+        ';',
+        '$',
+        { relevance: 0 }
+      ),
+      VARIABLE_DEFINITION,
+      FUNCTION_DEFINITION,
+      { beginKeywords: 'Function PageEx Section SectionGroup FunctionEnd SectionEnd', },
+      STRING,
+      COMPILER,
+      DEFINES,
+      VARIABLES,
+      LANGUAGES,
+      PARAMETERS,
+      PLUGINS,
+      hljs.NUMBER_MODE
+    ]
+  };
+}
+
+export { nsis as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/nsis/" data-id="clt8trr5x011b58s412iccqd6" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/node-repl.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/node-repl.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.082Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/node-repl" instead of "highlight.js/lib/languages/node-repl.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./node-repl.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/node-repl.js/" data-id="clt8trr9n01by58s41yisau54" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/node-repl.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/node-repl.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.081Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/node-repl" instead of "highlight.js/lib/languages/node-repl.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './node-repl.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/node-repl.js/" data-id="clt8trr5x011a58s44hq0epvt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/node-repl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/node-repl/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.080Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Node REPL
+Requires: javascript.js
+Author: Marat Nagayev <nagaevmt@yandex.ru>
+Category: scripting
+*/
+
+/** @type LanguageFn */
+function nodeRepl(hljs) {
+  return {
+    name: 'Node REPL',
+    contains: [
+      {
+        className: 'meta.prompt',
+        starts: {
+          // a space separates the REPL prefix from the actual code
+          // this is purely for cleaner HTML output
+          end: / |$/,
+          starts: {
+            end: '$',
+            subLanguage: 'javascript'
+          }
+        },
+        variants: [
+          { begin: /^>(?=[ ]|$)/ },
+          { begin: /^\.\.\.(?=[ ]|$)/ }
+        ]
+      }
+    ]
+  };
+}
+
+module.exports = nodeRepl;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/node-repl/" data-id="clt8trr9n01bx58s48yjs8iz7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/node-repl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/node-repl/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.079Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Node REPL
+Requires: javascript.js
+Author: Marat Nagayev <nagaevmt@yandex.ru>
+Category: scripting
+*/
+
+/** @type LanguageFn */
+function nodeRepl(hljs) {
+  return {
+    name: 'Node REPL',
+    contains: [
+      {
+        className: 'meta.prompt',
+        starts: {
+          // a space separates the REPL prefix from the actual code
+          // this is purely for cleaner HTML output
+          end: / |$/,
+          starts: {
+            end: '$',
+            subLanguage: 'javascript'
+          }
+        },
+        variants: [
+          { begin: /^>(?=[ ]|$)/ },
+          { begin: /^\.\.\.(?=[ ]|$)/ }
+        ]
+      }
+    ]
+  };
+}
+
+export { nodeRepl as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/node-repl/" data-id="clt8trr5x011958s42y947gcm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/nix.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/nix.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.077Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/nix" instead of "highlight.js/lib/languages/nix.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./nix.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/nix.js/" data-id="clt8trr9m01bv58s493u16gfy" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/nix.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/nix.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.076Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/nix" instead of "highlight.js/lib/languages/nix.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './nix.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/nix.js/" data-id="clt8trr5w011858s4548019g8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/nix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/nix/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.065Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Nix
+Author: Domen Kožar <domen@dev.si>
+Description: Nix functional language
+Website: http://nixos.org/nix
+*/
+
+function nix(hljs) {
+  const KEYWORDS = {
+    keyword: [
+      "rec",
+      "with",
+      "let",
+      "in",
+      "inherit",
+      "assert",
+      "if",
+      "else",
+      "then"
+    ],
+    literal: [
+      "true",
+      "false",
+      "or",
+      "and",
+      "null"
+    ],
+    built_in: [
+      "import",
+      "abort",
+      "baseNameOf",
+      "dirOf",
+      "isNull",
+      "builtins",
+      "map",
+      "removeAttrs",
+      "throw",
+      "toString",
+      "derivation"
+    ]
+  };
+  const ANTIQUOTE = {
+    className: 'subst',
+    begin: /\$\{/,
+    end: /\}/,
+    keywords: KEYWORDS
+  };
+  const ESCAPED_DOLLAR = {
+    className: 'char.escape',
+    begin: /''\$/,
+  };
+  const ATTRS = {
+    begin: /[a-zA-Z0-9-_]+(\s*=)/,
+    returnBegin: true,
+    relevance: 0,
+    contains: [
+      {
+        className: 'attr',
+        begin: /\S+/,
+        relevance: 0.2
+      }
+    ]
+  };
+  const STRING = {
+    className: 'string',
+    contains: [ ESCAPED_DOLLAR, ANTIQUOTE ],
+    variants: [
+      {
+        begin: "''",
+        end: "''"
+      },
+      {
+        begin: '"',
+        end: '"'
+      }
+    ]
+  };
+  const EXPRESSIONS = [
+    hljs.NUMBER_MODE,
+    hljs.HASH_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    STRING,
+    ATTRS
+  ];
+  ANTIQUOTE.contains = EXPRESSIONS;
+  return {
+    name: 'Nix',
+    aliases: [ "nixos" ],
+    keywords: KEYWORDS,
+    contains: EXPRESSIONS
+  };
+}
+
+module.exports = nix;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/nix/" data-id="clt8trr9j01bu58s4efhj68nf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/nix" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/nix/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:19.063Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Nix
+Author: Domen Kožar <domen@dev.si>
+Description: Nix functional language
+Website: http://nixos.org/nix
+*/
+
+function nix(hljs) {
+  const KEYWORDS = {
+    keyword: [
+      "rec",
+      "with",
+      "let",
+      "in",
+      "inherit",
+      "assert",
+      "if",
+      "else",
+      "then"
+    ],
+    literal: [
+      "true",
+      "false",
+      "or",
+      "and",
+      "null"
+    ],
+    built_in: [
+      "import",
+      "abort",
+      "baseNameOf",
+      "dirOf",
+      "isNull",
+      "builtins",
+      "map",
+      "removeAttrs",
+      "throw",
+      "toString",
+      "derivation"
+    ]
+  };
+  const ANTIQUOTE = {
+    className: 'subst',
+    begin: /\$\{/,
+    end: /\}/,
+    keywords: KEYWORDS
+  };
+  const ESCAPED_DOLLAR = {
+    className: 'char.escape',
+    begin: /''\$/,
+  };
+  const ATTRS = {
+    begin: /[a-zA-Z0-9-_]+(\s*=)/,
+    returnBegin: true,
+    relevance: 0,
+    contains: [
+      {
+        className: 'attr',
+        begin: /\S+/,
+        relevance: 0.2
+      }
+    ]
+  };
+  const STRING = {
+    className: 'string',
+    contains: [ ESCAPED_DOLLAR, ANTIQUOTE ],
+    variants: [
+      {
+        begin: "''",
+        end: "''"
+      },
+      {
+        begin: '"',
+        end: '"'
+      }
+    ]
+  };
+  const EXPRESSIONS = [
+    hljs.NUMBER_MODE,
+    hljs.HASH_COMMENT_MODE,
+    hljs.C_BLOCK_COMMENT_MODE,
+    STRING,
+    ATTRS
+  ];
+  ANTIQUOTE.contains = EXPRESSIONS;
+  return {
+    name: 'Nix',
+    aliases: [ "nixos" ],
+    keywords: KEYWORDS,
+    contains: EXPRESSIONS
+  };
+}
+
+export { nix as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/nix/" data-id="clt8trr5w011758s49hfg1ozm" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/30/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><a class="page-number" href="/page/33/">33</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/32/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

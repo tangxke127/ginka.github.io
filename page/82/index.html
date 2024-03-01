@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/82/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-node_modules/prismjs/components/prism-splunk-spl" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-splunk-spl/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.782Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages['splunk-spl'] = {
+	'comment': /`comment\("(?:\\.|[^\\"])*"\)`/,
+	'string': {
+		pattern: /"(?:\\.|[^\\"])*"/,
+		greedy: true
+	},
+	// https://docs.splunk.com/Documentation/Splunk/7.3.0/SearchReference/ListOfSearchCommands
+	'keyword': /\b(?:abstract|accum|addcoltotals|addinfo|addtotals|analyzefields|anomalies|anomalousvalue|anomalydetection|append|appendcols|appendcsv|appendlookup|appendpipe|arules|associate|audit|autoregress|bin|bucket|bucketdir|chart|cluster|cofilter|collect|concurrency|contingency|convert|correlate|datamodel|dbinspect|dedup|delete|delta|diff|erex|eval|eventcount|eventstats|extract|fieldformat|fields|fieldsummary|filldown|fillnull|findtypes|folderize|foreach|format|from|gauge|gentimes|geom|geomfilter|geostats|head|highlight|history|iconify|input|inputcsv|inputlookup|iplocation|join|kmeans|kv|kvform|loadjob|localize|localop|lookup|makecontinuous|makemv|makeresults|map|mcollect|metadata|metasearch|meventcollect|mstats|multikv|multisearch|mvcombine|mvexpand|nomv|outlier|outputcsv|outputlookup|outputtext|overlap|pivot|predict|rangemap|rare|regex|relevancy|reltime|rename|replace|rest|return|reverse|rex|rtorder|run|savedsearch|script|scrub|search|searchtxn|selfjoin|sendemail|set|setfields|sichart|sirare|sistats|sitimechart|sitop|sort|spath|stats|strcat|streamstats|table|tags|tail|timechart|timewrap|top|transaction|transpose|trendline|tscollect|tstats|typeahead|typelearner|typer|union|uniq|untable|where|x11|xmlkv|xmlunescape|xpath|xyseries)\b/i,
+	'operator-word': {
+		pattern: /\b(?:and|as|by|not|or|xor)\b/i,
+		alias: 'operator'
+	},
+	'function': /\b\w+(?=\s*\()/,
+	'property': /\b\w+(?=\s*=(?!=))/,
+	'date': {
+		// MM/DD/YYYY(:HH:MM:SS)?
+		pattern: /\b\d{1,2}\/\d{1,2}\/\d{1,4}(?:(?::\d{1,2}){3})?\b/,
+		alias: 'number'
+	},
+	'number': /\b\d+(?:\.\d+)?\b/,
+	'boolean': /\b(?:f|false|t|true)\b/i,
+	'operator': /[<>=]=?|[-+*/%|]/,
+	'punctuation': /[()[\],]/
+};
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-splunk-spl/" data-id="clt8trr2900qd58s420r3f6l8" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/bnf.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/bnf.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.781Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/bnf" instead of "highlight.js/lib/languages/bnf.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './bnf.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/bnf.js/" data-id="clt8trr4400vs58s44c0zewpj" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-sparql.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-sparql.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.780Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.sparql=Prism.languages.extend("turtle",{boolean:/\b(?:false|true)\b/i,variable:{pattern:/[?$]\w+/,greedy:!0}}),Prism.languages.insertBefore("sparql","punctuation",{keyword:[/\b(?:A|ADD|ALL|AS|ASC|ASK|BNODE|BY|CLEAR|CONSTRUCT|COPY|CREATE|DATA|DEFAULT|DELETE|DESC|DESCRIBE|DISTINCT|DROP|EXISTS|FILTER|FROM|GROUP|HAVING|INSERT|INTO|LIMIT|LOAD|MINUS|MOVE|NAMED|NOT|NOW|OFFSET|OPTIONAL|ORDER|RAND|REDUCED|SELECT|SEPARATOR|SERVICE|SILENT|STRUUID|UNION|USING|UUID|VALUES|WHERE)\b/i,/\b(?:ABS|AVG|BIND|BOUND|CEIL|COALESCE|CONCAT|CONTAINS|COUNT|DATATYPE|DAY|ENCODE_FOR_URI|FLOOR|GROUP_CONCAT|HOURS|IF|IRI|isBLANK|isIRI|isLITERAL|isNUMERIC|isURI|LANG|LANGMATCHES|LCASE|MAX|MD5|MIN|MINUTES|MONTH|REGEX|REPLACE|ROUND|sameTerm|SAMPLE|SECONDS|SHA1|SHA256|SHA384|SHA512|STR|STRAFTER|STRBEFORE|STRDT|STRENDS|STRLANG|STRLEN|STRSTARTS|SUBSTR|SUM|TIMEZONE|TZ|UCASE|URI|YEAR)\b(?=\s*\()/i,/\b(?:BASE|GRAPH|PREFIX)\b/i]}),Prism.languages.rq=Prism.languages.sparql;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-sparql.min/" data-id="clt8trr2900qc58s41d55g73i" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/bnf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/bnf/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.780Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Backus–Naur Form
+Website: https://en.wikipedia.org/wiki/Backus–Naur_form
+Author: Oleg Efimov <efimovov@gmail.com>
+*/
+
+/** @type LanguageFn */
+function bnf(hljs) {
+  return {
+    name: 'Backus–Naur Form',
+    contains: [
+      // Attribute
+      {
+        className: 'attribute',
+        begin: /</,
+        end: />/
+      },
+      // Specific
+      {
+        begin: /::=/,
+        end: /$/,
+        contains: [
+          {
+            begin: /</,
+            end: />/
+          },
+          // Common
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE
+        ]
+      }
+    ]
+  };
+}
+
+module.exports = bnf;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/bnf/" data-id="clt8trr7u016g58s4ew7aaep0" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-sparql" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-sparql/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.778Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        Prism.languages.sparql = Prism.languages.extend('turtle', {
+	'boolean': /\b(?:false|true)\b/i,
+	'variable': {
+		pattern: /[?$]\w+/,
+		greedy: true
+	},
+}
+);
+
+Prism.languages.insertBefore('sparql', 'punctuation', {
+	'keyword': [
+		/\b(?:A|ADD|ALL|AS|ASC|ASK|BNODE|BY|CLEAR|CONSTRUCT|COPY|CREATE|DATA|DEFAULT|DELETE|DESC|DESCRIBE|DISTINCT|DROP|EXISTS|FILTER|FROM|GROUP|HAVING|INSERT|INTO|LIMIT|LOAD|MINUS|MOVE|NAMED|NOT|NOW|OFFSET|OPTIONAL|ORDER|RAND|REDUCED|SELECT|SEPARATOR|SERVICE|SILENT|STRUUID|UNION|USING|UUID|VALUES|WHERE)\b/i,
+		/\b(?:ABS|AVG|BIND|BOUND|CEIL|COALESCE|CONCAT|CONTAINS|COUNT|DATATYPE|DAY|ENCODE_FOR_URI|FLOOR|GROUP_CONCAT|HOURS|IF|IRI|isBLANK|isIRI|isLITERAL|isNUMERIC|isURI|LANG|LANGMATCHES|LCASE|MAX|MD5|MIN|MINUTES|MONTH|REGEX|REPLACE|ROUND|sameTerm|SAMPLE|SECONDS|SHA1|SHA256|SHA384|SHA512|STR|STRAFTER|STRBEFORE|STRDT|STRENDS|STRLANG|STRLEN|STRSTARTS|SUBSTR|SUM|TIMEZONE|TZ|UCASE|URI|YEAR)\b(?=\s*\()/i,
+		/\b(?:BASE|GRAPH|PREFIX)\b/i
+	]
+});
+
+Prism.languages.rq = Prism.languages.sparql;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-sparql/" data-id="clt8trr2800qb58s452v70smn" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/bnf" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/bnf/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.778Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: Backus–Naur Form
+Website: https://en.wikipedia.org/wiki/Backus–Naur_form
+Author: Oleg Efimov <efimovov@gmail.com>
+*/
+
+/** @type LanguageFn */
+function bnf(hljs) {
+  return {
+    name: 'Backus–Naur Form',
+    contains: [
+      // Attribute
+      {
+        className: 'attribute',
+        begin: /</,
+        end: />/
+      },
+      // Specific
+      {
+        begin: /::=/,
+        end: /$/,
+        contains: [
+          {
+            begin: /</,
+            end: />/
+          },
+          // Common
+          hljs.C_LINE_COMMENT_MODE,
+          hljs.C_BLOCK_COMMENT_MODE,
+          hljs.APOS_STRING_MODE,
+          hljs.QUOTE_STRING_MODE
+        ]
+      }
+    ]
+  };
+}
+
+export { bnf as default };
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/bnf/" data-id="clt8trr4400vr58s40zh1413p" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/basic.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/basic.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.777Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/basic" instead of "highlight.js/lib/languages/basic.js"'
+      );
+    }
+  }
+  emitWarning();
+    module.exports = require('./basic.js');
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/basic.js/" data-id="clt8trr7t016f58s4edfqdsfp" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/prismjs/components/prism-soy.min" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/prismjs/components/prism-soy.min/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.776Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        !function(e){var a=/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,t=/\b\d+(?:\.\d+)?(?:[eE][+-]?\d+)?\b|\b0x[\dA-F]+\b/;e.languages.soy={comment:[/\/\*[\s\S]*?\*\//,{pattern:/(\s)\/\/.*/,lookbehind:!0,greedy:!0}],"command-arg":{pattern:/(\{+\/?\s*(?:alias|call|delcall|delpackage|deltemplate|namespace|template)\s+)\.?[\w.]+/,lookbehind:!0,alias:"string",inside:{punctuation:/\./}},parameter:{pattern:/(\{+\/?\s*@?param\??\s+)\.?[\w.]+/,lookbehind:!0,alias:"variable"},keyword:[{pattern:/(\{+\/?[^\S\r\n]*)(?:\\[nrt]|alias|call|case|css|default|delcall|delpackage|deltemplate|else(?:if)?|fallbackmsg|for(?:each)?|if(?:empty)?|lb|let|literal|msg|namespace|nil|@?param\??|rb|sp|switch|template|xid)/,lookbehind:!0},/\b(?:any|as|attributes|bool|css|float|html|in|int|js|list|map|null|number|string|uri)\b/],delimiter:{pattern:/^\{+\/?|\/?\}+$/,alias:"punctuation"},property:/\w+(?==)/,variable:{pattern:/\$[^\W\d]\w*(?:\??(?:\.\w+|\[[^\]]+\]))*/,inside:{string:{pattern:a,greedy:!0},number:t,punctuation:/[\[\].?]/}},string:{pattern:a,greedy:!0},function:[/\w+(?=\()/,{pattern:/(\|[^\S\r\n]*)\w+/,lookbehind:!0}],boolean:/\b(?:false|true)\b/,number:t,operator:/\?:?|<=?|>=?|==?|!=|[+*/%-]|\b(?:and|not|or)\b/,punctuation:/[{}()\[\]|.,:]/},e.hooks.add("before-tokenize",(function(a){var t=!1;e.languages["markup-templating"].buildPlaceholders(a,"soy",/\{\{.+?\}\}|\{.+?\}|\s\/\/.*|\/\*[\s\S]*?\*\//g,(function(e){return"{/literal}"===e&&(t=!1),!t&&("{literal}"===e&&(t=!0),!0)}))})),e.hooks.add("after-tokenize",(function(a){e.languages["markup-templating"].tokenizePlaceholders(a,"soy")}))}(Prism);
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/prismjs/components/prism-soy.min/" data-id="clt8trr2800qa58s49i4a7jkq" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/es/languages/basic.js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/es/languages/basic.js/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.776Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        function emitWarning() {
+    if (!emitWarning.warned) {
+      emitWarning.warned = true;
+      console.log(
+        'Deprecation (warning): Using file extension in specifier is deprecated, use "highlight.js/lib/languages/basic" instead of "highlight.js/lib/languages/basic.js"'
+      );
+    }
+  }
+  emitWarning();
+    import lang from './basic.js';
+    export default lang;
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/es/languages/basic.js/" data-id="clt8trr4400vq58s45gg2edxf" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-node_modules/highlight.js/lib/languages/basic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/01/node_modules/highlight.js/lib/languages/basic/" class="article-date">
+  <time class="dt-published" datetime="2024-03-01T15:18:17.774Z" itemprop="datePublished">2024-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        /*
+Language: BASIC
+Author: Raphaël Assénat <raph@raphnet.net>
+Description: Based on the BASIC reference from the Tandy 1000 guide
+Website: https://en.wikipedia.org/wiki/Tandy_1000
+*/
+
+/** @type LanguageFn */
+function basic(hljs) {
+  const KEYWORDS = [
+    "ABS",
+    "ASC",
+    "AND",
+    "ATN",
+    "AUTO|0",
+    "BEEP",
+    "BLOAD|10",
+    "BSAVE|10",
+    "CALL",
+    "CALLS",
+    "CDBL",
+    "CHAIN",
+    "CHDIR",
+    "CHR$|10",
+    "CINT",
+    "CIRCLE",
+    "CLEAR",
+    "CLOSE",
+    "CLS",
+    "COLOR",
+    "COM",
+    "COMMON",
+    "CONT",
+    "COS",
+    "CSNG",
+    "CSRLIN",
+    "CVD",
+    "CVI",
+    "CVS",
+    "DATA",
+    "DATE$",
+    "DEFDBL",
+    "DEFINT",
+    "DEFSNG",
+    "DEFSTR",
+    "DEF|0",
+    "SEG",
+    "USR",
+    "DELETE",
+    "DIM",
+    "DRAW",
+    "EDIT",
+    "END",
+    "ENVIRON",
+    "ENVIRON$",
+    "EOF",
+    "EQV",
+    "ERASE",
+    "ERDEV",
+    "ERDEV$",
+    "ERL",
+    "ERR",
+    "ERROR",
+    "EXP",
+    "FIELD",
+    "FILES",
+    "FIX",
+    "FOR|0",
+    "FRE",
+    "GET",
+    "GOSUB|10",
+    "GOTO",
+    "HEX$",
+    "IF",
+    "THEN",
+    "ELSE|0",
+    "INKEY$",
+    "INP",
+    "INPUT",
+    "INPUT#",
+    "INPUT$",
+    "INSTR",
+    "IMP",
+    "INT",
+    "IOCTL",
+    "IOCTL$",
+    "KEY",
+    "ON",
+    "OFF",
+    "LIST",
+    "KILL",
+    "LEFT$",
+    "LEN",
+    "LET",
+    "LINE",
+    "LLIST",
+    "LOAD",
+    "LOC",
+    "LOCATE",
+    "LOF",
+    "LOG",
+    "LPRINT",
+    "USING",
+    "LSET",
+    "MERGE",
+    "MID$",
+    "MKDIR",
+    "MKD$",
+    "MKI$",
+    "MKS$",
+    "MOD",
+    "NAME",
+    "NEW",
+    "NEXT",
+    "NOISE",
+    "NOT",
+    "OCT$",
+    "ON",
+    "OR",
+    "PEN",
+    "PLAY",
+    "STRIG",
+    "OPEN",
+    "OPTION",
+    "BASE",
+    "OUT",
+    "PAINT",
+    "PALETTE",
+    "PCOPY",
+    "PEEK",
+    "PMAP",
+    "POINT",
+    "POKE",
+    "POS",
+    "PRINT",
+    "PRINT]",
+    "PSET",
+    "PRESET",
+    "PUT",
+    "RANDOMIZE",
+    "READ",
+    "REM",
+    "RENUM",
+    "RESET|0",
+    "RESTORE",
+    "RESUME",
+    "RETURN|0",
+    "RIGHT$",
+    "RMDIR",
+    "RND",
+    "RSET",
+    "RUN",
+    "SAVE",
+    "SCREEN",
+    "SGN",
+    "SHELL",
+    "SIN",
+    "SOUND",
+    "SPACE$",
+    "SPC",
+    "SQR",
+    "STEP",
+    "STICK",
+    "STOP",
+    "STR$",
+    "STRING$",
+    "SWAP",
+    "SYSTEM",
+    "TAB",
+    "TAN",
+    "TIME$",
+    "TIMER",
+    "TROFF",
+    "TRON",
+    "TO",
+    "USR",
+    "VAL",
+    "VARPTR",
+    "VARPTR$",
+    "VIEW",
+    "WAIT",
+    "WHILE",
+    "WEND",
+    "WIDTH",
+    "WINDOW",
+    "WRITE",
+    "XOR"
+  ];
+
+  return {
+    name: 'BASIC',
+    case_insensitive: true,
+    illegal: '^\.',
+    // Support explicitly typed variables that end with $%! or #.
+    keywords: {
+      $pattern: '[a-zA-Z][a-zA-Z0-9_$%!#]*',
+      keyword: KEYWORDS
+    },
+    contains: [
+      hljs.QUOTE_STRING_MODE,
+      hljs.COMMENT('REM', '$', { relevance: 10 }),
+      hljs.COMMENT('\'', '$', { relevance: 0 }),
+      {
+        // Match line numbers
+        className: 'symbol',
+        begin: '^[0-9]+ ',
+        relevance: 10
+      },
+      {
+        // Match typed numeric constants (1000, 12.34!, 1.2e5, 1.5#, 1.2D2)
+        className: 'number',
+        begin: '\\b\\d+(\\.\\d+)?([edED]\\d+)?[#\!]?',
+        relevance: 0
+      },
+      {
+        // Match hexadecimal numbers (&Hxxxx)
+        className: 'number',
+        begin: '(&[hH][0-9a-fA-F]{1,4})'
+      },
+      {
+        // Match octal numbers (&Oxxxxxx)
+        className: 'number',
+        begin: '(&[oO][0-7]{1,6})'
+      }
+    ]
+  };
+}
+
+module.exports = basic;
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/01/node_modules/highlight.js/lib/languages/basic/" data-id="clt8trr7t016e58s4f4b2gimt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/81/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/80/">80</a><a class="page-number" href="/page/81/">81</a><span class="page-number current">82</span><a class="page-number" href="/page/83/">83</a><a class="page-number" href="/page/84/">84</a><span class="space">&hellip;</span><a class="page-number" href="/page/234/">234</a><a class="extend next" rel="next" href="/page/83/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/01/package/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/package-lock/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_11_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/VERSION_10_UPGRADE/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/01/node_modules/highlight.js/SUPPORTED_LANGUAGES/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
