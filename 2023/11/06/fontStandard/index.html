@@ -1,0 +1,1861 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>前端代码规范 | 海山</title><meta name="author" content="Ginka"><meta name="copyright" content="Ginka"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 类型 1.1 原始值当你访问一个原始类型的时候，你可以直接使用它的值。 string number booleannullundefined symbolconst foo &#x3D; 1;let bar &#x3D; foo; bar &#x3D; 9;console.log(foo, bar); &#x2F;&#x2F; &#x3D;&gt; 1, 9Copy 标识符不能完全被支持，因此">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端代码规范">
+<meta property="og:url" content="https://tangxke127.github.io/2023/11/06/fontStandard/index.html">
+<meta property="og:site_name" content="海山">
+<meta property="og:description" content="1 类型 1.1 原始值当你访问一个原始类型的时候，你可以直接使用它的值。 string number booleannullundefined symbolconst foo &#x3D; 1;let bar &#x3D; foo; bar &#x3D; 9;console.log(foo, bar); &#x2F;&#x2F; &#x3D;&gt; 1, 9Copy 标识符不能完全被支持，因此">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://tangxke127.github.io/img/013.jpg">
+<meta property="article:published_time" content="2023-11-05T20:01:16.000Z">
+<meta property="article:modified_time" content="2024-03-05T20:04:16.124Z">
+<meta property="article:author" content="Ginka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tangxke127.github.io/img/013.jpg"><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://tangxke127.github.io/2023/11/06/fontStandard/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":false,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '前端代码规范',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-06 04:04:16'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/background.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/xxc001.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/013.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="海山"><span class="site-name">海山</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/links/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">前端代码规范</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-05T20:01:16.000Z" title="发表于 2023-11-06 04:01:16">2023-11-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-05T20:04:16.124Z" title="更新于 2024-03-06 04:04:16">2024-03-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">12.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>58分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="前端代码规范"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>1 类型</p>
+<h2 id="1-1-原始值"><a href="#1-1-原始值" class="headerlink" title="1.1 原始值"></a>1.1 <strong><strong>原始值</strong></strong></h2><p>当你访问一个原始类型的时候，你可以直接使用它的值。</p>
+<p>string</p>
+<p>number</p>
+<p>booleannullundefined</p>
+<p>symbolconst foo &#x3D; 1;let bar &#x3D; foo;</p>
+<p>bar &#x3D; 9;console.log(foo, bar); &#x2F;&#x2F; &#x3D;&gt; 1, 9Copy</p>
+<p>标识符不能完全被支持，因此在针对不支持的浏览器或者环境时不应该使用它们。</p>
+<h2 id="1-2-复杂类型"><a href="#1-2-复杂类型" class="headerlink" title="1.2 复杂类型"></a>1.2 <strong><strong>复杂类型</strong></strong></h2><p>当你访问一个复杂类型的时候，你需要一个值的引用。</p>
+<p>object</p>
+<p>array</p>
+<p>function</p>
+<p>const foo &#x3D; \[1, 2\];</p>
+<p>const bar &#x3D; foo;</p>
+<p>bar\[0\] &#x3D; 9;</p>
+<p>console.log(foo\[0\], bar\[0\]); &#x2F;&#x2F; &#x3D;&gt; 9, 9Copy</p>
+<h1 id="2-引用"><a href="#2-引用" class="headerlink" title="2 引用"></a>2 引用</h1><p>2.1 使用 const 定义你的所有引用；避免使用 var。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-const.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-const</a>, <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-const-assign.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-const-assign</a></p>
+<p>为什么? 这样能够确保你不能重新赋值你的引用，否则可能导致错误或者产生难以理解的代码。.</p>
+<p>&#x2F;&#x2F; badvar a &#x3D; 1;var b &#x3D; 2;</p>
+<p>&#x2F;&#x2F; goodconst a &#x3D; 1;const b &#x3D; 2;Copy</p>
+<p>2.2 如果你必须重新赋值你的引用， 使用 let 代替 var。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-var.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-var</a></p>
+<p>为什么? let 是块级作用域，而不像 var 是函数作用域.</p>
+<p>&#x2F;&#x2F; badvar count &#x3D; 1;if (true) {</p>
+<p>count +&#x3D; 1;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good, use the let.let count &#x3D; 1;if (true) {</p>
+<p>count +&#x3D; 1;</p>
+<p>}Copy</p>
+<p>2.3 注意，let 和 const 都是块级范围的。</p>
+<p>&#x2F;&#x2F; const 和 let 只存在于他们定义的块中。</p>
+<p>{</p>
+<p>let a &#x3D; 1;</p>
+<p>const b &#x3D; 1;</p>
+<p>}</p>
+<p>conole.log(a); &#x2F;&#x2F; ReferenceErrorconsole.log(b); &#x2F;&#x2F; ReferenceErrorCopy</p>
+<h1 id="3-对象"><a href="#3-对象" class="headerlink" title="3 对象"></a>3 对象</h1><p>3.1 使用字面语法来创建对象。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-new-object.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-new-object</a></p>
+<p>&#x2F;&#x2F; badconst item &#x3D; new Object();</p>
+<p>&#x2F;&#x2F; goodconst item &#x3D; {};Copy</p>
+<p>3.2 在创建具有动态属性名称的对象时使用计算属性名。</p>
+<p>为什么? 它允许你在一个地方定义对象的所有属性。</p>
+<p>function getKey(k) { return a key named \${k}; }</p>
+<p>&#x2F;&#x2F; bad const obj &#x3D; { id: 5, name: \‘San Francisco\‘, };</p>
+<p>obj\[getKey(\‘enabled\‘)\] &#x3D; true;</p>
+<p>&#x2F;&#x2F; good const obj &#x3D; { id: 5, name: \‘San Francisco\‘,</p>
+<p>\[getKey(\‘enabled\‘)\]: true,</p>
+<p>};Copy</p>
+<p>3.3 使用对象方法的缩写。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/object-shorthand.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">object-shorthand</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const atom &#x3D; {</p>
+<p>value: 1,</p>
+<p>addValue: function (value) {</p>
+<p>return atom.value + value;</p>
+<p>},</p>
+<p>};</p>
+<p>&#x2F;&#x2F; goodconst atom &#x3D; {</p>
+<p>value: 1,</p>
+<p>addValue(value) {</p>
+<p>return atom.value + value;</p>
+<p>},</p>
+<p>};Copy</p>
+<p>3.4 使用属性值的缩写。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/object-shorthand.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">object-shorthand</a></p>
+<p>为什么? 它的写法和描述较短。</p>
+<p>const lukeSkywalker &#x3D; \‘Luke Skywalker\‘;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const obj &#x3D; {</p>
+<p>lukeSkywalker: lukeSkywalker,</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const obj &#x3D; {</p>
+<p>lukeSkywalker,</p>
+<p>};Copy</p>
+<p>3.5 在对象声明的时候将简写的属性进行分组。</p>
+<p>为什么? 这样更容易的判断哪些属性使用的简写。</p>
+<p>const anakinSkywalker &#x3D; \‘Anakin Skywalker\‘;</p>
+<p>const lukeSkywalker &#x3D; \‘Luke Skywalker\‘;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const obj &#x3D; {</p>
+<p>episodeOne: 1,</p>
+<p>twoJediWalkIntoACantina: 2,</p>
+<p>lukeSkywalker,</p>
+<p>episodeThree: 3,</p>
+<p>mayTheFourth: 4,</p>
+<p>anakinSkywalker,</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const obj &#x3D; {</p>
+<p>lukeSkywalker,</p>
+<p>anakinSkywalker,</p>
+<p>episodeOne: 1,</p>
+<p>twoJediWalkIntoACantina: 2,</p>
+<p>episodeThree: 3,</p>
+<p>mayTheFourth: 4,</p>
+<p>};Copy</p>
+<p>3.6 只使用引号标注无效标识符的属性。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/quote-props.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">quote-props</a></p>
+<p>为什么? 总的来说，我们认为这样更容易阅读。 它提升了语法高亮显示，并且更容易通过许多 JS 引擎优化。</p>
+<p>&#x2F;&#x2F; bad const bad &#x3D; { \‘foo\‘: 3, \‘bar\‘: 4, \‘data-blah\‘: 5, };&#x2F;&#x2F; good const good &#x3D; { foo: 3, bar: 4, \‘data-blah\‘: 5, }; Copy</p>
+<p>3.7 不能直接调用 Object.prototype 的方法，如： hasOwnProperty 、 propertyIsEnumerable 和 isPrototypeOf。</p>
+<p>为什么? 这些方法可能被以下问题对象的属性追踪 - 相应的有 { hasOwnProperty: false } - 或者，对象是一个空对象 (Object.create(null))。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>console.log(object.hasOwnProperty(key));</p>
+<p>&#x2F;&#x2F; good</p>
+<p>console.log(Object.prototype.hasOwnProperty.call(object, key));</p>
+<p>&#x2F;&#x2F; best</p>
+<p>const has &#x3D; Object.prototype.hasOwnProperty; &#x2F;&#x2F;在模块范围内的缓存中查找一次</p>
+<p>&#x2F;* or *&#x2F;</p>
+<p>import has from \‘has\‘; &#x2F;&#x2F; <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/has">https://www.npmjs.com/package/has</a></p>
+<p>&#x2F;&#x2F;…</p>
+<p>console.log(has.call(object, key));Copy</p>
+<p>3.8 更喜欢对象扩展操作符，而不是用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Object.assign</a> 浅拷贝一个对象。 使用对象的 rest 操作符来获得一个具有某些属性的新对象。</p>
+<p>&#x2F;&#x2F; very bad</p>
+<p>const original &#x3D; { a: 1, b: 2 };const copy &#x3D; Object.assign(original, { c: 3 }); &#x2F;&#x2F; 变异的`original`delete copy.a; &#x2F;&#x2F; 这….</p>
+<p>&#x2F;&#x2F; badconst original &#x3D; { a: 1, b: 2 };const copy &#x3D; Object.assign({}, original, { c: 3 }); &#x2F;&#x2F; copy</p>
+<p>=&gt; { a: 1, b: 2, c: 3 }</p>
+<p>&#x2F;&#x2F; goodconst original &#x3D; { a: 1, b: 2 };const copy &#x3D; { \…original, c: 3 }; &#x2F;&#x2F; copy &#x3D;&gt; { a: 1, b:2, c: 3 }const { a, \…noA } &#x3D; copy; &#x2F;&#x2F; noA &#x3D;&gt; { b: 2, c: 3 }Copy</p>
+<h1 id="4-数组"><a href="#4-数组" class="headerlink" title="4 数组"></a>4 数组</h1><p>4.1 使用字面语法创建数组。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-array-constructor.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-array-constructor</a></p>
+<p>&#x2F;&#x2F; badconst items &#x3D; new Array();</p>
+<p>&#x2F;&#x2F; goodconst items &#x3D; \[\];Copy</p>
+<p>4.2 使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Array#push</a> 取代直接赋值来给数组添加项。</p>
+<p>const someStack &#x3D; \[\];</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>someStack\[someStack.length\] &#x3D; \‘abracadabra\‘;</p>
+<p>&#x2F;&#x2F; good</p>
+<p>someStack.push(\‘abracadabra\‘);Copy</p>
+<p>4.3 使用数组展开方法 … 来拷贝数组。</p>
+<p>&#x2F;&#x2F; badconst len &#x3D; items.length;const itemsCopy &#x3D; [];let i;</p>
+<p>for (i &#x3D; 0; i &lt; len; i +&#x3D; 1) {</p>
+<p>itemsCopy[i] &#x3D; items[i];</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodconst itemsCopy &#x3D; […items];Copy</p>
+<p>4.4 将一个类数组对象转换成一个数组， 使用展开方法 … 代替 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Array.from</a>。</p>
+<p>const foo &#x3D; document.querySelectorAll(\‘.foo\‘);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const nodes &#x3D; Array.from(foo);</p>
+<p>&#x2F;&#x2F; best</p>
+<p>const nodes &#x3D; […foo];Copy</p>
+<p>4.5 对于对迭代器的映射，使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Array.from</a> 替代展开方法 … ， 因为它避免了创建中间数组。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const baz &#x3D; […foo].map(bar);</p>
+<p>&#x2F;&#x2F; goodconst baz &#x3D; Array.from(foo, bar);Copy</p>
+<p>4.6 在数组回调方法中使用 return 语句。 如果函数体由一个返回无副作用的表达式的单个语句组成，那么可以省略返回值， 具体查看 <a target="_blank" rel="noopener" href="https://help.ctbiyi.com/specification/coding-vue.html%22%20/l%20%22%E5%A6%82%E6%9E%9C%E5%87%BD%E6%95%B0%E4%BD%93%E5%8C%85%E5%90%AB%E4%B8%80%E4%B8%AA%E5%8D%95%E7%8B%AC%E7%9A%84%E8%AF%AD%E5%8F%A5%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AA%E6%B2%A1%E6%9C%89%E5%89%AF%E4%BD%9C%E7%94%A8%E7%9A%84-expression-%E7%9C%81%E7%95%A5%E6%8B%AC%E5%8F%B7%E5%B9%B6%E4%BD%BF%E7%94%A8%E9%9A%90%E5%BC%8F%E8%BF%94%E5%9B%9E%E5%90%A6%E5%88%99%E4%BF%9D%E7%95%99%E6%8B%AC%E5%8F%B7%E5%B9%B6%E4%BD%BF%E7%94%A8-return-%E8%AF%AD%E5%8F%A5-eslint-arrow-parens-arrow-body-style">8.2</a>。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/array-callback-return%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">array-callback-return</a></p>
+<p>&#x2F;&#x2F; good</p>
+<p>[1, 2, 3].map((x) &#x3D;&gt; {</p>
+<p>const y &#x3D; x + 1;</p>
+<p>return x \* y;</p>
+<p>});</p>
+<p>&#x2F;&#x2F; good</p>
+<p>[1, 2, 3].map(x &#x3D;&gt; x + 1);</p>
+<p>&#x2F;&#x2F; bad - 没有返回值，意味着在第一次迭代后 \`acc\` 没有被定义</p>
+<p>[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) &#x3D;&gt; {</p>
+<p>const flatten &#x3D; acc.concat(item);</p>
+<p>acc[index] &#x3D; flatten;</p>
+<p>});</p>
+<p>&#x2F;&#x2F; good</p>
+<p>[[0, 1], [2, 3], [4, 5]].reduce((acc, item, index) &#x3D;&gt; {</p>
+<p>const flatten &#x3D; acc.concat(item);</p>
+<p>acc[index] &#x3D; flatten;</p>
+<p>return flatten;</p>
+<p>});</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>inbox.filter((msg) &#x3D;&gt; {</p>
+<p>const { subject, author } &#x3D; msg;</p>
+<p>if (subject &#x3D;&#x3D;&#x3D; ‘Mockingbird’) {</p>
+<p>return author &#x3D;&#x3D;&#x3D; ‘Harper Lee’;</p>
+<p>} else {</p>
+<p>return false;</p>
+<p>}</p>
+<p>});</p>
+<p>&#x2F;&#x2F; good</p>
+<p>inbox.filter((msg) &#x3D;&gt; {</p>
+<p>const { subject, author } &#x3D; msg;</p>
+<p>if (subject &#x3D;&#x3D;&#x3D; ‘Mockingbird’) {</p>
+<p>return author &#x3D;&#x3D;&#x3D; ‘Harper Lee’;</p>
+<p>}</p>
+<p>return false;</p>
+<p>});Copy</p>
+<p>4.7 如果数组有多行，则在开始的时候换行，然后在结束的时候换行。</p>
+<p>&#x2F;&#x2F; badconst arr &#x3D; [</p>
+<p>[0, 1],[2, 3],[4, 5],</p>
+<p>];</p>
+<p>const objectInArray &#x3D; [{</p>
+<p>id: 1,</p>
+<p>}, {</p>
+<p>id: 2,</p>
+<p>}];</p>
+<p>const numberInArray &#x3D; [</p>
+<p>1, 2,</p>
+<p>];</p>
+<p>&#x2F;&#x2F; goodconst arr &#x3D; [[0, 1], [2, 3], [4, 5]];const objectInArray &#x3D; [</p>
+<p>{</p>
+<p>id: 1,</p>
+<p>},</p>
+<p>{</p>
+<p>id: 2,</p>
+<p>},</p>
+<p>];const numberInArray &#x3D; [</p>
+<p>1,</p>
+<p>2,</p>
+<p>];Copy</p>
+<h1 id="5-解构"><a href="#5-解构" class="headerlink" title="5 解构"></a>5 解构</h1><p>5.1 在访问和使用对象的多个属性的时候使用对象的解构。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-destructuring%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-destructuring</a></p>
+<p>为什么? 解构可以避免为这些属性创建临时引用。</p>
+<p>&#x2F;&#x2F; badfunction getFullName(user) {</p>
+<p>const firstName &#x3D; user.firstName;</p>
+<p>const lastName &#x3D; user.lastName;</p>
+<p>return `${firstName} ${lastName}`;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction getFullName(user) {</p>
+<p>const { firstName, lastName } &#x3D; user;</p>
+<p>return `${firstName} ${lastName}`;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bestfunction getFullName({ firstName, lastName }) {</p>
+<p>return `${firstName} ${lastName}`;</p>
+<p>}Copy</p>
+<p>5.2 使用数组解构。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-destructuring%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-destructuring</a></p>
+<p>const arr &#x3D; [1, 2, 3, 4];</p>
+<p>&#x2F;&#x2F; badconst first &#x3D; arr[0];const second &#x3D; arr[1];</p>
+<p>&#x2F;&#x2F; goodconst [first, second] &#x3D; arr;Copy</p>
+<p>5.3 对于多个返回值使用对象解构，而不是数组解构。</p>
+<p>为什么? 你可以随时添加新的属性或者改变属性的顺序，而不用修改调用方。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function processInput(input) {</p>
+<p>&#x2F;&#x2F; 处理代码…</p>
+<p>return [left, right, top, bottom];</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 调用者需要考虑返回数据的顺序。const [left, __, top] &#x3D; processInput(input);</p>
+<p>&#x2F;&#x2F; goodfunction processInput(input) {</p>
+<p>&#x2F;&#x2F; 处理代码…</p>
+<p>return { left, right, top, bottom };</p>
+<p>}&#x2F;&#x2F; 调用者只选择他们需要的数据。const { left, top } &#x3D; processInput(input);Copy</p>
+<h1 id="6-字符"><a href="#6-字符" class="headerlink" title="6 字符"></a>6 字符</h1><p>6.1 使用单引号 \‘\‘ 定义字符串。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/quotes.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">quotes</a></p>
+<p>&#x2F;&#x2F; badconst name &#x3D; “Capt. Janeway”;</p>
+<p>&#x2F;&#x2F; bad - 模板文字应该包含插值或换行。const name &#x3D; `Capt. Janeway`;</p>
+<p>&#x2F;&#x2F; goodconst name &#x3D; ‘Capt. Janeway’;Copy</p>
+<p>6.2 行超过100个字符的字符串不应使用字符串连接跨多行写入。</p>
+<p>为什么? 断开的字符串更加难以工作，并且使代码搜索更加困难。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const errorMessage &#x3D; \‘This is a super long error that was thrown</p>
+<p>because \</p>
+<p>of Batman. When you stop to think about how Batman had anything</p>
+<p>to do \</p>
+<p>with this, you would get nowhere \</p>
+<p>fast.’;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const errorMessage &#x3D; ‘This is a super long error that was thrown because’ +</p>
+<p>‘of Batman. When you stop to think about how Batman had anything to do’ +</p>
+<p>‘with this, you would get nowhere fast.’;</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const errorMessage &#x3D; ‘This is a super long error that was thrown</p>
+<p>because of Batman. When you stop to think about how</p>
+<p>Batman had anything to do with this, you would get</p>
+<p>nowhere fast.’;Copy</p>
+<p>6.3 当以编程模式构建字符串时，使用字符串模板代替字符串拼接。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-template.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-template</a> <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/template-curly-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">template-curly-spacing</a></p>
+<p>为什么? 字符串模板为您提供了一种可读的、简洁的语法，具有正确的换行和字符串插值特性。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function sayHi(name) {return ‘How are you, ‘ + name + ‘?’;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction sayHi(name) {return [‘How are you, ‘, name, ‘?’].join();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction sayHi(name) {return `How are you, ${ name }?`;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>function sayHi(name) {</p>
+<p>return `How are you, ${name}?`;</p>
+<p>}Copy</p>
+<p>6.4 不要在字符串上使用 eval() ，它打开了太多漏洞。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-eval%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-eval</a></p>
+<p>6.5 不要转义字符串中不必要的字符。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-useless-escape%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-useless-escape</a></p>
+<p>为什么? 反斜杠损害了可读性，因此只有在必要的时候才会出现。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const foo &#x3D; ‘\‘this\‘ \i\s \“quoted\“‘;&#x2F;&#x2F; good</p>
+<p>const foo &#x3D; ‘\‘this\‘ is “quoted”‘;</p>
+<p>const foo &#x3D; `my name is ‘${name}’`;Copy</p>
+<h1 id="7-方法"><a href="#7-方法" class="headerlink" title="7 方法"></a>7 方法</h1><p>7.1 使用命名的函数表达式代替函数声明。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/func-style%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">func-style</a></p>
+<p>为什么? 函数声明是挂起的，这意味着在它在文件中定义之前，很容易引用函数。这会损害可读性和可维护性。如果您发现函数的定义是大的或复杂的，以至于它干扰了对文件的其余部分的理解，那么也许是时候将它提取到它自己的模块中了!不要忘记显式地命名这个表达式，不管它的名称是否从包含变量(在现代浏览器中经常是这样，或者在使用诸如Babel之类的编译器时)。这消除了对错误的调用堆栈的任何假设。 (<a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript/issues/794%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Discussion</a>)</p>
+<p>&#x2F;&#x2F; badfunction foo() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badconst foo &#x3D; function () {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good&#x2F;&#x2F; 从变量引用调用中区分的词汇名称const short &#x3D; function longUniqueMoreDescriptiveLexicalFoo(){</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};Copy</p>
+<p>7.2 Wrap立即调用函数表达式。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/wrap-iife.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">wrap-iife</a></p>
+<p>为什么? 立即调用的函数表达式是单个单元 - 包装， 并且拥有括号调用, 在括号内, 清晰的表达式。 请注意，在一个到处都是模块的世界中，您几乎不需要一个 IIFE 。</p>
+<p>&#x2F;&#x2F; immediately-invoked function expression (IIFE) 立即调用的函数表达式</p>
+<p>(function () {</p>
+<p>console.log(‘Welcome to the Internet. Please follow me.’);</p>
+<p>}());Copy</p>
+<p>7.3 切记不要在非功能块中声明函数 (if, while, 等)。 将函数赋值给变量。 浏览器允许你这样做，但是他们都有不同的解释。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-loop-func.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-loop-func</a></p>
+<p>7.4 <strong><strong>注意:</strong></strong> ECMA-262 将 block 定义为语句列表。 函数声明不是语句。</p>
+<p>&#x2F;&#x2F; badif (currentUser) {</p>
+<p>function test() {</p>
+<p>console.log(‘Nope.’);</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodlet test;if (currentUser) {</p>
+<p>test &#x3D; () &#x3D;&gt; {</p>
+<p>console.log(‘Yup.’);</p>
+<p>};</p>
+<p>}Copy</p>
+<p>7.5 永远不要定义一个参数为 arguments。 这将会优先于每个函数给定范围的 arguments 对象。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function foo(name, options, arguments) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction foo(name, options, args) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}Copy</p>
+<p>7.6 不要使用 arguments, 选择使用 rest 语法 … 代替。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-rest-params%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-rest-params</a></p>
+<p>为什么? … 明确了你想要拉取什么参数。 更甚, rest 参数是一个真正的数组，而不仅仅是类数组的 arguments 。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function concatenateAll() {</p>
+<p>const args &#x3D; Array.prototype.slice.call(arguments);</p>
+<p>return args.join(‘’);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction concatenateAll(…args) {</p>
+<p>return args.join(‘’);</p>
+<p>}Copy</p>
+<p>7.7 使用默认的参数语法，而不是改变函数参数。</p>
+<p>&#x2F;&#x2F; really bad</p>
+<p>function handleThings(opts) {</p>
+<p>&#x2F;&#x2F; No! We shouldn’t mutate function arguments.&#x2F;&#x2F; Double bad: if opts is falsy it’ll be set to an object which may&#x2F;&#x2F; be what you want but it can introduce subtle bugs.</p>
+<p>opts &#x3D; opts || {};</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; still badfunction handleThings(opts) {</p>
+<p>if (opts &#x3D;&#x3D;&#x3D; void 0) {</p>
+<p>opts &#x3D; {};</p>
+<p>}</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction handleThings(opts &#x3D; {}) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}Copy</p>
+<p>7.8 避免使用默认参数的副作用。</p>
+<p>为什么? 他们很容易混淆。</p>
+<p>var b &#x3D; 1;</p>
+<p>&#x2F;&#x2F; badfunction count(a &#x3D; b++) {</p>
+<p>console.log(a);</p>
+<p>}</p>
+<p>count(); &#x2F;&#x2F; 1</p>
+<p>count(); &#x2F;&#x2F; 2</p>
+<p>count(3); &#x2F;&#x2F; 3</p>
+<p>count(); &#x2F;&#x2F; 3Copy</p>
+<p>7.9 总是把默认参数放在最后。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function handleThings(opts &#x3D; {}, name) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction handleThings(name, opts &#x3D; {}) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}Copy</p>
+<p>7.10永远不要使用函数构造器来创建一个新函数。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-new-func%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-new-func</a></p>
+<p>为什么? 以这种方式创建一个函数将对一个类似于 eval() 的字符串进行计算，这将打开漏洞。</p>
+<p>&#x2F;&#x2F; badvar add &#x3D; new Function(‘a’, ‘b’, ‘return a + b’);</p>
+<p>&#x2F;&#x2F; still badvar subtract &#x3D; Function(‘a’, ‘b’, ‘return a - b’);Copy</p>
+<p>7.11 函数签名中的间距。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/space-before-function-paren%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">space-before-function-paren</a> <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/space-before-blocks%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">space-before-blocks</a></p>
+<p>为什么? 一致性很好，在删除或添加名称时不需要添加或删除空格。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const f &#x3D; function(){};const g &#x3D; function (){};const h &#x3D; function() {};</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const x &#x3D; function () {};const y &#x3D; function a() {};Copy</p>
+<p>7.12 没用变异参数。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-param-reassign.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-param-reassign</a></p>
+<p>为什么? 将传入的对象作为参数进行操作可能会在原始调用程序中造成不必要的变量副作用。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function f1(obj) {</p>
+<p>obj.key &#x3D; 1;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction f2(obj) {</p>
+<p>const key &#x3D; Object.prototype.hasOwnProperty.call(obj, ‘key’) ?</p>
+<p>obj.key : 1;</p>
+<p>}Copy</p>
+<p>7.13 不要再赋值参数。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-param-reassign.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-param-reassign</a></p>
+<p>为什么? 重新赋值参数会导致意外的行为，尤其是在访问 arguments 对象的时候。 它还可能导致性能优化问题，尤其是在 V8 中。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function f1(a) {</p>
+<p>a &#x3D; 1;</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>function f2(a) {if (!a) { a &#x3D; 1; }</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction f3(a) {const b &#x3D; a || 1;</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>function f4(a &#x3D; 1) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}Copy</p>
+<p>7.14 优先使用扩展运算符 … 来调用可变参数函数。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-spread%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-spread</a></p>
+<p>为什么? 它更加干净，你不需要提供上下文，并且你不能轻易的使用 apply 来 new 。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const x &#x3D; [1, 2, 3, 4, 5];console.log.apply(console, x);</p>
+<p>&#x2F;&#x2F; goodconst x &#x3D; [1, 2, 3, 4, 5];console.log(…x);</p>
+<p>&#x2F;&#x2F; badnew (Function.prototype.bind.apply(Date, [null, 2016, 8,5]));</p>
+<p>&#x2F;&#x2F; goodnew Date(…[2016, 8, 5]);Copy</p>
+<p>7.15 具有多行签名或者调用的函数应该像其他多行列表一样缩进：在一行上只有一个条目，并且每个条目最后加上逗号。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/function-paren-newline%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">function-paren-newline</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function foo(bar,</p>
+<p>baz,</p>
+<p>quux) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>function foo(bar,</p>
+<p>baz,</p>
+<p>quux,</p>
+<p>) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>console.log(foo,</p>
+<p>bar,</p>
+<p>baz);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>console.log(foo,</p>
+<p>bar,</p>
+<p>baz,</p>
+<p>);Copy</p>
+<h1 id="8-箭头函数"><a href="#8-箭头函数" class="headerlink" title="8 箭头函数"></a>8 箭头函数</h1><p>8.1 当你必须使用匿名函数时 (当传递内联函数时)， 使用箭头函数。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-arrow-callback.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-arrow-callback</a>, <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/arrow-spacing.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">arrow-spacing</a></p>
+<p>为什么? 它创建了一个在 this 上下文中执行的函数版本，它通常是你想要的，并且是一个更简洁的语法。</p>
+<p>为什么不? 如果你有一个相当复杂的函数，你可以把这个逻辑转移到它自己的命名函数表达式中。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>[1, 2, 3].map(function (x) {</p>
+<p>const y &#x3D; x + 1;</p>
+<p>return x * y;</p>
+<p>});</p>
+<p>&#x2F;&#x2F; good</p>
+<p>[1, 2, 3].map((x) &#x3D;&gt; {</p>
+<p>const y &#x3D; x + 1;</p>
+<p>return x * y;</p>
+<p>});Copy</p>
+<p>8.2 如果函数体包含一个单独的语句，返回一个没有副作用的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators%22%20/l%20%22Expressions%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">expression</a> ， 省略括号并使用隐式返回。否则，保留括号并使用 return 语句。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/arrow-parens.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">arrow-parens</a>, <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/arrow-body-style.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">arrow-body-style</a></p>
+<p>为什么? 语法糖。 多个函数被链接在一起时，提高可读性。</p>
+<p>&#x2F;&#x2F; bad [1, 2, 3].map(number &#x3D;&gt; { const nextNumber &#x3D;</p>
+<p>number + 1;A string containing the ${nextNumber}.; });</p>
+<p>&#x2F;&#x2F; good [1, 2, 3].map(number &#x3D;&gt; A string containing the ${number}.);</p>
+<p>&#x2F;&#x2F; good [1, 2, 3].map((number) &#x3D;&gt; { const nextNumber &#x3D; number + 1;return A string containing the ${nextNumber}.; });</p>
+<p>&#x2F;&#x2F; good [1, 2, 3].map((number, index) &#x3D;&gt; ({[index]: number,}));</p>
+<p>&#x2F;&#x2F; 没有副作用的隐式返回</p>
+<p>function foo(callback) {</p>
+<p>const val &#x3D; callback();</p>
+<p>if (val &#x3D;&#x3D;&#x3D; true) {</p>
+<p>&#x2F;&#x2F; 如果回调返回 true 执行</p>
+<p>}</p>
+<p>}</p>
+<p>let bool &#x3D; false;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>foo(() &#x3D;&gt; bool &#x3D; true);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>foo(() &#x3D;&gt; {</p>
+<p>bool &#x3D; true;</p>
+<p>});Copy</p>
+<p>8.3 如果表达式跨越多个行，用括号将其括起来，以获得更好的可读性。</p>
+<p>为什么? 它清楚地显示了函数的起点和终点。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>[‘get’, ‘post’, ‘put’].map(httpMethod &#x3D;&gt;</p>
+<p>Object.prototype.hasOwnProperty.call(</p>
+<p>httpMagicObjectWithAVeryLongName,</p>
+<p>httpMethod,</p>
+<p>)</p>
+<p>);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>[‘get’, ‘post’, ‘put’].map(httpMethod &#x3D;&gt; (</p>
+<p>Object.prototype.hasOwnProperty.call(</p>
+<p>httpMagicObjectWithAVeryLongName,</p>
+<p>httpMethod,</p>
+<p>)</p>
+<p>));Copy</p>
+<p>8.4 如果你的函数接收一个参数，则可以不用括号，省略括号。 否则，为了保证清晰和一致性，需要在参数周围加上括号。 注意：总是使用括号是可以接受的，在这种情况下，我们使用 <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/arrow-parens%22%20/l%20%22always%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">“always” option</a> 来配置 eslint. eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/arrow-parens.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">arrow-parens</a></p>
+<p>为什么? 减少视觉上的混乱。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>[1, 2, 3].map((x) &#x3D;&gt; x * x);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>[1, 2, 3].map(x &#x3D;&gt; x * x);&#x2F;&#x2F; good</p>
+<p>[1, 2, 3].map(number &#x3D;&gt; (`A **long** **string** with the ${number}. It’s so **long** that we</p>
+<p>don’t want it to take up space on the .**map** line!`</p>
+<p>));</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>[1, 2, 3].map(x &#x3D;&gt; {</p>
+<p>const y &#x3D; x + 1;</p>
+<p>return x * y;</p>
+<p>});</p>
+<p>&#x2F;&#x2F; good</p>
+<p>[1, 2, 3].map((x) &#x3D;&gt; {</p>
+<p>const y &#x3D; x + 1;</p>
+<p>return x * y;</p>
+<p>});Copy</p>
+<p>8.5 避免箭头函数符号 (&#x3D;&gt;) 和比较运算符 (&lt;&#x3D;, &gt;&#x3D;) 的混淆。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-confusing-arrow%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-confusing-arrow</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const itemHeight &#x3D; item &#x3D;&gt; item.height &gt; 256 ? item.largeSize :</p>
+<p>item.smallSize;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const itemHeight &#x3D; (item) &#x3D;&gt; item.height &gt; 256 ? item.largeSize</p>
+<p>: item.smallSize;</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const itemHeight &#x3D; item &#x3D;&gt; (item.height &gt; 256 ? item.largeSize :</p>
+<p>item.smallSize);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const itemHeight &#x3D; (item) &#x3D;&gt; {</p>
+<p>const { height, largeSize, smallSize } &#x3D; item;</p>
+<p>return height &gt; 256 ? largeSize : smallSize;</p>
+<p>};Copy</p>
+<p>8.6 注意带有隐式返回的箭头函数函数体的位置。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/implicit-arrow-linebreak%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">implicit-arrow-linebreak</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>(foo) &#x3D;&gt;</p>
+<p>bar;</p>
+<p>(foo) &#x3D;&gt;</p>
+<p>(bar);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>(foo) &#x3D;&gt; bar;</p>
+<p>(foo) &#x3D;&gt; (bar);</p>
+<p>(foo) &#x3D;&gt; (</p>
+<p>bar</p>
+<p>)Copy</p>
+<h1 id="9-类和构造器"><a href="#9-类和构造器" class="headerlink" title="9 类和构造器"></a>9 类和构造器</h1><p>9.1 尽量使用 class. 避免直接操作 prototype .</p>
+<p>为什么? class 语法更简洁，更容易推理。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function Queue(contents &#x3D; []) {</p>
+<p>this.queue &#x3D; […contents];</p>
+<p>}</p>
+<p>Queue.prototype.pop &#x3D; function () {</p>
+<p>const value &#x3D; this.queue[0];</p>
+<p>this.queue.splice(0, 1);</p>
+<p>return value;</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good</p>
+<p>class Queue {</p>
+<p>constructor(contents &#x3D; []) {</p>
+<p>this.queue &#x3D; […contents];</p>
+<p>}</p>
+<p>pop() {</p>
+<p>const value &#x3D; this.queue[0];</p>
+<p>this.queue.splice(0, 1);</p>
+<p>return value;</p>
+<p>}</p>
+<p>}Copy</p>
+<p>9.2 使用 extends 来扩展继承。</p>
+<p>为什么? 它是一个内置的方法，可以在不破坏 instanceof 的情况下继承原型功能。</p>
+<p>&#x2F;&#x2F; badconst inherits &#x3D; require(‘inherits’);function PeekableQueue(contents) {</p>
+<p>Queue.apply(this, contents);</p>
+<p>}</p>
+<p>inherits(PeekableQueue, Queue);</p>
+<p>PeekableQueue.prototype.peek &#x3D; function () {</p>
+<p>return this.queue[0];</p>
+<p>};</p>
+<p>&#x2F;&#x2F; goodclass PeekableQueue extends Queue {</p>
+<p>peek() {</p>
+<p>return this.queue[0];</p>
+<p>}</p>
+<p>}Copy</p>
+<p>9.3 方法返回了 this 来供其内部方法调用。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>Jedi.prototype.jump &#x3D; function () {</p>
+<p>this.jumping &#x3D; true;</p>
+<p>return true;</p>
+<p>};</p>
+<p>Jedi.prototype.setHeight &#x3D; function (height) {</p>
+<p>this.height &#x3D; height;</p>
+<p>};</p>
+<p>const luke &#x3D; new Jedi();</p>
+<p>luke.jump(); &#x2F;&#x2F; &#x3D;&gt; true</p>
+<p>luke.setHeight(20); &#x2F;&#x2F; &#x3D;&gt; undefined</p>
+<p>&#x2F;&#x2F; good</p>
+<p>class Jedi {</p>
+<p>jump() {</p>
+<p>this.jumping &#x3D; true;</p>
+<p>return this;</p>
+<p>}</p>
+<p>setHeight(height) {</p>
+<p>this.height &#x3D; height;</p>
+<p>return this;</p>
+<p>}</p>
+<p>}</p>
+<p>const luke &#x3D; new Jedi();</p>
+<p>luke.jump()</p>
+<p>.setHeight(20);Copy</p>
+<p>9.4 只要在确保能正常工作并且不产生任何副作用的情况下，编写一个自定义的 toString() 方法也是可以的。</p>
+<p>class Jedi {</p>
+<p>constructor(options &#x3D; {}) {</p>
+<p>this.name &#x3D; options.name || ‘no name’;</p>
+<p>}</p>
+<p>getName() {</p>
+<p>return this.name;</p>
+<p>}</p>
+<p>toString() {</p>
+<p>return `Jedi - ${this.getName()}`;</p>
+<p>}</p>
+<p>}Copy</p>
+<p>9.5 如果没有指定类，则类具有默认的构造器。 一个空的构造器或是一个代表父类的函数是没有必要的。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-useless-constructor%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-useless-constructor</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>class Jedi {</p>
+<p>constructor() {}</p>
+<p>getName() {</p>
+<p>return this.name;</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>class Rey extends Jedi {</p>
+<p>constructor(…args) {</p>
+<p>super(…args);</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>class Rey extends Jedi {</p>
+<p>constructor(…args) {</p>
+<p>super(…args);</p>
+<p>this.name &#x3D; ‘Rey’;</p>
+<p>}</p>
+<p>}Copy</p>
+<p>9.6 避免定义重复的类成员。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-dupe-class-members%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-dupe-class-members</a></p>
+<p>为什么? 重复的类成员声明将会默认倾向于最后一个 - 具有重复的类成员可以说是一个错误。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>class Foo {</p>
+<p>bar() { return 1; }</p>
+<p>bar() { return 2; }</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>class Foo {</p>
+<p>bar() { return 1; }</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodclass Foo {</p>
+<p>bar() { return 2; }</p>
+<p>}Copy</p>
+<h1 id="10-模块"><a href="#10-模块" class="headerlink" title="10 模块"></a>10 模块</h1><p>10.1 你可能经常使用模块 (import&#x2F;export) 在一些非标准模块的系统上。 你也可以在你喜欢的模块系统上相互转换。</p>
+<p>为什么? 模块是未来的趋势，让我们拥抱未来。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const AirbnbStyleGuide &#x3D; require(‘.&#x2F;AirbnbStyleGuide’);module.exports &#x3D; AirbnbStyleGuide.es6;</p>
+<p>&#x2F;&#x2F; okimport AirbnbStyleGuide from ‘.&#x2F;AirbnbStyleGuide’;export default AirbnbStyleGuide.es6;</p>
+<p>&#x2F;&#x2F; bestimport { es6 } from ‘.&#x2F;AirbnbStyleGuide’;export default es6;Copy</p>
+<p>10.2 不要使用通配符导入。</p>
+<p>为什么? 这确定你有一个单独的默认导出。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>import * as AirbnbStyleGuide from ‘.&#x2F;AirbnbStyleGuide’;</p>
+<p>&#x2F;&#x2F; goodimport AirbnbStyleGuide from ‘.&#x2F;AirbnbStyleGuide’;Copy</p>
+<p>10.3 不要直接从导入导出。</p>
+<p>为什么? 虽然写在一行很简洁，但是有一个明确的导入和一个明确的导出能够保证一致性。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>&#x2F;&#x2F; filename es6.jsexport { es6 as default } from ‘.&#x2F;AirbnbStyleGuide’;</p>
+<p>&#x2F;&#x2F; good&#x2F;&#x2F; filename es6.jsimport { es6 } from ‘.&#x2F;AirbnbStyleGuide’;export default es6;Copy</p>
+<p>10.4 只从一个路径导入所有需要的东西。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-duplicate-imports%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-duplicate-imports</a></p>
+<p>为什么? 从同一个路径导入多个行，使代码更难以维护。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>import foo from ‘foo’;</p>
+<p>&#x2F;&#x2F; … 其他导入 … &#x2F;&#x2F;import { named1, named2 } from ‘foo’;</p>
+<p>&#x2F;&#x2F; goodimport foo, { named1, named2 } from ‘foo’;</p>
+<p>&#x2F;&#x2F; goodimport foo, {</p>
+<p>named1,</p>
+<p>named2,</p>
+<p>} from ‘foo’;Copy</p>
+<p>10.5 不要导出可变的引用。 eslint: <a target="_blank" rel="noopener" href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">import&#x2F;no-mutable-exports</a></p>
+<p>为什么? 在一般情况下，应该避免发生突变，但是在导出可变引用时及其容易发生突变。虽然在某些特殊情况下，可能需要这样，但是一般情况下只需要导出常量引用。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>let foo &#x3D; 3;export { foo };</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; 3;export { foo };Copy</p>
+<p>10.6 在单个导出的模块中，选择默认模块而不是指定的导出。 eslint: <a target="_blank" rel="noopener" href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">import&#x2F;prefer-default-export</a></p>
+<p>为什么? 为了鼓励更多的文件只导出一件东西，这样可读性和可维护性更好。</p>
+<p>&#x2F;&#x2F; badexport function foo() {}</p>
+<p>&#x2F;&#x2F; goodexport default function foo() {}Copy</p>
+<p>10.7 将所有的 imports 语句放在所有非导入语句的上边。 eslint: <a target="_blank" rel="noopener" href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/first.md%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">import&#x2F;first</a></p>
+<p>为什么? 由于所有的 imports 都被提前，保持他们在顶部是为了防止意外发生。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>import foo from ‘foo’;</p>
+<p>foo.init();import bar from ‘bar’;</p>
+<p>&#x2F;&#x2F; good</p>
+<p>import foo from ‘foo’;import bar from ‘bar’;</p>
+<p>foo.init();Copy</p>
+<p>10.8 多行导入应该像多行数组和对象一样缩进。</p>
+<p>为什么? 花括号和其他规范一样，遵循相同的缩进规则，后边的都好一样。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>import {longNameA, longNameB, longNameC, longNameD, longNameE}from ‘path’;&#x2F;&#x2F; good</p>
+<p>import {</p>
+<p>longNameA,</p>
+<p>longNameB,</p>
+<p>longNameC,</p>
+<p>longNameD,</p>
+<p>longNameE,</p>
+<p>} from ‘path’;Copy</p>
+<p>10.9 在模块导入语句中禁止使用 Webpack 加载器语法。 eslint: <a target="_blank" rel="noopener" href="https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">import&#x2F;no-webpack-loader-syntax</a></p>
+<p>为什么? 因为在导入语句中使用 webpack 语法，将代码和模块绑定在一起。应该在 webpack.config.js 中使用加载器语法。</p>
+<p>&#x2F;&#x2F; badimport fooSass from ‘css!sass!foo.scss’;import barCss from ‘style!css!bar.css’;</p>
+<p>&#x2F;&#x2F; goodimport fooSass from ‘foo.scss’;import barCss from ‘bar.css’;Copy</p>
+<h1 id="11-迭代器和发生器"><a href="#11-迭代器和发生器" class="headerlink" title="11 迭代器和发生器"></a>11 迭代器和发生器</h1><p>11.1 不要使用迭代器。 你应该使用 JavaScript 的高阶函数代替 for-in 或者 for-of。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-iterator.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-iterator</a> <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-restricted-syntax%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-restricted-syntax</a></p>
+<p>为什么? 这是我们强制的规则。 拥有返回值得纯函数比这个更容易解释。</p>
+<p>使用 map() &#x2F; every() &#x2F; filter() &#x2F; find() &#x2F; findIndex() &#x2F; reduce() &#x2F; some() &#x2F; … 遍历数组， 和使用 Object.keys() &#x2F; Object.values() &#x2F; Object.entries() 迭代你的对象生成数组。</p>
+<p>const numbers &#x3D; [1, 2, 3, 4, 5];</p>
+<p>&#x2F;&#x2F; badlet sum &#x3D; 0;for (let num of numbers) {</p>
+<p>sum +&#x3D; num;</p>
+<p>}</p>
+<p>sum &#x3D;&#x3D;&#x3D; 15;</p>
+<p>&#x2F;&#x2F; goodlet sum &#x3D; 0;</p>
+<p>numbers.forEach((num) &#x3D;&gt; {</p>
+<p>sum +&#x3D; num;</p>
+<p>});</p>
+<p>sum &#x3D;&#x3D;&#x3D; 15;</p>
+<p>&#x2F;&#x2F; best (use the functional force)const sum &#x3D; numbers.reduce((total, num) &#x3D;&gt; total + num, 0);</p>
+<p>sum &#x3D;&#x3D;&#x3D; 15;</p>
+<p>&#x2F;&#x2F; badconst increasedByOne &#x3D; [];for (let i &#x3D; 0; i &lt; numbers.length; i++) {</p>
+<p>increasedByOne.push(numbers[i] + 1);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const increasedByOne &#x3D; [];</p>
+<p>numbers.forEach((num) &#x3D;&gt; {</p>
+<p>increasedByOne.push(num + 1);</p>
+<p>});</p>
+<p>&#x2F;&#x2F; best (keeping it functional)const increasedByOne &#x3D; numbers.map(num &#x3D;&gt; num + 1);Copy</p>
+<p>11.2不要使用发生器。</p>
+<p>为什么? 它们不能很好的适应 ES5。</p>
+<p>11.3 如果你必须使用发生器或者无视 <a target="_blank" rel="noopener" href="https://help.ctbiyi.com/specification/coding-vue.html%22%20/l%20%22%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8F%91%E7%94%9F%E5%99%A8">我们的建议</a>，请确保他们的函数签名是正常的间隔。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/generator-star-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">generator-star-spacing</a></p>
+<p>为什么? function 和 <em>是同一个概念关键字的一部分 -</em> 不是 function 的修饰符， function* 是一个不同于 function 的构造器。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function * foo() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const bar &#x3D; function * () {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const baz &#x3D; function *() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};</p>
+<p>&#x2F;&#x2F; badconst quux &#x3D; function*() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};</p>
+<p>&#x2F;&#x2F; badfunction*foo() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function *foo() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; very bad</p>
+<p>function</p>
+<p>*foo() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; very badconst wat &#x3D; function</p>
+<p>*</p>
+<p>() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good</p>
+<p>function* foo() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; function* () {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>};Copy</p>
+<h1 id="12-属性"><a href="#12-属性" class="headerlink" title="12 属性"></a>12 属性</h1><p>12.1 访问属性时使用点符号。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/dot-notation.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">dot-notation</a></p>
+<p>const luke &#x3D; {</p>
+<p>jedi: true,</p>
+<p>age: 28,</p>
+<p>};</p>
+<p>&#x2F;&#x2F; badconst isJedi &#x3D; luke[‘jedi’];</p>
+<p>&#x2F;&#x2F; goodconst isJedi &#x3D; luke.jedi;Copy</p>
+<p>12.2 使用变量访问属性时，使用 []表示法。</p>
+<p>const luke &#x3D; {</p>
+<p>jedi: true,</p>
+<p>age: 28,</p>
+<p>};</p>
+<p>function getProp(prop) {</p>
+<p>return luke[prop];</p>
+<p>}</p>
+<p>const isJedi &#x3D; getProp(‘jedi’);Copy</p>
+<p>12.3 计算指数时，可以使用 <strong><strong>运算符。</strong></strong> eslint**:<a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-restricted-properties%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-restricted-properties</a>.</p>
+<p>&#x2F;&#x2F; badconst binary &#x3D; Math.pow(2, 10);</p>
+<p>&#x2F;&#x2F; goodconst binary &#x3D; 2 ** 10;Copy</p>
+<h1 id="13-变量"><a href="#13-变量" class="headerlink" title="13 变量"></a>13 变量</h1><p>13.1 使用 const 或者 let 来定义变量。 不这样做将创建一个全局变量。 我们希望避免污染全局命名空间。 Captain Planet 警告过我们。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-undef%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-undef</a> <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/prefer-const%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">prefer-const</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>superPower &#x3D; new SuperPower();</p>
+<p>&#x2F;&#x2F; goodconst superPower &#x3D; new SuperPower();Copy</p>
+<p>13.2 使用 const 或者 let 声明每一个变量。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/one-var.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">one-var</a></p>
+<p>为什么? 这样更容易添加新的变量声明，而且你不必担心是使用 ; 还是使用 , 或引入标点符号的差别。 你可以通过 debugger 逐步查看每个声明，而不是立即跳过所有声明。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const items &#x3D; getItems(),</p>
+<p>goSportsTeam &#x3D; true,</p>
+<p>dragonball &#x3D; ‘z’;</p>
+<p>&#x2F;&#x2F; bad&#x2F;&#x2F; (compare to above, and try to spot the mistake)const items &#x3D; getItems(),</p>
+<p>goSportsTeam &#x3D; true;</p>
+<p>dragonball &#x3D; ‘z’;</p>
+<p>&#x2F;&#x2F; goodconst items &#x3D; getItems();const goSportsTeam &#x3D; true;const dragonball &#x3D; ‘z’;Copy</p>
+<p>13.3 把 const 声明的放在一起，把 let 声明的放在一起。.</p>
+<p>为什么? 这在后边如果需要根据前边的赋值变量指定一个变量时很有用。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>let i, len, dragonball,</p>
+<p>items &#x3D; getItems(),</p>
+<p>goSportsTeam &#x3D; true;</p>
+<p>&#x2F;&#x2F; badlet i;const items &#x3D; getItems();let dragonball;const goSportsTeam &#x3D; true;let len;</p>
+<p>&#x2F;&#x2F; goodconst goSportsTeam &#x3D; true;const items &#x3D; getItems();let dragonball;let i;let length;Copy</p>
+<p>13.4 在你需要的使用定义变量，但是要把它们放在一个合理的地方。</p>
+<p>为什么? let 和 const 是块级作用域而不是函数作用域。</p>
+<p>&#x2F;&#x2F; bad - 不必要的函数调用</p>
+<p>function checkName(hasName) {</p>
+<p>const name &#x3D; getName();</p>
+<p>if (hasName &#x3D;&#x3D;&#x3D; ‘test’) {</p>
+<p>return false;</p>
+<p>}</p>
+<p>if (name &#x3D;&#x3D;&#x3D; ‘test’) {</p>
+<p>this.setName(‘’);</p>
+<p>return false;</p>
+<p>}</p>
+<p>return name;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction checkName(hasName) {</p>
+<p>if (hasName &#x3D;&#x3D;&#x3D; ‘test’) {</p>
+<p>return false;</p>
+<p>}</p>
+<p>const name &#x3D; getName();</p>
+<p>if (name &#x3D;&#x3D;&#x3D; ‘test’) {</p>
+<p>this.setName(‘’);</p>
+<p>return false;</p>
+<p>}</p>
+<p>return name;</p>
+<p>}Copy</p>
+<p>13.5 不要链式变量赋值。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-multi-assign%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-multi-assign</a></p>
+<p>为什么? 链式变量赋值会创建隐式全局变量。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>(function example() {</p>
+<p>&#x2F;&#x2F; JavaScript 把它解释为</p>
+<p>&#x2F;&#x2F; let a &#x3D; ( b &#x3D; ( c &#x3D; 1 ) );</p>
+<p>&#x2F;&#x2F; let 关键词只适用于变量 a ；变量 b 和变量 c 则变成了全局变量。</p>
+<p>let a &#x3D; b &#x3D; c &#x3D; 1;</p>
+<p>}());console.log(a); &#x2F;&#x2F; throws ReferenceErrorconsole.log(b); &#x2F;&#x2F; 1console.log(c); &#x2F;&#x2F; 1</p>
+<p>&#x2F;&#x2F; good</p>
+<p>(function example() {</p>
+<p>let a &#x3D; 1;</p>
+<p>let b &#x3D; a;</p>
+<p>let c &#x3D; a;</p>
+<p>}());</p>
+<p>console.log(a); &#x2F;&#x2F; throws ReferenceErrorconsole.log(b); &#x2F;&#x2F; throws ReferenceErrorconsole.log(c); &#x2F;&#x2F; throws ReferenceError</p>
+<p>&#x2F;&#x2F; 对于 `const` 也一样Copy</p>
+<p>13.6 避免使用不必要的递增和递减 (++, –)。 eslint <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-plusplus%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-plusplus</a></p>
+<p>为什么? 在eslint文档中，一元递增和递减语句以自动分号插入为主题，并且在应用程序中可能会导致默认值的递增或递减。它还可以用像 num +&#x3D; 1 这样的语句来改变您的值，而不是使用 num++ 或 num ++ 。不允许不必要的增量和减量语句也会使您无法预先递增&#x2F;预递减值，这也会导致程序中的意外行为。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const array &#x3D; [1, 2, 3];</p>
+<p>let num &#x3D; 1;</p>
+<p>num++;</p>
+<p>--num;</p>
+<p>let sum &#x3D; 0;</p>
+<p>let truthyCount &#x3D; 0;</p>
+<p>for (let i &#x3D; 0; i &lt; array.length; i++) {</p>
+<p>let value &#x3D; array[i];</p>
+<p>sum +&#x3D; value;</p>
+<p>if (value) {</p>
+<p>truthyCount++;</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const array &#x3D; [1, 2, 3];</p>
+<p>let num &#x3D; 1;</p>
+<p>num +&#x3D; 1;</p>
+<p>num -&#x3D; 1;</p>
+<p>const sum &#x3D; array.reduce((a, b) &#x3D;&gt; a + b, 0);</p>
+<p>const truthyCount &#x3D; array.filter(Boolean).length;Copy</p>
+<p>13.7 避免在赋值语句 &#x3D; 前后换行。如果你的代码违反了 <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/max-len.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">max-len</a>， 使用括号包裹。 eslint <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/operator-linebreak.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">operator-linebreak</a>.</p>
+<p>为什么? 在 &#x3D; 前后换行，可能混淆赋的值。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const foo &#x3D;</p>
+<p>superLongLongLongLongLongLongLongLongFunctionName();</p>
+<p>&#x2F;&#x2F; badconst foo</p>
+<p>= ‘superLongLongLongLongLongLongLongLongString’;</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; (</p>
+<p>superLongLongLongLongLongLongLongLongFunctionName()</p>
+<p>);</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; ‘superLongLongLongLongLongLongLongLongString’;Copy</p>
+<h1 id="14-提升"><a href="#14-提升" class="headerlink" title="14 提升"></a>14 提升</h1><p>14.1 var 定义的变量会被提升到函数范围的最顶部，但是它的赋值不会。const 和 let 声明的变量受到一个称之为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let%22%20/l%20%22Temporal_Dead_Zone_and_errors_with_let%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Temporal Dead Zones (TDZ)</a> 的新概念保护。 知道为什么 <a target="_blank" rel="noopener" href="http://es-discourse.com/t/why-typeof-is-no-longer-safe/15%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">typeof 不再安全</a> 是很重要的。</p>
+<p>&#x2F;&#x2F; 我们知道这个行不通 (假设没有未定义的全局变量)</p>
+<p>function example() {</p>
+<p>console.log(notDefined); &#x2F;&#x2F; &#x3D;&gt; throws a ReferenceError</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 在引用变量后创建变量声明将会因变量提升而起作用。</p>
+<p>&#x2F;&#x2F; 注意: 真正的值 `true` 不会被提升。</p>
+<p>function example() {</p>
+<p>console.log(declaredButNotAssigned); &#x2F;&#x2F; &#x3D;&gt; undefined</p>
+<p>var declaredButNotAssigned &#x3D; true;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 解释器将变量提升到函数的顶部</p>
+<p>&#x2F;&#x2F; 这意味着我们可以将上边的例子重写为：</p>
+<p>function example() {</p>
+<p>let declaredButNotAssigned;</p>
+<p>console.log(declaredButNotAssigned); &#x2F;&#x2F; &#x3D;&gt; undefined</p>
+<p>declaredButNotAssigned &#x3D; true;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 使用 const 和 let</p>
+<p>function example() {</p>
+<p>console.log(declaredButNotAssigned); &#x2F;&#x2F; &#x3D;&gt; throws a ReferenceError</p>
+<p>console.log(typeof declaredButNotAssigned); &#x2F;&#x2F; &#x3D;&gt; throws a ReferenceError</p>
+<p>const declaredButNotAssigned &#x3D; true;</p>
+<p>}Copy</p>
+<p>14.2 匿名函数表达式提升变量名，而不是函数赋值。</p>
+<p>function example() {</p>
+<p>console.log(anonymous); &#x2F;&#x2F; &#x3D;&gt; undefined</p>
+<p>anonymous(); &#x2F;&#x2F; &#x3D;&gt; TypeError anonymous is not a function</p>
+<p>var anonymous &#x3D; function () {</p>
+<p>console.log(‘anonymous function expression’);</p>
+<p>};</p>
+<p>}Copy</p>
+<p>14.3 命名函数表达式提升的是变量名，而不是函数名或者函数体。</p>
+<p>function example() {</p>
+<p>console.log(named); &#x2F;&#x2F; &#x3D;&gt; undefined</p>
+<p>named(); &#x2F;&#x2F; &#x3D;&gt; TypeError named is not a function</p>
+<p>superPower(); &#x2F;&#x2F; &#x3D;&gt; ReferenceError superPower is not defined</p>
+<p>var named &#x3D; function superPower() {</p>
+<p>console.log(‘Flying’);</p>
+<p>};</p>
+<p>}</p>
+<p>&#x2F;&#x2F; 当函数名和变量名相同时也是如此。</p>
+<p>function example() {</p>
+<p>console.log(named); &#x2F;&#x2F; &#x3D;&gt; undefined</p>
+<p>named(); &#x2F;&#x2F; &#x3D;&gt; TypeError named is not a function</p>
+<p>var named &#x3D; function named() {</p>
+<p>console.log(‘named’);</p>
+<p>};</p>
+<p>}Copy</p>
+<p>14.4 函数声明提升其名称和函数体。</p>
+<p>function example() {</p>
+<p>superPower(); &#x2F;&#x2F; &#x3D;&gt; Flying</p>
+<p>function superPower() {</p>
+<p>console.log(‘Flying’);</p>
+<p>}</p>
+<p>}Copy</p>
+<ul>
+<li>更多信息请参考 <a target="_blank" rel="noopener" href="http://www.adequatelygood.com/%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Ben Cherry</a> 的<a target="_blank" rel="noopener" href="http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting/%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">JavaScript Scoping &amp;Hoisting</a>。</li>
+</ul>
+<h1 id="15-比较运算符和等号"><a href="#15-比较运算符和等号" class="headerlink" title="15 比较运算符和等号"></a>15 比较运算符和等号</h1><p>15.1 使用 &#x3D;&#x3D;&#x3D; 和 !&#x3D;&#x3D; 而不是 &#x3D;&#x3D; 和 !&#x3D;。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/eqeqeq.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">eqeqeq</a></p>
+<p>15.2 条件语句，例如 if 语句使用 ToBoolean 的抽象方法来计算表达式的结果，并始终遵循以下简单的规则：</p>
+<p><strong><strong>Objects</strong></strong> 的取值为： <strong><strong>true</strong></strong></p>
+<p><strong><strong>Undefined</strong></strong> 的取值为： <strong><strong>false</strong></strong></p>
+<p><strong><strong>Null</strong></strong> 的取值为： <strong><strong>false</strong></strong></p>
+<p><strong><strong>Booleans</strong></strong> 的取值为： <strong><strong>布尔值的取值</strong></strong></p>
+<p><strong><strong>Numbers</strong></strong> 的取值为：如果为 <strong><strong>+0, -0, or NaN</strong></strong> 值为 <strong><strong>false</strong></strong> 否则为 <strong><strong>true</strong></strong></p>
+<p><strong><strong>Strings</strong></strong> 的取值为: 如果是一个空字符串 ‘’ 值为 <strong><strong>false</strong></strong> 否则为 <strong><strong>true</strong></strong></p>
+<p>if ([0] &amp;&amp; []) {</p>
+<p>&#x2F;&#x2F; true</p>
+<p>&#x2F;&#x2F; 一个数组（即使是空的）是一个对象，对象的取值为 true</p>
+<p>}Copy</p>
+<p>15.3 对于布尔值使用简写，但是对于字符串和数字进行显式比较。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (isValid &#x3D;&#x3D;&#x3D; true) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (isValid) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badif (name) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (name !&#x3D;&#x3D; ‘’) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (collection.length) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (collection.length &gt; 0) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}Copy</p>
+<p>15.4在 case 和 default 的子句中，如果存在声明 (例如. let, const, function, 和 class)，使用大括号来创建块 。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-case-declarations.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-case-declarations</a></p>
+<p>为什么? 语法声明在整个 switch 块中都是可见的，但是只有在赋值的时候才会被初始化，这种情况只有在 case 条件达到才会发生。 当多个 case 语句定义相同的东西是，这会导致问题问题。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>switch (foo) {</p>
+<p>case 1:</p>
+<p>let x &#x3D; 1;</p>
+<p>break;</p>
+<p>case 2:</p>
+<p>const y &#x3D; 2;</p>
+<p>break;</p>
+<p>case 3:</p>
+<p>function f() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>break;</p>
+<p>default:</p>
+<p>class C {}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>switch (foo) {</p>
+<p>case 1: {</p>
+<p>let x &#x3D; 1;</p>
+<p>break;</p>
+<p>}</p>
+<p>case 2: {</p>
+<p>const y &#x3D; 2;</p>
+<p>break;</p>
+<p>}</p>
+<p>case 3: {</p>
+<p>function f() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>break;</p>
+<p>}</p>
+<p>case 4:</p>
+<p>bar();</p>
+<p>break;</p>
+<p>default: {</p>
+<p>class C {}</p>
+<p>}</p>
+<p>}Copy</p>
+<p>15.5 三目表达式不应该嵌套，通常是单行表达式。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-nested-ternary.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-nested-ternary</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const foo &#x3D; maybe1 &gt; maybe2</p>
+<p>? “bar”</p>
+<p>: value1 &gt; value2 ? “baz” : null;</p>
+<p>&#x2F;&#x2F; 分离为两个三目表达式const maybeNull &#x3D; value1 &gt; value2 ? ‘baz’ : null;</p>
+<p>&#x2F;&#x2F; betterconst foo &#x3D; maybe1 &gt; maybe2</p>
+<p>? ‘bar’</p>
+<p>: maybeNull;</p>
+<p>&#x2F;&#x2F; bestconst foo &#x3D; maybe1 &gt; maybe2 ? ‘bar’ : maybeNull;</p>
+<p>Copy</p>
+<p>15.6 避免不必要的三目表达式。 <strong><strong>eslint</strong></strong>:<a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-unneeded-ternary.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-unneeded-ternary</a></p>
+<p>&#x2F;&#x2F; badconst foo &#x3D; a ? a : b;const bar &#x3D; c ? true : false;const baz &#x3D; c ? false : true;</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; a || b;const bar &#x3D; !!c;const baz &#x3D; !c;Copy</p>
+<p>15.7 使用该混合运算符时，使用括号括起来。 唯一例外的是标准算数运算符 (+, -, *, &amp; &#x2F;) 因为他们的优先级被广泛理解。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-mixed-operators.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-mixed-operators</a></p>
+<p>为什么? 这能提高可读性并且表明开发人员的意图。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const foo &#x3D; a &amp;&amp; b &lt; 0 || c &gt; 0 || d + 1 &#x3D;&#x3D;&#x3D; 0;</p>
+<p>&#x2F;&#x2F; badconst bar &#x3D; a ** b - 5 % d;</p>
+<p>&#x2F;&#x2F; bad&#x2F;&#x2F; 可能陷入一种 (a || b) &amp;&amp; c 的思考if (a || b &amp;&amp; c) {</p>
+<p>return d;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; (a &amp;&amp; b &lt; 0) || c &gt; 0 || (d + 1 &#x3D;&#x3D;&#x3D; 0);</p>
+<p>&#x2F;&#x2F; goodconst bar &#x3D; (a ** b) - (5 % d);</p>
+<p>&#x2F;&#x2F; goodif (a || (b &amp;&amp; c)) {</p>
+<p>return d;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodconst bar &#x3D; a + b &#x2F; c * d;Copy</p>
+<h1 id="16-块"><a href="#16-块" class="headerlink" title="16 块"></a>16 块</h1><p>16.1 当有多行代码块的时候，使用大括号包裹。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/nonblock-statement-body-position%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">nonblock-statement-body-position</a></p>
+<p>&#x2F;&#x2F; badif (test)</p>
+<p>return false;</p>
+<p>&#x2F;&#x2F; goodif (test) return false;</p>
+<p>&#x2F;&#x2F; goodif (test) {</p>
+<p>return false;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction foo() { return false; }</p>
+<p>&#x2F;&#x2F; goodfunction bar() {</p>
+<p>return false;</p>
+<p>}Copy</p>
+<p>16.2 如果你使用的是 if 和 else 的多行代码块，则将 else 语句放在 if 块闭括号同一行的位置。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/brace-style.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">brace-style</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (test) {</p>
+<p>thing1();</p>
+<p>thing2();</p>
+<p>}else {</p>
+<p>thing3();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>if (test) {</p>
+<p>thing1();</p>
+<p>thing2();</p>
+<p>} else {</p>
+<p>thing3();</p>
+<p>}Copy</p>
+<p>16.3 如果一个 if 块总是执行一个 return 语句，那么接下来的 else 块就没有必要了。 如果一个包含 return 语句的 else if 块，在一个包含了 return 语句的 if 块之后，那么可以拆成多个 if 块。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-else-return%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-else-return</a></p>
+<p>&#x2F;&#x2F; badfunction foo() {</p>
+<p>if (x) {</p>
+<p>return x;</p>
+<p>} else {</p>
+<p>return y;</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction cats() {</p>
+<p>if (x) {</p>
+<p>return x;</p>
+<p>} else if (y) {</p>
+<p>return y;</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction dogs() {</p>
+<p>if (x) {</p>
+<p>return x;</p>
+<p>} else {</p>
+<p>if (y) {</p>
+<p>return y;</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction foo() {</p>
+<p>if (x) {</p>
+<p>return x;</p>
+<p>}</p>
+<p>return y;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction cats() {</p>
+<p>if (x) {</p>
+<p>return x;</p>
+<p>}</p>
+<p>if (y) {</p>
+<p>return y;</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction dogs(x) {</p>
+<p>if (x) {</p>
+<p>if (z) {</p>
+<p>return y;</p>
+<p>}</p>
+<p>} else {</p>
+<p>return z;</p>
+<p>}</p>
+<p>}Copy</p>
+<h1 id="17-控制语句"><a href="#17-控制语句" class="headerlink" title="17 控制语句"></a>17 控制语句</h1><p>17.1 如果你的控制语句 (if, while 等) 太长或者超过了一行最大长度的限制，则可以将每个条件（或组）放入一个新的行。 逻辑运算符应该在行的开始。</p>
+<p>为什么? 要求操作符在行的开始保持对齐并遵循类似方法衔接的模式。 这提高了可读性，并且使更复杂的逻辑更容易直观的被理解。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if ((foo &#x3D;&#x3D;&#x3D; 123 || bar &#x3D;&#x3D;&#x3D; ‘abc’) &amp;&amp;</p>
+<p>doesItLookGoodWhenItBecomesThatLong() &amp;&amp; isThisReallyHappening()) {</p>
+<p>thing1();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (foo &#x3D;&#x3D;&#x3D; 123 &amp;&amp;</p>
+<p>bar &#x3D;&#x3D;&#x3D; ‘abc’) {</p>
+<p>thing1();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (foo &#x3D;&#x3D;&#x3D; 123</p>
+<p>&amp;&amp; bar &#x3D;&#x3D;&#x3D; ‘abc’) {</p>
+<p>thing1();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (</p>
+<p>foo &#x3D;&#x3D;&#x3D; 123 &amp;&amp;</p>
+<p>bar &#x3D;&#x3D;&#x3D; ‘abc’</p>
+<p>) {</p>
+<p>thing1();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (</p>
+<p>foo &#x3D;&#x3D;&#x3D; 123</p>
+<p>&amp;&amp; bar &#x3D;&#x3D;&#x3D; ‘abc’</p>
+<p>) {</p>
+<p>thing1();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (</p>
+<p>(foo &#x3D;&#x3D;&#x3D; 123 || bar &#x3D;&#x3D;&#x3D; ‘abc’)</p>
+<p>&amp;&amp; doesItLookGoodWhenItBecomesThatLong()</p>
+<p>&amp;&amp; isThisReallyHappening()</p>
+<p>) {</p>
+<p>thing1();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (foo &#x3D;&#x3D;&#x3D; 123 &amp;&amp; bar &#x3D;&#x3D;&#x3D; ‘abc’) {</p>
+<p>thing1();</p>
+<p>}Copy</p>
+<p>17.2 不要使用选择操作符代替控制语句。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>!isRunning &amp;&amp; startRunning();</p>
+<p>&#x2F;&#x2F; goodif (!isRunning) {</p>
+<p>startRunning();</p>
+<p>}Copy</p>
+<h1 id="18-注释"><a href="#18-注释" class="headerlink" title="18 注释"></a>18 注释</h1><p>18.1 使用 &#x2F;** … *&#x2F; 来进行多行注释。</p>
+<p>&#x2F;&#x2F; bad&#x2F;&#x2F; make() returns a new element&#x2F;&#x2F; based on the passed in tag name&#x2F;&#x2F;</p>
+<p>&#x2F;&#x2F; @param {String} tag&#x2F;&#x2F; @return {Element} element</p>
+<p>function make(tag) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>return element;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good&#x2F;**</p>
+<p>* make() returns a new element</p>
+<p>* based on the passed-in tag name</p>
+<p>*&#x2F;function make(tag) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>return element;</p>
+<p>}Copy</p>
+<p>18.2使用 &#x2F;&#x2F; 进行单行注释。 将单行注释放在需要注释的行的上方新行。 在注释之前放一个空行，除非它在块的第一行。</p>
+<p>&#x2F;&#x2F; badconst active &#x3D; true; &#x2F;&#x2F; is current tab</p>
+<p>&#x2F;&#x2F; good&#x2F;&#x2F; is current tabconst active &#x3D; true;</p>
+<p>&#x2F;&#x2F; badfunction getType() {</p>
+<p>console.log(‘fetching type…’);</p>
+<p>&#x2F;&#x2F; set the default type to ‘no type’</p>
+<p>const type &#x3D; this.type || ‘no type’;</p>
+<p>return type;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>function getType() {</p>
+<p>console.log(‘fetching type…’);</p>
+<p>&#x2F;&#x2F; set the default type to ‘no type’</p>
+<p>const type &#x3D; this.type || ‘no type’;</p>
+<p>return type;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; also goodfunction getType() {</p>
+<p>&#x2F;&#x2F; set the default type to ‘no type’</p>
+<p>const type &#x3D; this.type || ‘no type’;</p>
+<p>return type;</p>
+<p>}Copy</p>
+<p>18.3 用一个空格开始所有的注释，使它更容易阅读。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/spaced-comment%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">spaced-comment</a></p>
+<p>&#x2F;&#x2F; bad&#x2F;&#x2F;is current tabconst active &#x3D; true;</p>
+<p>&#x2F;&#x2F; good&#x2F;&#x2F; is current tabconst active &#x3D; true;</p>
+<p>&#x2F;&#x2F; bad&#x2F;**</p>
+<p>*make() returns a new element</p>
+<p>*based on the passed-in tag name</p>
+<p>*&#x2F;</p>
+<p>function make(tag) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>return element;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good&#x2F;**</p>
+<p>* make() returns a new element</p>
+<p>* based on the passed-in tag name</p>
+<p>*&#x2F;</p>
+<p>function make(tag) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>return element;</p>
+<p>}Copy</p>
+<p>18.4 使用 &#x2F;&#x2F; FIXME: 注释一个问题。 FIXME: – 需要解决这个问题</p>
+<p>class Calculator extends Abacus {</p>
+<p>constructor() {</p>
+<p>super();</p>
+<p>&#x2F;&#x2F; FIXME: 这里不应该使用全局变量</p>
+<p>total &#x3D; 0;</p>
+<p>}</p>
+<p>}Copy</p>
+<p>18.5 使用 &#x2F;&#x2F; TODO: 注释解决问题的方法。 TODO: – 需要被实现</p>
+<p>class Calculator extends Abacus {</p>
+<p>constructor() {</p>
+<p>super();</p>
+<p>&#x2F;&#x2F; TODO: total 应该由一个 param 的选项配置</p>
+<p>this.total &#x3D; 0;</p>
+<p>}</p>
+<p>}Copy</p>
+<h1 id="19-空白"><a href="#19-空白" class="headerlink" title="19 空白"></a>19 空白</h1><p>19.1 使用 tabs (空格字符) 设置为 2 个空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/indent.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">indent</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function foo() {</p>
+<p>let name;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function bar() {</p>
+<p>let name;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>function baz() {</p>
+<p>let name;</p>
+<p>}Copy</p>
+<p>19.2 在主体前放置一个空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/space-before-blocks.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">space-before-blocks</a></p>
+<p>&#x2F;&#x2F; badfunction test(){</p>
+<p>console.log(‘test’);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction test() {</p>
+<p>console.log(‘test’);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>dog.set(‘attr’,{</p>
+<p>age: ‘1 year’,</p>
+<p>breed: ‘Bernese Mountain Dog’,</p>
+<p>});</p>
+<p>&#x2F;&#x2F; good</p>
+<p>dog.set(‘attr’, {</p>
+<p>age: ‘1 year’,</p>
+<p>breed: ‘Bernese Mountain Dog’,</p>
+<p>});Copy</p>
+<p>19.3 在控制语句（if, while 等）开始括号之前放置一个空格。 在函数调用和是声明中，在参数列表和函数名之间没有空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/keyword-spacing.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">keyword-spacing</a></p>
+<p>&#x2F;&#x2F; badif(isJedi) {</p>
+<p>fight ();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (isJedi) {</p>
+<p>fight();</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction fight () {</p>
+<p>console.log (‘Swooosh!’);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction fight() {</p>
+<p>console.log(‘Swooosh!’);</p>
+<p>}Copy</p>
+<p>19.4 用空格分离操作符。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/space-infix-ops.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">space-infix-ops</a></p>
+<p>&#x2F;&#x2F; badconst x&#x3D;y+5;</p>
+<p>&#x2F;&#x2F; goodconst x &#x3D; y + 5;Copy</p>
+<p>19.5 使用单个换行符结束文件。 eslint: <a target="_blank" rel="noopener" href="https://github.com/eslint/eslint/blob/master/docs/rules/eol-last.md%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">eol-last</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>import { es6 } from ‘.&#x2F;AirbnbStyleGuide’;&#x2F;&#x2F; …export default es6;</p>
+<p>&#x2F;&#x2F; badimport { es6 } from ‘.&#x2F;AirbnbStyleGuide’;</p>
+<p>&#x2F;&#x2F; …export default es6;</p>
+<p>&#x2F;&#x2F; goodimport { es6 } from ‘.&#x2F;AirbnbStyleGuide’;&#x2F;&#x2F; …export default es6;Copy</p>
+<p>19.6 在使用链式方法调用的时候使用缩进(超过两个方法链)。 使用一个引导点，强调该行是方法调用，而不是新的语句。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/newline-per-chained-call%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">newline-per-chained-call</a> <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-whitespace-before-property%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-whitespace-before-property</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>$(‘#items’).find(‘.selected’).highlight().end().find(‘.open’).updateCount();</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>$(‘#items’).</p>
+<p>find(‘.selected’).</p>
+<p>highlight().</p>
+<p>end().</p>
+<p>find(‘.open’).</p>
+<p>updateCount();</p>
+<p>&#x2F;&#x2F; good</p>
+<p>$(‘#items’)</p>
+<p>.find(‘.selected’)</p>
+<p>.highlight()</p>
+<p>.end()</p>
+<p>.find(‘.open’)</p>
+<p>.updateCount();&#x2F;&#x2F; badconst leds &#x3D; stage.selectAll(‘.led’).data(data).enter().append(‘svg:svg’).classed(‘led’,true)</p>
+<p>.attr(‘width’, (radius + margin) * 2).append(‘svg:g’)</p>
+<p>.attr(‘transform’, `translate(${radius + margin},${radius +margin})`)</p>
+<p>.call(tron.led);</p>
+<p>&#x2F;&#x2F; goodconst leds &#x3D; stage.selectAll(‘.led’)</p>
+<p>.data(data)</p>
+<p>.enter().append(‘svg:svg’)</p>
+<p>.classed(‘led’, true)</p>
+<p>.attr(‘width’, (radius + margin) * 2)</p>
+<p>.append(‘svg:g’)</p>
+<p>.attr(‘transform’, `translate(${radius + margin},${radius +</p>
+<p>margin})`)</p>
+<p>.call(tron.led);</p>
+<p>&#x2F;&#x2F; goodconst leds &#x3D; stage.selectAll(‘.led’).data(data);Copy</p>
+<p>19.7 在块和下一个语句之前留下一空白行。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (foo) {</p>
+<p>return bar;</p>
+<p>}return baz;</p>
+<p>&#x2F;&#x2F; good</p>
+<p>if (foo) {</p>
+<p>return bar;</p>
+<p>}</p>
+<p>return baz;Copy</p>
+<p>19.8 不要在块的开头使用空白行。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/padded-blocks.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">padded-blocks</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>function bar() {</p>
+<p>console.log(foo);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>if (baz) {</p>
+<p>console.log(qux);</p>
+<p>} else {</p>
+<p>console.log(foo);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>function bar() {</p>
+<p>console.log(foo);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good</p>
+<p>if (baz) {</p>
+<p>console.log(qux);</p>
+<p>} else {</p>
+<p>console.log(foo);</p>
+<p>}Copy</p>
+<p>19.9 不要在括号内添加空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/space-in-parens.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">space-in-parens</a></p>
+<p>&#x2F;&#x2F; badfunction bar( foo ) {</p>
+<p>return foo;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction bar(foo) {</p>
+<p>return foo;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badif ( foo ) {</p>
+<p>console.log(foo);</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (foo) {</p>
+<p>console.log(foo);</p>
+<p>}Copy</p>
+<p>19.10 不要在中括号中添加空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/array-bracket-spacing.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">array-bracket-spacing</a></p>
+<p>&#x2F;&#x2F; badconst foo &#x3D; [ 1, 2, 3 ];console.log(foo[ 0 ]);</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; [1, 2, 3];console.log(foo[0]);Copy</p>
+<p>19.11 在花括号内添加空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/object-curly-spacing.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">object-curly-spacing</a></p>
+<p>&#x2F;&#x2F; badconst foo &#x3D; {clark: ‘kent’};</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; { clark: ‘kent’ };Copy</p>
+<p>19.12 避免让你的代码行超过100个字符（包括空格）。 注意：根据上边的 <a target="_blank" rel="noopener" href="https://help.ctbiyi.com/specification/coding-vue.html%22%20/l%20%22%E8%A1%8C%E8%B6%85%E8%BF%87100%E4%B8%AA%E5%AD%97%E7%AC%A6%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8D%E5%BA%94%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%9E%E6%8E%A5%E8%B7%A8%E5%A4%9A%E8%A1%8C%E5%86%99%E5%85%A5">约束</a>，长字符串可免除此规定，不应分解。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/max-len.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">max-len</a></p>
+<p>为什么? 这样能够确保可读性和可维护性。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>const foo &#x3D; jsonData &amp;&amp; jsonData.foo &amp;&amp; jsonData.foo.bar &amp;&amp;jsonData.foo.bar.baz &amp;&amp; jsonData.foo.bar.baz.quux &amp;&amp;jsonData.foo.bar.baz.quux.xyzzy;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>$.ajax({ method: ‘POST’, url: ‘<a target="_blank" rel="noopener" href="https://airbnb.com/">https://airbnb.com/</a>‘, data: { name:’John’ } }).done(() &#x3D;&gt; console.log(‘Congratulations!’)).fail(()</p>
+<p>=&gt; console.log(‘You have failed this city.’));</p>
+<p>&#x2F;&#x2F; goodconst foo &#x3D; jsonData</p>
+<p>&amp;&amp; jsonData.foo</p>
+<p>&amp;&amp; jsonData.foo.bar</p>
+<p>&amp;&amp; jsonData.foo.bar.baz</p>
+<p>&amp;&amp; jsonData.foo.bar.baz.quux</p>
+<p>&amp;&amp; jsonData.foo.bar.baz.quux.xyzzy;&#x2F;&#x2F; good</p>
+<p>$.ajax({</p>
+<p>method: ‘POST’,</p>
+<p>url: ‘<a target="_blank" rel="noopener" href="https://airbnb.com/">https://airbnb.com/</a>‘,</p>
+<p>data: { name: ‘John’ },</p>
+<p>})</p>
+<p>.done(() &#x3D;&gt; console.log(‘Congratulations!’))</p>
+<p>.fail(() &#x3D;&gt; console.log(‘You have failed this city.’));Copy</p>
+<p>19.13 要求打开的块标志和同一行上的标志拥有一致的间距。此规则还会在同一行关闭的块标记和前边的标记强制实施一致的间距。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/block-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">block-spacing</a></p>
+<p>&#x2F;&#x2F; badfunction foo() {return true;}if (foo) { bar &#x3D; 0;}</p>
+<p>&#x2F;&#x2F; goodfunction foo() { return true; }if (foo) { bar &#x3D; 0; }Copy</p>
+<p>19.14 逗号之前避免使用空格，逗号之后需要使用空格。eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/comma-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">comma-spacing</a></p>
+<p>&#x2F;&#x2F; badvar foo &#x3D; 1,bar &#x3D; 2;var arr &#x3D; [1 , 2];</p>
+<p>&#x2F;&#x2F; goodvar foo &#x3D; 1, bar &#x3D; 2;var arr &#x3D; [1, 2];Copy</p>
+<p>19.15 在计算属性之间强化间距。eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/computed-property-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">computed-property-spacing</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>obj[foo ]</p>
+<p>obj[ ‘foo’]var x &#x3D; {[ b ]: a}</p>
+<p>obj[foo[ bar ]]</p>
+<p>&#x2F;&#x2F; good</p>
+<p>obj[foo]</p>
+<p>obj[‘foo’]var x &#x3D; { [b]: a }</p>
+<p>obj[foo[bar]]Copy</p>
+<p>19.16 在函数和它的调用之间强化间距。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/func-call-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">func-call-spacing</a></p>
+<p>&#x2F;&#x2F; bad</p>
+<p>func ();</p>
+<p>func</p>
+<p>();</p>
+<p>&#x2F;&#x2F; good</p>
+<p>func();Copy</p>
+<p>19.17 在对象的属性和值之间强化间距。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/key-spacing%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">key-spacing</a></p>
+<p>&#x2F;&#x2F; badvar obj &#x3D; { “foo” : 42 };var obj2 &#x3D; { “foo”:42 };</p>
+<p>&#x2F;&#x2F; goodvar obj &#x3D; { “foo”: 42 };Copy</p>
+<p>19.18 在行的末尾避免使用空格。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-trailing-spaces%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-trailing-spaces</a></p>
+<p>19.19 避免多个空行，并且只允许在文件末尾添加一个换行符。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-multiple-empty-lines%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-multiple-empty-lines</a></p>
+<p>&#x2F;&#x2F; badvar x &#x3D; 1;</p>
+<p>var y &#x3D; 2;</p>
+<p>&#x2F;&#x2F; goodvar x &#x3D; 1;var y &#x3D; 2;Copy</p>
+<h1 id="20-逗号"><a href="#20-逗号" class="headerlink" title="20 逗号"></a>20 逗号</h1><p>20.1 逗号前置： <strong><strong>不行</strong></strong> eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/comma-style.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">comma-style</a></p>
+<p>&#x2F;&#x2F; badconst story &#x3D; [</p>
+<p>once</p>
+<p>, upon</p>
+<p>, aTime</p>
+<p>];</p>
+<p>&#x2F;&#x2F; goodconst story &#x3D; [</p>
+<p>once,</p>
+<p>upon,</p>
+<p>aTime,</p>
+<p>];</p>
+<p>&#x2F;&#x2F; badconst hero &#x3D; {</p>
+<p>firstName: ‘Ada’</p>
+<p>, lastName: ‘Lovelace’</p>
+<p>, birthYear: 1815</p>
+<p>, superPower: ‘computers’</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good</p>
+<p>const hero &#x3D; {</p>
+<p>firstName: ‘Ada’,</p>
+<p>lastName: ‘Lovelace’,</p>
+<p>birthYear: 1815,</p>
+<p>superPower: ‘computers’,</p>
+<p>};Copy</p>
+<p>20.2 添加尾随逗号 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/comma-dangle.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">comma-dangle</a></p>
+<p>为什么? 这个将造成更清洁的 git 扩展差异。 另外，像 Babel 这样的编译器，会在转换后的代码中删除额外的尾随逗号，这意味着你不必担心在浏览器中后面的 <a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript/blob/es5-deprecated/es5/README.md%22%20/l%20%22commas%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">尾随逗号问题</a> 。注意逗号不能出现在 “rest” 元素后边。</p>
+<p>&#x2F;&#x2F; bad - 没有尾随逗号的 git 差异</p>
+<p>const hero &#x3D; {</p>
+<p>firstName: ‘Florence’,</p>
+<p>lastName: ‘Nightingale’</p>
+<p>lastName: ‘Nightingale’,</p>
+<p>inventorOf: [‘coxcomb chart’, ‘modern nursing’]</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good - 有尾随逗号的 git 差异const hero &#x3D; {</p>
+<p>firstName: ‘Florence’,</p>
+<p>lastName: ‘Nightingale’,</p>
+<p>inventorOf: [‘coxcomb chart’, ‘modern nursing’],</p>
+<p>};</p>
+<p>&#x2F;&#x2F; badconst hero &#x3D; {</p>
+<p>firstName: ‘Dana’,</p>
+<p>lastName: ‘Scully’</p>
+<p>};</p>
+<p>const heroes &#x3D; [</p>
+<p>‘Batman’,</p>
+<p>‘Superman’</p>
+<p>];</p>
+<p>&#x2F;&#x2F; goodconst hero &#x3D; {</p>
+<p>firstName: ‘Dana’,</p>
+<p>lastName: ‘Scully’,</p>
+<p>};</p>
+<p>const heroes &#x3D; [</p>
+<p>‘Batman’,</p>
+<p>‘Superman’,</p>
+<p>];</p>
+<p>&#x2F;&#x2F; badfunction createHero(</p>
+<p>firstName,</p>
+<p>lastName,</p>
+<p>inventorOf) {&#x2F;&#x2F; does nothing</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction createHero(</p>
+<p>firstName,</p>
+<p>lastName,</p>
+<p>inventorOf,) {&#x2F;&#x2F; does nothing</p>
+<p>}</p>
+<p>&#x2F;&#x2F; good (注意逗号不能出现在 “rest” 元素后边)function createHero(</p>
+<p>firstName,</p>
+<p>lastName,</p>
+<p>inventorOf,</p>
+<p>…heroArgs) {&#x2F;&#x2F; does nothing</p>
+<p>}</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>createHero(</p>
+<p>firstName,</p>
+<p>lastName,</p>
+<p>inventorOf</p>
+<p>);</p>
+<p>&#x2F;&#x2F; good</p>
+<p>createHero(</p>
+<p>firstName,</p>
+<p>lastName,</p>
+<p>inventorOf,</p>
+<p>);</p>
+<p>&#x2F;&#x2F; good (注意逗号不能出现在 “rest” 元素后边)</p>
+<p>createHero(</p>
+<p>firstName,</p>
+<p>lastName,</p>
+<p>inventorOf,</p>
+<p>…heroArgs</p>
+<p>);Copy</p>
+<h1 id="21-分号"><a href="#21-分号" class="headerlink" title="21 分号"></a>21 分号</h1><p>21.1 添加尾随分号 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/semi.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">semi</a></p>
+<p>为什么? 当 JavaScript 遇见一个没有分号的换行符时，它会使用一个叫做 <a target="_blank" rel="noopener" href="https://tc39.github.io/ecma262/%22%20/l%20%22sec-automatic-semicolon-insertion%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">Automatic Semicolon Insertion</a> 的规则来确定是否应该以换行符视为语句的结束，并且如果认为如此，会在代码中断前插入一个分号到代码中。 但是，ASI 包含了一些奇怪的行为，如果 JavaScript 错误的解释了你的换行符，你的代码将会中断。 随着新特性成为 JavaScript 的一部分，这些规则将变得更加复杂。 明确地终止你的语句，并配置你的 linter 以捕获缺少的分号将有助于防止你遇到的问题。</p>
+<p>&#x2F;&#x2F; bad - 可能异常const luke &#x3D; {}const leia &#x3D; {}</p>
+<p>[luke, leia].forEach(jedi &#x3D;&gt; jedi.father &#x3D; ‘vader’)</p>
+<p>&#x2F;&#x2F; bad - 可能异常const reaction &#x3D; “No! That’s impossible!”</p>
+<p>(async function meanwhileOnTheFalcon() {</p>
+<p>&#x2F;&#x2F; handle `leia`, `lando`, `chewie`, `r2`, `c3p0`</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}())&#x2F;&#x2F; bad - 返回 `undefined` 而不是下一行的值 - 当 `return`单独一行的时候 ASI 总是会发生function foo() {</p>
+<p>return</p>
+<p>‘search your feelings, you know it to be foo’</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodconst luke &#x3D; {};const leia &#x3D; {};</p>
+<p>[luke, leia].forEach((jedi) &#x3D;&gt; {</p>
+<p>jedi.father &#x3D; ‘vader’;</p>
+<p>});</p>
+<p>&#x2F;&#x2F; goodconst reaction &#x3D; “No! That’s impossible!”;</p>
+<p>(async function meanwhileOnTheFalcon() {</p>
+<p>&#x2F;&#x2F; handle `leia`, `lando`, `chewie`, `r2`, `c3p0`</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}());</p>
+<p>&#x2F;&#x2F; goodfunction foo() {</p>
+<p>return ‘search your feelings, you know it to be foo’;</p>
+<p>}Copy</p>
+<h1 id="22-类型转换和强制类型转换"><a href="#22-类型转换和强制类型转换" class="headerlink" title="22 类型转换和强制类型转换"></a>22 类型转换和强制类型转换</h1><p>22.1 在语句开始前进行类型转换。</p>
+<p>22.2 字符类型： eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-new-wrappers%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-new-wrappers</a></p>
+<p>&#x2F;&#x2F; &#x3D;&gt; this.reviewScore &#x3D; 9;</p>
+<p>&#x2F;&#x2F; badconst totalScore &#x3D; new String(this.reviewScore); &#x2F;&#x2F;typeof totalScore is “object” not “string”</p>
+<p>&#x2F;&#x2F; badconst totalScore &#x3D; this.reviewScore + ‘’; &#x2F;&#x2F; invokesthis.reviewScore.valueOf()</p>
+<p>&#x2F;&#x2F; badconst totalScore &#x3D; this.reviewScore.toString(); &#x2F;&#x2F; isn’t</p>
+<p>guaranteed to return a string</p>
+<p>&#x2F;&#x2F; goodconst totalScore &#x3D; String(this.reviewScore);Copy</p>
+<p>22.3 数字类型：使用 Number 进行类型铸造和 parseInt 总是通过一个基数来解析一个字符串。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/radix%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">radix</a> <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-new-wrappers%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-new-wrappers</a></p>
+<p>const inputValue &#x3D; ‘4’;</p>
+<p>&#x2F;&#x2F; badconst val &#x3D; new Number(inputValue);</p>
+<p>&#x2F;&#x2F; badconst val &#x3D; +inputValue;</p>
+<p>&#x2F;&#x2F; badconst val &#x3D; inputValue &gt;&gt; 0;</p>
+<p>&#x2F;&#x2F; badconst val &#x3D; parseInt(inputValue);</p>
+<p>&#x2F;&#x2F; goodconst val &#x3D; Number(inputValue);</p>
+<p>&#x2F;&#x2F; goodconst val &#x3D; parseInt(inputValue, 10);Copy</p>
+<p>22.4 出于 <a target="_blank" rel="noopener" href="https://jsperf.com/coercion-vs-casting/3%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">性能问题</a> 需要使用位运算， 请写下注释，说明为什么这样做和你做了什么。</p>
+<p>&#x2F;&#x2F; good&#x2F;**</p>
+<p>* parseInt 使我的代码变慢。</p>
+<p>* 位运算将一个字符串转换成数字更快。</p>
+<p>*&#x2F;</p>
+<p>const val &#x3D; inputValue &gt;&gt; 0;Copy</p>
+<p><strong><strong>22.5 注意：</strong></strong> 当你使用位运算的时候要小心。 数字总是被以 <a target="_blank" rel="noopener" href="https://es5.github.io/%22%20/l%20%22x4.3.19%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">64-bit 值</a> 的形式表示，但是位运算总是返回一个 32-bit 的整数 (<a target="_blank" rel="noopener" href="https://es5.github.io/%22%20/l%20%22x11.7%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">来源</a>)。 对于大于 32 位的整数值，位运算可能会导致意外行为。<a target="_blank" rel="noopener" href="https://github.com/airbnb/javascript/issues/109%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">讨论</a>。 最大的 32 位整数是： 2,147,483,647。</p>
+<p>2147483647 &gt;&gt; 0; &#x2F;&#x2F; &#x3D;&gt; 2147483647</p>
+<p>2147483648 &gt;&gt; 0; &#x2F;&#x2F; &#x3D;&gt; -2147483648</p>
+<p>2147483649 &gt;&gt; 0; &#x2F;&#x2F; &#x3D;&gt; -2147483647Copy</p>
+<p>22.6 布尔类型： eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-new-wrappers%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-new-wrappers</a></p>
+<p>const age &#x3D; 0;</p>
+<p>&#x2F;&#x2F; badconst hasAge &#x3D; new Boolean(age);</p>
+<p>&#x2F;&#x2F; goodconst hasAge &#x3D; Boolean(age);</p>
+<p>&#x2F;&#x2F; bestconst hasAge &#x3D; !!age;Copy</p>
+<h1 id="23-命名规范"><a href="#23-命名规范" class="headerlink" title="23 命名规范"></a>23 命名规范</h1><p>23.1 避免单字母的名字。用你的命名来描述功能。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/id-length%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">id-length</a></p>
+<p>&#x2F;&#x2F; badfunction q() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction query() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}Copy</p>
+<p>23.2 在命名对象、函数和实例时使用驼峰命名法（camelCase）。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/camelcase.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">camelcase</a></p>
+<p>&#x2F;&#x2F; badconst OBJEcttsssss &#x3D; {};const this_is_my_object &#x3D; {};</p>
+<p>&#x2F;&#x2F; goodconst thisIsMyObject &#x3D; {};function thisIsMyFunction() {}Copy</p>
+<p>23.3 只有在命名构造器或者类的时候才用帕斯卡拼命名法（PascalCase）。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/new-cap.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">new-cap</a></p>
+<p>&#x2F;&#x2F; badfunction user(options) {</p>
+<p>this.name &#x3D; options.name;</p>
+<p>}const bad &#x3D; new user({</p>
+<p>name: ‘nope’,</p>
+<p>});</p>
+<p>&#x2F;&#x2F; goodclass User {</p>
+<p>constructor(options) {</p>
+<p>this.name &#x3D; options.name;</p>
+<p>}</p>
+<p>}const good &#x3D; new User({</p>
+<p>name: ‘yup’,</p>
+<p>});Copy</p>
+<p>23.4 不要使用前置或者后置下划线。 eslint: <a target="_blank" rel="noopener" href="https://eslint.org/docs/rules/no-underscore-dangle.html%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">no-underscore-dangle</a></p>
+<p>为什么? JavaScript 在属性和方法方面没有隐私设置。 虽然前置的下划线是一种常见的惯例，意思是 “private” ，事实上，这些属性时公开的，因此，它们也是你公共 API 的一部分。 这种约定可能导致开发人员错误的认为更改不会被视为中断，或者不需要测试。建议：如果你想要什么东西是 “private” ， 那就一定不能有明显的表现。</p>
+<p>&#x2F;&#x2F; badthis.firstName &#x3D; ‘Panda’;this.firstName_ &#x3D; ‘Panda’;this._firstName &#x3D; ‘Panda’;</p>
+<p>&#x2F;&#x2F; goodthis.firstName &#x3D; ‘Panda’;&#x2F;&#x2F; 在 WeakMapx 可用的环境中const firstNames &#x3D; new WeakMap();</p>
+<p>firstNames.set(this, ‘Panda’);Copy</p>
+<p>23.5 不要保存 this 的引用。 使用箭头函数或者 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind%22%20/t%20%22https://help.ctbiyi.com/specification/_blank">函数#bind</a>。</p>
+<p>&#x2F;&#x2F; badfunction foo() {</p>
+<p>const self &#x3D; this;</p>
+<p>return function () {</p>
+<p>console.log(self);</p>
+<p>};</p>
+<p>}</p>
+<p>&#x2F;&#x2F; badfunction foo() {</p>
+<p>const that &#x3D; this;</p>
+<p>return function () {</p>
+<p>console.log(that);</p>
+<p>};</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodfunction foo() {</p>
+<p>return () &#x3D;&gt; {</p>
+<p>console.log(this);</p>
+<p>};</p>
+<p>}Copy</p>
+<p>23.6 文件名应该和默认导出的名称完全匹配。</p>
+<p>&#x2F;&#x2F; file 1 contentsclass CheckBox {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>export default CheckBox;</p>
+<p>&#x2F;&#x2F; file 2 contents</p>
+<p>export default function fortyTwo() { return 42;</p>
+<p>}&#x2F;&#x2F; file 3 contents</p>
+<p>export default function insideDirectory() {}&#x2F;&#x2F; in some other file&#x2F;&#x2F; badimport CheckBox from ‘.&#x2F;checkBox’; &#x2F;&#x2F; PascalCase import&#x2F;export, camelCase filenameimport FortyTwo from ‘.&#x2F;FortyTwo’; &#x2F;&#x2F; PascalCase import&#x2F;filename, camelCase exportimport InsideDirectory from ‘.&#x2F;InsideDirectory’; &#x2F;&#x2F; PascalCase import&#x2F;filename, camelCase export</p>
+<p>&#x2F;&#x2F; badimport CheckBox from ‘.&#x2F;check_box’; &#x2F;&#x2F; PascalCase import&#x2F;export, snake_case filenameimport forty_two from ‘.&#x2F;forty_two’; &#x2F;&#x2F; snake_case import&#x2F;filename, camelCase exportimport inside_directory from ‘.&#x2F;inside_directory’; &#x2F;&#x2F; snake_case import, camelCase exportimport index from ‘.&#x2F;inside_directory&#x2F;index’; &#x2F;&#x2F; requiring the index file explicitlyimport insideDirectory from ‘.&#x2F;insideDirectory&#x2F;index’; &#x2F;&#x2F; requiring the index file explicitly</p>
+<p>&#x2F;&#x2F; goodimport CheckBox from ‘.&#x2F;CheckBox’; &#x2F;&#x2F; PascalCase export&#x2F;import&#x2F;filenameimport fortyTwo from ‘.&#x2F;fortyTwo’; &#x2F;&#x2F; camelCase export&#x2F;import&#x2F;filenameimport insideDirectory from ‘.&#x2F;insideDirectory’; &#x2F;&#x2F; camelCase export&#x2F;import&#x2F;directory name&#x2F;implicit “index”</p>
+<p>&#x2F;&#x2F; supports both insideDirectory.js and insideDirectory&#x2F;index.jsCopy</p>
+<p>23.7 当你导出默认函数时使用驼峰命名法。 你的文件名应该和方法名相同</p>
+<p>function makeStyleGuide() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>export default makeStyleGuide;Copy</p>
+<p>23.8 当你导出一个构造器 &#x2F; 类 &#x2F; 单例 &#x2F; 函数库 &#x2F; 暴露的对象时应该使用帕斯卡命名法。</p>
+<p>const AirbnbStyleGuide &#x3D; {</p>
+<p>es6: {</p>
+<p>},</p>
+<p>};</p>
+<p>export default AirbnbStyleGuide;Copy</p>
+<p>23.9 缩略词和缩写都必须是全部大写或者全部小写。</p>
+<p>为什么? 名字是为了可读性，不是为了满足计算机算法。</p>
+<p>&#x2F;&#x2F; badimport SmsContainer from ‘.&#x2F;containers&#x2F;SmsContainer’;</p>
+<p>&#x2F;&#x2F; badconst HttpRequests &#x3D; [</p>
+<p>&#x2F;&#x2F; …</p>
+<p>];</p>
+<p>&#x2F;&#x2F; goodimport SMSContainer from ‘.&#x2F;containers&#x2F;SMSContainer’;</p>
+<p>&#x2F;&#x2F; goodconst HTTPRequests &#x3D; [</p>
+<p>&#x2F;&#x2F; …</p>
+<p>];</p>
+<p>&#x2F;&#x2F; also goodconst httpRequests &#x3D; [</p>
+<p>&#x2F;&#x2F; …</p>
+<p>];</p>
+<p>&#x2F;&#x2F; bestimport TextMessageContainer from’.&#x2F;containers&#x2F;TextMessageContainer’;</p>
+<p>&#x2F;&#x2F; bestconst requests &#x3D; [</p>
+<p>&#x2F;&#x2F; …</p>
+<p>];Copy</p>
+<p>23.10 你可以大写一个常量，如果它：（1）被导出，（2）使用 const 定义（不能被重新赋值），（3）程序员可以信任它（以及其嵌套的属性）是不变的。</p>
+<p>为什么? 这是一个可以帮助程序员确定变量是否会发生变化的辅助工具。UPPERCASE_VARIABLES 可以让程序员知道他们可以相信变量（及其属性）不会改变。</p>
+<p>是否是对所有的 const 定义的变量？ - 这个是没有必要的，不应该在文件中使用大写。但是，它应该用于导出常量。</p>
+<p>导出对象呢？ - 在顶级导出属性 (e.g. EXPORTED_OBJECT.key) 并且保持所有嵌套属性不变。</p>
+<p>&#x2F;&#x2F; bad</p>
+<p><strong><strong>const</strong></strong> PRIVATE_VARIABLE &#x3D; ‘should not be unnecessarily uppercased within a file’;</p>
+<p>&#x2F;&#x2F; badF</p>
+<p><strong><strong>export</strong></strong> <strong><strong>const</strong></strong> THING_TO_BE_CHANGED &#x3D; \‘should obviously not be uppercased\‘;</p>
+<p>&#x2F;&#x2F; bad</p>
+<p><strong><strong>export</strong></strong> <strong><strong>let</strong></strong> REASSIGNABLE_VARIABLE &#x3D; \‘do not use let with uppercase variables\‘;</p>
+<p>&#x2F;&#x2F; —</p>
+<p>&#x2F;&#x2F; 允许，但是不提供语义值</p>
+<p><strong><strong>export</strong></strong> <strong><strong>const</strong></strong> apiKey &#x3D; \‘SOMEKEY\‘;</p>
+<p>&#x2F;&#x2F; 多数情况下，很好</p>
+<p><strong><strong>export</strong></strong> <strong><strong>const</strong></strong> API_KEY &#x3D; \‘SOMEKEY\‘;</p>
+<p>&#x2F;&#x2F; —</p>
+<p>&#x2F;&#x2F; bad - 不必要大写 key 没有增加语义值</p>
+<p><strong><strong>export</strong></strong> <strong><strong>const</strong></strong> MAPPING &#x3D; {</p>
+<p>KEY: \‘value\‘</p>
+<p>};</p>
+<p>&#x2F;&#x2F; good</p>
+<p><strong><strong>export</strong></strong> <strong><strong>const</strong></strong> MAPPING &#x3D; {</p>
+<p>key: \‘value\‘</p>
+<p>};</p>
+<h1 id="24-存取器"><a href="#24-存取器" class="headerlink" title="24 存取器"></a>24 存取器</h1><p>24.1 对于属性的的存取函数不是必须的。</p>
+<p>24.2 不要使用 JavaScript 的 getters&#x2F;setters 方法，因为它们会导致意外的副作用，并且更加难以测试、维护和推敲。 相应的，如果你需要存取函数的时候使用 getVal() 和 setVal(\‘hello\‘)。</p>
+<p>&#x2F;&#x2F; badclass Dragon {</p>
+<p>get age() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>set age(value) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodclass Dragon {</p>
+<p>getAge() {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>setAge(value) {</p>
+<p>&#x2F;&#x2F; …</p>
+<p>}</p>
+<p>}Copy</p>
+<p>24.3 如果属性&#x2F;方法是一个 boolean 值，使用 isVal() 或者 hasVal()。</p>
+<p>&#x2F;&#x2F; badif (!dragon.age()) {</p>
+<p>return false;</p>
+<p>}</p>
+<p>&#x2F;&#x2F; goodif (!dragon.hasAge()) {</p>
+<p>return false;</p>
+<p>}Copy</p>
+<p>24.4 可以创建 get() 和 set() 方法，但是要保证一致性。</p>
+<p>class Jedi {</p>
+<p>constructor(options &#x3D; {}) {</p>
+<p>const lightsaber &#x3D; options.lightsaber || ‘blue’;</p>
+<p>this.set(‘lightsaber’, lightsaber);</p>
+<p>}</p>
+<p>set(key, val) {</p>
+<p>this[key] &#x3D; val;</p>
+<p>}</p>
+<p>get(key) {</p>
+<p>return this[key];</p>
+<p>}</p>
+<p>}Copy</p>
+<h1 id="25-事件"><a href="#25-事件" class="headerlink" title="25 事件"></a>25 事件</h1><p>25.1 当给事件（无论是 DOM 事件还是更加私有的事件）附加数据时，传入一个对象（也叫做 “hash” ） 而不是原始值。 这样可以让后边的贡献者向事件数据添加更多的数据，而不用找出更新事件的每个处理器。</p>
+<p>例如，不好的写法：</p>
+<p>&#x2F;&#x2F; bad</p>
+<p>$(this).trigger(‘listingUpdated’, listing.id);</p>
+<p>&#x2F;&#x2F; …</p>
+<p>$(this).on(‘listingUpdated’, (e, listingID) &#x3D;&gt; {</p>
+<p>&#x2F;&#x2F; do something with listingID</p>
+<p>});Copy</p>
+<p>更好的写法：</p>
+<p>&#x2F;&#x2F; good</p>
+<p>$(this).trigger(‘listingUpdated’, { listingID: listing.id });&#x2F;&#x2F; …</p>
+<p>$(this).on(‘listingUpdated’, (e, data) &#x3D;&gt; {</p>
+<p>&#x2F;&#x2F; do something with data.listingID</p>
+<p>});</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://tangxke127.github.io">Ginka</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://tangxke127.github.io/2023/11/06/fontStandard/">https://tangxke127.github.io/2023/11/06/fontStandard/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://tangxke127.github.io" target="_blank">海山</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/013.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/06/08/font002/" title="前端知识点积累二"><img class="cover" src="/img/001.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">前端知识点积累二</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/xxc001.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Ginka</div><div class="author-info__description">知行合一</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/gin963852"><i class="fab fa-gitee"></i><span>小仓库入口</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/gin963852" target="_blank" title="Gitee"><i class="fab fa-gitee" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:tangxuekeemail@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">生活学习小仓库~</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%8E%9F%E5%A7%8B%E5%80%BC"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 原始值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 复杂类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%BC%95%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2 引用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">3 对象</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%95%B0%E7%BB%84"><span class="toc-number">4.</span> <span class="toc-text">4 数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E8%A7%A3%E6%9E%84"><span class="toc-number">5.</span> <span class="toc-text">5 解构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E5%AD%97%E7%AC%A6"><span class="toc-number">6.</span> <span class="toc-text">6 字符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">7 方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">8 箭头函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E7%B1%BB%E5%92%8C%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-number">9.</span> <span class="toc-text">9 类和构造器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%E6%A8%A1%E5%9D%97"><span class="toc-number">10.</span> <span class="toc-text">10 模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E5%8F%91%E7%94%9F%E5%99%A8"><span class="toc-number">11.</span> <span class="toc-text">11 迭代器和发生器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E5%B1%9E%E6%80%A7"><span class="toc-number">12.</span> <span class="toc-text">12 属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#13-%E5%8F%98%E9%87%8F"><span class="toc-number">13.</span> <span class="toc-text">13 变量</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#14-%E6%8F%90%E5%8D%87"><span class="toc-number">14.</span> <span class="toc-text">14 提升</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#15-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E7%AD%89%E5%8F%B7"><span class="toc-number">15.</span> <span class="toc-text">15 比较运算符和等号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#16-%E5%9D%97"><span class="toc-number">16.</span> <span class="toc-text">16 块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#17-%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5"><span class="toc-number">17.</span> <span class="toc-text">17 控制语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#18-%E6%B3%A8%E9%87%8A"><span class="toc-number">18.</span> <span class="toc-text">18 注释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#19-%E7%A9%BA%E7%99%BD"><span class="toc-number">19.</span> <span class="toc-text">19 空白</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#20-%E9%80%97%E5%8F%B7"><span class="toc-number">20.</span> <span class="toc-text">20 逗号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#21-%E5%88%86%E5%8F%B7"><span class="toc-number">21.</span> <span class="toc-text">21 分号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#22-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">22.</span> <span class="toc-text">22 类型转换和强制类型转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#23-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="toc-number">23.</span> <span class="toc-text">23 命名规范</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#24-%E5%AD%98%E5%8F%96%E5%99%A8"><span class="toc-number">24.</span> <span class="toc-text">24 存取器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#25-%E4%BA%8B%E4%BB%B6"><span class="toc-number">25.</span> <span class="toc-text">25 事件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/06/fontStandard/" title="前端代码规范"><img src="/img/013.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端代码规范"/></a><div class="content"><a class="title" href="/2023/11/06/fontStandard/" title="前端代码规范">前端代码规范</a><time datetime="2023-11-05T20:01:16.000Z" title="发表于 2023-11-06 04:01:16">2023-11-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/08/font002/" title="前端知识点积累二"><img src="/img/001.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端知识点积累二"/></a><div class="content"><a class="title" href="/2023/06/08/font002/" title="前端知识点积累二">前端知识点积累二</a><time datetime="2023-06-08T12:57:20.000Z" title="发表于 2023-06-08 20:57:20">2023-06-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/10/01/localDom/" title="使用vue本地导出doc文件"><img src="/img/004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用vue本地导出doc文件"/></a><div class="content"><a class="title" href="/2022/10/01/localDom/" title="使用vue本地导出doc文件">使用vue本地导出doc文件</a><time datetime="2022-10-01T14:52:55.000Z" title="发表于 2022-10-01 22:52:55">2022-10-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/font001/" title="前端知识点积累一"><img src="/img/008.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="前端知识点积累一"/></a><div class="content"><a class="title" href="/2022/05/05/font001/" title="前端知识点积累一">前端知识点积累一</a><time datetime="2022-05-05T15:23:06.000Z" title="发表于 2022-05-05 23:23:06">2022-05-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/17/creatBlog/" title="如何初始化创建博客？"><img src="/img/010.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="如何初始化创建博客？"/></a><div class="content"><a class="title" href="/2022/03/17/creatBlog/" title="如何初始化创建博客？">如何初始化创建博客？</a><time datetime="2022-03-16T16:01:46.000Z" title="发表于 2022-03-17 00:01:46">2022-03-17</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/013.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Ginka</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
